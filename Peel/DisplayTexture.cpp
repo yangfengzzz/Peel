@@ -8,6 +8,7 @@
 
 #include "stdafx.h"
 //
+//
 #include "DisplayTexture.h"
 #include "GLRenderHelpers.h"
 #include "GLTexture.h"

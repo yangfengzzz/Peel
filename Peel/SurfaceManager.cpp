@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "SurfaceManager.h"
 #include "Common.h"
 #include "ProgressBar.h"

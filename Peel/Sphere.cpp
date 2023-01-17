@@ -9,6 +9,7 @@
 #include "Sphere.h"
 
 #include "stdafx.h"
+//
 
 SphereMesh::SphereMesh() : mRadius(0.0f), mNbVerts(0), mVerts(null), mNbTris(0), mTris(null) {}
 

@@ -10,6 +10,7 @@
 
 #include "Pint.h"
 #include "stdafx.h"
+//
 
 void RenderGrid(PintRender& renderer) {
     const float gridSize = 200.0f;

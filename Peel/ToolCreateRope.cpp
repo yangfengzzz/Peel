@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "Tool.h"
 #include "ToolCreateRope.h"
 #include "PintShapeRenderer.h"

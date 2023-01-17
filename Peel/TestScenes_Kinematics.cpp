@@ -10,6 +10,7 @@
 #include "PintObjectsManager.h"
 #include "PintShapeRenderer.h"
 #include "stdafx.h"
+//
 #include "TestScenes.h"
 #include "TestScenesHelpers.h"
 

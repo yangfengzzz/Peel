@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintPointSpriteSphereShapeRenderer.h"
 #include "GLPointRenderer2.h"
 

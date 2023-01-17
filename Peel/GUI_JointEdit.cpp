@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "GUI_JointEdit.h"
 
 EditJointWindow::EditJointWindow(const WindowDesc& desc) :

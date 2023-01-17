@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RoundCorners.h"
 #include "GLRenderHelpers.h"
 #include "GLTexture.h"

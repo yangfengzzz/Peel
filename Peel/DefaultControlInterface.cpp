@@ -8,6 +8,7 @@
 
 #include "stdafx.h"
 //
+//
 #include "DefaultControlInterface.h"
 
 #include "Camera.h"

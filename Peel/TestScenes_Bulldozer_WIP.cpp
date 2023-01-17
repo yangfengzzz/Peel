@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "Cylinder.h"
 #include "PintShapeRenderer.h"
 #include "TestScenes_VehiclesBase.h"

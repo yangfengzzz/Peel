@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "ToolShootObject.h"
 #include "PintShapeRenderer.h"
 #include "PintObjectsManager.h"

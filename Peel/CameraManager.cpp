@@ -8,6 +8,7 @@
 
 #include "Pint.h"
 #include "stdafx.h"
+//
 
 //
 #include "Camera.h"

@@ -9,6 +9,7 @@
 // WARNING: this file is compiled by multiple PINT plug-ins, don't use engine-specific structures here.
 
 #include "stdafx.h"
+//
 #include "PINT_CommonShapeS.h"
 
 CHECK_CONTAINER_ITEM(InternalSphereShapeData);

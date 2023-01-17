@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "GUI_EditBox.h"
 
 PEEL_EditBox::PEEL_EditBox(const EditBoxDesc& desc, EditBoxInterface& owner, udword label_width, const char* label) :

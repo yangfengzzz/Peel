@@ -9,13 +9,12 @@
 #ifndef GL_RENDER_STATES_H
 #define GL_RENDER_STATES_H
 
-	namespace GLRenderStates
-	{
+namespace GLRenderStates {
 //		void	EnableFrontfaceCulling();
 //		void	EnableBackfaceCulling();
 //		void	DisableBackfaceCulling();
-		void	SetDefaultCullMode(CULLMODE cull_mode=CULL_CW);
-		void	SetDefaultRenderStates(bool flip_culling=false);
-	}
+void SetDefaultCullMode(CULLMODE cull_mode = CULL_CW);
+void SetDefaultRenderStates(bool flip_culling = false);
+}  // namespace GLRenderStates
 
 #endif

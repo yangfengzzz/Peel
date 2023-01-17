@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "SupportFile.h"
 
 IceFile2::IceFile2(const char* filename/*, const char* access*/)
@@ -184,7 +185,7 @@ const char* IceFile2::LoadString()
 			if(!Length)
 			{
 				// ############ really hardcoded for KP..........!
-				strcpy(Buf+Offset, "§SKIP§");
+				strcpy(Buf+Offset, "ï¿½SKIPï¿½");
 				Offset += 6;
 			}
 			else

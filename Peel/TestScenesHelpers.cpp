@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "TestScenesHelpers.h"
 #include "PintShapeRenderer.h"
 #include "MyConvex.h"

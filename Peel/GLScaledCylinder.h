@@ -9,7 +9,7 @@
 #ifndef GL_SCALED_CYLINDER_H
 #define GL_SCALED_CYLINDER_H
 
-	void InitScaledCylinders();
-	void ReleaseScaledCylinders();
+void InitScaledCylinders();
+void ReleaseScaledCylinders();
 
 #endif

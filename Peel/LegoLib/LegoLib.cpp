@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "LegoLib.h"
 #include "..\GLTexture.h"	// ### hmmm
 #include "..\Common.h"

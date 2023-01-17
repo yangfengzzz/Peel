@@ -8,6 +8,7 @@
 
 #include "stdafx.h"
 //
+//
 #include "CRC32.h"
 
 udword ComputeCRC32_Verts(const SurfaceInterface& surface) {

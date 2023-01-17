@@ -1,4 +1,5 @@
 #include "stdafx.h"
+//
 
 // Implementation of Andrew's monotone chain 2D convex hull algorithm.
 // Asymptotic complexity: O(n log n).

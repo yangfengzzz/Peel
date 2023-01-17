@@ -8,6 +8,7 @@
 
 #include "stdafx.h"
 //
+//
 #include "PintObjectsManager.h"
 #include "PintShapeRenderer.h"
 #include "RenderModel.h"

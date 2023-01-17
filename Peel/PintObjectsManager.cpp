@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintObjectsManager.h"
 #include "PEEL.h"
 #include "PintVisibilityManager.h"

@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "TestSelector.h"
 #include "TestScenes.h"
 #include "GLFontRenderer.h"

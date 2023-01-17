@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RenderModelSimpleShader.h"
 #include "Camera.h"
 #include "SimpleShader.h"

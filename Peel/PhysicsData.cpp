@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PhysicsData.h"
 
 CollisionGroupsData::CollisionGroupsData(udword nb_groups, const PintDisabledGroups* groups)

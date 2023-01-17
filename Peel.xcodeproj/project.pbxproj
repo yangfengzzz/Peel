@@ -574,6 +574,7 @@
 				3E89073C29767F7400B17F7F /* tools */,
 				3E89073A29767F2100B17F7F /* loader */,
 				3E89073B29767F3B00B17F7F /* test_scene */,
+				3E89073D297680B700B17F7F /* terrian */,
 				3E89057929767C9F00B17F7F /* Common.cpp */,
 				3E89064429767CA600B17F7F /* Common.h */,
 				3E89057B29767C9F00B17F7F /* ControlInterface.cpp */,
@@ -731,14 +732,6 @@
 				3E89062A29767CA500B17F7F /* SurfaceManager.cpp */,
 				3E89061F29767CA500B17F7F /* SurfaceManager.h */,
 				3E89066A29767CA800B17F7F /* targetver.h */,
-				3E8905D129767CA200B17F7F /* Terrain.cpp */,
-				3E8905FF29767CA400B17F7F /* Terrain.h */,
-				3E8905AE29767CA000B17F7F /* TerrainManager.cpp */,
-				3E89060029767CA400B17F7F /* TerrainManager.h */,
-				3E8905D829767CA200B17F7F /* TerrainRegionManager.cpp */,
-				3E8905D929767CA200B17F7F /* TerrainRegionManager.h */,
-				3E8905E929767CA300B17F7F /* TerrainStreamingUI.cpp */,
-				3E89055329767C9D00B17F7F /* TerrainStreamingUI.h */,
 				3E89064229767CA600B17F7F /* TestNVD.cpp */,
 				3E89054129767C9D00B17F7F /* TestNVD.h */,
 				3E89068129767CA900B17F7F /* TestSelector.cpp */,
@@ -750,14 +743,8 @@
 				3E89054829767C9D00B17F7F /* TitleWindow.h */,
 				3E89061A29767CA500B17F7F /* TrashCache.cpp */,
 				3E89066829767CA800B17F7F /* TrashCache.h */,
-				3E89057129767C9E00B17F7F /* USDExport.cpp */,
-				3E89061529767CA400B17F7F /* USDExport.h */,
 				3E89061129767CA400B17F7F /* Voronoi2D.cpp */,
 				3E89055529767C9D00B17F7F /* Voronoi2D.h */,
-				3E89059029767C9F00B17F7F /* ZB2Export.cpp */,
-				3E89056729767C9E00B17F7F /* ZB2Export.h */,
-				3E89063229767CA600B17F7F /* ZB2Import.cpp */,
-				3E89064D29767CA700B17F7F /* ZB2Import.h */,
 				3E8905E129767CA200B17F7F /* Zcb2_RenderData.cpp */,
 				3E8905A429767CA000B17F7F /* Zcb2_RenderData.h */,
 				3E890534297669D900B17F7F /* main.cpp */,
@@ -851,6 +838,12 @@
 				3E8905B529767CA100B17F7F /* Loader_RepX.h */,
 				3E8905C529767CA100B17F7F /* Loader_ShapeProfile.cpp */,
 				3E89062729767CA500B17F7F /* Loader_ShapeProfile.h */,
+				3E89061529767CA400B17F7F /* USDExport.h */,
+				3E89057129767C9E00B17F7F /* USDExport.cpp */,
+				3E89056729767C9E00B17F7F /* ZB2Export.h */,
+				3E89059029767C9F00B17F7F /* ZB2Export.cpp */,
+				3E89064D29767CA700B17F7F /* ZB2Import.h */,
+				3E89063229767CA600B17F7F /* ZB2Import.cpp */,
 			);
 			name = loader;
 			sourceTree = "<group>";
@@ -933,6 +926,21 @@
 				3E89063029767CA600B17F7F /* ToolTranslate.h */,
 			);
 			name = tools;
+			sourceTree = "<group>";
+		};
+		3E89073D297680B700B17F7F /* terrian */ = {
+			isa = PBXGroup;
+			children = (
+				3E8905FF29767CA400B17F7F /* Terrain.h */,
+				3E8905D129767CA200B17F7F /* Terrain.cpp */,
+				3E89060029767CA400B17F7F /* TerrainManager.h */,
+				3E8905AE29767CA000B17F7F /* TerrainManager.cpp */,
+				3E8905D929767CA200B17F7F /* TerrainRegionManager.h */,
+				3E8905D829767CA200B17F7F /* TerrainRegionManager.cpp */,
+				3E89055329767C9D00B17F7F /* TerrainStreamingUI.h */,
+				3E8905E929767CA300B17F7F /* TerrainStreamingUI.cpp */,
+			);
+			name = terrian;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

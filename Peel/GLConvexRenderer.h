@@ -9,8 +9,6 @@
 #ifndef GL_CONVEX_RENDERER_H
 #define GL_CONVEX_RENDERER_H
 
-	namespace GLConvexRenderer
-	{
-	}
+namespace GLConvexRenderer {}
 
 #endif

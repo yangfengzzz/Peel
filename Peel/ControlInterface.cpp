@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "stdafx.h"
 //
+//
 #include "ControlInterface.h"
 
 // Check that Glut's buttons are compatible with ICE

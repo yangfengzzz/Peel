@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintDLCapsuleShapeRenderer.h"
 #include "GLRenderHelpers.h"
 #include "Capsule.h"

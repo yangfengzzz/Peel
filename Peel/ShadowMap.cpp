@@ -1,4 +1,5 @@
 #include "stdafx.h"
+//
 
 #include "ShadowMap.h"
 #include "TextureManager.h"

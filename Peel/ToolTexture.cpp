@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "ToolTexture.h"
 #include "TextureManager.h"
 #include "GLRenderHelpers.h"

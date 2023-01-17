@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RenderModel.h"
 #include "PintNullRenderer.h"
 #include "Zcb2_RenderData.h"

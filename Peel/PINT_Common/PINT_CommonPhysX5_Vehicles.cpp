@@ -9,6 +9,7 @@
 // WARNING: this file is compiled by all PhysX5 plug-ins, so put only the code here that is "the same" for all versions.
 
 #include "stdafx.h"
+//
 #include "PINT_CommonPhysX5_Vehicles.h"
 #include "PINT_CommonPhysX3_DebugViz.h"
 

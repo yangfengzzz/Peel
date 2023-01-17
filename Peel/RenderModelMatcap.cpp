@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RenderModelMatcap.h"
 #include "Camera.h"
 #include "MatcapShader.h"

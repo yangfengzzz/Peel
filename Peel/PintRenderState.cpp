@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintRenderState.h"
 
 static Point gEngineColor(0.0f, 0.0f, 0.0f);

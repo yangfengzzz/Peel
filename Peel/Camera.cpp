@@ -8,6 +8,7 @@
 #include "Common.h"
 #include "stdafx.h"
 //
+//
 #include "Camera.h"
 #include "GLRenderHelpers.h"
 

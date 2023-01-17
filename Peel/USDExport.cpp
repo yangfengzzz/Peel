@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "USDExport.h"
 #include "PINT_Editor.h"
 #include "PintDLConvexShapeRenderer.h"

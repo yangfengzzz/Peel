@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RevolutionShape.h"
 #include "Loader_ShapeProfile.h"
 #include "PintShapeRenderer.h"

@@ -9,7 +9,7 @@
 #ifndef GL_VSYNC_H
 #define GL_VSYNC_H
 
-	bool EnableGLExtensions();
-	bool GL_SelectVSYNC(bool flag);
+bool EnableGLExtensions();
+bool GL_SelectVSYNC(bool flag);
 
 #endif

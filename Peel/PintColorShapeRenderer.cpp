@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintColorShapeRenderer.h"
 #include "GLShader.h"
 #include "PintRenderState.h"

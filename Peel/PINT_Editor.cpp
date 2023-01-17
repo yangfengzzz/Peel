@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PINT_Editor.h"
 #include "../PINT_Common/PINT_Common.h"
 #include "USDExport.h"

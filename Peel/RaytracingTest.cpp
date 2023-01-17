@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RaytracingTest.h"
 #include "RaytracingWindow.h"
 #include "Pint.h"

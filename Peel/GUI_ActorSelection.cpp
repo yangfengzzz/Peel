@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "GUI_ActorSelection.h"
 #include "Pint.h"
 #include "PintObjectsManager.h"

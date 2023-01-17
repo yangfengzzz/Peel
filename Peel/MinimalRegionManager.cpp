@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "MinimalRegionManager.h"
 #include "PintObjectsManager.h"
 #include "PintShapeRenderer.h"

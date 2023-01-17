@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "Voronoi2D.h"
 
 // Copyright (c) 2015-2019 Mathias Westerdahl
@@ -1470,7 +1471,7 @@ HISTORY:
 
     0.7     2019-10-25  - Added support for clipping against convex polygons
                         - Added JCV_EDGE_INTERSECT_THRESHOLD for edge intersections
-                        - Fixed issue where the bounds calculation wasn’t considering all points
+                        - Fixed issue where the bounds calculation wasnï¿½t considering all points
     0.6     2018-10-21  - Removed JCV_CEIL/JCV_FLOOR/JCV_FABS
                         - Optimizations: Fewer indirections, better beach head approximation
     0.5     2018-10-14  - Fixed issue where the graph edge had the wrong edge assigned (issue #28)

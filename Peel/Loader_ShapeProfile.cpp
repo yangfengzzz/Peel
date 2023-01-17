@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "Loader_ShapeProfile.h"
 
 ShapeProfile::ShapeProfile(udword nb, const Pt* pts) : mNbPts(nb)

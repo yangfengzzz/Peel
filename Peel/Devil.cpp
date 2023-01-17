@@ -8,6 +8,7 @@
 
 #include "stdafx.h"
 //
+//
 #include "Devil.h"
 
 #ifdef DOES_NOT_WORK

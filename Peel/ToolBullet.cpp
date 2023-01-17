@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "ToolBullet.h"
 #include "GLRenderHelpers.h"
 #include "TestScenes.h"

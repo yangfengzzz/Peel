@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PintSurfaceInterface.h"
 #include "PintGLMeshShapeRenderer.h"
 #include "GLRenderHelpers.h"

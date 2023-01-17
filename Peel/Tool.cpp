@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "PEEL_MenuBar.h"
 #include "GLRenderHelpers.h"
 #include "Tool.h"

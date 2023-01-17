@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "RenderModelSimpleShadows.h"
 #include "Camera.h"
 #include "ShadowShader.h"

@@ -7,6 +7,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "GUI_PosEdit.h"
 #include "PintGUIHelper.h"
 #include "GUI_Helpers.h"

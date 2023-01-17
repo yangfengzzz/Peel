@@ -1,4 +1,5 @@
 #include "stdafx.h"
+//
 #include "RenderTarget.h"
 #include "TextureManager.h"
 

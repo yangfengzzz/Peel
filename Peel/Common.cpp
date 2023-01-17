@@ -9,6 +9,7 @@
 #include "Common.h"
 
 #include "stdafx.h"
+//
 
 Quat ShortestRotation(const Point& v0, const Point& v1) {
     const float d = v0 | v1;
