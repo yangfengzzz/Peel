@@ -45,33 +45,5 @@ include(sample_helper)
 include(check_atomic)
 
 ####################################################
-# Add third party libraries
-add_subdirectory(third_party)
-
 # Add base library
-add_subdirectory(vox.base)
-add_subdirectory(test.base)
-
-# Add math library
-add_subdirectory(vox.math)
-add_subdirectory(test.math)
-add_subdirectory(vox.simd_math)
-add_subdirectory(test.simd_math)
-
-# Add geometry library
-add_subdirectory(vox.geometry)
-add_subdirectory(test.geometry)
-
-# Add animation library
-add_subdirectory(vox.animation)
-add_subdirectory(test.animation)
-
-# Add render framework
-add_subdirectory(vox.render)
-add_subdirectory(vox.toolkit)
-add_subdirectory(apps)
-add_subdirectory(asset_pipeline)
-
-# Add editor
-add_subdirectory(vox.editor)
-add_subdirectory(editor)
+add_subdirectory(Peel)
