@@ -622,170 +622,170 @@
 				Name="Common"
 				>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.cpp"
+					RelativePath="..\../PINT_Common/PINT_Common.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.h"
+					RelativePath="..\../PINT_Common/PINT_Common.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Actor.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Actor.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Actor.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Actor.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Allocator.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Allocator.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_CCT.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_CCT.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_CCT.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_CCT.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Error.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Error.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Error.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Error.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Joint.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Joint.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Joint.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Joint.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Mesh.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Mesh.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Queries.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Queries.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Queries.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Queries.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Scene.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Scene.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Scene.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Scene.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Setup.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Setup.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Setup.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Setup.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Shape.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Shape.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Shape.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Shape.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.h"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_CommonPhysX4_RCA.cpp"
+					RelativePath="..\../PINT_Common/PINT_CommonPhysX4_RCA.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Ice.h"
+					RelativePath="..\../PINT_Common/PINT_Ice.h"
 					>
 				</File>
 				<Filter
 					Name="Portal joint XP"
 					>
 					<File
-						RelativePath="..\..\PINT_Common\PortalJoint.cpp"
+						RelativePath="..\../PINT_Common/PortalJoint.cpp"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -805,11 +805,11 @@
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\PortalJoint.h"
+						RelativePath="..\../PINT_Common/PortalJoint.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\PxPortalJoint.h"
+						RelativePath="..\../PINT_Common/PxPortalJoint.h"
 						>
 					</File>
 				</Filter>
@@ -817,7 +817,7 @@
 					Name="New joints"
 					>
 					<File
-						RelativePath="..\..\PINT_Common\GearJoint.cpp"
+						RelativePath="..\../PINT_Common/GearJoint.cpp"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -837,19 +837,19 @@
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\GearJoint.h"
+						RelativePath="..\../PINT_Common/GearJoint.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\PxGearJoint.h"
+						RelativePath="..\../PINT_Common/PxGearJoint.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\PxRackAndPinionJoint.h"
+						RelativePath="..\../PINT_Common/PxRackAndPinionJoint.h"
 						>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\RackAndPinion.cpp"
+						RelativePath="..\../PINT_Common/RackAndPinion.cpp"
 						>
 						<FileConfiguration
 							Name="Debug|Win32"
@@ -869,7 +869,7 @@
 						</FileConfiguration>
 					</File>
 					<File
-						RelativePath="..\..\PINT_Common\RackAndPinion.h"
+						RelativePath="..\../PINT_Common/RackAndPinion.h"
 						>
 					</File>
 				</Filter>

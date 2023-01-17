@@ -19,13 +19,13 @@
     <ClCompile Include="..\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_Common.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_Common.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_IceAllocatorSwitch.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_IceAllocatorSwitch.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonShapes.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonShapes.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,16 +36,16 @@
     <ClInclude Include="..\stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_Common.h">
+    <ClInclude Include="..\../PINT_Common/PINT_Common.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_Ice.h">
+    <ClInclude Include="..\../PINT_Common/PINT_Ice.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_IceAllocatorSwitch.h">
+    <ClInclude Include="..\../PINT_Common/PINT_IceAllocatorSwitch.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonShapes.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonShapes.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
   </ItemGroup>

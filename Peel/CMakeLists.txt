@@ -31,7 +31,8 @@ set(PHYSX_SOURCE
         ../third_party/physx/physx/source/geomutils/src/ccd
         ../third_party/physx/physx/source/physxgpu/include
         ../third_party/physx/physx/../pxshared/include
-        ../third_party/physx/physx/source/foundation/include)
+        ../third_party/physx/physx/source/foundation/include
+        ./Ice/APIs/Ice)
 
 set(PROJECT_FILES
         ${FILES}
@@ -42,4 +43,5 @@ add_library(${PROJECT_NAME} STATIC ${PROJECT_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC ../
         ${CMAKE_CURRENT_SOURCE_DIR} ${PHYSX_SOURCE})
 
+target_compile_options(${PROJECT_NAME} PUBLIC -fdeclspec)
 

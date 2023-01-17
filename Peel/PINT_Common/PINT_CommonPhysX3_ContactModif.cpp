@@ -9,7 +9,7 @@
 #include "stdafx.h"
 #include "..\Pint.h"
 
-#include "..\PINT_Common\PINT_Common.h"
+#include "../PINT_Common/PINT_Common.h"
 
 #include "extensions\PxExtensionsAPI.h"
 //#include "common/PxIO.h"

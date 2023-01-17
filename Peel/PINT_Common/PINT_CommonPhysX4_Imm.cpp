@@ -8,9 +8,9 @@
 
 #include "stdafx.h"
 
-#include "..\PINT_Common\PINT_Common.h"
-#include "..\PINT_Common\PINT_CommonPhysX_FoundationAPI.h"
-#include "..\PINT_Common\PINT_CommonPhysX4_Imm.h"
+#include "../PINT_Common/PINT_Common.h"
+#include "../PINT_Common/PINT_CommonPhysX_FoundationAPI.h"
+#include "../PINT_Common/PINT_CommonPhysX4_Imm.h"
 
 #include "solver/PxSolverDefs.h"
 

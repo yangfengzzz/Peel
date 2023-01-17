@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "..\PINT_Common\PINT_Ice.h"
+#include "../PINT_Common/PINT_Ice.h"
 
 #include <vector>
 
@@ -135,4 +135,4 @@ using namespace physx;
 
 //#define PHYSX_SUPPORT_PMAP_XP
 
-#include "..\PINT_Common\PINT_CommonPhysX3_Deprecated.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Deprecated.h"

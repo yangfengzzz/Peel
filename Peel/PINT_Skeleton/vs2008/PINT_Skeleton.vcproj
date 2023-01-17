@@ -421,15 +421,15 @@
 				Name="Common"
 				>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.cpp"
+					RelativePath="..\../PINT_Common/PINT_Common.cpp"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.h"
+					RelativePath="..\../PINT_Common/PINT_Common.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Ice.h"
+					RelativePath="..\../PINT_Common/PINT_Ice.h"
 					>
 				</File>
 			</Filter>

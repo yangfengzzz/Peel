@@ -383,27 +383,27 @@ copy ..\..\..\..\PEEL_Externals\5_1_0\bin\win.x86_64.vc141.mt\profile\PhysXFound
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\PINT_Common\PINT_Common.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Actor.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_CCT.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Error.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Joint.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Queries.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Scene.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Setup.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Shape.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX4_RCA.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX5_CustomSQ.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_Common.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Actor.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Allocator.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_CCT.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Error.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Joint.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Mesh.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Queries.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Scene.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Setup.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Shape.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX4_RCA.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX5_CustomSQ.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -412,9 +412,9 @@ copy ..\..\..\..\PEEL_Externals\5_1_0\bin\win.x86_64.vc141.mt\profile\PhysXFound
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX5_Vehicles.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonShapes.cpp" />
-    <ClCompile Include="..\..\PINT_Common\PortalJoint5.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX5_Vehicles.cpp" />
+    <ClCompile Include="..\../PINT_Common/PINT_CommonShapes.cpp" />
+    <ClCompile Include="..\../PINT_Common/PortalJoint5.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Profile|x64'">NotUsing</PrecompiledHeader>
@@ -431,33 +431,33 @@ copy ..\..\..\..\PEEL_Externals\5_1_0\bin\win.x86_64.vc141.mt\profile\PhysXFound
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\PINT_Common\PINT_Common.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Actor.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Base.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_CCT.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Defines.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Error.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Joint.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Queries.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Scene.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Setup.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Shape.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX5_CustomSQ.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX5_Vehicles.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonShapes.h" />
-    <ClInclude Include="..\..\PINT_Common\PINT_Ice.h" />
-    <ClInclude Include="..\..\PINT_Common\PortalJoint5.h" />
-    <ClInclude Include="..\..\PINT_Common\PxPortalJoint.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_Common.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Actor.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Allocator.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Base.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_CCT.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Defines.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Error.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Joint.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Mesh.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Queries.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Scene.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Setup.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Shape.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX5_CustomSQ.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX5_Vehicles.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_CommonShapes.h" />
+    <ClInclude Include="..\../PINT_Common/PINT_Ice.h" />
+    <ClInclude Include="..\../PINT_Common/PortalJoint5.h" />
+    <ClInclude Include="..\../PINT_Common/PxPortalJoint.h" />
     <ClInclude Include="..\PINT_PhysX510.h" />
     <ClInclude Include="..\stdafx.h" />
   </ItemGroup>

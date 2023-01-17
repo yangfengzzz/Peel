@@ -6,60 +6,54 @@
  */
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "Common.h"
 #include "Cylinder.h"
 
-CylinderMesh::CylinderMesh() : mOrientation(ORIENTATION_XY), mRadius(0.0f), mHalfHeight(0.0f), mNbVerts(0), mVerts(null)
-{
+#include "Common.h"
+#include "stdafx.h"
+
+CylinderMesh::CylinderMesh()
+    : mOrientation(ORIENTATION_XY), mRadius(0.0f), mHalfHeight(0.0f), mNbVerts(0), mVerts(null) {}
+
+CylinderMesh::CylinderMesh(udword nb_circle_pts, float radius, float half_height, Orientation orientation)
+    : mRadius(0.0f), mHalfHeight(0.0f), mNbVerts(0), mVerts(null) {
+    Generate(nb_circle_pts, radius, half_height, orientation);
 }
 
-CylinderMesh::CylinderMesh(udword nb_circle_pts, float radius, float half_height, Orientation orientation) : mRadius(0.0f), mHalfHeight(0.0f), mNbVerts(0), mVerts(null)
-{
-	Generate(nb_circle_pts, radius, half_height, orientation);
+CylinderMesh::~CylinderMesh() { Reset(); }
+
+void CylinderMesh::Reset() {
+    mOrientation = ORIENTATION_XY;
+    mRadius = 0.0f;
+    mHalfHeight = 0.0f;
+    mNbVerts = 0;
+    DELETEARRAY(mVerts);
 }
 
-CylinderMesh::~CylinderMesh()
-{
-	Reset();
-}
+void CylinderMesh::Generate(udword nb_circle_pts, float radius, float half_height, Orientation orientation) {
+    mOrientation = orientation;
+    mRadius = radius;
+    mHalfHeight = half_height;
 
-void CylinderMesh::Reset()
-{
-	mOrientation = ORIENTATION_XY;
-	mRadius = 0.0f;
-	mHalfHeight = 0.0f;
-	mNbVerts = 0;
-	DELETEARRAY(mVerts);
-}
+    const udword TotalNbVerts = nb_circle_pts * 2;
+    mNbVerts = TotalNbVerts;
 
-void CylinderMesh::Generate(udword nb_circle_pts, float radius, float half_height, Orientation orientation)
-{
-	mOrientation = orientation;
-	mRadius = radius;
-	mHalfHeight = half_height;
+    DELETEARRAY(mVerts);
+    Point* V = ICE_NEW(Point)[TotalNbVerts];
+    mVerts = V;
 
-	const udword TotalNbVerts = nb_circle_pts*2;
-	mNbVerts = TotalNbVerts;
+    GeneratePolygon(nb_circle_pts, V, sizeof(Point), orientation, radius);
 
-	DELETEARRAY(mVerts);
-	Point* V = ICE_NEW(Point)[TotalNbVerts];
-	mVerts = V;
-
-	GeneratePolygon(nb_circle_pts, V, sizeof(Point), orientation, radius);
-
-	Point Offset(0.0f, 0.0f, 0.0f);
-	if(orientation==ORIENTATION_XY)
-		Offset.z = half_height;
-	else if(orientation==ORIENTATION_YZ)
-		Offset.x = half_height;
-	else
-		Offset.y = half_height;
-	Point* V2 = V + nb_circle_pts;
-	for(udword i=0;i<nb_circle_pts;i++)
-	{
-		const Point P = V[i];
-		V[i] = P - Offset;
-		V2[i] = P + Offset;
-	}
+    Point Offset(0.0f, 0.0f, 0.0f);
+    if (orientation == ORIENTATION_XY)
+        Offset.z = half_height;
+    else if (orientation == ORIENTATION_YZ)
+        Offset.x = half_height;
+    else
+        Offset.y = half_height;
+    Point* V2 = V + nb_circle_pts;
+    for (udword i = 0; i < nb_circle_pts; i++) {
+        const Point P = V[i];
+        V[i] = P - Offset;
+        V2[i] = P + Offset;
+    }
 }

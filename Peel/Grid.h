@@ -9,7 +9,7 @@
 #ifndef GRID_H
 #define GRID_H
 
-	class PintRender;
-	void RenderGrid(PintRender& renderer);
+class PintRender;
+void RenderGrid(PintRender& renderer);
 
 #endif

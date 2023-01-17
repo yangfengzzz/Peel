@@ -8,8 +8,8 @@
 
 #include "stdafx.h"
 #include "PINT_PhysX412.h"
-#include "..\PINT_Common\PINT_Common.h"
-#include "..\PINT_Common\PINT_CommonPhysX3_Setup.h"
+#include "../PINT_Common/PINT_Common.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Setup.h"
 
 #include "extensions\PxExtensionsAPI.h"
 //#include "common/PxIO.h"
@@ -314,11 +314,11 @@ class MyContactModifyCallback : public PxContactModifyCallback
 #endif
 
 #if PHYSX_SUPPORT_CONTACT_MODIFICATIONS
-	#include "..\PINT_Common\PINT_CommonPhysX3_ContactModif.h"
+	#include "../PINT_Common/PINT_CommonPhysX3_ContactModif.h"
 	static PEEL_ContactModifyCallback gNewContactModifyCallback;
 #endif
 
-#include "..\PINT_Common\PINT_CommonPhysX3_ContactNotif.h"
+#include "../PINT_Common/PINT_CommonPhysX3_ContactNotif.h"
 static PEEL_SimulationEventCallback gSimulationEventCallback;
 
 void PhysX::Init(const PINT_WORLD_CREATE& desc)
@@ -906,7 +906,7 @@ void PhysX_CloseGUI()
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "..\PINT_Common\PINT_CommonPhysX3_PerTestUI.h"
+#include "../PINT_Common/PINT_CommonPhysX3_PerTestUI.h"
 
 IceWindow* PhysXPlugIn::InitGUI(IceWidget* parent, PintGUIHelper& helper)	{ return PhysX_InitGUI(parent, helper);	}
 void PhysXPlugIn::CloseGUI()												{ PhysX_CloseGUI();						}

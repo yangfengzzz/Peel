@@ -9,22 +9,22 @@
 #include "stdafx.h"
 
 //#include "PINT_PhysX50_Imm.h"
-#include "..\PINT_Common\PINT_CommonPhysX4_ImmPint.h"
+#include "../PINT_Common/PINT_CommonPhysX4_ImmPint.h"
 
-#include "..\PINT_Common\PINT_Common.h"
+#include "../PINT_Common/PINT_Common.h"
 
 #include "PxPhysicsAPI.h"
 #include "PxImmediateMode.h"
 
-#include "..\PINT_Common\PINT_CommonPhysX_FoundationAPI.h"
+#include "../PINT_Common/PINT_CommonPhysX_FoundationAPI.h"
 
 //#include "Extensions\ExtConstraintHelper.h"
 
 #include "..\PintShapeRenderer.h"
 
-#include "..\PINT_Common\PINT_CommonPhysX3_Error.h"
-#include "..\PINT_Common\PINT_CommonPhysX3_Allocator.h"
-#include "..\PINT_Common\PINT_CommonPhysX3_Base.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Error.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Allocator.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Base.h"
 
 using namespace physx;
 using namespace immediate;
@@ -171,7 +171,7 @@ PxU32 MemoryInputData::tell() const
 
 #endif
 
-#include "..\PINT_Common\PINT_CommonPhysX4_Imm.h"
+#include "../PINT_Common/PINT_CommonPhysX4_Imm.h"
 
 static PxVec3		gGravity(0.0f, -9.81f, 0.0f);
 static const float	gContactDistance			= 0.1f;

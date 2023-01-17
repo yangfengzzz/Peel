@@ -12,54 +12,53 @@
 #ifndef ICEIK_H
 #define ICEIK_H
 
-	class IKChain;
+class IKChain;
 
-	class ICEMATHS_API IKBone : public Allocateable
-	{
-		private:
-							IKBone(float length);
-							~IKBone();
+class ICEMATHS_API IKBone : public Allocateable {
+private:
+    IKBone(float length);
+    ~IKBone();
 
-//		inline_	IKBone*		GetParent()		{ return mParent;		}
-//		inline_	IKBone*		GetChild()		{ return mChild;		}
-//		inline_	float		GetLength()		{ return mLength;		}
-//
-//		private:
-		public:
-				IKBone*		mParent;		//!< Parent bone
-				IKBone*		mChild;			//!< Child bone
+    //		inline_	IKBone*		GetParent()		{ return mParent;		}
+    //		inline_	IKBone*		GetChild()		{ return mChild;		}
+    //		inline_	float		GetLength()		{ return mLength;		}
+    //
+    //		private:
+public:
+    IKBone* mParent;  //!< Parent bone
+    IKBone* mChild;   //!< Child bone
 
-				float		mLength;		//!< Bone's length
+    float mLength;  //!< Bone's length
 
-				Point		mPosition;
-				Point		mDirection;
-				Matrix3x3	mOrientMatrix;
-		private:
-		// Internal methods
-				void		_ForwKineThis(IKBone* parent, const Matrix3x3& parentmat);
+    Point mPosition;
+    Point mDirection;
+    Matrix3x3 mOrientMatrix;
 
-		friend	class		IKChain;
-	};
+private:
+    // Internal methods
+    void _ForwKineThis(IKBone* parent, const Matrix3x3& parentmat);
 
-	class ICEMATHS_API IKChain : public Allocateable
-	{
-		public:
-							IKChain();
-							~IKChain();
+    friend class IKChain;
+};
 
-				bool		AddBone(float length);
-				bool		InvKine(const Point& targetpos);
+class ICEMATHS_API IKChain : public Allocateable {
+public:
+    IKChain();
+    ~IKChain();
 
-		// Data access
-		inline_	IKBone*		GetStartBone()		const	{ return mStart;		}
-		inline_	IKBone*		GetEndBone()		const	{ return mEnd;			}
-		inline_	udword		GetNbBones()		const	{ return mNbBones;		}
+    bool AddBone(float length);
+    bool InvKine(const Point& targetpos);
 
-		private:
-				IKBone*		mStart;			//!< First bone
-				IKBone*		mEnd;			//!< Current end effector
-				Point		mEndPos;		//!< Position of mEnd's end point
-				udword		mNbBones;		//!< Number of bones
-	};
+    // Data access
+    inline_ IKBone* GetStartBone() const { return mStart; }
+    inline_ IKBone* GetEndBone() const { return mEnd; }
+    inline_ udword GetNbBones() const { return mNbBones; }
 
-#endif // ICEIK_H
+private:
+    IKBone* mStart;   //!< First bone
+    IKBone* mEnd;     //!< Current end effector
+    Point mEndPos;    //!< Position of mEnd's end point
+    udword mNbBones;  //!< Number of bones
+};
+
+#endif  // ICEIK_H

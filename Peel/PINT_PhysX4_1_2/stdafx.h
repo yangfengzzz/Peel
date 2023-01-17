@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "..\PINT_Common\PINT_Ice.h"
+#include "../PINT_Common/PINT_Ice.h"
 
 #include <vector>
 
@@ -126,4 +126,4 @@ typedef PxBVHStructure		PxBVH;
 typedef PxBVHStructureDesc	PxBVHDesc;
 #define createBVH			createBVHStructure
 
-#include "..\PINT_Common\PINT_CommonPhysX3_Deprecated.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Deprecated.h"

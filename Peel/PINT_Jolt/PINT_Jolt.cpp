@@ -83,11 +83,11 @@ A damping of 1 will barely overshoot the target and have almost no oscillation, 
 #include <Jolt/Physics/Constraints/RackAndPinionConstraint.h>
 #include <Jolt/Physics/Constraints/GearConstraint.h>
 
-#include "..\PINT_Common\PINT_Ice.h"
-//#include "..\PINT_Common\PINT_Common.cpp"
+#include "../PINT_Common/PINT_Ice.h"
+//#include "../PINT_Common/PINT_Common.cpp"
 
-#include "..\PINT_Common\PINT_Common.h"
-//#include "..\PINT_Common\PINT_IceAllocatorSwitch.h"
+#include "../PINT_Common/PINT_Common.h"
+//#include "../PINT_Common/PINT_IceAllocatorSwitch.h"
 #include "..\PintShapeRenderer.h"
 
 #include <iostream>

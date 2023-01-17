@@ -10,8 +10,8 @@
 #define PINT_PHYSX510_H
 
 #include "..\Pint.h"
-#include "..\PINT_Common\PINT_CommonPhysX3.h"
-#include "..\PINT_Common\PINT_CommonPhysX3_Vehicles.h"
+#include "../PINT_Common/PINT_CommonPhysX3.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Vehicles.h"
 
 	class PhysX : public SharedPhysX_Vehicles
 	{

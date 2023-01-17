@@ -8,8 +8,8 @@
 
 #include "stdafx.h"
 #include "PINT_PhysX510.h"
-#include "..\PINT_Common\PINT_Common.h"
-#include "..\PINT_Common\PINT_CommonPhysX3_Setup.h"
+#include "../PINT_Common/PINT_Common.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Setup.h"
 
 #include "extensions\PxExtensionsAPI.h"
 //#include "common/PxIO.h"
@@ -18,7 +18,7 @@
 //#include "physxprofilesdk/PxProfileSDK.h"
 //#include "NvProfileZoneManager.h"
 
-#include "..\PINT_Common\PINT_CommonPhysX5_CustomSQ.h"
+#include "../PINT_Common/PINT_CommonPhysX5_CustomSQ.h"
 
 //#define MODIFY_CONTACTS
 
@@ -28,7 +28,7 @@
 
 //#define USE_FORCE_THRESHOLD
 
-#include "..\PINT_Common\PINT_CommonPhysX5_Fluid.h"
+#include "../PINT_Common/PINT_CommonPhysX5_Fluid.h"
 #ifdef TEST_FLUIDS
 PxPBDParticleSystem* gParticleSystem = null;
 #endif
@@ -322,11 +322,11 @@ class MyContactModifyCallback : public PxContactModifyCallback
 #endif
 
 #if PHYSX_SUPPORT_CONTACT_MODIFICATIONS
-	#include "..\PINT_Common\PINT_CommonPhysX3_ContactModif.h"
+	#include "../PINT_Common/PINT_CommonPhysX3_ContactModif.h"
 	static PEEL_ContactModifyCallback gNewContactModifyCallback;
 #endif
 
-#include "..\PINT_Common\PINT_CommonPhysX3_ContactNotif.h"
+#include "../PINT_Common/PINT_CommonPhysX3_ContactNotif.h"
 static PEEL_SimulationEventCallback gSimulationEventCallback;
 
 void PhysX::Init(const PINT_WORLD_CREATE& desc)
@@ -937,7 +937,7 @@ Point PhysX::GetMainColor()
 ///////////////////////////////////////////////////////////////////////////////
 
 
-#include "..\PINT_Common\PINT_CommonPhysX3_Queries.h"
+#include "../PINT_Common/PINT_CommonPhysX3_Queries.h"
 
 void PhysX_CQS::Close()
 {
@@ -1361,7 +1361,7 @@ void PhysX_CloseGUI()
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "..\PINT_Common\PINT_CommonPhysX3_PerTestUI.h"
+#include "../PINT_Common/PINT_CommonPhysX3_PerTestUI.h"
 
 IceWindow* PhysXPlugIn::InitGUI(IceWidget* parent, PintGUIHelper& helper)	{ return PhysX_InitGUI(parent, helper);	}
 void PhysXPlugIn::CloseGUI()												{ PhysX_CloseGUI();						}

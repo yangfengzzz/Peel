@@ -10,7 +10,7 @@
 #define PINT_JOLT_H
 
 	#include "..\Pint.h"
-	#include "..\PINT_Common\PINT_CommonShapes.h"
+	#include "../PINT_Common/PINT_CommonShapes.h"
 	#include <map>
 
 	// The Jolt headers don't include Jolt.h. Always include Jolt.h before including any other Jolt header.

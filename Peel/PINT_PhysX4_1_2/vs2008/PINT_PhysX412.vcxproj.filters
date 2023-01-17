@@ -31,73 +31,73 @@
     <ClCompile Include="..\stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_Common.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_Common.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Actor.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Actor.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Allocator.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_CCT.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_CCT.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Error.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Error.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Joint.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Joint.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Mesh.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Queries.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Queries.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Scene.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Scene.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Setup.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Setup.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Shape.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Shape.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PINT_CommonPhysX4_RCA.cpp">
+    <ClCompile Include="..\../PINT_Common/PINT_CommonPhysX4_RCA.cpp">
       <Filter>Source Files\Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\PortalJoint.cpp">
+    <ClCompile Include="..\../PINT_Common/PortalJoint.cpp">
       <Filter>Source Files\Common\Portal joint XP</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\GearJoint.cpp">
+    <ClCompile Include="..\../PINT_Common/GearJoint.cpp">
       <Filter>Source Files\Common\New joints</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\PINT_Common\RackAndPinion.cpp">
+    <ClCompile Include="..\../PINT_Common/RackAndPinion.cpp">
       <Filter>Source Files\Common\New joints</Filter>
     </ClCompile>
     <ClCompile Include="..\Extensions\ExtBroadPhase.cpp">
@@ -216,82 +216,82 @@
     <ClInclude Include="..\stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_Common.h">
+    <ClInclude Include="..\../PINT_Common/PINT_Common.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Actor.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Actor.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ActorManager.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ActorManager.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Allocator.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Allocator.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_CCT.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_CCT.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactModif.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ContactModif.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_ContactNotif.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_ContactNotif.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_DebugViz.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_DebugViz.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Error.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Error.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_FilterShader.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_FilterShader.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Joint.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Joint.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Mesh.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Mesh.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_PerTestUI.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_PerTestUI.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Queries.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Queries.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Scene.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Scene.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Setup.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Setup.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Shape.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Shape.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_CommonPhysX3_Vehicles.h">
+    <ClInclude Include="..\../PINT_Common/PINT_CommonPhysX3_Vehicles.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PINT_Ice.h">
+    <ClInclude Include="..\../PINT_Common/PINT_Ice.h">
       <Filter>Source Files\Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PortalJoint.h">
+    <ClInclude Include="..\../PINT_Common/PortalJoint.h">
       <Filter>Source Files\Common\Portal joint XP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PxPortalJoint.h">
+    <ClInclude Include="..\../PINT_Common/PxPortalJoint.h">
       <Filter>Source Files\Common\Portal joint XP</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\GearJoint.h">
+    <ClInclude Include="..\../PINT_Common/GearJoint.h">
       <Filter>Source Files\Common\New joints</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PxGearJoint.h">
+    <ClInclude Include="..\../PINT_Common/PxGearJoint.h">
       <Filter>Source Files\Common\New joints</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\PxRackAndPinionJoint.h">
+    <ClInclude Include="..\../PINT_Common/PxRackAndPinionJoint.h">
       <Filter>Source Files\Common\New joints</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\PINT_Common\RackAndPinion.h">
+    <ClInclude Include="..\../PINT_Common/RackAndPinion.h">
       <Filter>Source Files\Common\New joints</Filter>
     </ClInclude>
     <ClInclude Include="..\Extensions\ExtConstraintHelper.h">

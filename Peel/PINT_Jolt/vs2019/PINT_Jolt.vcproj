@@ -427,7 +427,7 @@
 				Name="Common"
 				>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.cpp"
+					RelativePath="..\../PINT_Common/PINT_Common.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -447,15 +447,15 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Common.h"
+					RelativePath="..\../PINT_Common/PINT_Common.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_Ice.h"
+					RelativePath="..\../PINT_Common/PINT_Ice.h"
 					>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_IceAllocatorSwitch.cpp"
+					RelativePath="..\../PINT_Common/PINT_IceAllocatorSwitch.cpp"
 					>
 					<FileConfiguration
 						Name="Debug|Win32"
@@ -475,7 +475,7 @@
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="..\..\PINT_Common\PINT_IceAllocatorSwitch.h"
+					RelativePath="..\../PINT_Common/PINT_IceAllocatorSwitch.h"
 					>
 				</File>
 			</Filter>
