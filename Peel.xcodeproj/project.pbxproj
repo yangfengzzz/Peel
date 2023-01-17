@@ -8,6 +8,179 @@
 
 /* Begin PBXBuildFile section */
 		3E890535297669D900B17F7F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E890534297669D900B17F7F /* main.cpp */; };
+		3E89068A29767CA900B17F7F /* Pint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89053D29767C9C00B17F7F /* Pint.cpp */; };
+		3E89068B29767CA900B17F7F /* TestScenes_Heightfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89053E29767C9C00B17F7F /* TestScenes_Heightfield.cpp */; };
+		3E89068C29767CA900B17F7F /* TestScenes_Performance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89053F29767C9D00B17F7F /* TestScenes_Performance.cpp */; };
+		3E89068D29767CA900B17F7F /* PEEL_Threads.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89054229767C9D00B17F7F /* PEEL_Threads.cpp */; };
+		3E89068E29767CA900B17F7F /* RaytracingWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89054329767C9D00B17F7F /* RaytracingWindow.cpp */; };
+		3E89068F29767CA900B17F7F /* RenderModelMatcap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89054429767C9D00B17F7F /* RenderModelMatcap.cpp */; };
+		3E89069029767CA900B17F7F /* Plugins.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055629767C9D00B17F7F /* Plugins.cpp */; };
+		3E89069129767CA900B17F7F /* GLPointRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055729767C9D00B17F7F /* GLPointRenderer.cpp */; };
+		3E89069229767CA900B17F7F /* TestScenes_Joints_WIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055829767C9D00B17F7F /* TestScenes_Joints_WIP.cpp */; };
+		3E89069329767CA900B17F7F /* ToolTransform.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055B29767C9D00B17F7F /* ToolTransform.cpp */; };
+		3E89069429767CA900B17F7F /* TestScenes_Cooking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055C29767C9D00B17F7F /* TestScenes_Cooking.cpp */; };
+		3E89069529767CA900B17F7F /* TestScenes_Import.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055D29767C9E00B17F7F /* TestScenes_Import.cpp */; };
+		3E89069629767CA900B17F7F /* ConvexHull2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89055E29767C9E00B17F7F /* ConvexHull2D.cpp */; };
+		3E89069729767CA900B17F7F /* RenderModelFFP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056129767C9E00B17F7F /* RenderModelFFP.cpp */; };
+		3E89069829767CA900B17F7F /* TestScenes_VehiclesBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056229767C9E00B17F7F /* TestScenes_VehiclesBase.cpp */; };
+		3E89069929767CA900B17F7F /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056329767C9E00B17F7F /* stdafx.cpp */; };
+		3E89069A29767CA900B17F7F /* MeshCleaner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056529767C9E00B17F7F /* MeshCleaner.cpp */; };
+		3E89069B29767CA900B17F7F /* GUI_CompoundEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056829767C9E00B17F7F /* GUI_CompoundEdit.cpp */; };
+		3E89069C29767CA900B17F7F /* GLVSync.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056929767C9E00B17F7F /* GLVSync.cpp */; };
+		3E89069D29767CA900B17F7F /* TestScenes_Sweep.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056A29767C9E00B17F7F /* TestScenes_Sweep.cpp */; };
+		3E89069E29767CA900B17F7F /* RenderModelSimpleShadows.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056D29767C9E00B17F7F /* RenderModelSimpleShadows.cpp */; };
+		3E89069F29767CA900B17F7F /* ScreenQuad_BackColor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056E29767C9E00B17F7F /* ScreenQuad_BackColor.cpp */; };
+		3E8906A029767CA900B17F7F /* TestScenes_Joints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89056F29767C9E00B17F7F /* TestScenes_Joints.cpp */; };
+		3E8906A129767CA900B17F7F /* ToolBullet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057029767C9E00B17F7F /* ToolBullet.cpp */; };
+		3E8906A229767CA900B17F7F /* USDExport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057129767C9E00B17F7F /* USDExport.cpp */; };
+		3E8906A329767CA900B17F7F /* GLMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057329767C9E00B17F7F /* GLMesh.cpp */; };
+		3E8906A429767CA900B17F7F /* TestScenes_Undefined.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057629767C9E00B17F7F /* TestScenes_Undefined.cpp */; };
+		3E8906A529767CA900B17F7F /* CameraManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057729767C9E00B17F7F /* CameraManager.cpp */; };
+		3E8906A629767CA900B17F7F /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057929767C9F00B17F7F /* Common.cpp */; };
+		3E8906A729767CA900B17F7F /* ProceduralTrack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057A29767C9F00B17F7F /* ProceduralTrack.cpp */; };
+		3E8906A829767CA900B17F7F /* ControlInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057B29767C9F00B17F7F /* ControlInterface.cpp */; };
+		3E8906A929767CA900B17F7F /* PintShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057D29767C9F00B17F7F /* PintShapeRenderer.cpp */; };
+		3E8906AA29767CA900B17F7F /* Gamepad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89057F29767C9F00B17F7F /* Gamepad.cpp */; };
+		3E8906AB29767CA900B17F7F /* PintSQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058129767C9F00B17F7F /* PintSQ.cpp */; };
+		3E8906AC29767CA900B17F7F /* ToolCreateRope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058329767C9F00B17F7F /* ToolCreateRope.cpp */; };
+		3E8906AD29767CA900B17F7F /* ToolTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058529767C9F00B17F7F /* ToolTexture.cpp */; };
+		3E8906AE29767CA900B17F7F /* Scattering.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058629767C9F00B17F7F /* Scattering.cpp */; };
+		3E8906AF29767CA900B17F7F /* Script.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058729767C9F00B17F7F /* Script.cpp */; };
+		3E8906B029767CA900B17F7F /* TestScenes_Overlap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058829767C9F00B17F7F /* TestScenes_Overlap.cpp */; };
+		3E8906B129767CA900B17F7F /* PintTerrainTileRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058A29767C9F00B17F7F /* PintTerrainTileRenderer.cpp */; };
+		3E8906B229767CA900B17F7F /* PintDLCapsuleShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058B29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.cpp */; };
+		3E8906B329767CA900B17F7F /* TitleWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058C29767C9F00B17F7F /* TitleWindow.cpp */; };
+		3E8906B429767CA900B17F7F /* Tool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058D29767C9F00B17F7F /* Tool.cpp */; };
+		3E8906B529767CA900B17F7F /* TestScenes_Kinematics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89058F29767C9F00B17F7F /* TestScenes_Kinematics.cpp */; };
+		3E8906B629767CA900B17F7F /* ZB2Export.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059029767C9F00B17F7F /* ZB2Export.cpp */; };
+		3E8906B729767CA900B17F7F /* TestScenes_Fracture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059129767C9F00B17F7F /* TestScenes_Fracture.cpp */; };
+		3E8906B829767CA900B17F7F /* Simulate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059229767C9F00B17F7F /* Simulate.cpp */; };
+		3E8906B929767CA900B17F7F /* PintSelectionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059729767CA000B17F7F /* PintSelectionManager.cpp */; };
+		3E8906BA29767CA900B17F7F /* Loader_Rays.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059829767CA000B17F7F /* Loader_Rays.cpp */; };
+		3E8906BB29767CA900B17F7F /* DefaultControlInterface.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059929767CA000B17F7F /* DefaultControlInterface.cpp */; };
+		3E8906BC29767CA900B17F7F /* LoopTheLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059A29767CA000B17F7F /* LoopTheLoop.cpp */; };
+		3E8906BD29767CA900B17F7F /* PEEL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059C29767CA000B17F7F /* PEEL.cpp */; };
+		3E8906BE29767CA900B17F7F /* GUI_JointParams.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89059F29767CA000B17F7F /* GUI_JointParams.cpp */; };
+		3E8906BF29767CA900B17F7F /* TestScenes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A029767CA000B17F7F /* TestScenes.cpp */; };
+		3E8906C029767CA900B17F7F /* TestScenes_Terrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A129767CA000B17F7F /* TestScenes_Terrain.cpp */; };
+		3E8906C129767CA900B17F7F /* ToolTerrainEditor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A229767CA000B17F7F /* ToolTerrainEditor.cpp */; };
+		3E8906C229767CA900B17F7F /* RenderTarget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A529767CA000B17F7F /* RenderTarget.cpp */; };
+		3E8906C329767CA900B17F7F /* PintTiming.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A629767CA000B17F7F /* PintTiming.cpp */; };
+		3E8906C429767CA900B17F7F /* TestScenes_CCT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A729767CA000B17F7F /* TestScenes_CCT.cpp */; };
+		3E8906C529767CA900B17F7F /* TestScenes_D6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905A829767CA000B17F7F /* TestScenes_D6.cpp */; };
+		3E8906C629767CA900B17F7F /* PintGUIHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905AB29767CA000B17F7F /* PintGUIHelper.cpp */; };
+		3E8906C729767CA900B17F7F /* GUI_ActorEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905AD29767CA000B17F7F /* GUI_ActorEdit.cpp */; };
+		3E8906C829767CA900B17F7F /* TerrainManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905AE29767CA000B17F7F /* TerrainManager.cpp */; };
+		3E8906C929767CA900B17F7F /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905AF29767CA000B17F7F /* GLTexture.cpp */; };
+		3E8906CA29767CA900B17F7F /* TestScenes_MidphaseMeshMesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B029767CA100B17F7F /* TestScenes_MidphaseMeshMesh.cpp */; };
+		3E8906CB29767CA900B17F7F /* Foundation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B329767CA100B17F7F /* Foundation.cpp */; };
+		3E8906CC29767CA900B17F7F /* TestScenes_Bulldozer_WIP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B629767CA100B17F7F /* TestScenes_Bulldozer_WIP.cpp */; };
+		3E8906CD29767CA900B17F7F /* GUI_EditBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B729767CA100B17F7F /* GUI_EditBox.cpp */; };
+		3E8906CE29767CA900B17F7F /* TestScenes_MCArticulations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B829767CA100B17F7F /* TestScenes_MCArticulations.cpp */; };
+		3E8906CF29767CA900B17F7F /* GUI_PosEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905B929767CA100B17F7F /* GUI_PosEdit.cpp */; };
+		3E8906D029767CA900B17F7F /* GUI_ActorSelection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905BA29767CA100B17F7F /* GUI_ActorSelection.cpp */; };
+		3E8906D129767CA900B17F7F /* TestScenes_Cylinders.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905BD29767CA100B17F7F /* TestScenes_Cylinders.cpp */; };
+		3E8906D229767CA900B17F7F /* ToolPicking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905BE29767CA100B17F7F /* ToolPicking.cpp */; };
+		3E8906D329767CA900B17F7F /* ToolRotate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C129767CA100B17F7F /* ToolRotate.cpp */; };
+		3E8906D429767CA900B17F7F /* Streaming.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C229767CA100B17F7F /* Streaming.cpp */; };
+		3E8906D529767CA900B17F7F /* Loader_ShapeProfile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C529767CA100B17F7F /* Loader_ShapeProfile.cpp */; };
+		3E8906D629767CA900B17F7F /* RevolutionShape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C629767CA100B17F7F /* RevolutionShape.cpp */; };
+		3E8906D729767CA900B17F7F /* RepX_Tools.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C829767CA100B17F7F /* RepX_Tools.cpp */; };
+		3E8906D829767CA900B17F7F /* TitleData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905C929767CA200B17F7F /* TitleData.cpp */; };
+		3E8906D929767CA900B17F7F /* PintDLMeshShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905CA29767CA200B17F7F /* PintDLMeshShapeRenderer.cpp */; };
+		3E8906DA29767CA900B17F7F /* CustomICEAllocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905CC29767CA200B17F7F /* CustomICEAllocator.cpp */; };
+		3E8906DB29767CA900B17F7F /* SupportFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905CD29767CA200B17F7F /* SupportFile.cpp */; };
+		3E8906DC29767CA900B17F7F /* GLShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905CE29767CA200B17F7F /* GLShader.cpp */; };
+		3E8906DD29767CA900B17F7F /* PintPointSpriteSphereShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905CF29767CA200B17F7F /* PintPointSpriteSphereShapeRenderer.cpp */; };
+		3E8906DE29767CA900B17F7F /* Terrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905D129767CA200B17F7F /* Terrain.cpp */; };
+		3E8906DF29767CA900B17F7F /* PintDLBoxShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905D429767CA200B17F7F /* PintDLBoxShapeRenderer.cpp */; };
+		3E8906E029767CA900B17F7F /* Devil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905D629767CA200B17F7F /* Devil.cpp */; };
+		3E8906E129767CA900B17F7F /* TerrainRegionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905D829767CA200B17F7F /* TerrainRegionManager.cpp */; };
+		3E8906E229767CA900B17F7F /* TestScenes_API.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905DA29767CA200B17F7F /* TestScenes_API.cpp */; };
+		3E8906E329767CA900B17F7F /* TestScenes_Portals.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905DB29767CA200B17F7F /* TestScenes_Portals.cpp */; };
+		3E8906E429767CA900B17F7F /* ShadowShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905DE29767CA200B17F7F /* ShadowShader.cpp */; };
+		3E8906E529767CA900B17F7F /* ToolObjectCreate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905DF29767CA200B17F7F /* ToolObjectCreate.cpp */; };
+		3E8906E629767CA900B17F7F /* ToolTranslate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E029767CA200B17F7F /* ToolTranslate.cpp */; };
+		3E8906E729767CA900B17F7F /* Zcb2_RenderData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E129767CA200B17F7F /* Zcb2_RenderData.cpp */; };
+		3E8906E829767CA900B17F7F /* PEEL_MenuBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E229767CA200B17F7F /* PEEL_MenuBar.cpp */; };
+		3E8906E929767CA900B17F7F /* ToolRayBased.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E429767CA300B17F7F /* ToolRayBased.cpp */; };
+		3E8906EA29767CA900B17F7F /* RaytracingTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E729767CA300B17F7F /* RaytracingTest.cpp */; };
+		3E8906EB29767CA900B17F7F /* PintConvexInstanceShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E829767CA300B17F7F /* PintConvexInstanceShapeRenderer.cpp */; };
+		3E8906EC29767CA900B17F7F /* TerrainStreamingUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905E929767CA300B17F7F /* TerrainStreamingUI.cpp */; };
+		3E8906ED29767CA900B17F7F /* PintColorShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905EA29767CA300B17F7F /* PintColorShapeRenderer.cpp */; };
+		3E8906EE29767CA900B17F7F /* ToolShootObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905EC29767CA300B17F7F /* ToolShootObject.cpp */; };
+		3E8906EF29767CA900B17F7F /* CRC32.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905ED29767CA300B17F7F /* CRC32.cpp */; };
+		3E8906F029767CA900B17F7F /* GLRenderHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905F329767CA300B17F7F /* GLRenderHelpers.cpp */; };
+		3E8906F129767CA900B17F7F /* MatcapShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905F429767CA300B17F7F /* MatcapShader.cpp */; };
+		3E8906F229767CA900B17F7F /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905FA29767CA300B17F7F /* Shader.cpp */; };
+		3E8906F329767CA900B17F7F /* TextureManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905FC29767CA300B17F7F /* TextureManager.cpp */; };
+		3E8906F429767CA900B17F7F /* PhysicsData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E8905FE29767CA400B17F7F /* PhysicsData.cpp */; };
+		3E8906F529767CA900B17F7F /* TestScenes_RCArticulations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060129767CA400B17F7F /* TestScenes_RCArticulations.cpp */; };
+		3E8906F629767CA900B17F7F /* RenderModelSimpleShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060429767CA400B17F7F /* RenderModelSimpleShader.cpp */; };
+		3E8906F729767CA900B17F7F /* PintObjectsManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060529767CA400B17F7F /* PintObjectsManager.cpp */; };
+		3E8906F829767CA900B17F7F /* Sphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060629767CA400B17F7F /* Sphere.cpp */; };
+		3E8906F929767CA900B17F7F /* TestScenesHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060729767CA400B17F7F /* TestScenesHelpers.cpp */; };
+		3E8906FA29767CA900B17F7F /* GUI_ImportCollada.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060D29767CA400B17F7F /* GUI_ImportCollada.cpp */; };
+		3E8906FB29767CA900B17F7F /* TestScenes_BasicJoints.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060E29767CA400B17F7F /* TestScenes_BasicJoints.cpp */; };
+		3E8906FC29767CA900B17F7F /* DisplayTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89060F29767CA400B17F7F /* DisplayTexture.cpp */; };
+		3E8906FD29767CA900B17F7F /* Loader_Bin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061029767CA400B17F7F /* Loader_Bin.cpp */; };
+		3E8906FE29767CA900B17F7F /* Voronoi2D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061129767CA400B17F7F /* Voronoi2D.cpp */; };
+		3E8906FF29767CA900B17F7F /* PintRender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061429767CA400B17F7F /* PintRender.cpp */; };
+		3E89070029767CA900B17F7F /* PintDLShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061629767CA400B17F7F /* PintDLShapeRenderer.cpp */; };
+		3E89070129767CA900B17F7F /* Starter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061729767CA500B17F7F /* Starter.cpp */; };
+		3E89070229767CA900B17F7F /* TestScenes_Articulations.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061829767CA500B17F7F /* TestScenes_Articulations.cpp */; };
+		3E89070329767CA900B17F7F /* PintVisibilityManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061929767CA500B17F7F /* PintVisibilityManager.cpp */; };
+		3E89070429767CA900B17F7F /* TrashCache.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061A29767CA500B17F7F /* TrashCache.cpp */; };
+		3E89070529767CA900B17F7F /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89061C29767CA500B17F7F /* Camera.cpp */; };
+		3E89070629767CA900B17F7F /* QPCTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062029767CA500B17F7F /* QPCTime.cpp */; };
+		3E89070729767CA900B17F7F /* IceBunny.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062229767CA500B17F7F /* IceBunny.cpp */; };
+		3E89070829767CA900B17F7F /* MyConvex.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062329767CA500B17F7F /* MyConvex.cpp */; };
+		3E89070929767CA900B17F7F /* TestScenes_StaticScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062429767CA500B17F7F /* TestScenes_StaticScene.cpp */; };
+		3E89070A29767CA900B17F7F /* GUI_JointEdit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062629767CA500B17F7F /* GUI_JointEdit.cpp */; };
+		3E89070B29767CA900B17F7F /* SurfaceManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062A29767CA500B17F7F /* SurfaceManager.cpp */; };
+		3E89070C29767CA900B17F7F /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89062F29767CA500B17F7F /* Grid.cpp */; };
+		3E89070D29767CA900B17F7F /* ZB2Import.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063229767CA600B17F7F /* ZB2Import.cpp */; };
+		3E89070E29767CA900B17F7F /* DefaultEnv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063329767CA600B17F7F /* DefaultEnv.cpp */; };
+		3E89070F29767CA900B17F7F /* MinimalRegionManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063629767CA600B17F7F /* MinimalRegionManager.cpp */; };
+		3E89071029767CA900B17F7F /* TestScenes_Raycast.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063729767CA600B17F7F /* TestScenes_Raycast.cpp */; };
+		3E89071129767CA900B17F7F /* GLConvexRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063929767CA600B17F7F /* GLConvexRenderer.cpp */; };
+		3E89071229767CA900B17F7F /* RenderModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063C29767CA600B17F7F /* RenderModel.cpp */; };
+		3E89071329767CA900B17F7F /* Loader_RepX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063E29767CA600B17F7F /* Loader_RepX.cpp */; };
+		3E89071429767CA900B17F7F /* ProgressBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89063F29767CA600B17F7F /* ProgressBar.cpp */; };
+		3E89071529767CA900B17F7F /* ScreenQuad_ColorSphere.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89064129767CA600B17F7F /* ScreenQuad_ColorSphere.cpp */; };
+		3E89071629767CA900B17F7F /* TestNVD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89064229767CA600B17F7F /* TestNVD.cpp */; };
+		3E89071729767CA900B17F7F /* TestScenes_Behavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89064529767CA600B17F7F /* TestScenes_Behavior.cpp */; };
+		3E89071829767CA900B17F7F /* TestScenes_CCD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89064B29767CA700B17F7F /* TestScenes_CCD.cpp */; };
+		3E89071929767CA900B17F7F /* PintBatchConvexShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065129767CA700B17F7F /* PintBatchConvexShapeRenderer.cpp */; };
+		3E89071A29767CA900B17F7F /* Loader_Obj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065329767CA700B17F7F /* Loader_Obj.cpp */; };
+		3E89071B29767CA900B17F7F /* Cylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065429767CA700B17F7F /* Cylinder.cpp */; };
+		3E89071C29767CA900B17F7F /* FrameBufferObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065829767CA700B17F7F /* FrameBufferObject.cpp */; };
+		3E89071D29767CA900B17F7F /* ToolAddImpulse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065929767CA700B17F7F /* ToolAddImpulse.cpp */; };
+		3E89071E29767CA900B17F7F /* ShadowMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065A29767CA700B17F7F /* ShadowMap.cpp */; };
+		3E89071F29767CA900B17F7F /* FlatShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065C29767CA700B17F7F /* FlatShader.cpp */; };
+		3E89072029767CA900B17F7F /* Capsule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065D29767CA700B17F7F /* Capsule.cpp */; };
+		3E89072129767CA900B17F7F /* GUI_Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89065E29767CA700B17F7F /* GUI_Helpers.cpp */; };
+		3E89072229767CA900B17F7F /* PintDLConvexShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066129767CA800B17F7F /* PintDLConvexShapeRenderer.cpp */; };
+		3E89072329767CA900B17F7F /* PintGLMeshShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066429767CA800B17F7F /* PintGLMeshShapeRenderer.cpp */; };
+		3E89072429767CA900B17F7F /* PINT_Editor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066629767CA800B17F7F /* PINT_Editor.cpp */; };
+		3E89072529767CA900B17F7F /* Sound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066729767CA800B17F7F /* Sound.cpp */; };
+		3E89072629767CA900B17F7F /* GLRenderStates.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066B29767CA800B17F7F /* GLRenderStates.cpp */; };
+		3E89072729767CA900B17F7F /* PintDLCylinderShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89066E29767CA800B17F7F /* PintDLCylinderShapeRenderer.cpp */; };
+		3E89072829767CA900B17F7F /* GLPointRenderer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067329767CA800B17F7F /* GLPointRenderer2.cpp */; };
+		3E89072929767CA900B17F7F /* PintEngineData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067529767CA800B17F7F /* PintEngineData.cpp */; };
+		3E89072A29767CA900B17F7F /* GLScaledCylinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067629767CA800B17F7F /* GLScaledCylinder.cpp */; };
+		3E89072B29767CA900B17F7F /* RoundCorners.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067829767CA800B17F7F /* RoundCorners.cpp */; };
+		3E89072C29767CA900B17F7F /* GLFontRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067929767CA800B17F7F /* GLFontRenderer.cpp */; };
+		3E89072D29767CA900B17F7F /* TestScenes_Vehicles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067A29767CA900B17F7F /* TestScenes_Vehicles.cpp */; };
+		3E89072E29767CA900B17F7F /* TestScenes_ContactGeneration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067B29767CA900B17F7F /* TestScenes_ContactGeneration.cpp */; };
+		3E89072F29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067C29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp */; };
+		3E89073029767CA900B17F7F /* ScreenQuad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067D29767CA900B17F7F /* ScreenQuad.cpp */; };
+		3E89073129767CA900B17F7F /* ToolCreateJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067E29767CA900B17F7F /* ToolCreateJoint.cpp */; };
+		3E89073229767CA900B17F7F /* SimpleShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89067F29767CA900B17F7F /* SimpleShader.cpp */; };
+		3E89073329767CA900B17F7F /* TestSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89068129767CA900B17F7F /* TestSelector.cpp */; };
+		3E89073429767CA900B17F7F /* PintDLSphereShapeRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89068329767CA900B17F7F /* PintDLSphereShapeRenderer.cpp */; };
+		3E89073529767CA900B17F7F /* TestScenes_Midphase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89068829767CA900B17F7F /* TestScenes_Midphase.cpp */; };
+		3E89073629767CA900B17F7F /* PintRenderState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89068929767CA900B17F7F /* PintRenderState.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +198,332 @@
 /* Begin PBXFileReference section */
 		3E890531297669D900B17F7F /* Peel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Peel; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E890534297669D900B17F7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		3E89053B29767C9C00B17F7F /* ShadowMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowMap.h; sourceTree = "<group>"; };
+		3E89053C29767C9C00B17F7F /* RenderModelFFP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderModelFFP.h; sourceTree = "<group>"; };
+		3E89053D29767C9C00B17F7F /* Pint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Pint.cpp; sourceTree = "<group>"; };
+		3E89053E29767C9C00B17F7F /* TestScenes_Heightfield.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Heightfield.cpp; sourceTree = "<group>"; };
+		3E89053F29767C9D00B17F7F /* TestScenes_Performance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Performance.cpp; sourceTree = "<group>"; };
+		3E89054029767C9D00B17F7F /* ToolInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolInterface.h; sourceTree = "<group>"; };
+		3E89054129767C9D00B17F7F /* TestNVD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestNVD.h; sourceTree = "<group>"; };
+		3E89054229767C9D00B17F7F /* PEEL_Threads.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PEEL_Threads.cpp; sourceTree = "<group>"; };
+		3E89054329767C9D00B17F7F /* RaytracingWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaytracingWindow.cpp; sourceTree = "<group>"; };
+		3E89054429767C9D00B17F7F /* RenderModelMatcap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderModelMatcap.cpp; sourceTree = "<group>"; };
+		3E89054529767C9D00B17F7F /* ToolTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTexture.h; sourceTree = "<group>"; };
+		3E89054629767C9D00B17F7F /* GUI_RenderInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_RenderInterface.h; sourceTree = "<group>"; };
+		3E89054729767C9D00B17F7F /* PintRenderPass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintRenderPass.h; sourceTree = "<group>"; };
+		3E89054829767C9D00B17F7F /* TitleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleWindow.h; sourceTree = "<group>"; };
+		3E89054929767C9D00B17F7F /* Pint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pint.h; sourceTree = "<group>"; };
+		3E89054B29767C9D00B17F7F /* PintGLMeshShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintGLMeshShapeRenderer.h; sourceTree = "<group>"; };
+		3E89054C29767C9D00B17F7F /* FlatShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatShader.h; sourceTree = "<group>"; };
+		3E89054D29767C9D00B17F7F /* ToolRayBased.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolRayBased.h; sourceTree = "<group>"; };
+		3E89054E29767C9D00B17F7F /* PEEL_Threads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEEL_Threads.h; sourceTree = "<group>"; };
+		3E89054F29767C9D00B17F7F /* PintColorShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintColorShapeRenderer.h; sourceTree = "<group>"; };
+		3E89055029767C9D00B17F7F /* PintDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDef.h; sourceTree = "<group>"; };
+		3E89055129767C9D00B17F7F /* GUI_ActorSelection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_ActorSelection.h; sourceTree = "<group>"; };
+		3E89055229767C9D00B17F7F /* ProceduralTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProceduralTrack.h; sourceTree = "<group>"; };
+		3E89055329767C9D00B17F7F /* TerrainStreamingUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainStreamingUI.h; sourceTree = "<group>"; };
+		3E89055429767C9D00B17F7F /* PintDLConvexShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLConvexShapeRenderer.h; sourceTree = "<group>"; };
+		3E89055529767C9D00B17F7F /* Voronoi2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voronoi2D.h; sourceTree = "<group>"; };
+		3E89055629767C9D00B17F7F /* Plugins.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plugins.cpp; sourceTree = "<group>"; };
+		3E89055729767C9D00B17F7F /* GLPointRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLPointRenderer.cpp; sourceTree = "<group>"; };
+		3E89055829767C9D00B17F7F /* TestScenes_Joints_WIP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Joints_WIP.cpp; sourceTree = "<group>"; };
+		3E89055929767C9D00B17F7F /* GLConvexRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConvexRenderer.h; sourceTree = "<group>"; };
+		3E89055A29767C9D00B17F7F /* ToolTerrainEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTerrainEditor.h; sourceTree = "<group>"; };
+		3E89055B29767C9D00B17F7F /* ToolTransform.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolTransform.cpp; sourceTree = "<group>"; };
+		3E89055C29767C9D00B17F7F /* TestScenes_Cooking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Cooking.cpp; sourceTree = "<group>"; };
+		3E89055D29767C9E00B17F7F /* TestScenes_Import.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Import.cpp; sourceTree = "<group>"; };
+		3E89055E29767C9E00B17F7F /* ConvexHull2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConvexHull2D.cpp; sourceTree = "<group>"; };
+		3E89055F29767C9E00B17F7F /* PintGUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintGUIHelper.h; sourceTree = "<group>"; };
+		3E89056129767C9E00B17F7F /* RenderModelFFP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderModelFFP.cpp; sourceTree = "<group>"; };
+		3E89056229767C9E00B17F7F /* TestScenes_VehiclesBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_VehiclesBase.cpp; sourceTree = "<group>"; };
+		3E89056329767C9E00B17F7F /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		3E89056429767C9E00B17F7F /* TextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureManager.h; sourceTree = "<group>"; };
+		3E89056529767C9E00B17F7F /* MeshCleaner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MeshCleaner.cpp; sourceTree = "<group>"; };
+		3E89056629767C9E00B17F7F /* PintNullRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintNullRenderer.h; sourceTree = "<group>"; };
+		3E89056729767C9E00B17F7F /* ZB2Export.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZB2Export.h; sourceTree = "<group>"; };
+		3E89056829767C9E00B17F7F /* GUI_CompoundEdit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_CompoundEdit.cpp; sourceTree = "<group>"; };
+		3E89056929767C9E00B17F7F /* GLVSync.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLVSync.cpp; sourceTree = "<group>"; };
+		3E89056A29767C9E00B17F7F /* TestScenes_Sweep.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Sweep.cpp; sourceTree = "<group>"; };
+		3E89056B29767C9E00B17F7F /* GLFontData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFontData.h; sourceTree = "<group>"; };
+		3E89056C29767C9E00B17F7F /* GLRenderStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRenderStates.h; sourceTree = "<group>"; };
+		3E89056D29767C9E00B17F7F /* RenderModelSimpleShadows.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderModelSimpleShadows.cpp; sourceTree = "<group>"; };
+		3E89056E29767C9E00B17F7F /* ScreenQuad_BackColor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenQuad_BackColor.cpp; sourceTree = "<group>"; };
+		3E89056F29767C9E00B17F7F /* TestScenes_Joints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Joints.cpp; sourceTree = "<group>"; };
+		3E89057029767C9E00B17F7F /* ToolBullet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolBullet.cpp; sourceTree = "<group>"; };
+		3E89057129767C9E00B17F7F /* USDExport.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = USDExport.cpp; sourceTree = "<group>"; };
+		3E89057229767C9E00B17F7F /* MeshCleaner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshCleaner.h; sourceTree = "<group>"; };
+		3E89057329767C9E00B17F7F /* GLMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLMesh.cpp; sourceTree = "<group>"; };
+		3E89057429767C9E00B17F7F /* ToolShootObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolShootObject.h; sourceTree = "<group>"; };
+		3E89057629767C9E00B17F7F /* TestScenes_Undefined.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Undefined.cpp; sourceTree = "<group>"; };
+		3E89057729767C9E00B17F7F /* CameraManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CameraManager.cpp; sourceTree = "<group>"; };
+		3E89057829767C9F00B17F7F /* GLScaledCylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLScaledCylinder.h; sourceTree = "<group>"; };
+		3E89057929767C9F00B17F7F /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Common.cpp; sourceTree = "<group>"; };
+		3E89057A29767C9F00B17F7F /* ProceduralTrack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProceduralTrack.cpp; sourceTree = "<group>"; };
+		3E89057B29767C9F00B17F7F /* ControlInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ControlInterface.cpp; sourceTree = "<group>"; };
+		3E89057C29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLCapsuleShapeRenderer.h; sourceTree = "<group>"; };
+		3E89057D29767C9F00B17F7F /* PintShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89057E29767C9F00B17F7F /* RenderModelSimpleShadows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderModelSimpleShadows.h; sourceTree = "<group>"; };
+		3E89057F29767C9F00B17F7F /* Gamepad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Gamepad.cpp; sourceTree = "<group>"; };
+		3E89058029767C9F00B17F7F /* Foundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Foundation.h; sourceTree = "<group>"; };
+		3E89058129767C9F00B17F7F /* PintSQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintSQ.cpp; sourceTree = "<group>"; };
+		3E89058229767C9F00B17F7F /* TestScenes_VehiclesBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScenes_VehiclesBase.h; sourceTree = "<group>"; };
+		3E89058329767C9F00B17F7F /* ToolCreateRope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolCreateRope.cpp; sourceTree = "<group>"; };
+		3E89058429767C9F00B17F7F /* ScreenQuad_BackColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenQuad_BackColor.h; sourceTree = "<group>"; };
+		3E89058529767C9F00B17F7F /* ToolTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolTexture.cpp; sourceTree = "<group>"; };
+		3E89058629767C9F00B17F7F /* Scattering.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Scattering.cpp; sourceTree = "<group>"; };
+		3E89058729767C9F00B17F7F /* Script.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Script.cpp; sourceTree = "<group>"; };
+		3E89058829767C9F00B17F7F /* TestScenes_Overlap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Overlap.cpp; sourceTree = "<group>"; };
+		3E89058A29767C9F00B17F7F /* PintTerrainTileRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintTerrainTileRenderer.cpp; sourceTree = "<group>"; };
+		3E89058B29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLCapsuleShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89058C29767C9F00B17F7F /* TitleWindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleWindow.cpp; sourceTree = "<group>"; };
+		3E89058D29767C9F00B17F7F /* Tool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tool.cpp; sourceTree = "<group>"; };
+		3E89058E29767C9F00B17F7F /* LoopTheLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoopTheLoop.h; sourceTree = "<group>"; };
+		3E89058F29767C9F00B17F7F /* TestScenes_Kinematics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Kinematics.cpp; sourceTree = "<group>"; };
+		3E89059029767C9F00B17F7F /* ZB2Export.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZB2Export.cpp; sourceTree = "<group>"; };
+		3E89059129767C9F00B17F7F /* TestScenes_Fracture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Fracture.cpp; sourceTree = "<group>"; };
+		3E89059229767C9F00B17F7F /* Simulate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Simulate.cpp; sourceTree = "<group>"; };
+		3E89059329767C9F00B17F7F /* MinimalRegionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinimalRegionManager.h; sourceTree = "<group>"; };
+		3E89059429767C9F00B17F7F /* GLMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMesh.h; sourceTree = "<group>"; };
+		3E89059529767C9F00B17F7F /* GLPointRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPointRenderer.h; sourceTree = "<group>"; };
+		3E89059629767CA000B17F7F /* RepX_Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepX_Tools.h; sourceTree = "<group>"; };
+		3E89059729767CA000B17F7F /* PintSelectionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintSelectionManager.cpp; sourceTree = "<group>"; };
+		3E89059829767CA000B17F7F /* Loader_Rays.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader_Rays.cpp; sourceTree = "<group>"; };
+		3E89059929767CA000B17F7F /* DefaultControlInterface.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultControlInterface.cpp; sourceTree = "<group>"; };
+		3E89059A29767CA000B17F7F /* LoopTheLoop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoopTheLoop.cpp; sourceTree = "<group>"; };
+		3E89059B29767CA000B17F7F /* CameraManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraManager.h; sourceTree = "<group>"; };
+		3E89059C29767CA000B17F7F /* PEEL.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PEEL.cpp; sourceTree = "<group>"; };
+		3E89059D29767CA000B17F7F /* PintSelectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintSelectionManager.h; sourceTree = "<group>"; };
+		3E89059F29767CA000B17F7F /* GUI_JointParams.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_JointParams.cpp; sourceTree = "<group>"; };
+		3E8905A029767CA000B17F7F /* TestScenes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes.cpp; sourceTree = "<group>"; };
+		3E8905A129767CA000B17F7F /* TestScenes_Terrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Terrain.cpp; sourceTree = "<group>"; };
+		3E8905A229767CA000B17F7F /* ToolTerrainEditor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolTerrainEditor.cpp; sourceTree = "<group>"; };
+		3E8905A329767CA000B17F7F /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = resource.h; sourceTree = "<group>"; };
+		3E8905A429767CA000B17F7F /* Zcb2_RenderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Zcb2_RenderData.h; sourceTree = "<group>"; };
+		3E8905A529767CA000B17F7F /* RenderTarget.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderTarget.cpp; sourceTree = "<group>"; };
+		3E8905A629767CA000B17F7F /* PintTiming.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintTiming.cpp; sourceTree = "<group>"; };
+		3E8905A729767CA000B17F7F /* TestScenes_CCT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_CCT.cpp; sourceTree = "<group>"; };
+		3E8905A829767CA000B17F7F /* TestScenes_D6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_D6.cpp; sourceTree = "<group>"; };
+		3E8905A929767CA000B17F7F /* PintRenderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintRenderState.h; sourceTree = "<group>"; };
+		3E8905AA29767CA000B17F7F /* Script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Script.h; sourceTree = "<group>"; };
+		3E8905AB29767CA000B17F7F /* PintGUIHelper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintGUIHelper.cpp; sourceTree = "<group>"; };
+		3E8905AC29767CA000B17F7F /* ScreenQuad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenQuad.h; sourceTree = "<group>"; };
+		3E8905AD29767CA000B17F7F /* GUI_ActorEdit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_ActorEdit.cpp; sourceTree = "<group>"; };
+		3E8905AE29767CA000B17F7F /* TerrainManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerrainManager.cpp; sourceTree = "<group>"; };
+		3E8905AF29767CA000B17F7F /* GLTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLTexture.cpp; sourceTree = "<group>"; };
+		3E8905B029767CA100B17F7F /* TestScenes_MidphaseMeshMesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_MidphaseMeshMesh.cpp; sourceTree = "<group>"; };
+		3E8905B129767CA100B17F7F /* IceBunny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IceBunny.h; sourceTree = "<group>"; };
+		3E8905B229767CA100B17F7F /* RaytracingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaytracingTest.h; sourceTree = "<group>"; };
+		3E8905B329767CA100B17F7F /* Foundation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Foundation.cpp; sourceTree = "<group>"; };
+		3E8905B429767CA100B17F7F /* DefaultEnv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultEnv.h; sourceTree = "<group>"; };
+		3E8905B529767CA100B17F7F /* Loader_RepX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader_RepX.h; sourceTree = "<group>"; };
+		3E8905B629767CA100B17F7F /* TestScenes_Bulldozer_WIP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Bulldozer_WIP.cpp; sourceTree = "<group>"; };
+		3E8905B729767CA100B17F7F /* GUI_EditBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_EditBox.cpp; sourceTree = "<group>"; };
+		3E8905B829767CA100B17F7F /* TestScenes_MCArticulations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_MCArticulations.cpp; sourceTree = "<group>"; };
+		3E8905B929767CA100B17F7F /* GUI_PosEdit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_PosEdit.cpp; sourceTree = "<group>"; };
+		3E8905BA29767CA100B17F7F /* GUI_ActorSelection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_ActorSelection.cpp; sourceTree = "<group>"; };
+		3E8905BB29767CA100B17F7F /* Plugins.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plugins.h; sourceTree = "<group>"; };
+		3E8905BC29767CA100B17F7F /* PEEL_Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEEL_Settings.h; sourceTree = "<group>"; };
+		3E8905BD29767CA100B17F7F /* TestScenes_Cylinders.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Cylinders.cpp; sourceTree = "<group>"; };
+		3E8905BE29767CA100B17F7F /* ToolPicking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolPicking.cpp; sourceTree = "<group>"; };
+		3E8905BF29767CA100B17F7F /* ICE_To_PX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICE_To_PX.h; sourceTree = "<group>"; };
+		3E8905C029767CA100B17F7F /* SimpleShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleShader.h; sourceTree = "<group>"; };
+		3E8905C129767CA100B17F7F /* ToolRotate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolRotate.cpp; sourceTree = "<group>"; };
+		3E8905C229767CA100B17F7F /* Streaming.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Streaming.cpp; sourceTree = "<group>"; };
+		3E8905C429767CA100B17F7F /* GLVSync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVSync.h; sourceTree = "<group>"; };
+		3E8905C529767CA100B17F7F /* Loader_ShapeProfile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader_ShapeProfile.cpp; sourceTree = "<group>"; };
+		3E8905C629767CA100B17F7F /* RevolutionShape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RevolutionShape.cpp; sourceTree = "<group>"; };
+		3E8905C729767CA100B17F7F /* FrameBufferObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameBufferObject.h; sourceTree = "<group>"; };
+		3E8905C829767CA100B17F7F /* RepX_Tools.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RepX_Tools.cpp; sourceTree = "<group>"; };
+		3E8905C929767CA200B17F7F /* TitleData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TitleData.cpp; sourceTree = "<group>"; };
+		3E8905CA29767CA200B17F7F /* PintDLMeshShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLMeshShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E8905CB29767CA200B17F7F /* PintEngineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintEngineData.h; sourceTree = "<group>"; };
+		3E8905CC29767CA200B17F7F /* CustomICEAllocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CustomICEAllocator.cpp; sourceTree = "<group>"; };
+		3E8905CD29767CA200B17F7F /* SupportFile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SupportFile.cpp; sourceTree = "<group>"; };
+		3E8905CE29767CA200B17F7F /* GLShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLShader.cpp; sourceTree = "<group>"; };
+		3E8905CF29767CA200B17F7F /* PintPointSpriteSphereShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintPointSpriteSphereShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E8905D029767CA200B17F7F /* RenderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderModel.h; sourceTree = "<group>"; };
+		3E8905D129767CA200B17F7F /* Terrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Terrain.cpp; sourceTree = "<group>"; };
+		3E8905D229767CA200B17F7F /* DefaultControlInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultControlInterface.h; sourceTree = "<group>"; };
+		3E8905D329767CA200B17F7F /* PintTerrainTileRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintTerrainTileRenderer.h; sourceTree = "<group>"; };
+		3E8905D429767CA200B17F7F /* PintDLBoxShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLBoxShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E8905D629767CA200B17F7F /* Devil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Devil.cpp; sourceTree = "<group>"; };
+		3E8905D729767CA200B17F7F /* RoundCorners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundCorners.h; sourceTree = "<group>"; };
+		3E8905D829767CA200B17F7F /* TerrainRegionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerrainRegionManager.cpp; sourceTree = "<group>"; };
+		3E8905D929767CA200B17F7F /* TerrainRegionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainRegionManager.h; sourceTree = "<group>"; };
+		3E8905DA29767CA200B17F7F /* TestScenes_API.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_API.cpp; sourceTree = "<group>"; };
+		3E8905DB29767CA200B17F7F /* TestScenes_Portals.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Portals.cpp; sourceTree = "<group>"; };
+		3E8905DC29767CA200B17F7F /* PintDLShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLShapeRenderer.h; sourceTree = "<group>"; };
+		3E8905DD29767CA200B17F7F /* GLShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLShader.h; sourceTree = "<group>"; };
+		3E8905DE29767CA200B17F7F /* ShadowShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadowShader.cpp; sourceTree = "<group>"; };
+		3E8905DF29767CA200B17F7F /* ToolObjectCreate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolObjectCreate.cpp; sourceTree = "<group>"; };
+		3E8905E029767CA200B17F7F /* ToolTranslate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolTranslate.cpp; sourceTree = "<group>"; };
+		3E8905E129767CA200B17F7F /* Zcb2_RenderData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Zcb2_RenderData.cpp; sourceTree = "<group>"; };
+		3E8905E229767CA200B17F7F /* PEEL_MenuBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PEEL_MenuBar.cpp; sourceTree = "<group>"; };
+		3E8905E329767CA200B17F7F /* ToolCreateRope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCreateRope.h; sourceTree = "<group>"; };
+		3E8905E429767CA300B17F7F /* ToolRayBased.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolRayBased.cpp; sourceTree = "<group>"; };
+		3E8905E629767CA300B17F7F /* PintTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintTiming.h; sourceTree = "<group>"; };
+		3E8905E729767CA300B17F7F /* RaytracingTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RaytracingTest.cpp; sourceTree = "<group>"; };
+		3E8905E829767CA300B17F7F /* PintConvexInstanceShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintConvexInstanceShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E8905E929767CA300B17F7F /* TerrainStreamingUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TerrainStreamingUI.cpp; sourceTree = "<group>"; };
+		3E8905EA29767CA300B17F7F /* PintColorShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintColorShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E8905EB29767CA300B17F7F /* PintObjectsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintObjectsManager.h; sourceTree = "<group>"; };
+		3E8905EC29767CA300B17F7F /* ToolShootObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolShootObject.cpp; sourceTree = "<group>"; };
+		3E8905ED29767CA300B17F7F /* CRC32.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CRC32.cpp; sourceTree = "<group>"; };
+		3E8905EE29767CA300B17F7F /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		3E8905EF29767CA300B17F7F /* RevolutionShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevolutionShape.h; sourceTree = "<group>"; };
+		3E8905F029767CA300B17F7F /* GUI_Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_Helpers.h; sourceTree = "<group>"; };
+		3E8905F129767CA300B17F7F /* GUI_CompoundEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_CompoundEdit.h; sourceTree = "<group>"; };
+		3E8905F229767CA300B17F7F /* Scattering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scattering.h; sourceTree = "<group>"; };
+		3E8905F329767CA300B17F7F /* GLRenderHelpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLRenderHelpers.cpp; sourceTree = "<group>"; };
+		3E8905F429767CA300B17F7F /* MatcapShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatcapShader.cpp; sourceTree = "<group>"; };
+		3E8905F529767CA300B17F7F /* MatcapShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatcapShader.h; sourceTree = "<group>"; };
+		3E8905F629767CA300B17F7F /* PintSurfaceInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintSurfaceInterface.h; sourceTree = "<group>"; };
+		3E8905F729767CA300B17F7F /* CustomICEAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomICEAllocator.h; sourceTree = "<group>"; };
+		3E8905F829767CA300B17F7F /* Loader_Rays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader_Rays.h; sourceTree = "<group>"; };
+		3E8905F929767CA300B17F7F /* GUI_EditBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_EditBox.h; sourceTree = "<group>"; };
+		3E8905FA29767CA300B17F7F /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		3E8905FB29767CA300B17F7F /* TestScenesHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScenesHelpers.h; sourceTree = "<group>"; };
+		3E8905FC29767CA300B17F7F /* TextureManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextureManager.cpp; sourceTree = "<group>"; };
+		3E8905FD29767CA300B17F7F /* SupportFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportFile.h; sourceTree = "<group>"; };
+		3E8905FE29767CA400B17F7F /* PhysicsData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsData.cpp; sourceTree = "<group>"; };
+		3E8905FF29767CA400B17F7F /* Terrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Terrain.h; sourceTree = "<group>"; };
+		3E89060029767CA400B17F7F /* TerrainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainManager.h; sourceTree = "<group>"; };
+		3E89060129767CA400B17F7F /* TestScenes_RCArticulations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_RCArticulations.cpp; sourceTree = "<group>"; };
+		3E89060229767CA400B17F7F /* GUI_JointEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_JointEdit.h; sourceTree = "<group>"; };
+		3E89060329767CA400B17F7F /* TestSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestSelector.h; sourceTree = "<group>"; };
+		3E89060429767CA400B17F7F /* RenderModelSimpleShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderModelSimpleShader.cpp; sourceTree = "<group>"; };
+		3E89060529767CA400B17F7F /* PintObjectsManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintObjectsManager.cpp; sourceTree = "<group>"; };
+		3E89060629767CA400B17F7F /* Sphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sphere.cpp; sourceTree = "<group>"; };
+		3E89060729767CA400B17F7F /* TestScenesHelpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenesHelpers.cpp; sourceTree = "<group>"; };
+		3E89060829767CA400B17F7F /* ScreenQuad_ColorGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenQuad_ColorGradient.h; sourceTree = "<group>"; };
+		3E89060929767CA400B17F7F /* Cylinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cylinder.h; sourceTree = "<group>"; };
+		3E89060A29767CA400B17F7F /* GLRenderHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLRenderHelpers.h; sourceTree = "<group>"; };
+		3E89060B29767CA400B17F7F /* Shader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shader.h; sourceTree = "<group>"; };
+		3E89060C29767CA400B17F7F /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
+		3E89060D29767CA400B17F7F /* GUI_ImportCollada.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_ImportCollada.cpp; sourceTree = "<group>"; };
+		3E89060E29767CA400B17F7F /* TestScenes_BasicJoints.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_BasicJoints.cpp; sourceTree = "<group>"; };
+		3E89060F29767CA400B17F7F /* DisplayTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DisplayTexture.cpp; sourceTree = "<group>"; };
+		3E89061029767CA400B17F7F /* Loader_Bin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader_Bin.cpp; sourceTree = "<group>"; };
+		3E89061129767CA400B17F7F /* Voronoi2D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Voronoi2D.cpp; sourceTree = "<group>"; };
+		3E89061229767CA400B17F7F /* CRC32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRC32.h; sourceTree = "<group>"; };
+		3E89061329767CA400B17F7F /* ShadowShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowShader.h; sourceTree = "<group>"; };
+		3E89061429767CA400B17F7F /* PintRender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintRender.cpp; sourceTree = "<group>"; };
+		3E89061529767CA400B17F7F /* USDExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = USDExport.h; sourceTree = "<group>"; };
+		3E89061629767CA400B17F7F /* PintDLShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89061729767CA500B17F7F /* Starter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Starter.cpp; sourceTree = "<group>"; };
+		3E89061829767CA500B17F7F /* TestScenes_Articulations.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Articulations.cpp; sourceTree = "<group>"; };
+		3E89061929767CA500B17F7F /* PintVisibilityManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintVisibilityManager.cpp; sourceTree = "<group>"; };
+		3E89061A29767CA500B17F7F /* TrashCache.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrashCache.cpp; sourceTree = "<group>"; };
+		3E89061B29767CA500B17F7F /* PintConvexInstanceShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintConvexInstanceShapeRenderer.h; sourceTree = "<group>"; };
+		3E89061C29767CA500B17F7F /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		3E89061D29767CA500B17F7F /* Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		3E89061E29767CA500B17F7F /* PEEL_MenuBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEEL_MenuBar.h; sourceTree = "<group>"; };
+		3E89061F29767CA500B17F7F /* SurfaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceManager.h; sourceTree = "<group>"; };
+		3E89062029767CA500B17F7F /* QPCTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = QPCTime.cpp; sourceTree = "<group>"; };
+		3E89062129767CA500B17F7F /* GUI_PosEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_PosEdit.h; sourceTree = "<group>"; };
+		3E89062229767CA500B17F7F /* IceBunny.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IceBunny.cpp; sourceTree = "<group>"; };
+		3E89062329767CA500B17F7F /* MyConvex.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyConvex.cpp; sourceTree = "<group>"; };
+		3E89062429767CA500B17F7F /* TestScenes_StaticScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_StaticScene.cpp; sourceTree = "<group>"; };
+		3E89062529767CA500B17F7F /* GLPointRenderer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLPointRenderer2.h; sourceTree = "<group>"; };
+		3E89062629767CA500B17F7F /* GUI_JointEdit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_JointEdit.cpp; sourceTree = "<group>"; };
+		3E89062729767CA500B17F7F /* Loader_ShapeProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader_ShapeProfile.h; sourceTree = "<group>"; };
+		3E89062829767CA500B17F7F /* PintDLBoxShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLBoxShapeRenderer.h; sourceTree = "<group>"; };
+		3E89062929767CA500B17F7F /* TestScenes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScenes.h; sourceTree = "<group>"; };
+		3E89062A29767CA500B17F7F /* SurfaceManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SurfaceManager.cpp; sourceTree = "<group>"; };
+		3E89062B29767CA500B17F7F /* GLFontRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFontRenderer.h; sourceTree = "<group>"; };
+		3E89062C29767CA500B17F7F /* Loader_Obj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader_Obj.h; sourceTree = "<group>"; };
+		3E89062D29767CA500B17F7F /* GLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLTexture.h; sourceTree = "<group>"; };
+		3E89062E29767CA500B17F7F /* RenderModelMatcap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderModelMatcap.h; sourceTree = "<group>"; };
+		3E89062F29767CA500B17F7F /* Grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
+		3E89063029767CA600B17F7F /* ToolTranslate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTranslate.h; sourceTree = "<group>"; };
+		3E89063129767CA600B17F7F /* PINT_Editor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_Editor.h; sourceTree = "<group>"; };
+		3E89063229767CA600B17F7F /* ZB2Import.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ZB2Import.cpp; sourceTree = "<group>"; };
+		3E89063329767CA600B17F7F /* DefaultEnv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DefaultEnv.cpp; sourceTree = "<group>"; };
+		3E89063429767CA600B17F7F /* PintShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintShapeRenderer.h; sourceTree = "<group>"; };
+		3E89063529767CA600B17F7F /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		3E89063629767CA600B17F7F /* MinimalRegionManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MinimalRegionManager.cpp; sourceTree = "<group>"; };
+		3E89063729767CA600B17F7F /* TestScenes_Raycast.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Raycast.cpp; sourceTree = "<group>"; };
+		3E89063829767CA600B17F7F /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		3E89063929767CA600B17F7F /* GLConvexRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLConvexRenderer.cpp; sourceTree = "<group>"; };
+		3E89063A29767CA600B17F7F /* ToolBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolBullet.h; sourceTree = "<group>"; };
+		3E89063C29767CA600B17F7F /* RenderModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderModel.cpp; sourceTree = "<group>"; };
+		3E89063D29767CA600B17F7F /* PhysicsData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsData.h; sourceTree = "<group>"; };
+		3E89063E29767CA600B17F7F /* Loader_RepX.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader_RepX.cpp; sourceTree = "<group>"; };
+		3E89063F29767CA600B17F7F /* ProgressBar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ProgressBar.cpp; sourceTree = "<group>"; };
+		3E89064029767CA600B17F7F /* ToolCreateJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolCreateJoint.h; sourceTree = "<group>"; };
+		3E89064129767CA600B17F7F /* ScreenQuad_ColorSphere.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenQuad_ColorSphere.cpp; sourceTree = "<group>"; };
+		3E89064229767CA600B17F7F /* TestNVD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestNVD.cpp; sourceTree = "<group>"; };
+		3E89064329767CA600B17F7F /* MyConvex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyConvex.h; sourceTree = "<group>"; };
+		3E89064429767CA600B17F7F /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		3E89064529767CA600B17F7F /* TestScenes_Behavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Behavior.cpp; sourceTree = "<group>"; };
+		3E89064629767CA600B17F7F /* ProgressBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressBar.h; sourceTree = "<group>"; };
+		3E89064729767CA600B17F7F /* SourceRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceRay.h; sourceTree = "<group>"; };
+		3E89064829767CA600B17F7F /* GUI_ImportCollada.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_ImportCollada.h; sourceTree = "<group>"; };
+		3E89064929767CA700B17F7F /* GUI_ActorEdit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_ActorEdit.h; sourceTree = "<group>"; };
+		3E89064A29767CA700B17F7F /* Devil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Devil.h; sourceTree = "<group>"; };
+		3E89064B29767CA700B17F7F /* TestScenes_CCD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_CCD.cpp; sourceTree = "<group>"; };
+		3E89064C29767CA700B17F7F /* ToolPicking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolPicking.h; sourceTree = "<group>"; };
+		3E89064D29767CA700B17F7F /* ZB2Import.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZB2Import.h; sourceTree = "<group>"; };
+		3E89064E29767CA700B17F7F /* PintDLCylinderShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLCylinderShapeRenderer.h; sourceTree = "<group>"; };
+		3E89064F29767CA700B17F7F /* ToolAddImpulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolAddImpulse.h; sourceTree = "<group>"; };
+		3E89065029767CA700B17F7F /* ScreenQuad_ColorSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenQuad_ColorSphere.h; sourceTree = "<group>"; };
+		3E89065129767CA700B17F7F /* PintBatchConvexShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintBatchConvexShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89065229767CA700B17F7F /* PEEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEEL.h; sourceTree = "<group>"; };
+		3E89065329767CA700B17F7F /* Loader_Obj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Loader_Obj.cpp; sourceTree = "<group>"; };
+		3E89065429767CA700B17F7F /* Cylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cylinder.cpp; sourceTree = "<group>"; };
+		3E89065529767CA700B17F7F /* GUI_JointParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI_JointParams.h; sourceTree = "<group>"; };
+		3E89065629767CA700B17F7F /* PintPointSpriteSphereShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintPointSpriteSphereShapeRenderer.h; sourceTree = "<group>"; };
+		3E89065729767CA700B17F7F /* ControlInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlInterface.h; sourceTree = "<group>"; };
+		3E89065829767CA700B17F7F /* FrameBufferObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FrameBufferObject.cpp; sourceTree = "<group>"; };
+		3E89065929767CA700B17F7F /* ToolAddImpulse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolAddImpulse.cpp; sourceTree = "<group>"; };
+		3E89065A29767CA700B17F7F /* ShadowMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShadowMap.cpp; sourceTree = "<group>"; };
+		3E89065B29767CA700B17F7F /* PintSQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintSQ.h; sourceTree = "<group>"; };
+		3E89065C29767CA700B17F7F /* FlatShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FlatShader.cpp; sourceTree = "<group>"; };
+		3E89065D29767CA700B17F7F /* Capsule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Capsule.cpp; sourceTree = "<group>"; };
+		3E89065E29767CA700B17F7F /* GUI_Helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI_Helpers.cpp; sourceTree = "<group>"; };
+		3E89065F29767CA700B17F7F /* PintDLSphereShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLSphereShapeRenderer.h; sourceTree = "<group>"; };
+		3E89066029767CA700B17F7F /* Gamepad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gamepad.h; sourceTree = "<group>"; };
+		3E89066129767CA800B17F7F /* PintDLConvexShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLConvexShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89066229767CA800B17F7F /* PintBatchConvexShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintBatchConvexShapeRenderer.h; sourceTree = "<group>"; };
+		3E89066329767CA800B17F7F /* ToolTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolTransform.h; sourceTree = "<group>"; };
+		3E89066429767CA800B17F7F /* PintGLMeshShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintGLMeshShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89066529767CA800B17F7F /* QPCTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QPCTime.h; sourceTree = "<group>"; };
+		3E89066629767CA800B17F7F /* PINT_Editor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_Editor.cpp; sourceTree = "<group>"; };
+		3E89066729767CA800B17F7F /* Sound.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sound.cpp; sourceTree = "<group>"; };
+		3E89066829767CA800B17F7F /* TrashCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrashCache.h; sourceTree = "<group>"; };
+		3E89066929767CA800B17F7F /* Profiling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profiling.h; sourceTree = "<group>"; };
+		3E89066A29767CA800B17F7F /* targetver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetver.h; sourceTree = "<group>"; };
+		3E89066B29767CA800B17F7F /* GLRenderStates.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLRenderStates.cpp; sourceTree = "<group>"; };
+		3E89066C29767CA800B17F7F /* TestScenes_Heightfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScenes_Heightfield.h; sourceTree = "<group>"; };
+		3E89066D29767CA800B17F7F /* PintDLMeshShapeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintDLMeshShapeRenderer.h; sourceTree = "<group>"; };
+		3E89066E29767CA800B17F7F /* PintDLCylinderShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLCylinderShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89066F29767CA800B17F7F /* PintVisibilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintVisibilityManager.h; sourceTree = "<group>"; };
+		3E89067029767CA800B17F7F /* ToolObjectCreate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolObjectCreate.h; sourceTree = "<group>"; };
+		3E89067129767CA800B17F7F /* RaytracingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaytracingWindow.h; sourceTree = "<group>"; };
+		3E89067229767CA800B17F7F /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		3E89067329767CA800B17F7F /* GLPointRenderer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLPointRenderer2.cpp; sourceTree = "<group>"; };
+		3E89067429767CA800B17F7F /* RenderTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderTarget.h; sourceTree = "<group>"; };
+		3E89067529767CA800B17F7F /* PintEngineData.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintEngineData.cpp; sourceTree = "<group>"; };
+		3E89067629767CA800B17F7F /* GLScaledCylinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLScaledCylinder.cpp; sourceTree = "<group>"; };
+		3E89067729767CA800B17F7F /* Loader_Bin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader_Bin.h; sourceTree = "<group>"; };
+		3E89067829767CA800B17F7F /* RoundCorners.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RoundCorners.cpp; sourceTree = "<group>"; };
+		3E89067929767CA800B17F7F /* GLFontRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GLFontRenderer.cpp; sourceTree = "<group>"; };
+		3E89067A29767CA900B17F7F /* TestScenes_Vehicles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Vehicles.cpp; sourceTree = "<group>"; };
+		3E89067B29767CA900B17F7F /* TestScenes_ContactGeneration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_ContactGeneration.cpp; sourceTree = "<group>"; };
+		3E89067C29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenQuad_ColorGradient.cpp; sourceTree = "<group>"; };
+		3E89067D29767CA900B17F7F /* ScreenQuad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScreenQuad.cpp; sourceTree = "<group>"; };
+		3E89067E29767CA900B17F7F /* ToolCreateJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ToolCreateJoint.cpp; sourceTree = "<group>"; };
+		3E89067F29767CA900B17F7F /* SimpleShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleShader.cpp; sourceTree = "<group>"; };
+		3E89068029767CA900B17F7F /* RenderModelSimpleShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderModelSimpleShader.h; sourceTree = "<group>"; };
+		3E89068129767CA900B17F7F /* TestSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestSelector.cpp; sourceTree = "<group>"; };
+		3E89068229767CA900B17F7F /* PintRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PintRender.h; sourceTree = "<group>"; };
+		3E89068329767CA900B17F7F /* PintDLSphereShapeRenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintDLSphereShapeRenderer.cpp; sourceTree = "<group>"; };
+		3E89068429767CA900B17F7F /* DisplayTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayTexture.h; sourceTree = "<group>"; };
+		3E89068529767CA900B17F7F /* ToolRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToolRotate.h; sourceTree = "<group>"; };
+		3E89068629767CA900B17F7F /* Capsule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Capsule.h; sourceTree = "<group>"; };
+		3E89068729767CA900B17F7F /* Streaming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Streaming.h; sourceTree = "<group>"; };
+		3E89068829767CA900B17F7F /* TestScenes_Midphase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestScenes_Midphase.cpp; sourceTree = "<group>"; };
+		3E89068929767CA900B17F7F /* PintRenderState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PintRenderState.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +556,343 @@
 		3E890533297669D900B17F7F /* Peel */ = {
 			isa = PBXGroup;
 			children = (
+				3E89060C29767CA400B17F7F /* Camera.h */,
+				3E89061C29767CA500B17F7F /* Camera.cpp */,
+				3E89059B29767CA000B17F7F /* CameraManager.h */,
+				3E89057729767C9E00B17F7F /* CameraManager.cpp */,
+				3E89068629767CA900B17F7F /* Capsule.h */,
+				3E89065D29767CA700B17F7F /* Capsule.cpp */,
+				3E89073729767D0600B17F7F /* gl */,
+				3E89057929767C9F00B17F7F /* Common.cpp */,
+				3E89064429767CA600B17F7F /* Common.h */,
+				3E89057B29767C9F00B17F7F /* ControlInterface.cpp */,
+				3E89065729767CA700B17F7F /* ControlInterface.h */,
+				3E89055E29767C9E00B17F7F /* ConvexHull2D.cpp */,
+				3E8905ED29767CA300B17F7F /* CRC32.cpp */,
+				3E89061229767CA400B17F7F /* CRC32.h */,
+				3E8905CC29767CA200B17F7F /* CustomICEAllocator.cpp */,
+				3E8905F729767CA300B17F7F /* CustomICEAllocator.h */,
+				3E89065429767CA700B17F7F /* Cylinder.cpp */,
+				3E89060929767CA400B17F7F /* Cylinder.h */,
+				3E89059929767CA000B17F7F /* DefaultControlInterface.cpp */,
+				3E8905D229767CA200B17F7F /* DefaultControlInterface.h */,
+				3E89063329767CA600B17F7F /* DefaultEnv.cpp */,
+				3E8905B429767CA100B17F7F /* DefaultEnv.h */,
+				3E8905D629767CA200B17F7F /* Devil.cpp */,
+				3E89064A29767CA700B17F7F /* Devil.h */,
+				3E89060F29767CA400B17F7F /* DisplayTexture.cpp */,
+				3E89068429767CA900B17F7F /* DisplayTexture.h */,
+				3E89065C29767CA700B17F7F /* FlatShader.cpp */,
+				3E89054C29767C9D00B17F7F /* FlatShader.h */,
+				3E8905B329767CA100B17F7F /* Foundation.cpp */,
+				3E89058029767C9F00B17F7F /* Foundation.h */,
+				3E89065829767CA700B17F7F /* FrameBufferObject.cpp */,
+				3E8905C729767CA100B17F7F /* FrameBufferObject.h */,
+				3E89057F29767C9F00B17F7F /* Gamepad.cpp */,
+				3E89066029767CA700B17F7F /* Gamepad.h */,
+				3E89062F29767CA500B17F7F /* Grid.cpp */,
+				3E89063829767CA600B17F7F /* Grid.h */,
+				3E8905AD29767CA000B17F7F /* GUI_ActorEdit.cpp */,
+				3E89064929767CA700B17F7F /* GUI_ActorEdit.h */,
+				3E8905BA29767CA100B17F7F /* GUI_ActorSelection.cpp */,
+				3E89055129767C9D00B17F7F /* GUI_ActorSelection.h */,
+				3E89056829767C9E00B17F7F /* GUI_CompoundEdit.cpp */,
+				3E8905F129767CA300B17F7F /* GUI_CompoundEdit.h */,
+				3E8905B729767CA100B17F7F /* GUI_EditBox.cpp */,
+				3E8905F929767CA300B17F7F /* GUI_EditBox.h */,
+				3E89065E29767CA700B17F7F /* GUI_Helpers.cpp */,
+				3E8905F029767CA300B17F7F /* GUI_Helpers.h */,
+				3E89060D29767CA400B17F7F /* GUI_ImportCollada.cpp */,
+				3E89064829767CA600B17F7F /* GUI_ImportCollada.h */,
+				3E89062629767CA500B17F7F /* GUI_JointEdit.cpp */,
+				3E89060229767CA400B17F7F /* GUI_JointEdit.h */,
+				3E89059F29767CA000B17F7F /* GUI_JointParams.cpp */,
+				3E89065529767CA700B17F7F /* GUI_JointParams.h */,
+				3E8905B929767CA100B17F7F /* GUI_PosEdit.cpp */,
+				3E89062129767CA500B17F7F /* GUI_PosEdit.h */,
+				3E89054629767C9D00B17F7F /* GUI_RenderInterface.h */,
+				3E8905BF29767CA100B17F7F /* ICE_To_PX.h */,
+				3E89062229767CA500B17F7F /* IceBunny.cpp */,
+				3E8905B129767CA100B17F7F /* IceBunny.h */,
+				3E89061029767CA400B17F7F /* Loader_Bin.cpp */,
+				3E89067729767CA800B17F7F /* Loader_Bin.h */,
+				3E89065329767CA700B17F7F /* Loader_Obj.cpp */,
+				3E89062C29767CA500B17F7F /* Loader_Obj.h */,
+				3E89059829767CA000B17F7F /* Loader_Rays.cpp */,
+				3E8905F829767CA300B17F7F /* Loader_Rays.h */,
+				3E89063E29767CA600B17F7F /* Loader_RepX.cpp */,
+				3E8905B529767CA100B17F7F /* Loader_RepX.h */,
+				3E8905C529767CA100B17F7F /* Loader_ShapeProfile.cpp */,
+				3E89062729767CA500B17F7F /* Loader_ShapeProfile.h */,
+				3E89059A29767CA000B17F7F /* LoopTheLoop.cpp */,
+				3E89058E29767C9F00B17F7F /* LoopTheLoop.h */,
+				3E8905F429767CA300B17F7F /* MatcapShader.cpp */,
+				3E8905F529767CA300B17F7F /* MatcapShader.h */,
+				3E89056529767C9E00B17F7F /* MeshCleaner.cpp */,
+				3E89057229767C9E00B17F7F /* MeshCleaner.h */,
+				3E89063629767CA600B17F7F /* MinimalRegionManager.cpp */,
+				3E89059329767C9F00B17F7F /* MinimalRegionManager.h */,
+				3E89062329767CA500B17F7F /* MyConvex.cpp */,
+				3E89064329767CA600B17F7F /* MyConvex.h */,
+				3E8905E229767CA200B17F7F /* PEEL_MenuBar.cpp */,
+				3E89061E29767CA500B17F7F /* PEEL_MenuBar.h */,
+				3E8905BC29767CA100B17F7F /* PEEL_Settings.h */,
+				3E89054229767C9D00B17F7F /* PEEL_Threads.cpp */,
+				3E89054E29767C9D00B17F7F /* PEEL_Threads.h */,
+				3E89059C29767CA000B17F7F /* PEEL.cpp */,
+				3E89065229767CA700B17F7F /* PEEL.h */,
+				3E8905FE29767CA400B17F7F /* PhysicsData.cpp */,
+				3E89063D29767CA600B17F7F /* PhysicsData.h */,
+				3E89066629767CA800B17F7F /* PINT_Editor.cpp */,
+				3E89063129767CA600B17F7F /* PINT_Editor.h */,
+				3E89053D29767C9C00B17F7F /* Pint.cpp */,
+				3E89054929767C9D00B17F7F /* Pint.h */,
+				3E89065129767CA700B17F7F /* PintBatchConvexShapeRenderer.cpp */,
+				3E89066229767CA800B17F7F /* PintBatchConvexShapeRenderer.h */,
+				3E8905EA29767CA300B17F7F /* PintColorShapeRenderer.cpp */,
+				3E89054F29767C9D00B17F7F /* PintColorShapeRenderer.h */,
+				3E8905E829767CA300B17F7F /* PintConvexInstanceShapeRenderer.cpp */,
+				3E89061B29767CA500B17F7F /* PintConvexInstanceShapeRenderer.h */,
+				3E89055029767C9D00B17F7F /* PintDef.h */,
+				3E8905D429767CA200B17F7F /* PintDLBoxShapeRenderer.cpp */,
+				3E89062829767CA500B17F7F /* PintDLBoxShapeRenderer.h */,
+				3E89058B29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.cpp */,
+				3E89057C29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.h */,
+				3E89066129767CA800B17F7F /* PintDLConvexShapeRenderer.cpp */,
+				3E89055429767C9D00B17F7F /* PintDLConvexShapeRenderer.h */,
+				3E89066E29767CA800B17F7F /* PintDLCylinderShapeRenderer.cpp */,
+				3E89064E29767CA700B17F7F /* PintDLCylinderShapeRenderer.h */,
+				3E8905CA29767CA200B17F7F /* PintDLMeshShapeRenderer.cpp */,
+				3E89066D29767CA800B17F7F /* PintDLMeshShapeRenderer.h */,
+				3E89061629767CA400B17F7F /* PintDLShapeRenderer.cpp */,
+				3E8905DC29767CA200B17F7F /* PintDLShapeRenderer.h */,
+				3E89068329767CA900B17F7F /* PintDLSphereShapeRenderer.cpp */,
+				3E89065F29767CA700B17F7F /* PintDLSphereShapeRenderer.h */,
+				3E89067529767CA800B17F7F /* PintEngineData.cpp */,
+				3E8905CB29767CA200B17F7F /* PintEngineData.h */,
+				3E89066429767CA800B17F7F /* PintGLMeshShapeRenderer.cpp */,
+				3E89054B29767C9D00B17F7F /* PintGLMeshShapeRenderer.h */,
+				3E8905AB29767CA000B17F7F /* PintGUIHelper.cpp */,
+				3E89055F29767C9E00B17F7F /* PintGUIHelper.h */,
+				3E89056629767C9E00B17F7F /* PintNullRenderer.h */,
+				3E89060529767CA400B17F7F /* PintObjectsManager.cpp */,
+				3E8905EB29767CA300B17F7F /* PintObjectsManager.h */,
+				3E8905CF29767CA200B17F7F /* PintPointSpriteSphereShapeRenderer.cpp */,
+				3E89065629767CA700B17F7F /* PintPointSpriteSphereShapeRenderer.h */,
+				3E89061429767CA400B17F7F /* PintRender.cpp */,
+				3E89068229767CA900B17F7F /* PintRender.h */,
+				3E89054729767C9D00B17F7F /* PintRenderPass.h */,
+				3E89068929767CA900B17F7F /* PintRenderState.cpp */,
+				3E8905A929767CA000B17F7F /* PintRenderState.h */,
+				3E89059729767CA000B17F7F /* PintSelectionManager.cpp */,
+				3E89059D29767CA000B17F7F /* PintSelectionManager.h */,
+				3E89057D29767C9F00B17F7F /* PintShapeRenderer.cpp */,
+				3E89063429767CA600B17F7F /* PintShapeRenderer.h */,
+				3E89058129767C9F00B17F7F /* PintSQ.cpp */,
+				3E89065B29767CA700B17F7F /* PintSQ.h */,
+				3E8905F629767CA300B17F7F /* PintSurfaceInterface.h */,
+				3E89058A29767C9F00B17F7F /* PintTerrainTileRenderer.cpp */,
+				3E8905D329767CA200B17F7F /* PintTerrainTileRenderer.h */,
+				3E8905A629767CA000B17F7F /* PintTiming.cpp */,
+				3E8905E629767CA300B17F7F /* PintTiming.h */,
+				3E89061929767CA500B17F7F /* PintVisibilityManager.cpp */,
+				3E89066F29767CA800B17F7F /* PintVisibilityManager.h */,
+				3E89055629767C9D00B17F7F /* Plugins.cpp */,
+				3E8905BB29767CA100B17F7F /* Plugins.h */,
+				3E89057A29767C9F00B17F7F /* ProceduralTrack.cpp */,
+				3E89055229767C9D00B17F7F /* ProceduralTrack.h */,
+				3E89066929767CA800B17F7F /* Profiling.h */,
+				3E89063F29767CA600B17F7F /* ProgressBar.cpp */,
+				3E89064629767CA600B17F7F /* ProgressBar.h */,
+				3E89062029767CA500B17F7F /* QPCTime.cpp */,
+				3E89066529767CA800B17F7F /* QPCTime.h */,
+				3E8905E729767CA300B17F7F /* RaytracingTest.cpp */,
+				3E8905B229767CA100B17F7F /* RaytracingTest.h */,
+				3E89054329767C9D00B17F7F /* RaytracingWindow.cpp */,
+				3E89067129767CA800B17F7F /* RaytracingWindow.h */,
+				3E89063C29767CA600B17F7F /* RenderModel.cpp */,
+				3E8905D029767CA200B17F7F /* RenderModel.h */,
+				3E89056129767C9E00B17F7F /* RenderModelFFP.cpp */,
+				3E89053C29767C9C00B17F7F /* RenderModelFFP.h */,
+				3E89054429767C9D00B17F7F /* RenderModelMatcap.cpp */,
+				3E89062E29767CA500B17F7F /* RenderModelMatcap.h */,
+				3E89060429767CA400B17F7F /* RenderModelSimpleShader.cpp */,
+				3E89068029767CA900B17F7F /* RenderModelSimpleShader.h */,
+				3E89056D29767C9E00B17F7F /* RenderModelSimpleShadows.cpp */,
+				3E89057E29767C9F00B17F7F /* RenderModelSimpleShadows.h */,
+				3E8905A529767CA000B17F7F /* RenderTarget.cpp */,
+				3E89067429767CA800B17F7F /* RenderTarget.h */,
+				3E8905C829767CA100B17F7F /* RepX_Tools.cpp */,
+				3E89059629767CA000B17F7F /* RepX_Tools.h */,
+				3E8905A329767CA000B17F7F /* resource.h */,
+				3E8905C629767CA100B17F7F /* RevolutionShape.cpp */,
+				3E8905EF29767CA300B17F7F /* RevolutionShape.h */,
+				3E89067829767CA800B17F7F /* RoundCorners.cpp */,
+				3E8905D729767CA200B17F7F /* RoundCorners.h */,
+				3E89058629767C9F00B17F7F /* Scattering.cpp */,
+				3E8905F229767CA300B17F7F /* Scattering.h */,
+				3E89056E29767C9E00B17F7F /* ScreenQuad_BackColor.cpp */,
+				3E89058429767C9F00B17F7F /* ScreenQuad_BackColor.h */,
+				3E89067C29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp */,
+				3E89060829767CA400B17F7F /* ScreenQuad_ColorGradient.h */,
+				3E89064129767CA600B17F7F /* ScreenQuad_ColorSphere.cpp */,
+				3E89065029767CA700B17F7F /* ScreenQuad_ColorSphere.h */,
+				3E89067D29767CA900B17F7F /* ScreenQuad.cpp */,
+				3E8905AC29767CA000B17F7F /* ScreenQuad.h */,
+				3E89058729767C9F00B17F7F /* Script.cpp */,
+				3E8905AA29767CA000B17F7F /* Script.h */,
+				3E8905FA29767CA300B17F7F /* Shader.cpp */,
+				3E89060B29767CA400B17F7F /* Shader.h */,
+				3E89065A29767CA700B17F7F /* ShadowMap.cpp */,
+				3E89053B29767C9C00B17F7F /* ShadowMap.h */,
+				3E8905DE29767CA200B17F7F /* ShadowShader.cpp */,
+				3E89061329767CA400B17F7F /* ShadowShader.h */,
+				3E89067F29767CA900B17F7F /* SimpleShader.cpp */,
+				3E8905C029767CA100B17F7F /* SimpleShader.h */,
+				3E89059229767C9F00B17F7F /* Simulate.cpp */,
+				3E89066729767CA800B17F7F /* Sound.cpp */,
+				3E89063529767CA600B17F7F /* Sound.h */,
+				3E89064729767CA600B17F7F /* SourceRay.h */,
+				3E89060629767CA400B17F7F /* Sphere.cpp */,
+				3E8905EE29767CA300B17F7F /* Sphere.h */,
+				3E89061729767CA500B17F7F /* Starter.cpp */,
+				3E89056329767C9E00B17F7F /* stdafx.cpp */,
+				3E89067229767CA800B17F7F /* stdafx.h */,
+				3E8905C229767CA100B17F7F /* Streaming.cpp */,
+				3E89068729767CA900B17F7F /* Streaming.h */,
+				3E8905CD29767CA200B17F7F /* SupportFile.cpp */,
+				3E8905FD29767CA300B17F7F /* SupportFile.h */,
+				3E89062A29767CA500B17F7F /* SurfaceManager.cpp */,
+				3E89061F29767CA500B17F7F /* SurfaceManager.h */,
+				3E89066A29767CA800B17F7F /* targetver.h */,
+				3E8905D129767CA200B17F7F /* Terrain.cpp */,
+				3E8905FF29767CA400B17F7F /* Terrain.h */,
+				3E8905AE29767CA000B17F7F /* TerrainManager.cpp */,
+				3E89060029767CA400B17F7F /* TerrainManager.h */,
+				3E8905D829767CA200B17F7F /* TerrainRegionManager.cpp */,
+				3E8905D929767CA200B17F7F /* TerrainRegionManager.h */,
+				3E8905E929767CA300B17F7F /* TerrainStreamingUI.cpp */,
+				3E89055329767C9D00B17F7F /* TerrainStreamingUI.h */,
+				3E89064229767CA600B17F7F /* TestNVD.cpp */,
+				3E89054129767C9D00B17F7F /* TestNVD.h */,
+				3E8905DA29767CA200B17F7F /* TestScenes_API.cpp */,
+				3E89061829767CA500B17F7F /* TestScenes_Articulations.cpp */,
+				3E89060E29767CA400B17F7F /* TestScenes_BasicJoints.cpp */,
+				3E89064529767CA600B17F7F /* TestScenes_Behavior.cpp */,
+				3E8905B629767CA100B17F7F /* TestScenes_Bulldozer_WIP.cpp */,
+				3E89064B29767CA700B17F7F /* TestScenes_CCD.cpp */,
+				3E8905A729767CA000B17F7F /* TestScenes_CCT.cpp */,
+				3E89067B29767CA900B17F7F /* TestScenes_ContactGeneration.cpp */,
+				3E89055C29767C9D00B17F7F /* TestScenes_Cooking.cpp */,
+				3E8905BD29767CA100B17F7F /* TestScenes_Cylinders.cpp */,
+				3E8905A829767CA000B17F7F /* TestScenes_D6.cpp */,
+				3E89059129767C9F00B17F7F /* TestScenes_Fracture.cpp */,
+				3E89053E29767C9C00B17F7F /* TestScenes_Heightfield.cpp */,
+				3E89066C29767CA800B17F7F /* TestScenes_Heightfield.h */,
+				3E89055D29767C9E00B17F7F /* TestScenes_Import.cpp */,
+				3E89055829767C9D00B17F7F /* TestScenes_Joints_WIP.cpp */,
+				3E89056F29767C9E00B17F7F /* TestScenes_Joints.cpp */,
+				3E89058F29767C9F00B17F7F /* TestScenes_Kinematics.cpp */,
+				3E8905B829767CA100B17F7F /* TestScenes_MCArticulations.cpp */,
+				3E89068829767CA900B17F7F /* TestScenes_Midphase.cpp */,
+				3E8905B029767CA100B17F7F /* TestScenes_MidphaseMeshMesh.cpp */,
+				3E89058829767C9F00B17F7F /* TestScenes_Overlap.cpp */,
+				3E89053F29767C9D00B17F7F /* TestScenes_Performance.cpp */,
+				3E8905DB29767CA200B17F7F /* TestScenes_Portals.cpp */,
+				3E89063729767CA600B17F7F /* TestScenes_Raycast.cpp */,
+				3E89060129767CA400B17F7F /* TestScenes_RCArticulations.cpp */,
+				3E89062429767CA500B17F7F /* TestScenes_StaticScene.cpp */,
+				3E89056A29767C9E00B17F7F /* TestScenes_Sweep.cpp */,
+				3E8905A129767CA000B17F7F /* TestScenes_Terrain.cpp */,
+				3E89057629767C9E00B17F7F /* TestScenes_Undefined.cpp */,
+				3E89067A29767CA900B17F7F /* TestScenes_Vehicles.cpp */,
+				3E89056229767C9E00B17F7F /* TestScenes_VehiclesBase.cpp */,
+				3E89058229767C9F00B17F7F /* TestScenes_VehiclesBase.h */,
+				3E8905A029767CA000B17F7F /* TestScenes.cpp */,
+				3E89062929767CA500B17F7F /* TestScenes.h */,
+				3E89060729767CA400B17F7F /* TestScenesHelpers.cpp */,
+				3E8905FB29767CA300B17F7F /* TestScenesHelpers.h */,
+				3E89068129767CA900B17F7F /* TestSelector.cpp */,
+				3E89060329767CA400B17F7F /* TestSelector.h */,
+				3E8905FC29767CA300B17F7F /* TextureManager.cpp */,
+				3E89056429767C9E00B17F7F /* TextureManager.h */,
+				3E8905C929767CA200B17F7F /* TitleData.cpp */,
+				3E89058C29767C9F00B17F7F /* TitleWindow.cpp */,
+				3E89054829767C9D00B17F7F /* TitleWindow.h */,
+				3E89058D29767C9F00B17F7F /* Tool.cpp */,
+				3E89061D29767CA500B17F7F /* Tool.h */,
+				3E89065929767CA700B17F7F /* ToolAddImpulse.cpp */,
+				3E89064F29767CA700B17F7F /* ToolAddImpulse.h */,
+				3E89057029767C9E00B17F7F /* ToolBullet.cpp */,
+				3E89063A29767CA600B17F7F /* ToolBullet.h */,
+				3E89067E29767CA900B17F7F /* ToolCreateJoint.cpp */,
+				3E89064029767CA600B17F7F /* ToolCreateJoint.h */,
+				3E89058329767C9F00B17F7F /* ToolCreateRope.cpp */,
+				3E8905E329767CA200B17F7F /* ToolCreateRope.h */,
+				3E89054029767C9D00B17F7F /* ToolInterface.h */,
+				3E8905DF29767CA200B17F7F /* ToolObjectCreate.cpp */,
+				3E89067029767CA800B17F7F /* ToolObjectCreate.h */,
+				3E8905BE29767CA100B17F7F /* ToolPicking.cpp */,
+				3E89064C29767CA700B17F7F /* ToolPicking.h */,
+				3E8905E429767CA300B17F7F /* ToolRayBased.cpp */,
+				3E89054D29767C9D00B17F7F /* ToolRayBased.h */,
+				3E8905C129767CA100B17F7F /* ToolRotate.cpp */,
+				3E89068529767CA900B17F7F /* ToolRotate.h */,
+				3E8905EC29767CA300B17F7F /* ToolShootObject.cpp */,
+				3E89057429767C9E00B17F7F /* ToolShootObject.h */,
+				3E8905A229767CA000B17F7F /* ToolTerrainEditor.cpp */,
+				3E89055A29767C9D00B17F7F /* ToolTerrainEditor.h */,
+				3E89058529767C9F00B17F7F /* ToolTexture.cpp */,
+				3E89054529767C9D00B17F7F /* ToolTexture.h */,
+				3E89055B29767C9D00B17F7F /* ToolTransform.cpp */,
+				3E89066329767CA800B17F7F /* ToolTransform.h */,
+				3E8905E029767CA200B17F7F /* ToolTranslate.cpp */,
+				3E89063029767CA600B17F7F /* ToolTranslate.h */,
+				3E89061A29767CA500B17F7F /* TrashCache.cpp */,
+				3E89066829767CA800B17F7F /* TrashCache.h */,
+				3E89057129767C9E00B17F7F /* USDExport.cpp */,
+				3E89061529767CA400B17F7F /* USDExport.h */,
+				3E89061129767CA400B17F7F /* Voronoi2D.cpp */,
+				3E89055529767C9D00B17F7F /* Voronoi2D.h */,
+				3E89059029767C9F00B17F7F /* ZB2Export.cpp */,
+				3E89056729767C9E00B17F7F /* ZB2Export.h */,
+				3E89063229767CA600B17F7F /* ZB2Import.cpp */,
+				3E89064D29767CA700B17F7F /* ZB2Import.h */,
+				3E8905E129767CA200B17F7F /* Zcb2_RenderData.cpp */,
+				3E8905A429767CA000B17F7F /* Zcb2_RenderData.h */,
 				3E890534297669D900B17F7F /* main.cpp */,
 			);
 			path = Peel;
+			sourceTree = "<group>";
+		};
+		3E89073729767D0600B17F7F /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				3E89063929767CA600B17F7F /* GLConvexRenderer.cpp */,
+				3E89055929767C9D00B17F7F /* GLConvexRenderer.h */,
+				3E89056B29767C9E00B17F7F /* GLFontData.h */,
+				3E89067929767CA800B17F7F /* GLFontRenderer.cpp */,
+				3E89062B29767CA500B17F7F /* GLFontRenderer.h */,
+				3E89057329767C9E00B17F7F /* GLMesh.cpp */,
+				3E89059429767C9F00B17F7F /* GLMesh.h */,
+				3E89055729767C9D00B17F7F /* GLPointRenderer.cpp */,
+				3E89059529767C9F00B17F7F /* GLPointRenderer.h */,
+				3E89067329767CA800B17F7F /* GLPointRenderer2.cpp */,
+				3E89062529767CA500B17F7F /* GLPointRenderer2.h */,
+				3E8905F329767CA300B17F7F /* GLRenderHelpers.cpp */,
+				3E89060A29767CA400B17F7F /* GLRenderHelpers.h */,
+				3E89066B29767CA800B17F7F /* GLRenderStates.cpp */,
+				3E89056C29767C9E00B17F7F /* GLRenderStates.h */,
+				3E89067629767CA800B17F7F /* GLScaledCylinder.cpp */,
+				3E89057829767C9F00B17F7F /* GLScaledCylinder.h */,
+				3E8905CE29767CA200B17F7F /* GLShader.cpp */,
+				3E8905DD29767CA200B17F7F /* GLShader.h */,
+				3E8905AF29767CA000B17F7F /* GLTexture.cpp */,
+				3E89062D29767CA500B17F7F /* GLTexture.h */,
+				3E89056929767C9E00B17F7F /* GLVSync.cpp */,
+				3E8905C429767CA100B17F7F /* GLVSync.h */,
+			);
+			name = gl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +952,180 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E8906D429767CA900B17F7F /* Streaming.cpp in Sources */,
+				3E8906D729767CA900B17F7F /* RepX_Tools.cpp in Sources */,
+				3E8906FF29767CA900B17F7F /* PintRender.cpp in Sources */,
+				3E89070729767CA900B17F7F /* IceBunny.cpp in Sources */,
+				3E89071729767CA900B17F7F /* TestScenes_Behavior.cpp in Sources */,
+				3E8906F129767CA900B17F7F /* MatcapShader.cpp in Sources */,
+				3E8906F029767CA900B17F7F /* GLRenderHelpers.cpp in Sources */,
+				3E8906C229767CA900B17F7F /* RenderTarget.cpp in Sources */,
+				3E8906DF29767CA900B17F7F /* PintDLBoxShapeRenderer.cpp in Sources */,
+				3E8906EB29767CA900B17F7F /* PintConvexInstanceShapeRenderer.cpp in Sources */,
+				3E8906A229767CA900B17F7F /* USDExport.cpp in Sources */,
+				3E8906B829767CA900B17F7F /* Simulate.cpp in Sources */,
+				3E89068F29767CA900B17F7F /* RenderModelMatcap.cpp in Sources */,
+				3E8906C629767CA900B17F7F /* PintGUIHelper.cpp in Sources */,
+				3E8906E929767CA900B17F7F /* ToolRayBased.cpp in Sources */,
+				3E8906CF29767CA900B17F7F /* GUI_PosEdit.cpp in Sources */,
+				3E89071E29767CA900B17F7F /* ShadowMap.cpp in Sources */,
+				3E8906F329767CA900B17F7F /* TextureManager.cpp in Sources */,
+				3E8906A329767CA900B17F7F /* GLMesh.cpp in Sources */,
+				3E8906BB29767CA900B17F7F /* DefaultControlInterface.cpp in Sources */,
+				3E89069B29767CA900B17F7F /* GUI_CompoundEdit.cpp in Sources */,
+				3E8906D329767CA900B17F7F /* ToolRotate.cpp in Sources */,
+				3E8906F829767CA900B17F7F /* Sphere.cpp in Sources */,
+				3E89070E29767CA900B17F7F /* DefaultEnv.cpp in Sources */,
+				3E89069F29767CA900B17F7F /* ScreenQuad_BackColor.cpp in Sources */,
+				3E89070229767CA900B17F7F /* TestScenes_Articulations.cpp in Sources */,
+				3E89071629767CA900B17F7F /* TestNVD.cpp in Sources */,
+				3E8906CB29767CA900B17F7F /* Foundation.cpp in Sources */,
+				3E8906E729767CA900B17F7F /* Zcb2_RenderData.cpp in Sources */,
+				3E8906EF29767CA900B17F7F /* CRC32.cpp in Sources */,
+				3E89073129767CA900B17F7F /* ToolCreateJoint.cpp in Sources */,
+				3E8906E829767CA900B17F7F /* PEEL_MenuBar.cpp in Sources */,
+				3E89068A29767CA900B17F7F /* Pint.cpp in Sources */,
+				3E8906A929767CA900B17F7F /* PintShapeRenderer.cpp in Sources */,
+				3E8906BC29767CA900B17F7F /* LoopTheLoop.cpp in Sources */,
+				3E8906C129767CA900B17F7F /* ToolTerrainEditor.cpp in Sources */,
+				3E8906ED29767CA900B17F7F /* PintColorShapeRenderer.cpp in Sources */,
+				3E89070D29767CA900B17F7F /* ZB2Import.cpp in Sources */,
+				3E89073229767CA900B17F7F /* SimpleShader.cpp in Sources */,
+				3E8906B229767CA900B17F7F /* PintDLCapsuleShapeRenderer.cpp in Sources */,
+				3E89072A29767CA900B17F7F /* GLScaledCylinder.cpp in Sources */,
+				3E8906D529767CA900B17F7F /* Loader_ShapeProfile.cpp in Sources */,
+				3E8906C429767CA900B17F7F /* TestScenes_CCT.cpp in Sources */,
+				3E8906C929767CA900B17F7F /* GLTexture.cpp in Sources */,
+				3E8906C729767CA900B17F7F /* GUI_ActorEdit.cpp in Sources */,
+				3E89072F29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp in Sources */,
+				3E8906D929767CA900B17F7F /* PintDLMeshShapeRenderer.cpp in Sources */,
+				3E89070A29767CA900B17F7F /* GUI_JointEdit.cpp in Sources */,
+				3E8906EE29767CA900B17F7F /* ToolShootObject.cpp in Sources */,
+				3E8906B629767CA900B17F7F /* ZB2Export.cpp in Sources */,
+				3E8906DD29767CA900B17F7F /* PintPointSpriteSphereShapeRenderer.cpp in Sources */,
+				3E8906CD29767CA900B17F7F /* GUI_EditBox.cpp in Sources */,
+				3E89070429767CA900B17F7F /* TrashCache.cpp in Sources */,
+				3E8906AA29767CA900B17F7F /* Gamepad.cpp in Sources */,
+				3E8906DB29767CA900B17F7F /* SupportFile.cpp in Sources */,
+				3E8906AB29767CA900B17F7F /* PintSQ.cpp in Sources */,
+				3E8906C829767CA900B17F7F /* TerrainManager.cpp in Sources */,
+				3E8906FA29767CA900B17F7F /* GUI_ImportCollada.cpp in Sources */,
+				3E8906B129767CA900B17F7F /* PintTerrainTileRenderer.cpp in Sources */,
+				3E8906CC29767CA900B17F7F /* TestScenes_Bulldozer_WIP.cpp in Sources */,
+				3E89069E29767CA900B17F7F /* RenderModelSimpleShadows.cpp in Sources */,
+				3E8906F429767CA900B17F7F /* PhysicsData.cpp in Sources */,
+				3E8906FB29767CA900B17F7F /* TestScenes_BasicJoints.cpp in Sources */,
+				3E8906A029767CA900B17F7F /* TestScenes_Joints.cpp in Sources */,
+				3E89071529767CA900B17F7F /* ScreenQuad_ColorSphere.cpp in Sources */,
+				3E89070829767CA900B17F7F /* MyConvex.cpp in Sources */,
+				3E8906AE29767CA900B17F7F /* Scattering.cpp in Sources */,
+				3E89071D29767CA900B17F7F /* ToolAddImpulse.cpp in Sources */,
+				3E8906A629767CA900B17F7F /* Common.cpp in Sources */,
+				3E89072B29767CA900B17F7F /* RoundCorners.cpp in Sources */,
+				3E8906AF29767CA900B17F7F /* Script.cpp in Sources */,
+				3E8906D629767CA900B17F7F /* RevolutionShape.cpp in Sources */,
+				3E89068E29767CA900B17F7F /* RaytracingWindow.cpp in Sources */,
+				3E8906FD29767CA900B17F7F /* Loader_Bin.cpp in Sources */,
+				3E89068C29767CA900B17F7F /* TestScenes_Performance.cpp in Sources */,
+				3E8906CA29767CA900B17F7F /* TestScenes_MidphaseMeshMesh.cpp in Sources */,
+				3E89068D29767CA900B17F7F /* PEEL_Threads.cpp in Sources */,
+				3E8906F529767CA900B17F7F /* TestScenes_RCArticulations.cpp in Sources */,
+				3E8906E129767CA900B17F7F /* TerrainRegionManager.cpp in Sources */,
+				3E8906D229767CA900B17F7F /* ToolPicking.cpp in Sources */,
+				3E89072829767CA900B17F7F /* GLPointRenderer2.cpp in Sources */,
+				3E89073529767CA900B17F7F /* TestScenes_Midphase.cpp in Sources */,
+				3E8906DC29767CA900B17F7F /* GLShader.cpp in Sources */,
+				3E8906E029767CA900B17F7F /* Devil.cpp in Sources */,
+				3E8906EA29767CA900B17F7F /* RaytracingTest.cpp in Sources */,
+				3E89070329767CA900B17F7F /* PintVisibilityManager.cpp in Sources */,
+				3E89070B29767CA900B17F7F /* SurfaceManager.cpp in Sources */,
+				3E89071929767CA900B17F7F /* PintBatchConvexShapeRenderer.cpp in Sources */,
+				3E89071129767CA900B17F7F /* GLConvexRenderer.cpp in Sources */,
+				3E8906E529767CA900B17F7F /* ToolObjectCreate.cpp in Sources */,
+				3E8906FE29767CA900B17F7F /* Voronoi2D.cpp in Sources */,
+				3E8906BD29767CA900B17F7F /* PEEL.cpp in Sources */,
+				3E89071B29767CA900B17F7F /* Cylinder.cpp in Sources */,
+				3E89070929767CA900B17F7F /* TestScenes_StaticScene.cpp in Sources */,
+				3E8906AD29767CA900B17F7F /* ToolTexture.cpp in Sources */,
+				3E89069529767CA900B17F7F /* TestScenes_Import.cpp in Sources */,
+				3E89069429767CA900B17F7F /* TestScenes_Cooking.cpp in Sources */,
+				3E8906A729767CA900B17F7F /* ProceduralTrack.cpp in Sources */,
+				3E8906C029767CA900B17F7F /* TestScenes_Terrain.cpp in Sources */,
+				3E89070529767CA900B17F7F /* Camera.cpp in Sources */,
+				3E89072C29767CA900B17F7F /* GLFontRenderer.cpp in Sources */,
+				3E8906C329767CA900B17F7F /* PintTiming.cpp in Sources */,
+				3E89070029767CA900B17F7F /* PintDLShapeRenderer.cpp in Sources */,
 				3E890535297669D900B17F7F /* main.cpp in Sources */,
+				3E89069929767CA900B17F7F /* stdafx.cpp in Sources */,
+				3E89070C29767CA900B17F7F /* Grid.cpp in Sources */,
+				3E89069A29767CA900B17F7F /* MeshCleaner.cpp in Sources */,
+				3E8906DE29767CA900B17F7F /* Terrain.cpp in Sources */,
+				3E8906B029767CA900B17F7F /* TestScenes_Overlap.cpp in Sources */,
+				3E89069129767CA900B17F7F /* GLPointRenderer.cpp in Sources */,
+				3E89069D29767CA900B17F7F /* TestScenes_Sweep.cpp in Sources */,
+				3E8906BA29767CA900B17F7F /* Loader_Rays.cpp in Sources */,
+				3E8906DA29767CA900B17F7F /* CustomICEAllocator.cpp in Sources */,
+				3E89072029767CA900B17F7F /* Capsule.cpp in Sources */,
+				3E89070129767CA900B17F7F /* Starter.cpp in Sources */,
+				3E89071329767CA900B17F7F /* Loader_RepX.cpp in Sources */,
+				3E8906AC29767CA900B17F7F /* ToolCreateRope.cpp in Sources */,
+				3E89073029767CA900B17F7F /* ScreenQuad.cpp in Sources */,
+				3E8906A129767CA900B17F7F /* ToolBullet.cpp in Sources */,
+				3E89069629767CA900B17F7F /* ConvexHull2D.cpp in Sources */,
+				3E8906D829767CA900B17F7F /* TitleData.cpp in Sources */,
+				3E8906B529767CA900B17F7F /* TestScenes_Kinematics.cpp in Sources */,
+				3E89069829767CA900B17F7F /* TestScenes_VehiclesBase.cpp in Sources */,
+				3E8906CE29767CA900B17F7F /* TestScenes_MCArticulations.cpp in Sources */,
+				3E8906A829767CA900B17F7F /* ControlInterface.cpp in Sources */,
+				3E8906E329767CA900B17F7F /* TestScenes_Portals.cpp in Sources */,
+				3E89072529767CA900B17F7F /* Sound.cpp in Sources */,
+				3E8906D129767CA900B17F7F /* TestScenes_Cylinders.cpp in Sources */,
+				3E8906E429767CA900B17F7F /* ShadowShader.cpp in Sources */,
+				3E8906E229767CA900B17F7F /* TestScenes_API.cpp in Sources */,
+				3E89069029767CA900B17F7F /* Plugins.cpp in Sources */,
+				3E8906BE29767CA900B17F7F /* GUI_JointParams.cpp in Sources */,
+				3E89071F29767CA900B17F7F /* FlatShader.cpp in Sources */,
+				3E89072629767CA900B17F7F /* GLRenderStates.cpp in Sources */,
+				3E89072729767CA900B17F7F /* PintDLCylinderShapeRenderer.cpp in Sources */,
+				3E8906F629767CA900B17F7F /* RenderModelSimpleShader.cpp in Sources */,
+				3E8906B429767CA900B17F7F /* Tool.cpp in Sources */,
+				3E89070F29767CA900B17F7F /* MinimalRegionManager.cpp in Sources */,
+				3E89072229767CA900B17F7F /* PintDLConvexShapeRenderer.cpp in Sources */,
+				3E8906BF29767CA900B17F7F /* TestScenes.cpp in Sources */,
+				3E89070629767CA900B17F7F /* QPCTime.cpp in Sources */,
+				3E8906F929767CA900B17F7F /* TestScenesHelpers.cpp in Sources */,
+				3E8906B729767CA900B17F7F /* TestScenes_Fracture.cpp in Sources */,
+				3E89069729767CA900B17F7F /* RenderModelFFP.cpp in Sources */,
+				3E89071829767CA900B17F7F /* TestScenes_CCD.cpp in Sources */,
+				3E89069229767CA900B17F7F /* TestScenes_Joints_WIP.cpp in Sources */,
+				3E89069329767CA900B17F7F /* ToolTransform.cpp in Sources */,
+				3E8906B929767CA900B17F7F /* PintSelectionManager.cpp in Sources */,
+				3E89071A29767CA900B17F7F /* Loader_Obj.cpp in Sources */,
+				3E89073329767CA900B17F7F /* TestSelector.cpp in Sources */,
+				3E8906F229767CA900B17F7F /* Shader.cpp in Sources */,
+				3E89069C29767CA900B17F7F /* GLVSync.cpp in Sources */,
+				3E89071C29767CA900B17F7F /* FrameBufferObject.cpp in Sources */,
+				3E8906FC29767CA900B17F7F /* DisplayTexture.cpp in Sources */,
+				3E89071029767CA900B17F7F /* TestScenes_Raycast.cpp in Sources */,
+				3E8906D029767CA900B17F7F /* GUI_ActorSelection.cpp in Sources */,
+				3E89072329767CA900B17F7F /* PintGLMeshShapeRenderer.cpp in Sources */,
+				3E89071229767CA900B17F7F /* RenderModel.cpp in Sources */,
+				3E8906E629767CA900B17F7F /* ToolTranslate.cpp in Sources */,
+				3E89072929767CA900B17F7F /* PintEngineData.cpp in Sources */,
+				3E8906B329767CA900B17F7F /* TitleWindow.cpp in Sources */,
+				3E89073429767CA900B17F7F /* PintDLSphereShapeRenderer.cpp in Sources */,
+				3E89068B29767CA900B17F7F /* TestScenes_Heightfield.cpp in Sources */,
+				3E89072129767CA900B17F7F /* GUI_Helpers.cpp in Sources */,
+				3E89072429767CA900B17F7F /* PINT_Editor.cpp in Sources */,
+				3E89072D29767CA900B17F7F /* TestScenes_Vehicles.cpp in Sources */,
+				3E8906EC29767CA900B17F7F /* TerrainStreamingUI.cpp in Sources */,
+				3E8906A529767CA900B17F7F /* CameraManager.cpp in Sources */,
+				3E8906A429767CA900B17F7F /* TestScenes_Undefined.cpp in Sources */,
+				3E8906F729767CA900B17F7F /* PintObjectsManager.cpp in Sources */,
+				3E89071429767CA900B17F7F /* ProgressBar.cpp in Sources */,
+				3E89072E29767CA900B17F7F /* TestScenes_ContactGeneration.cpp in Sources */,
+				3E89073629767CA900B17F7F /* PintRenderState.cpp in Sources */,
+				3E8906C529767CA900B17F7F /* TestScenes_D6.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
