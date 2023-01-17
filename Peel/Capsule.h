@@ -9,24 +9,23 @@
 #ifndef CAPSULE_H
 #define CAPSULE_H
 
-	class CapsuleMesh
-	{
-		public:
-							CapsuleMesh();
-							CapsuleMesh(udword nb_circle_pts, float radius, float half_height, bool generate_normals);
-							~CapsuleMesh();
+class CapsuleMesh {
+public:
+    CapsuleMesh();
+    CapsuleMesh(udword nb_circle_pts, float radius, float half_height, bool generate_normals);
+    ~CapsuleMesh();
 
-		void				Generate(udword nb_circle_pts, float radius, float half_height, bool generate_normals);
-		void				Reset();
+    void Generate(udword nb_circle_pts, float radius, float half_height, bool generate_normals);
+    void Reset();
 
-		Orientation			mOrientation;
-		float				mRadius;
-		float				mHalfHeight;
-		udword				mNbVerts;
-		Point*				mVerts;
-		Point*				mNormals;
-		udword				mNbTris;
-		IndexedTriangle*	mTris;
-	};
+    Orientation mOrientation;
+    float mRadius;
+    float mHalfHeight;
+    udword mNbVerts;
+    Point* mVerts;
+    Point* mNormals;
+    udword mNbTris;
+    IndexedTriangle* mTris;
+};
 
 #endif

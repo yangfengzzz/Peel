@@ -17,7 +17,7 @@
 
 cmake_minimum_required(VERSION 3.12)
 
-project(Arche-cpp)
+project(PEEL)
 
 # create output folder
 file(MAKE_DIRECTORY output)
