@@ -9,7 +9,7 @@
 #ifndef CRC32_H
 #define CRC32_H
 
-	udword ComputeCRC32_Verts(const SurfaceInterface& surface);
-	udword ComputeCRC32_Faces(const SurfaceInterface& surface);
+udword ComputeCRC32_Verts(const SurfaceInterface& surface);
+udword ComputeCRC32_Faces(const SurfaceInterface& surface);
 
 #endif

@@ -5,10 +5,9 @@
  *	Homepage: http://www.codercorner.com/blog.htm
  */
 ///////////////////////////////////////////////////////////////////////////////
-
-#include "ControlInterface.h"
-
 #include "stdafx.h"
+//
+#include "ControlInterface.h"
 
 // Check that Glut's buttons are compatible with ICE
 ICE_COMPILE_TIME_ASSERT(MBT_LEFT == 0);

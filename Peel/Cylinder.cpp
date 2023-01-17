@@ -6,10 +6,10 @@
  */
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "Cylinder.h"
-
 #include "Common.h"
 #include "stdafx.h"
+//
+#include "Cylinder.h"
 
 CylinderMesh::CylinderMesh()
     : mOrientation(ORIENTATION_XY), mRadius(0.0f), mHalfHeight(0.0f), mNbVerts(0), mVerts(null) {}

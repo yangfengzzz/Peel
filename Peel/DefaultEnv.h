@@ -9,8 +9,8 @@
 #ifndef DEFAULT_ENV_H
 #define DEFAULT_ENV_H
 
-	float	GetDefaultEnvironmentSize();
-	bool	SetupDefaultEnvironment(Pint& pint, bool enabled);
-	bool	ReleaseDefaultEnvironment(Pint& pint);
+float GetDefaultEnvironmentSize();
+bool SetupDefaultEnvironment(Pint& pint, bool enabled);
+bool ReleaseDefaultEnvironment(Pint& pint);
 
 #endif

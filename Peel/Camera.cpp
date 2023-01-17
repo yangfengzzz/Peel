@@ -5,12 +5,11 @@
  *	Homepage: http://www.codercorner.com/blog.htm
  */
 ///////////////////////////////////////////////////////////////////////////////
-
-#include "Camera.h"
-
 #include "Common.h"
-#include "GLRenderHelpers.h"
 #include "stdafx.h"
+//
+#include "Camera.h"
+#include "GLRenderHelpers.h"
 
 static Point gEye(50.0f, 50.0f, 50.0f);
 static Point gDir(-0.6f, -0.2f, -0.7f);
@@ -328,7 +327,7 @@ const Plane* GetFrustumPlanes() {
     return gFrustum.GetPlanes();
 }
 
-#include "PxTransform.h"
+#include "foundation/PxTransform.h"
 using namespace physx;
 bool gMirror = false;
 static void lookAt() {

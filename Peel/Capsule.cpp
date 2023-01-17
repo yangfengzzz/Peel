@@ -5,12 +5,12 @@
  *	Homepage: http://www.codercorner.com/blog.htm
  */
 ///////////////////////////////////////////////////////////////////////////////
-
+#include "stdafx.h"
+//
 #include "Capsule.h"
 
 #include "Common.h"
 #include "Sphere.h"
-#include "stdafx.h"
 
 CapsuleMesh::CapsuleMesh()
     : mOrientation(ORIENTATION_XY),

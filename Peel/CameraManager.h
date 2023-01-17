@@ -9,39 +9,37 @@
 #ifndef CAMERA_MANAGER_H
 #define CAMERA_MANAGER_H
 
-	struct PintRaycastData;
+struct PintRaycastData;
 
-	struct CameraData
-	{
-		CameraData() : mCurrentCameraIndex(0), mNbSceneCameras(0)	{}
-		udword			mCurrentCameraIndex;
-		udword			mNbSceneCameras;
-		PintCameraPose	mCameraPose[PINT_MAX_CAMERA_POSES];
+struct CameraData {
+    CameraData() : mCurrentCameraIndex(0), mNbSceneCameras(0) {}
+    udword mCurrentCameraIndex;
+    udword mNbSceneCameras;
+    PintCameraPose mCameraPose[PINT_MAX_CAMERA_POSES];
 
-		bool			operator == (const CameraData& other)	const;
+    bool operator==(const CameraData& other) const;
 
-		void			Init(const PINT_WORLD_CREATE& desc);
-		void			Reset();
-		void			SelectNextCamera();
-		void			SelectPreviousCamera();
-	};
+    void Init(const PINT_WORLD_CREATE& desc);
+    void Reset();
+    void SelectNextCamera();
+    void SelectPreviousCamera();
+};
 
-	class CameraManager
-	{
-		public:
-							CameraManager();
-							~CameraManager();
+class CameraManager {
+public:
+    CameraManager();
+    ~CameraManager();
 
-				bool		LoadCameraData(const char* filename);
-				void		UpdateCameraPose();
-				void		GenerateRays(PintRaycastData* rays, udword nb_rays, float max_dist);
-				void		Release();
+    bool LoadCameraData(const char* filename);
+    void UpdateCameraPose();
+    void GenerateRays(PintRaycastData* rays, udword nb_rays, float max_dist);
+    void Release();
 
-		private:
-				udword		mNbFrames;
-				udword		mNbCameraPoses;
-				Ray*		mCameraPoses;
-				bool		TryLoadCameraData(const char* filename);
-	};
+private:
+    udword mNbFrames;
+    udword mNbCameraPoses;
+    Ray* mCameraPoses;
+    bool TryLoadCameraData(const char* filename);
+};
 
 #endif

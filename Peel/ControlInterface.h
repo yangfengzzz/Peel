@@ -11,8 +11,8 @@
 
 class PintRender;
 
-namespace PEEL  // To avoid conflicts with the ICE ControlInterface class
-{
+// To avoid conflicts with the ICE ControlInterface class
+namespace PEEL {
 class ControlInterface {
 public:
     ControlInterface() {}
