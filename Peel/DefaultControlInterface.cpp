@@ -6,6 +6,8 @@
  */
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "stdafx.h"
+//
 #include "DefaultControlInterface.h"
 
 #include "Camera.h"
@@ -19,7 +21,6 @@
 #include "PintSQ.h"
 #include "PintVisibilityManager.h"
 #include "Script.h"
-#include "stdafx.h"
 #include "TestScenes.h"
 #include "Tool.h"
 #include "ToolInterface.h"

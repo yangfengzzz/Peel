@@ -7,9 +7,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+//
 #include "FlatShader.h"
-#include "PxMat44.h"
 #include "GLShader.h"
+#include "PxMat44.h"
 
 using namespace physx;
 
@@ -17,50 +18,34 @@ using namespace physx;
 
 static const char* simpleVertexProgram = "#version 130\n" STRINGIFY(
 
-void main()
-{
-	gl_Position = ftransform();
-}
-);
+        void main() { gl_Position = ftransform(); });
 
 ///////////////////////////////////////////////////////////////////////////////
 
 static const char* simpleFragmentProgram = "#version 130\n" STRINGIFY(
 
-void main()
-{
-	gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
-}
-);
+        void main() { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); });
 
 ///////////////////////////////////////////////////////////////////////////////
 
-FlatShader::FlatShader()
-{
-	for (int i = 0; i < 16; i++)
-	{
-		mCamModelView[i] = i%5 == 0 ? 1.0f : 0.0f;
-		mCamProj[i]      = i%5 == 0 ? 1.0f : 0.0f;
-	}
+FlatShader::FlatShader() {
+    for (int i = 0; i < 16; i++) {
+        mCamModelView[i] = i % 5 == 0 ? 1.0f : 0.0f;
+        mCamProj[i] = i % 5 == 0 ? 1.0f : 0.0f;
+    }
 }
 
-FlatShader::~FlatShader()
-{
+FlatShader::~FlatShader() {}
+
+bool FlatShader::Init() {
+    const char* vsProg = simpleVertexProgram;
+    const char* psProg = simpleFragmentProgram;
+    return LoadShaderCode(vsProg, psProg);
 }
 
-bool FlatShader::Init()
-{
-	const char* vsProg = simpleVertexProgram;
-	const char* psProg = simpleFragmentProgram;
-	return LoadShaderCode(vsProg, psProg);
+void FlatShader::__UpdateCamera(const float* modelView, const float* proj) {
+    for (int i = 0; i < 16; i++) {
+        mCamModelView[i] = modelView[i];
+        mCamProj[i] = proj[i];
+    }
 }
-
-void FlatShader::__UpdateCamera(const float* modelView, const float* proj)
-{
-	for (int i = 0; i < 16; i++)
-	{
-		mCamModelView[i] = modelView[i];
-		mCamProj[i] = proj[i];
-	}
-}
-

@@ -9,6 +9,6 @@
 #ifndef DISPLAY_TEXTURE_H
 #define DISPLAY_TEXTURE_H
 
-	void DisplayTexture(udword screen_width, udword screen_height);
+void DisplayTexture(udword screen_width, udword screen_height);
 
 #endif

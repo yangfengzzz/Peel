@@ -9,10 +9,10 @@
 #ifndef DEVIL_H
 #define DEVIL_H
 
-	bool	InitDevil();
-	bool	CloseDevil();
+bool InitDevil();
+bool CloseDevil();
 
-	bool	LoadWithDevil(const char* filename, Picture& pic);
-	bool	SaveWithDevil(const char* filename, const Picture& pic);
+bool LoadWithDevil(const char* filename, Picture& pic);
+bool SaveWithDevil(const char* filename, const Picture& pic);
 
 #endif

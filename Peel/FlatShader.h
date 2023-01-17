@@ -11,20 +11,19 @@
 
 #include "Shader.h"
 
-	class FlatShader : public PEEL::Shader
-	{
-						PREVENT_COPY(FlatShader)
-		public:
-						FlatShader();
-		virtual			~FlatShader();
+class FlatShader : public PEEL::Shader {
+    PREVENT_COPY(FlatShader)
+public:
+    FlatShader();
+    virtual ~FlatShader();
 
-				bool	Init();
+    bool Init();
 
-				void	__UpdateCamera(const float* modelView, const float* proj);
-		
-		private:
-				float	mCamModelView[16];
-				float	mCamProj[16];
-	};
+    void __UpdateCamera(const float* modelView, const float* proj);
+
+private:
+    float mCamModelView[16];
+    float mCamProj[16];
+};
 
 #endif
