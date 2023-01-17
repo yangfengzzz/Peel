@@ -38,7 +38,7 @@
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable : 4985) // 'symbol name': attributes not present on previous declaration
+#pragma warning(disable : 4985)  // 'symbol name': attributes not present on previous declaration
 #endif
 #include <math.h>
 #if PX_VC
@@ -46,12 +46,12 @@
 #endif
 
 #include <float.h>
+
 #include "foundation/PxIntrinsics.h"
 #include "foundation/PxSharedAssert.h"
 
 #if !PX_DOXYGEN
-namespace physx
-{
+namespace physx {
 #endif
 
 // constants
@@ -67,32 +67,28 @@ static const float PxPiDivFour = float(0.78539816339744830962);
 \brief The return value is the greater of the two specified values.
 */
 template <class T>
-PX_CUDA_CALLABLE PX_FORCE_INLINE T PxMax(T a, T b)
-{
-	return a < b ? b : a;
+PX_CUDA_CALLABLE PX_FORCE_INLINE T PxMax(T a, T b) {
+    return a < b ? b : a;
 }
 
 //! overload for float to use fsel on xbox
 template <>
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxMax(float a, float b)
-{
-	return intrinsics::selectMax(a, b);
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxMax(float a, float b) {
+    return intrinsics::selectMax(a, b);
 }
 
 /**
 \brief The return value is the lesser of the two specified values.
 */
 template <class T>
-PX_CUDA_CALLABLE PX_FORCE_INLINE T PxMin(T a, T b)
-{
-	return a < b ? a : b;
+PX_CUDA_CALLABLE PX_FORCE_INLINE T PxMin(T a, T b) {
+    return a < b ? a : b;
 }
 
 template <>
 //! overload for float to use fsel on xbox
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxMin(float a, float b)
-{
-	return intrinsics::selectMin(a, b);
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxMin(float a, float b) {
+    return intrinsics::selectMin(a, b);
 }
 
 /*
@@ -104,235 +100,144 @@ clever stuff.
 /**
 \brief abs returns the absolute value of its argument.
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAbs(float a)
-{
-	return intrinsics::abs(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAbs(float a) { return intrinsics::abs(a); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxEquals(float a, float b, float eps)
-{
-	return (PxAbs(a - b) < eps);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxEquals(float a, float b, float eps) { return (PxAbs(a - b) < eps); }
 
 /**
 \brief abs returns the absolute value of its argument.
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAbs(double a)
-{
-	return ::fabs(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAbs(double a) { return ::fabs(a); }
 
 /**
 \brief abs returns the absolute value of its argument.
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE int32_t PxAbs(int32_t a)
-{
-	return ::abs(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE int32_t PxAbs(int32_t a) { return ::abs(a); }
 
 /**
 \brief Clamps v to the range [hi,lo]
 */
 template <class T>
-PX_CUDA_CALLABLE PX_FORCE_INLINE T PxClamp(T v, T lo, T hi)
-{
-	PX_SHARED_ASSERT(lo <= hi);
-	return PxMin(hi, PxMax(lo, v));
+PX_CUDA_CALLABLE PX_FORCE_INLINE T PxClamp(T v, T lo, T hi) {
+    PX_SHARED_ASSERT(lo <= hi);
+    return PxMin(hi, PxMax(lo, v));
 }
 
 //!	\brief Square root.
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSqrt(float a)
-{
-	return intrinsics::sqrt(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSqrt(float a) { return intrinsics::sqrt(a); }
 
 //!	\brief Square root.
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxSqrt(double a)
-{
-	return ::sqrt(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxSqrt(double a) { return ::sqrt(a); }
 
 //!	\brief reciprocal square root.
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxRecipSqrt(float a)
-{
-	return intrinsics::recipSqrt(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxRecipSqrt(float a) { return intrinsics::recipSqrt(a); }
 
 //!	\brief reciprocal square root.
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxRecipSqrt(double a)
-{
-	return 1 / ::sqrt(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxRecipSqrt(double a) { return 1 / ::sqrt(a); }
 
 //! trigonometry -- all angles are in radians.
 
 //!	\brief Sine of an angle ( <b>Unit:</b> Radians )
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSin(float a)
-{
-	return intrinsics::sin(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSin(float a) { return intrinsics::sin(a); }
 
 //!	\brief Sine of an angle ( <b>Unit:</b> Radians )
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxSin(double a)
-{
-	return ::sin(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxSin(double a) { return ::sin(a); }
 
 //!	\brief Cosine of an angle (<b>Unit:</b> Radians)
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxCos(float a)
-{
-	return intrinsics::cos(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxCos(float a) { return intrinsics::cos(a); }
 
 //!	\brief Cosine of an angle (<b>Unit:</b> Radians)
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxCos(double a)
-{
-	return ::cos(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxCos(double a) { return ::cos(a); }
 
 /**
 \brief Tangent of an angle.
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxTan(float a)
-{
-	return ::tanf(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxTan(float a) { return ::tanf(a); }
 
 /**
 \brief Tangent of an angle.
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxTan(double a)
-{
-	return ::tan(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxTan(double a) { return ::tan(a); }
 
 /**
 \brief Arcsine.
 Returns angle between -PI/2 and PI/2 in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAsin(float f)
-{
-	return ::asinf(PxClamp(f, -1.0f, 1.0f));
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAsin(float f) { return ::asinf(PxClamp(f, -1.0f, 1.0f)); }
 
 /**
 \brief Arcsine.
 Returns angle between -PI/2 and PI/2 in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAsin(double f)
-{
-	return ::asin(PxClamp(f, -1.0, 1.0));
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAsin(double f) { return ::asin(PxClamp(f, -1.0, 1.0)); }
 
 /**
 \brief Arccosine.
 Returns angle between 0 and PI in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAcos(float f)
-{
-	return ::acosf(PxClamp(f, -1.0f, 1.0f));
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAcos(float f) { return ::acosf(PxClamp(f, -1.0f, 1.0f)); }
 
 /**
 \brief Arccosine.
 Returns angle between 0 and PI in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAcos(double f)
-{
-	return ::acos(PxClamp(f, -1.0, 1.0));
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAcos(double f) { return ::acos(PxClamp(f, -1.0, 1.0)); }
 
 /**
 \brief ArcTangent.
 Returns angle between -PI/2 and PI/2 in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAtan(float a)
-{
-	return ::atanf(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAtan(float a) { return ::atanf(a); }
 
 /**
 \brief ArcTangent.
 Returns angle between -PI/2 and PI/2 in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAtan(double a)
-{
-	return ::atan(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAtan(double a) { return ::atan(a); }
 
 /**
 \brief Arctangent of (x/y) with correct sign.
 Returns angle between -PI and PI in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAtan2(float x, float y)
-{
-	return ::atan2f(x, y);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxAtan2(float x, float y) { return ::atan2f(x, y); }
 
 /**
 \brief Arctangent of (x/y) with correct sign.
 Returns angle between -PI and PI in radians
 <b>Unit:</b> Radians
 */
-PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAtan2(double x, double y)
-{
-	return ::atan2(x, y);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE double PxAtan2(double x, double y) { return ::atan2(x, y); }
 
 //!	\brief returns true if the passed number is a finite floating point number as opposed to INF, NAN, etc.
-PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxIsFinite(float f)
-{
-	return intrinsics::isFinite(f);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxIsFinite(float f) { return intrinsics::isFinite(f); }
 
 //!	\brief returns true if the passed number is a finite floating point number as opposed to INF, NAN, etc.
-PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxIsFinite(double f)
-{
-	return intrinsics::isFinite(f);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE bool PxIsFinite(double f) { return intrinsics::isFinite(f); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxFloor(float a)
-{
-	return ::floorf(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxFloor(float a) { return ::floorf(a); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxExp(float a)
-{
-	return ::expf(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxExp(float a) { return ::expf(a); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxCeil(float a)
-{
-	return ::ceilf(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxCeil(float a) { return ::ceilf(a); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSign(float a)
-{
-	return physx::intrinsics::sign(a);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxSign(float a) { return physx::intrinsics::sign(a); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxPow(float x, float y)
-{
-	return ::powf(x, y);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxPow(float x, float y) { return ::powf(x, y); }
 
-PX_CUDA_CALLABLE PX_FORCE_INLINE float PxLog(float x)
-{
-	return ::logf(x);
-}
+PX_CUDA_CALLABLE PX_FORCE_INLINE float PxLog(float x) { return ::logf(x); }
 
 #if !PX_DOXYGEN
-} // namespace physx
+}  // namespace physx
 #endif
 
 /** @} */
-#endif // #ifndef PXFOUNDATION_PXMATH_H
+#endif  // #ifndef PXFOUNDATION_PXMATH_H

@@ -9,18 +9,17 @@
 #ifndef LOOP_THE_LOOP_H
 #define LOOP_THE_LOOP_H
 
-	class LoopTheLoop
-	{
-		public:
-						LoopTheLoop();
-						~LoopTheLoop();
+class LoopTheLoop {
+public:
+    LoopTheLoop();
+    ~LoopTheLoop();
 
-			bool		Generate(float radius, float width, udword nb_circle_pts, bool generate_tube);
+    bool Generate(float radius, float width, udword nb_circle_pts, bool generate_tube);
 
-			udword		mNbVerts;
-			udword		mNbTris;
-			Point*		mVerts;
-			udword*		mIndices;
-	};
+    udword mNbVerts;
+    udword mNbTris;
+    Point* mVerts;
+    udword* mIndices;
+};
 
 #endif

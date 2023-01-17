@@ -12,17 +12,21 @@
 #ifndef ICEQUAD_H
 #define ICEQUAD_H
 
-	class ICEMATHS_API Quad : public Allocateable
-	{
-		public:
-		//! Constructor
-		inline_			Quad()																		{}
-		//! Constructor
-						Quad(const Point& p0, const Point& p1, const Point& p2, const Point& p3)	{ mVerts[0]=p0; mVerts[1]=p1; mVerts[2]=p2; mVerts[3]=p3; }
-		//! Destructor
-		inline_			~Quad()																		{}
-		//! Vertices
-				Point	mVerts[4];
-	};
+class ICEMATHS_API Quad : public Allocateable {
+public:
+    //! Constructor
+    inline_ Quad() {}
+    //! Constructor
+    Quad(const Point& p0, const Point& p1, const Point& p2, const Point& p3) {
+        mVerts[0] = p0;
+        mVerts[1] = p1;
+        mVerts[2] = p2;
+        mVerts[3] = p3;
+    }
+    //! Destructor
+    inline_ ~Quad() {}
+    //! Vertices
+    Point mVerts[4];
+};
 
-#endif // ICEQUAD_H
+#endif  // ICEQUAD_H

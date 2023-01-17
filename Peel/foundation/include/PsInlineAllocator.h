@@ -32,60 +32,42 @@
 
 #include "PsUserAllocated.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 // this is used by the array class to allocate some space for a small number
 // of objects along with the metadata
 template <uint32_t N, typename BaseAllocator>
-class InlineAllocator : private BaseAllocator
-{
-  public:
-	InlineAllocator(const PxEMPTY v) : BaseAllocator(v)
-	{
-	}
+class InlineAllocator : private BaseAllocator {
+public:
+    InlineAllocator(const PxEMPTY v) : BaseAllocator(v) {}
 
-	InlineAllocator(const BaseAllocator& alloc = BaseAllocator()) : BaseAllocator(alloc), mBufferUsed(false)
-	{
-	}
+    InlineAllocator(const BaseAllocator& alloc = BaseAllocator()) : BaseAllocator(alloc), mBufferUsed(false) {}
 
-	InlineAllocator(const InlineAllocator& aloc) : BaseAllocator(aloc), mBufferUsed(false)
-	{
-	}
+    InlineAllocator(const InlineAllocator& aloc) : BaseAllocator(aloc), mBufferUsed(false) {}
 
-	void* allocate(uint32_t size, const char* filename, int line)
-	{
-		if(!mBufferUsed && size <= N)
-		{
-			mBufferUsed = true;
-			return mBuffer;
-		}
-		return BaseAllocator::allocate(size, filename, line);
-	}
+    void* allocate(uint32_t size, const char* filename, int line) {
+        if (!mBufferUsed && size <= N) {
+            mBufferUsed = true;
+            return mBuffer;
+        }
+        return BaseAllocator::allocate(size, filename, line);
+    }
 
-	void deallocate(void* ptr)
-	{
-		if(ptr == mBuffer)
-			mBufferUsed = false;
-		else
-			BaseAllocator::deallocate(ptr);
-	}
+    void deallocate(void* ptr) {
+        if (ptr == mBuffer)
+            mBufferUsed = false;
+        else
+            BaseAllocator::deallocate(ptr);
+    }
 
-	PX_FORCE_INLINE uint8_t* getInlineBuffer()
-	{
-		return mBuffer;
-	}
-	PX_FORCE_INLINE bool isBufferUsed() const
-	{
-		return mBufferUsed;
-	}
+    PX_FORCE_INLINE uint8_t* getInlineBuffer() { return mBuffer; }
+    PX_FORCE_INLINE bool isBufferUsed() const { return mBufferUsed; }
 
-  protected:
-	uint8_t mBuffer[N];
-	bool mBufferUsed;
+protected:
+    uint8_t mBuffer[N];
+    bool mBufferUsed;
 };
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSINLINEALLOCATOR_H
+#endif  // #ifndef PSFOUNDATION_PSINLINEALLOCATOR_H

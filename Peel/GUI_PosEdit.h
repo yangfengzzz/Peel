@@ -11,35 +11,34 @@
 
 #include "GUI_EditBox.h"
 
-	class EditPosWindow : public IceWindow, public EditBoxInterface
-	{
-		public:
-									EditPosWindow(const WindowDesc& desc, EditBoxInterface* owner=null);
-		virtual						~EditPosWindow();
+class EditPosWindow : public IceWindow, public EditBoxInterface {
+public:
+    EditPosWindow(const WindowDesc& desc, EditBoxInterface* owner = null);
+    virtual ~EditPosWindow();
 
-		// EditBoxInterface
-		virtual	void				ChangeNotification()	override;
-		//~EditBoxInterface
+    // EditBoxInterface
+    virtual void ChangeNotification() override;
+    //~EditBoxInterface
 
-				void				SetPos(const Point& pos);
-				Point				GetPos()	const;
+    void SetPos(const Point& pos);
+    Point GetPos() const;
 
-				void				SetEulerAngles(const Quat& rot);
-				void				GetEulerAngles(Quat& rot)	const;
+    void SetEulerAngles(const Quat& rot);
+    void GetEulerAngles(Quat& rot) const;
 
-				void				Reset();
-				void				SetEnabled(bool b);
+    void Reset();
+    void SetEnabled(bool b);
 
-				bool				SomethingChanged()	const;
-				void				ResetChangedState();
+    bool SomethingChanged() const;
+    void ResetChangedState();
 
-				EditBoxInterface*	mOwner;
-				PEEL_EditBox*		mEditBoxX;
-				PEEL_EditBox*		mEditBoxY;
-				PEEL_EditBox*		mEditBoxZ;
-		mutable	Point				mEdited;
-				bool				mHasEdit;
-				bool				mEnabled;
-	};
+    EditBoxInterface* mOwner;
+    PEEL_EditBox* mEditBoxX;
+    PEEL_EditBox* mEditBoxY;
+    PEEL_EditBox* mEditBoxZ;
+    mutable Point mEdited;
+    bool mHasEdit;
+    bool mEnabled;
+};
 
 #endif

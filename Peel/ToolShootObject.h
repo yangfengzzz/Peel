@@ -11,20 +11,19 @@
 
 #include "ToolRayBased.h"
 
-	class ToolShootObject : public ToolRayBased
-	{
-		public:
-								ToolShootObject();
-		virtual					~ToolShootObject();
+class ToolShootObject : public ToolRayBased {
+public:
+    ToolShootObject();
+    virtual ~ToolShootObject();
 
-		virtual	void			CreateUI			(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
+    virtual void CreateUI(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
 
-		virtual	void			RightDownCallback	(Pint& pint, udword pint_index);
+    virtual void RightDownCallback(Pint& pint, udword pint_index);
 
-		private:
-				ComboBoxPtr		mShapeComboBox;
+private:
+    ComboBoxPtr mShapeComboBox;
 
-				void			CreateShotObject(Pint& pint, const PINT_SHAPE_CREATE& create);
-	};
+    void CreateShotObject(Pint& pint, const PINT_SHAPE_CREATE& create);
+};
 
 #endif

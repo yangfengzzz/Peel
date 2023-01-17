@@ -12,8 +12,7 @@
 #ifndef ICEFFT_H
 #define ICEFFT_H
 
-	// Fast Fourier Transform
-	FUNCTION ICEMATHS_API void FFT(float* complex, int* extents, int dimensions, bool inverse);
+// Fast Fourier Transform
+FUNCTION ICEMATHS_API void FFT(float* complex, int* extents, int dimensions, bool inverse);
 
-#endif	// ICEFFT_H
-
+#endif  // ICEFFT_H

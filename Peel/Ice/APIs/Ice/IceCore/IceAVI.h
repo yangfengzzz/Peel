@@ -13,9 +13,9 @@
 #define ICEAVI_H
 
 #ifndef _WIN64
-	FUNCTION ICECORE_API	bool			OpenAVI(const char* filename);
-	FUNCTION ICECORE_API	const ubyte*	GrabAVIFrame(int frame);
-	FUNCTION ICECORE_API	bool			CloseAVI();
+FUNCTION ICECORE_API bool OpenAVI(const char* filename);
+FUNCTION ICECORE_API const ubyte* GrabAVIFrame(int frame);
+FUNCTION ICECORE_API bool CloseAVI();
 #endif
 
-#endif // ICEAVI_H
+#endif  // ICEAVI_H

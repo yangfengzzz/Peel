@@ -3,36 +3,31 @@
 #ifndef ICEPROGRESSBAR_H
 #define ICEPROGRESSBAR_H
 
-	enum ProgressBarType
-	{
-		PROGRESSBAR_NORMAL,
-		PROGRESSBAR_SMOOTH
-	};
+enum ProgressBarType { PROGRESSBAR_NORMAL, PROGRESSBAR_SMOOTH };
 
-	class ICEGUI_API ProgressBarDesc : public WidgetDesc
-	{
-		public:
-									ProgressBarDesc();
+class ICEGUI_API ProgressBarDesc : public WidgetDesc {
+public:
+    ProgressBarDesc();
 
-				ProgressBarType		mStyle;
-	};
+    ProgressBarType mStyle;
+};
 
-	class ICEGUI_API IceProgressBar : public IceWidget
-	{
-		public:
-									IceProgressBar(const ProgressBarDesc& desc);
-		virtual						~IceProgressBar();
+class ICEGUI_API IceProgressBar : public IceWidget {
+public:
+    IceProgressBar(const ProgressBarDesc& desc);
+    virtual ~IceProgressBar();
 
-				void				SetValue(int value);
-				void				SetTotalSteps(int steps);
+    void SetValue(int value);
+    void SetTotalSteps(int steps);
 
-				int					GetValue()		const;
-				int					GetTotalSteps()	const;
-		private:
-				int					mValue;
-				int					mSteps;
+    int GetValue() const;
+    int GetTotalSteps() const;
 
-				PREVENT_COPY(IceProgressBar);
-	};
+private:
+    int mValue;
+    int mSteps;
 
-#endif	// ICEPROGRESSBAR_H
+    PREVENT_COPY(IceProgressBar);
+};
+
+#endif  // ICEPROGRESSBAR_H

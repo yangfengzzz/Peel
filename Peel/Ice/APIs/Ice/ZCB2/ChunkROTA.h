@@ -12,14 +12,13 @@
 #ifndef CHUNKROTA_H
 #define CHUNKROTA_H
 
-	#define ROTA_VERSION	1
+#define ROTA_VERSION 1
 
-	class ZCB2_API ROTAChunk : public CTRLChunk
-	{
-		DECLARE_CHUNK(ROTAChunk, mROTACore)
+class ZCB2_API ROTAChunk : public CTRLChunk {
+    DECLARE_CHUNK(ROTAChunk, mROTACore)
 
-		DECLARE_STD_MEMBER(Speed,		float)
-		DECLARE_STD_MEMBER(Component,	AxisIndex)
-	};
+    DECLARE_STD_MEMBER(Speed, float)
+    DECLARE_STD_MEMBER(Component, AxisIndex)
+};
 
-#endif // CHUNKROTA_H
+#endif  // CHUNKROTA_H

@@ -30,22 +30,20 @@
 #ifndef PSFOUNDATION_PSWINDOWSFPU_H
 #define PSFOUNDATION_PSWINDOWSFPU_H
 
-PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard()
-{
+PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard() {
 #if !PX_ARM && !PX_A64
-	mControlWord = _mm_getcsr();
-	// set default (disable exceptions: _MM_MASK_MASK) and FTZ (_MM_FLUSH_ZERO_ON), DAZ (_MM_DENORMALS_ZERO_ON: (1<<6))
-	_mm_setcsr(_MM_MASK_MASK | _MM_FLUSH_ZERO_ON | (1 << 6));
+    mControlWord = _mm_getcsr();
+    // set default (disable exceptions: _MM_MASK_MASK) and FTZ (_MM_FLUSH_ZERO_ON), DAZ (_MM_DENORMALS_ZERO_ON: (1<<6))
+    _mm_setcsr(_MM_MASK_MASK | _MM_FLUSH_ZERO_ON | (1 << 6));
 #endif
 }
 
-PX_INLINE physx::shdfnd::SIMDGuard::~SIMDGuard()
-{
+PX_INLINE physx::shdfnd::SIMDGuard::~SIMDGuard() {
 #if !PX_ARM && !PX_A64
-	// restore control word and clear any exception flags
-	// (setting exception state flags cause exceptions on the first following fp operation)
-	_mm_setcsr(mControlWord & ~_MM_EXCEPT_MASK);
+    // restore control word and clear any exception flags
+    // (setting exception state flags cause exceptions on the first following fp operation)
+    _mm_setcsr(mControlWord & ~_MM_EXCEPT_MASK);
 #endif
 }
 
-#endif // #ifndef PSFOUNDATION_PSWINDOWSFPU_H
+#endif  // #ifndef PSFOUNDATION_PSWINDOWSFPU_H

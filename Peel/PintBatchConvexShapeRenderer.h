@@ -14,62 +14,58 @@
 #define USE_DRAW_ELEMENTS
 #define USE_BATCH_RENDER
 #ifdef USE_BATCH_RENDER
-	#define USE_CPU_TRANSFORM
+#define USE_CPU_TRANSFORM
 #endif
 
-	class PintBatchConvexShapeRenderer : public PintDLShapeRenderer
-	{
-		public:
-									PintBatchConvexShapeRenderer(udword nb_verts, const Point* verts);
-		virtual						~PintBatchConvexShapeRenderer();
+class PintBatchConvexShapeRenderer : public PintDLShapeRenderer {
+public:
+    PintBatchConvexShapeRenderer(udword nb_verts, const Point* verts);
+    virtual ~PintBatchConvexShapeRenderer();
 
-		// PintShapeRenderer
-		virtual	const char*			GetClassName()			const	override	{ return "PintBatchConvexShapeRenderer";	}
-		virtual	void				_Render(const PR& pose)	const	override;
-		//~PintShapeRenderer
+    // PintShapeRenderer
+    virtual const char* GetClassName() const override { return "PintBatchConvexShapeRenderer"; }
+    virtual void _Render(const PR& pose) const override;
+    //~PintShapeRenderer
 
-		private:
+private:
 #ifdef USE_DRAW_ELEMENTS
-		//		IndexedTriangle16*	mIndexedTris;
-				IndexedTriangle*	mIndexedTris;
-				Point*				mSrcVerts;
-				Point*				mSrcNormals;
-	#ifdef USE_CPU_TRANSFORM
-		#ifndef USE_BATCH_RENDER
-				Point*				mDstVerts;
-				Point*				mDstNormals;
-		#endif
-	#endif
-				udword				mTotalNbVerts;
-#else
-				Triangle*			mTris;
-				Triangle*			mNormals;
+    //		IndexedTriangle16*	mIndexedTris;
+    IndexedTriangle* mIndexedTris;
+    Point* mSrcVerts;
+    Point* mSrcNormals;
+#ifdef USE_CPU_TRANSFORM
+#ifndef USE_BATCH_RENDER
+    Point* mDstVerts;
+    Point* mDstNormals;
 #endif
-				udword				mTotalNbTris;
-	};
+#endif
+    udword mTotalNbVerts;
+#else
+    Triangle* mTris;
+    Triangle* mNormals;
+#endif
+    udword mTotalNbTris;
+};
 
-	class PintConvexBatchRendererCPUTransformNoNormals : public PintDLShapeRenderer
-	{
-		public:
-									PintConvexBatchRendererCPUTransformNoNormals(udword nb_verts, const Point* verts);
-		virtual						~PintConvexBatchRendererCPUTransformNoNormals();
+class PintConvexBatchRendererCPUTransformNoNormals : public PintDLShapeRenderer {
+public:
+    PintConvexBatchRendererCPUTransformNoNormals(udword nb_verts, const Point* verts);
+    virtual ~PintConvexBatchRendererCPUTransformNoNormals();
 
-		// PintShapeRenderer
-		virtual	const char*			GetClassName()			const	override	{ return "PintConvexBatchRendererCPUTransformNoNormals";	}
-		virtual	void				_Render(const PR& pose)	const	override;
-		//~PintShapeRenderer
+    // PintShapeRenderer
+    virtual const char* GetClassName() const override { return "PintConvexBatchRendererCPUTransformNoNormals"; }
+    virtual void _Render(const PR& pose) const override;
+    //~PintShapeRenderer
 
-		private:
-				IndexedTriangle*	mIndexedTris;
-				Point*				mSrcVerts;
-				udword				mNbVerts;
-				udword				mNbTris;
-	};
+private:
+    IndexedTriangle* mIndexedTris;
+    Point* mSrcVerts;
+    udword mNbVerts;
+    udword mNbTris;
+};
 
-
-
-	void	StartBatchConvexRender();
-	void	EndBatchConvexRender();
-	void	ReleaseBatchConvexRender();
+void StartBatchConvexRender();
+void EndBatchConvexRender();
+void ReleaseBatchConvexRender();
 
 #endif

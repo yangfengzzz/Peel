@@ -9,13 +9,13 @@
 #ifndef PEEL_THREADS_H
 #define PEEL_THREADS_H
 
-	void	PEEL_InitThreads();
-	void	PEEL_ReleaseThreads();
+void PEEL_InitThreads();
+void PEEL_ReleaseThreads();
 
-	typedef int (*PEEL_ThreadCallback)(void*);
+typedef int (*PEEL_ThreadCallback)(void*);
 
-	void	PEEL_AddThreadWork(udword index, PEEL_ThreadCallback callback, void* user_data);
-	void	PEEL_StartThreadWork(udword nb_threads);
-	void	PEEL_EndThreadWork(udword nb_threads);
+void PEEL_AddThreadWork(udword index, PEEL_ThreadCallback callback, void* user_data);
+void PEEL_StartThreadWork(udword nb_threads);
+void PEEL_EndThreadWork(udword nb_threads);
 
 #endif

@@ -25,24 +25,23 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #include "CctSweptCapsule.h"
+
 #include "CctCharacterController.h"
 
 using namespace physx;
 using namespace Cct;
 
-SweptCapsule::SweptCapsule()
-{
-	mType = SweptVolumeType::eCAPSULE;
-}
+SweptCapsule::SweptCapsule() { mType = SweptVolumeType::eCAPSULE; }
 
-SweptCapsule::~SweptCapsule()
-{
-}
+SweptCapsule::~SweptCapsule() {}
 
-void SweptCapsule::computeTemporalBox(const SweepTest& test, PxExtendedBounds3& box, const PxExtendedVec3& center, const PxVec3& direction) const
-{
-	Cct::computeTemporalBox(box, mRadius, mHeight, test.mUserParams.mContactOffset, test.mUserParams.mMaxJumpHeight, test.mUserParams.mUpDirection, center, direction);
+void SweptCapsule::computeTemporalBox(const SweepTest& test,
+                                      PxExtendedBounds3& box,
+                                      const PxExtendedVec3& center,
+                                      const PxVec3& direction) const {
+    Cct::computeTemporalBox(box, mRadius, mHeight, test.mUserParams.mContactOffset, test.mUserParams.mMaxJumpHeight,
+                            test.mUserParams.mUpDirection, center, direction);
 }

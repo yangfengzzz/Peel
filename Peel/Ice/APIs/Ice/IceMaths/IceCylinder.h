@@ -12,16 +12,15 @@
 #ifndef ICECYLINDER_H
 #define ICECYLINDER_H
 
-	class ICEMATHS_API Cylinder : public Allocateable
-	{
-		public:
-		//! Constructor
-		inline_					Cylinder()		{}
-		//! Destructor
-		inline_					~Cylinder()		{}
+class ICEMATHS_API Cylinder : public Allocateable {
+public:
+    //! Constructor
+    inline_ Cylinder() {}
+    //! Destructor
+    inline_ ~Cylinder() {}
 
-				float			mRadius;
-				float			mLength;
-	};
+    float mRadius;
+    float mLength;
+};
 
-#endif // ICECYLINDER_H
+#endif  // ICECYLINDER_H

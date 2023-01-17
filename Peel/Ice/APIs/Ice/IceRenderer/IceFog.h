@@ -12,29 +12,27 @@
 #ifndef ICEFOG_H
 #define ICEFOG_H
 
-	struct ICERENDERER_API PIXELFOGCREATE
-	{
-		udword		mColor;				//!< Fog color (e.g. background color)
-		FOGMODE		mMode;				//!< Fog mode
-		// Linear mode parameters
-		float		mStart;
-		float		mEnd;
-		// Exponential modes parameters
-		float		mDensity;
-	};
+struct ICERENDERER_API PIXELFOGCREATE {
+    udword mColor;  //!< Fog color (e.g. background color)
+    FOGMODE mMode;  //!< Fog mode
+    // Linear mode parameters
+    float mStart;
+    float mEnd;
+    // Exponential modes parameters
+    float mDensity;
+};
 
-	struct ICERENDERER_API VERTEXFOGCREATE : PIXELFOGCREATE
-	{
-		bool		mRangeBased;
-	};
+struct ICERENDERER_API VERTEXFOGCREATE : PIXELFOGCREATE {
+    bool mRangeBased;
+};
 
-	//! Enable pixel fog
-	FUNCTION ICERENDERER_API bool	SetPixelFog(RenderStateManager& rsm, const PIXELFOGCREATE& pfc);
+//! Enable pixel fog
+FUNCTION ICERENDERER_API bool SetPixelFog(RenderStateManager& rsm, const PIXELFOGCREATE& pfc);
 
-	//! Enable vertex fog
-	FUNCTION ICERENDERER_API bool	SetVertexFog(RenderStateManager& rsm, const VERTEXFOGCREATE& vfc);
+//! Enable vertex fog
+FUNCTION ICERENDERER_API bool SetVertexFog(RenderStateManager& rsm, const VERTEXFOGCREATE& vfc);
 
-	//! Disable fog
-	FUNCTION ICERENDERER_API bool	DisableFog(RenderStateManager& rsm);
+//! Disable fog
+FUNCTION ICERENDERER_API bool DisableFog(RenderStateManager& rsm);
 
-#endif // ICEFOG_H
+#endif  // ICEFOG_H

@@ -12,27 +12,27 @@
 #ifndef ICEHEIGHTFIELD_H
 #define ICEHEIGHTFIELD_H
 
-class ICETERRAIN_API Heightfield : public Allocateable
-	{
-		public:
-								Heightfield();
-								Heightfield(udword nb_u, udword nb_v);
-								~Heightfield();
+class ICETERRAIN_API Heightfield : public Allocateable {
+public:
+    Heightfield();
+    Heightfield(udword nb_u, udword nb_v);
+    ~Heightfield();
 
-		inline_	udword			GetNbU()		const	{ return mNbU;		}
-		inline_	udword			GetNbV()		const	{ return mNbV;		}
-		inline_	float*			GetHeights()			{ return mHeights;	}
-		inline_	const float*	GetHeights()	const	{ return mHeights;	}
+    inline_ udword GetNbU() const { return mNbU; }
+    inline_ udword GetNbV() const { return mNbV; }
+    inline_ float* GetHeights() { return mHeights; }
+    inline_ const float* GetHeights() const { return mHeights; }
 
-				bool			Clear(float value);
-				bool			Recenter();
-				bool			Invert();
+    bool Clear(float value);
+    bool Recenter();
+    bool Invert();
 
-				bool			CreatePicture(Picture& picture)	const;
-		private:
-				udword			mNbU;
-				udword			mNbV;
-				float*			mHeights;
-	};
+    bool CreatePicture(Picture& picture) const;
 
-#endif // ICEHEIGHTFIELD_H
+private:
+    udword mNbU;
+    udword mNbV;
+    float* mHeights;
+};
+
+#endif  // ICEHEIGHTFIELD_H

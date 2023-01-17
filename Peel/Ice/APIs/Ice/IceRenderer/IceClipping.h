@@ -12,16 +12,15 @@
 #ifndef ICECLIPPING_H
 #define ICECLIPPING_H
 
-	struct ICERENDERER_API ClipBox
-	{
-		float	mXMin;
-		float	mYMin;
-		float	mXMax;
-		float	mYMax;
-	};
+struct ICERENDERER_API ClipBox {
+    float mXMin;
+    float mYMin;
+    float mXMax;
+    float mYMax;
+};
 
-	ICERENDERER_API bool ClipQuad(PRT_Vertex* quad, const ClipBox& clip_box);
-	ICERENDERER_API bool ClipQuad(PRD_Vertex* quad, const ClipBox& clip_box);
-	ICERENDERER_API bool ClipQuad(PRDT_Vertex* quad, const ClipBox& clip_box);
+ICERENDERER_API bool ClipQuad(PRT_Vertex* quad, const ClipBox& clip_box);
+ICERENDERER_API bool ClipQuad(PRD_Vertex* quad, const ClipBox& clip_box);
+ICERENDERER_API bool ClipQuad(PRDT_Vertex* quad, const ClipBox& clip_box);
 
-#endif // ICECLIPPING_H
+#endif  // ICECLIPPING_H

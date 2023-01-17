@@ -25,177 +25,169 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef NP_D6JOINTCONSTRAINT_H
 #define NP_D6JOINTCONSTRAINT_H
 
 #include "extensions/PxD6Joint.h"
-
 #include "ExtJoint.h"
 #include "PsMathUtils.h"
 
-namespace physx
-{
+namespace physx {
 struct PxD6JointGeneratedValues;
-namespace Ext
-{
-	struct D6JointData : public JointData
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
+namespace Ext {
+struct D6JointData : public JointData {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
 
-		PxD6Motion::Enum		motion[6]; 
-		PxJointLinearLimit		distanceLimit;
-		PxJointLinearLimitPair	linearLimitX;
-		PxJointLinearLimitPair	linearLimitY;
-		PxJointLinearLimitPair	linearLimitZ;
-		PxJointAngularLimitPair	twistLimit;
-		PxJointLimitCone		swingLimit;
-		PxJointLimitPyramid		pyramidSwingLimit;
+    PxD6Motion::Enum motion[6];
+    PxJointLinearLimit distanceLimit;
+    PxJointLinearLimitPair linearLimitX;
+    PxJointLinearLimitPair linearLimitY;
+    PxJointLinearLimitPair linearLimitZ;
+    PxJointAngularLimitPair twistLimit;
+    PxJointLimitCone swingLimit;
+    PxJointLimitPyramid pyramidSwingLimit;
 
-		PxD6JointDrive			drive[PxD6Drive::eCOUNT];
+    PxD6JointDrive drive[PxD6Drive::eCOUNT];
 
-		PxTransform				drivePosition;
-		PxVec3					driveLinearVelocity;
-		PxVec3					driveAngularVelocity;
+    PxTransform drivePosition;
+    PxVec3 driveLinearVelocity;
+    PxVec3 driveAngularVelocity;
 
-		// derived quantities
+    // derived quantities
 
-		PxU32					locked;		// bitmap of locked DOFs
-		PxU32					limited;	// bitmap of limited DOFs
-		PxU32					driving;	// bitmap of active drives (implies driven DOFs not locked)
+    PxU32 locked;   // bitmap of locked DOFs
+    PxU32 limited;  // bitmap of limited DOFs
+    PxU32 driving;  // bitmap of active drives (implies driven DOFs not locked)
 
-		PxReal					distanceMinDist;	// distance limit minimum distance to get a good direction
+    PxReal distanceMinDist;  // distance limit minimum distance to get a good direction
 
-		// projection quantities
-		PxReal					projectionLinearTolerance;
-		PxReal					projectionAngularTolerance;
+    // projection quantities
+    PxReal projectionLinearTolerance;
+    PxReal projectionAngularTolerance;
 
-		// PT: the PxD6Motion values are now shared for both kind of linear limits, so we need
-		// an extra bool to know which one(s) should be actually used.
-		bool					mUseDistanceLimit;
-		bool					mUseNewLinearLimits;
+    // PT: the PxD6Motion values are now shared for both kind of linear limits, so we need
+    // an extra bool to know which one(s) should be actually used.
+    bool mUseDistanceLimit;
+    bool mUseNewLinearLimits;
 
-		// PT: the swing limits can now be a cone or a pyramid, so we need
-		// an extra bool to know which one(s) should be actually used.
-		bool					mUseConeLimit;
-		bool					mUsePyramidLimits;
+    // PT: the swing limits can now be a cone or a pyramid, so we need
+    // an extra bool to know which one(s) should be actually used.
+    bool mUseConeLimit;
+    bool mUsePyramidLimits;
 
-		// forestall compiler complaints about not being able to generate a constructor
-	private:
-		D6JointData(const PxJointLinearLimit& distance,
-					const PxJointLinearLimitPair& linearX,
-					const PxJointLinearLimitPair& linearY,
-					const PxJointLinearLimitPair& linearZ,
-					const PxJointAngularLimitPair& twist,
-					const PxJointLimitCone& swing,
-					const PxJointLimitPyramid& pyramid) :
-		distanceLimit		(distance),
-		linearLimitX		(linearX),
-		linearLimitY		(linearY),
-		linearLimitZ		(linearZ),
-		twistLimit			(twist),
-		swingLimit			(swing),
-		pyramidSwingLimit	(pyramid),
-		mUseDistanceLimit	(false),
-		mUseNewLinearLimits	(false),
-		mUseConeLimit		(false),
-		mUsePyramidLimits	(false)
-		{}
-	};
+    // forestall compiler complaints about not being able to generate a constructor
+private:
+    D6JointData(const PxJointLinearLimit& distance,
+                const PxJointLinearLimitPair& linearX,
+                const PxJointLinearLimitPair& linearY,
+                const PxJointLinearLimitPair& linearZ,
+                const PxJointAngularLimitPair& twist,
+                const PxJointLimitCone& swing,
+                const PxJointLimitPyramid& pyramid)
+        : distanceLimit(distance),
+          linearLimitX(linearX),
+          linearLimitY(linearY),
+          linearLimitZ(linearZ),
+          twistLimit(twist),
+          swingLimit(swing),
+          pyramidSwingLimit(pyramid),
+          mUseDistanceLimit(false),
+          mUseNewLinearLimits(false),
+          mUseConeLimit(false),
+          mUsePyramidLimits(false) {}
+};
 
-	typedef Joint<PxD6Joint, PxD6JointGeneratedValues> D6JointT;
-    
-    class D6Joint : public Joint<PxD6Joint, PxD6JointGeneratedValues>
-	{
-	public:
-// PX_SERIALIZATION
-									D6Joint(PxBaseFlags baseFlags) : D6JointT(baseFlags) {}
-		virtual		void			exportExtraData(PxSerializationContext& context);
-					void			importExtraData(PxDeserializationContext& context);
-					void			resolveReferences(PxDeserializationContext& context);
-		static		D6Joint*		createObject(PxU8*& address, PxDeserializationContext& context);
-		static		void			getBinaryMetaData(PxOutputStream& stream);
-//~PX_SERIALIZATION
+typedef Joint<PxD6Joint, PxD6JointGeneratedValues> D6JointT;
 
-		D6Joint(const PxTolerancesScale& scale, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1);
+class D6Joint : public Joint<PxD6Joint, PxD6JointGeneratedValues> {
+public:
+    // PX_SERIALIZATION
+    D6Joint(PxBaseFlags baseFlags) : D6JointT(baseFlags) {}
+    virtual void exportExtraData(PxSerializationContext& context);
+    void importExtraData(PxDeserializationContext& context);
+    void resolveReferences(PxDeserializationContext& context);
+    static D6Joint* createObject(PxU8*& address, PxDeserializationContext& context);
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
 
-		// PxD6Joint
-		virtual	void					setMotion(PxD6Axis::Enum index, PxD6Motion::Enum t);
-		virtual	PxD6Motion::Enum		getMotion(PxD6Axis::Enum index)	const;
-		virtual	PxReal					getTwistAngle()		const;
-		virtual	PxReal					getSwingYAngle()	const;
-		virtual	PxReal					getSwingZAngle()	const;
-		virtual	void					setDistanceLimit(const PxJointLinearLimit& l);
-		virtual	PxJointLinearLimit		getDistanceLimit()	const;
-		virtual void					setLinearLimit(PxD6Axis::Enum axis, const PxJointLinearLimitPair& limit);
-		virtual PxJointLinearLimitPair	getLinearLimit(PxD6Axis::Enum axis)		const;
-		virtual	void					setTwistLimit(const PxJointAngularLimitPair& l);
-		virtual	PxJointAngularLimitPair	getTwistLimit()	const;
-		virtual	void					setSwingLimit(const PxJointLimitCone& l);
-		virtual	PxJointLimitCone		getSwingLimit()	const;
-		virtual	void					setPyramidSwingLimit(const PxJointLimitPyramid& limit);
-		virtual	PxJointLimitPyramid		getPyramidSwingLimit()	const;
-		virtual	void					setDrive(PxD6Drive::Enum index, const PxD6JointDrive& d);
-		virtual	PxD6JointDrive			getDrive(PxD6Drive::Enum index)	const;
-		virtual	void					setDrivePosition(const PxTransform& pose, bool autowake = true);
-		virtual	PxTransform				getDrivePosition()	const;
-		virtual	void					setDriveVelocity(const PxVec3& linear, const PxVec3& angular, bool autowake = true);
-		virtual	void					getDriveVelocity(PxVec3& linear, PxVec3& angular)	const;															
-		virtual	void					setProjectionLinearTolerance(PxReal tolerance);
-		virtual	PxReal					getProjectionLinearTolerance()	const;
-		virtual	void					setProjectionAngularTolerance(PxReal tolerance);
-		virtual	PxReal					getProjectionAngularTolerance()	const;
-		//~PxD6Joint
+    D6Joint(const PxTolerancesScale& scale,
+            PxRigidActor* actor0,
+            const PxTransform& localFrame0,
+            PxRigidActor* actor1,
+            const PxTransform& localFrame1);
 
-		void				visualize(PxRenderBuffer& out,
-									  const void* constantBlock,
-									  const PxTransform& body0Transform,
-									  const PxTransform& body1Transform,
-									  PxReal frameScale,
-									  PxReal limitScale,
-									  PxU32 flags)					const;
+    // PxD6Joint
+    virtual void setMotion(PxD6Axis::Enum index, PxD6Motion::Enum t);
+    virtual PxD6Motion::Enum getMotion(PxD6Axis::Enum index) const;
+    virtual PxReal getTwistAngle() const;
+    virtual PxReal getSwingYAngle() const;
+    virtual PxReal getSwingZAngle() const;
+    virtual void setDistanceLimit(const PxJointLinearLimit& l);
+    virtual PxJointLinearLimit getDistanceLimit() const;
+    virtual void setLinearLimit(PxD6Axis::Enum axis, const PxJointLinearLimitPair& limit);
+    virtual PxJointLinearLimitPair getLinearLimit(PxD6Axis::Enum axis) const;
+    virtual void setTwistLimit(const PxJointAngularLimitPair& l);
+    virtual PxJointAngularLimitPair getTwistLimit() const;
+    virtual void setSwingLimit(const PxJointLimitCone& l);
+    virtual PxJointLimitCone getSwingLimit() const;
+    virtual void setPyramidSwingLimit(const PxJointLimitPyramid& limit);
+    virtual PxJointLimitPyramid getPyramidSwingLimit() const;
+    virtual void setDrive(PxD6Drive::Enum index, const PxD6JointDrive& d);
+    virtual PxD6JointDrive getDrive(PxD6Drive::Enum index) const;
+    virtual void setDrivePosition(const PxTransform& pose, bool autowake = true);
+    virtual PxTransform getDrivePosition() const;
+    virtual void setDriveVelocity(const PxVec3& linear, const PxVec3& angular, bool autowake = true);
+    virtual void getDriveVelocity(PxVec3& linear, PxVec3& angular) const;
+    virtual void setProjectionLinearTolerance(PxReal tolerance);
+    virtual PxReal getProjectionLinearTolerance() const;
+    virtual void setProjectionAngularTolerance(PxReal tolerance);
+    virtual PxReal getProjectionAngularTolerance() const;
+    //~PxD6Joint
 
-		bool				attach(PxPhysics &physics, PxRigidActor* actor0, PxRigidActor* actor1);
+    void visualize(PxRenderBuffer& out,
+                   const void* constantBlock,
+                   const PxTransform& body0Transform,
+                   const PxTransform& body1Transform,
+                   PxReal frameScale,
+                   PxReal limitScale,
+                   PxU32 flags) const;
 
-		static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
+    bool attach(PxPhysics& physics, PxRigidActor* actor0, PxRigidActor* actor1);
 
-		virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
+    static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
 
-	private:
+    virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
 
-		static PxConstraintShaderTable sShaders;
+private:
+    static PxConstraintShaderTable sShaders;
 
-		PX_FORCE_INLINE	D6JointData& data() const				
-		{	
-			return *static_cast<D6JointData*>(mData);
-		}
+    PX_FORCE_INLINE D6JointData& data() const { return *static_cast<D6JointData*>(mData); }
 
-		bool active(const PxD6Drive::Enum index) const
-		{
-			PxD6JointDrive& d = data().drive[index];
-			return d.stiffness!=0 || d.damping != 0;
-		}
+    bool active(const PxD6Drive::Enum index) const {
+        PxD6JointDrive& d = data().drive[index];
+        return d.stiffness != 0 || d.damping != 0;
+    }
 
-		void* prepareData();
+    void* prepareData();
 
-		bool	mRecomputeMotion;
-		bool	mPadding[3];	// PT: padding from prev bool
-	};
+    bool mRecomputeMotion;
+    bool mPadding[3];  // PT: padding from prev bool
+};
 
-} // namespace Ext
+}  // namespace Ext
 
-namespace Ext
-{
-	// global function to share the joint shaders with API capture	
-	extern "C" const PxConstraintShaderTable* GetD6JointShaderTable();
-}
+namespace Ext {
+// global function to share the joint shaders with API capture
+extern "C" const PxConstraintShaderTable* GetD6JointShaderTable();
+}  // namespace Ext
 
-}
+}  // namespace physx
 
 #endif

@@ -9,8 +9,8 @@
 #ifndef USD_EXPORT_H
 #define USD_EXPORT_H
 
-	class EditorPlugin;
+class EditorPlugin;
 
-	void ExportUSD(const EditorPlugin& editor, const String* filename);
+void ExportUSD(const EditorPlugin& editor, const String* filename);
 
 #endif

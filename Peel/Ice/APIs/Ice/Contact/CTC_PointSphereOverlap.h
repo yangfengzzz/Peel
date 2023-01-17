@@ -12,6 +12,6 @@
 #ifndef CTCSPHEREPOINTOVERLAP_H
 #define CTCSPHEREPOINTOVERLAP_H
 
-	CONTACT_API float SpherePoint(const Point& center, float radius, const Point& p, Point& normal);
+CONTACT_API float SpherePoint(const Point& center, float radius, const Point& p, Point& normal);
 
-#endif // CTCSPHEREPOINTOVERLAP_H
+#endif  // CTCSPHEREPOINTOVERLAP_H

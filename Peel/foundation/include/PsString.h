@@ -30,15 +30,14 @@
 #ifndef PSFOUNDATION_PSSTRING_H
 #define PSFOUNDATION_PSSTRING_H
 
-#include "foundation/PxPreprocessor.h"
-#include "foundation/PxSimpleTypes.h"
-#include "foundation/PxFoundationConfig.h"
 #include <stdarg.h>
 
-namespace physx
-{
-namespace shdfnd
-{
+#include "foundation/PxFoundationConfig.h"
+#include "foundation/PxPreprocessor.h"
+#include "foundation/PxSimpleTypes.h"
+
+namespace physx {
+namespace shdfnd {
 
 // the following functions have C99 semantics. Note that C99 requires for snprintf and vsnprintf:
 // * the resulting string is always NULL-terminated regardless of truncation.
@@ -86,6 +85,6 @@ PX_FOUNDATION_API void printFormatted(const char*, ...);
 programmer
 */
 PX_FOUNDATION_API void printString(const char*);
-}
-}
-#endif // #ifndef PSFOUNDATION_PSSTRING_H
+}  // namespace shdfnd
+}  // namespace physx
+#endif  // #ifndef PSFOUNDATION_PSSTRING_H

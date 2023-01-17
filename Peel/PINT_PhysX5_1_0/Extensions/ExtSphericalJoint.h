@@ -24,78 +24,80 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_SPHERICAL_JOINT_H
 #define EXT_SPHERICAL_JOINT_H
 
-#include "extensions/PxSphericalJoint.h"
-
-#include "ExtJoint.h"
 #include "CmUtils.h"
+#include "extensions/PxSphericalJoint.h"
+#include "ExtJoint.h"
 
-namespace physx
-{
+namespace physx {
 struct PxSphericalJointGeneratedValues;
-namespace Ext
-{
-	struct SphericalJointData: public JointData
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
-		PxJointLimitCone		limit;
+namespace Ext {
+struct SphericalJointData : public JointData {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+    PxJointLimitCone limit;
 
-		PxReal					projectionLinearTolerance;
+    PxReal projectionLinearTolerance;
 
-		PxSphericalJointFlags	jointFlags;
-	private:
-		SphericalJointData(const PxJointLimitCone& cone) : limit(cone)	{}
-	};
-    
-    typedef JointT<PxSphericalJoint, SphericalJointData, PxSphericalJointGeneratedValues> SphericalJointT;
-   
-	class SphericalJoint : public SphericalJointT
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
-	public:
-// PX_SERIALIZATION
-										SphericalJoint(PxBaseFlags baseFlags) : SphericalJointT(baseFlags) {}
-				void					resolveReferences(PxDeserializationContext& context);
-		static	SphericalJoint*			createObject(PxU8*& address, PxDeserializationContext& context)	{ return createJointObject<SphericalJoint>(address, context);	}
-		static	void					getBinaryMetaData(PxOutputStream& stream);
-//~PX_SERIALIZATION
-										SphericalJoint(const PxTolerancesScale& /*scale*/, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1);
-		// PxSphericalJoint
-		virtual	void					setLimitCone(const PxJointLimitCone &limit)	PX_OVERRIDE;
-		virtual	PxJointLimitCone		getLimitCone() const	PX_OVERRIDE;
-		virtual	void					setSphericalJointFlags(PxSphericalJointFlags flags)	PX_OVERRIDE;
-		virtual	void					setSphericalJointFlag(PxSphericalJointFlag::Enum flag, bool value)	PX_OVERRIDE;
-		virtual	PxSphericalJointFlags	getSphericalJointFlags(void) const	PX_OVERRIDE;
-		virtual	void					setProjectionLinearTolerance(PxReal distance)	PX_OVERRIDE;
-		virtual	PxReal					getProjectionLinearTolerance() const	PX_OVERRIDE;
-		virtual PxReal					getSwingYAngle() const	PX_OVERRIDE;
-		virtual PxReal					getSwingZAngle() const	PX_OVERRIDE;
-		//~PxSphericalJoint
+    PxSphericalJointFlags jointFlags;
 
-		// PxConstraintConnector
-		virtual PxConstraintSolverPrep	getPrep()	const	PX_OVERRIDE;
+private:
+    SphericalJointData(const PxJointLimitCone& cone) : limit(cone) {}
+};
+
+typedef JointT<PxSphericalJoint, SphericalJointData, PxSphericalJointGeneratedValues> SphericalJointT;
+
+class SphericalJoint : public SphericalJointT {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+public:
+    // PX_SERIALIZATION
+    SphericalJoint(PxBaseFlags baseFlags) : SphericalJointT(baseFlags) {}
+    void resolveReferences(PxDeserializationContext& context);
+    static SphericalJoint* createObject(PxU8*& address, PxDeserializationContext& context) {
+        return createJointObject<SphericalJoint>(address, context);
+    }
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
+    SphericalJoint(const PxTolerancesScale& /*scale*/,
+                   PxRigidActor* actor0,
+                   const PxTransform& localFrame0,
+                   PxRigidActor* actor1,
+                   const PxTransform& localFrame1);
+    // PxSphericalJoint
+    virtual void setLimitCone(const PxJointLimitCone& limit) PX_OVERRIDE;
+    virtual PxJointLimitCone getLimitCone() const PX_OVERRIDE;
+    virtual void setSphericalJointFlags(PxSphericalJointFlags flags) PX_OVERRIDE;
+    virtual void setSphericalJointFlag(PxSphericalJointFlag::Enum flag, bool value) PX_OVERRIDE;
+    virtual PxSphericalJointFlags getSphericalJointFlags(void) const PX_OVERRIDE;
+    virtual void setProjectionLinearTolerance(PxReal distance) PX_OVERRIDE;
+    virtual PxReal getProjectionLinearTolerance() const PX_OVERRIDE;
+    virtual PxReal getSwingYAngle() const PX_OVERRIDE;
+    virtual PxReal getSwingZAngle() const PX_OVERRIDE;
+    //~PxSphericalJoint
+
+    // PxConstraintConnector
+    virtual PxConstraintSolverPrep getPrep() const PX_OVERRIDE;
 #if PX_SUPPORT_OMNI_PVD
-		virtual void updateOmniPvdProperties() const PX_OVERRIDE;
+    virtual void updateOmniPvdProperties() const PX_OVERRIDE;
 #endif
-		//~PxConstraintConnector
-	};
+    //~PxConstraintConnector
+};
 
-} // namespace Ext
+}  // namespace Ext
 
-} // namespace physx
+}  // namespace physx
 
 #endif

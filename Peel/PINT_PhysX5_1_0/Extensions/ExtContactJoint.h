@@ -24,64 +24,65 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_CONTACT_JOINT_H
 #define EXT_CONTACT_JOINT_H
 
+#include "CmUtils.h"
 #include "common/PxTolerancesScale.h"
 #include "extensions/PxContactJoint.h"
-
 #include "ExtJoint.h"
 #include "foundation/PxUserAllocated.h"
-#include "CmUtils.h"
 
-namespace physx
-{
+namespace physx {
 struct PxContactJointGeneratedValues;
-namespace Ext
-{
-	struct ContactJointData : public JointData
-	{
-		PxVec3	contact;
-		PxVec3	normal;
-		PxReal	penetration;
-		PxReal  restitution;
-		PxReal	bounceThreshold;
-	};
+namespace Ext {
+struct ContactJointData : public JointData {
+    PxVec3 contact;
+    PxVec3 normal;
+    PxReal penetration;
+    PxReal restitution;
+    PxReal bounceThreshold;
+};
 
-	typedef JointT<PxContactJoint, ContactJointData, PxContactJointGeneratedValues> ContactJointT;
-	class ContactJoint : public ContactJointT
-	{
-	public:
-		// PX_SERIALIZATION
-										ContactJoint(PxBaseFlags baseFlags) : ContactJointT(baseFlags) {}
-				void					resolveReferences(PxDeserializationContext& context);
-		static	ContactJoint*			createObject(PxU8*& address, PxDeserializationContext& context)	{ return createJointObject<ContactJoint>(address, context);	}
-		static	void					getBinaryMetaData(PxOutputStream& stream);
-		//~PX_SERIALIZATION
-										ContactJoint(const PxTolerancesScale& scale, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1);
-		// PxContactJoint
-		virtual	PxVec3					getContact()	const	PX_OVERRIDE;
-		virtual	void					setContact(const PxVec3& contact)	PX_OVERRIDE;
-		virtual	PxVec3					getContactNormal()	const	PX_OVERRIDE;
-		virtual	void					setContactNormal(const PxVec3& normal)	PX_OVERRIDE;
-		virtual	PxReal					getPenetration()	const	PX_OVERRIDE;
-		virtual	void					setPenetration(const PxReal penetration)	PX_OVERRIDE;
-		virtual	PxReal					getRestitution()	const	PX_OVERRIDE;
-		virtual	void					setRestitution(const PxReal resititution)	PX_OVERRIDE;
-		virtual PxReal					getBounceThreshold()	const	PX_OVERRIDE;
-		virtual void					setBounceThreshold(const PxReal bounceThreshold)	PX_OVERRIDE;
-		virtual void					computeJacobians(PxJacobianRow* jacobian)	const	PX_OVERRIDE;
-		virtual PxU32					getNbJacobianRows()	const	PX_OVERRIDE;
-		//~PxContactJoint
+typedef JointT<PxContactJoint, ContactJointData, PxContactJointGeneratedValues> ContactJointT;
+class ContactJoint : public ContactJointT {
+public:
+    // PX_SERIALIZATION
+    ContactJoint(PxBaseFlags baseFlags) : ContactJointT(baseFlags) {}
+    void resolveReferences(PxDeserializationContext& context);
+    static ContactJoint* createObject(PxU8*& address, PxDeserializationContext& context) {
+        return createJointObject<ContactJoint>(address, context);
+    }
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
+    ContactJoint(const PxTolerancesScale& scale,
+                 PxRigidActor* actor0,
+                 const PxTransform& localFrame0,
+                 PxRigidActor* actor1,
+                 const PxTransform& localFrame1);
+    // PxContactJoint
+    virtual PxVec3 getContact() const PX_OVERRIDE;
+    virtual void setContact(const PxVec3& contact) PX_OVERRIDE;
+    virtual PxVec3 getContactNormal() const PX_OVERRIDE;
+    virtual void setContactNormal(const PxVec3& normal) PX_OVERRIDE;
+    virtual PxReal getPenetration() const PX_OVERRIDE;
+    virtual void setPenetration(const PxReal penetration) PX_OVERRIDE;
+    virtual PxReal getRestitution() const PX_OVERRIDE;
+    virtual void setRestitution(const PxReal resititution) PX_OVERRIDE;
+    virtual PxReal getBounceThreshold() const PX_OVERRIDE;
+    virtual void setBounceThreshold(const PxReal bounceThreshold) PX_OVERRIDE;
+    virtual void computeJacobians(PxJacobianRow* jacobian) const PX_OVERRIDE;
+    virtual PxU32 getNbJacobianRows() const PX_OVERRIDE;
+    //~PxContactJoint
 
-		// PxConstraintConnector
-		virtual PxConstraintSolverPrep	getPrep()	const	PX_OVERRIDE;
-		//~PxConstraintConnector
-	};
+    // PxConstraintConnector
+    virtual PxConstraintSolverPrep getPrep() const PX_OVERRIDE;
+    //~PxConstraintConnector
+};
 
-} // namespace Ext
+}  // namespace Ext
 
-} // namespace physx
+}  // namespace physx
 #endif

@@ -39,8 +39,7 @@
 #include "foundation/PxSimpleTypes.h"
 
 #if !PX_DOXYGEN
-namespace physx
-{
+namespace physx {
 #endif
 
 /**
@@ -51,10 +50,7 @@ namespace physx
 
 \return Pointer to memory block (same as input)
 */
-PX_FORCE_INLINE void* PxMemZero(void* dest, PxU32 count)
-{
-	return physx::intrinsics::memZero(dest, count);
-}
+PX_FORCE_INLINE void* PxMemZero(void* dest, PxU32 count) { return physx::intrinsics::memZero(dest, count); }
 
 /**
 \brief Sets the bytes of the provided buffer to the specified value.
@@ -65,10 +61,7 @@ PX_FORCE_INLINE void* PxMemZero(void* dest, PxU32 count)
 
 \return Pointer to memory block (same as input)
 */
-PX_FORCE_INLINE void* PxMemSet(void* dest, PxI32 c, PxU32 count)
-{
-	return physx::intrinsics::memSet(dest, c, count);
-}
+PX_FORCE_INLINE void* PxMemSet(void* dest, PxI32 c, PxU32 count) { return physx::intrinsics::memSet(dest, c, count); }
 
 /**
 \brief Copies the bytes of one memory block to another. The memory blocks must not overlap.
@@ -81,9 +74,8 @@ PX_FORCE_INLINE void* PxMemSet(void* dest, PxI32 c, PxU32 count)
 
 \return Pointer to destination memory block
 */
-PX_FORCE_INLINE void* PxMemCopy(void* dest, const void* src, PxU32 count)
-{
-	return physx::intrinsics::memCopy(dest, src, count);
+PX_FORCE_INLINE void* PxMemCopy(void* dest, const void* src, PxU32 count) {
+    return physx::intrinsics::memCopy(dest, src, count);
 }
 
 /**
@@ -97,14 +89,13 @@ PX_FORCE_INLINE void* PxMemCopy(void* dest, const void* src, PxU32 count)
 
 \return Pointer to destination memory block
 */
-PX_FORCE_INLINE void* PxMemMove(void* dest, const void* src, PxU32 count)
-{
-	return physx::intrinsics::memMove(dest, src, count);
+PX_FORCE_INLINE void* PxMemMove(void* dest, const void* src, PxU32 count) {
+    return physx::intrinsics::memMove(dest, src, count);
 }
 
 #if !PX_DOXYGEN
-} // namespace physx
+}  // namespace physx
 #endif
 
 /** @} */
-#endif // PXFOUNDATION_PXMEMORY_H
+#endif  // PXFOUNDATION_PXMEMORY_H

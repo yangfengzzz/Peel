@@ -123,7 +123,7 @@ void GLPointRenderer::Draw(const Point &color, udword nb_pts, const Point *pts, 
         float fov = GetCameraFOV() * DEGTORAD;
 
         //			void PointRenderer::Draw(int n, int offset, float radius, float screenWidth, float
-        //screenAspect, float fov)
+        // screenAspect, float fov)
         {
             if (sprogram) {
                 glEnable(GL_POINT_SPRITE);
@@ -153,7 +153,7 @@ void GLPointRenderer::Draw(const Point &color, udword nb_pts, const Point *pts, 
                 //					glEnableClientState(GL_VERTEX_ARRAY);
                 //					glBindBuffer(GL_ARRAY_BUFFER, mPositionVBO);
                 //					glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 4 * nb_pts, 0,
-                //GL_DYNAMIC_DRAW);
+                // GL_DYNAMIC_DRAW);
 
                 //					glVertexPointer(4, GL_FLOAT, 0, 0);
 
@@ -177,7 +177,8 @@ void GLPointRenderer::Draw(const Point &color, udword nb_pts, const Point *pts, 
                 //					glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indices);
 
                 //					glDrawElements(GL_POINTS, n, GL_UNSIGNED_INT, (const
-                //void*)(offset*sizeof(int))); 					glDrawArrays(GL_POINTS, 0, nb_pts);
+                // void*)(offset*sizeof(int))); 					glDrawArrays(GL_POINTS, 0,
+                // nb_pts);
 
                 glBegin(GL_POINTS);
                 const char *p2 = reinterpret_cast<const char *>(pts);
@@ -423,9 +424,7 @@ const char *vertexShader = "#version 130\n" STRINGIFY(
 
 const char *passThroughShader = STRINGIFY(
 
-        void main() {
-            gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
-        });
+        void main() { gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); });
 
 // pixel shader for rendering points as shaded spheres
 const char *fragmentShader = STRINGIFY(

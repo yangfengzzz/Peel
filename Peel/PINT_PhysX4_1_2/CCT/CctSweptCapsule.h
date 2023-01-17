@@ -25,32 +25,32 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef CCT_SWEPT_CAPSULE
 #define CCT_SWEPT_CAPSULE
 
 #include "CctSweptVolume.h"
 
-namespace physx
-{
-namespace Cct
-{
+namespace physx {
+namespace Cct {
 
-	class SweptCapsule : public SweptVolume
-	{
-	public:
-							SweptCapsule();
-		virtual				~SweptCapsule();
+class SweptCapsule : public SweptVolume {
+public:
+    SweptCapsule();
+    virtual ~SweptCapsule();
 
-		virtual		void	computeTemporalBox(const SweepTest&, PxExtendedBounds3& box, const PxExtendedVec3& center, const PxVec3& direction)	const;
+    virtual void computeTemporalBox(const SweepTest&,
+                                    PxExtendedBounds3& box,
+                                    const PxExtendedVec3& center,
+                                    const PxVec3& direction) const;
 
-					PxF32	mRadius;
-					PxF32	mHeight;
-	};
+    PxF32 mRadius;
+    PxF32 mHeight;
+};
 
-} // namespace Cct
+}  // namespace Cct
 
-}
+}  // namespace physx
 
 #endif

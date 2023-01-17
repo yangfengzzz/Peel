@@ -9,12 +9,12 @@
 #ifndef LOADER_REPX_H
 #define LOADER_REPX_H
 
-	class SurfaceManager;
-	void LoadRepXFile_Obsolete(SurfaceManager& test, const char* filename, float scale, bool z_is_up);
+class SurfaceManager;
+void LoadRepXFile_Obsolete(SurfaceManager& test, const char* filename, float scale, bool z_is_up);
 
-	class Pint;
-	void*	CreateRepXContext(const char* filename, float scale, bool z_is_up);
-	void	ReleaseRepXContext(void* repx_context);
-	bool	AddToPint(Pint& pint, void* repx_context);
+class Pint;
+void* CreateRepXContext(const char* filename, float scale, bool z_is_up);
+void ReleaseRepXContext(void* repx_context);
+bool AddToPint(Pint& pint, void* repx_context);
 
 #endif

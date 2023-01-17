@@ -4,14 +4,13 @@
 #ifndef CHUNKCGIZ_H
 #define CHUNKCGIZ_H
 
-	#define CGIZ_VERSION	1
+#define CGIZ_VERSION 1
 
-	class ZCB2_API CGIZChunk : public HELPChunk
-	{
-		DECLARE_CHUNK(CGIZChunk, mCGIZCore)
+class ZCB2_API CGIZChunk : public HELPChunk {
+    DECLARE_CHUNK(CGIZChunk, mCGIZCore)
 
-		DECLARE_STD_MEMBER(Height,	float)
-		DECLARE_STD_MEMBER(Radius,	float)
-	};
+    DECLARE_STD_MEMBER(Height, float)
+    DECLARE_STD_MEMBER(Radius, float)
+};
 
-#endif // CHUNKCGIZ_H
+#endif  // CHUNKCGIZ_H

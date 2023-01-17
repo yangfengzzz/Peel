@@ -12,27 +12,25 @@
 #ifndef ICEPOWERLAYER_H
 #define ICEPOWERLAYER_H
 
-	struct ICETERRAIN_API POWERLAYERCREATE : HEIGHTLAYERCREATE
-	{
-		POWERLAYERCREATE() : mPowerFactor(0.0f)	{}
+struct ICETERRAIN_API POWERLAYERCREATE : HEIGHTLAYERCREATE {
+    POWERLAYERCREATE() : mPowerFactor(0.0f) {}
 
-		float	mPowerFactor;
-	};
+    float mPowerFactor;
+};
 
-	class ICETERRAIN_API PowerLayer : public HeightLayer
-	{
-		public:
-						PowerLayer();
-		virtual			~PowerLayer();
+class ICETERRAIN_API PowerLayer : public HeightLayer {
+public:
+    PowerLayer();
+    virtual ~PowerLayer();
 
-		virtual	bool	Init(const POWERLAYERCREATE& create);
-		virtual	bool	Update(float* field, udword width, udword height)	const;
+    virtual bool Init(const POWERLAYERCREATE& create);
+    virtual bool Update(float* field, udword width, udword height) const;
 
-		inline_	float	GetPowerFactor()	const	{ return mPowerFactor;	}
-		inline_	void	SetPowerFactor(float v)		{ mPowerFactor = v;		}
+    inline_ float GetPowerFactor() const { return mPowerFactor; }
+    inline_ void SetPowerFactor(float v) { mPowerFactor = v; }
 
-		protected:
-				float	mPowerFactor;
-	};
+protected:
+    float mPowerFactor;
+};
 
-#endif // ICEPOWERLAYER_H
+#endif  // ICEPOWERLAYER_H

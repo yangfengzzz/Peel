@@ -25,76 +25,56 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-
-#include "foundation/PxAllocatorCallback.h"
+#include "CmPhysXCommon.h"
 #include "extensions/PxStringTableExt.h"
-
-#include "PxProfileAllocatorWrapper.h" //tools for using a custom allocator
+#include "foundation/PxAllocatorCallback.h"
 #include "PsString.h"
 #include "PsUserAllocated.h"
-#include "CmPhysXCommon.h"
+#include "PxProfileAllocatorWrapper.h"  //tools for using a custom allocator
 
-namespace physx
-{
-	using namespace physx::profile;
+namespace physx {
+using namespace physx::profile;
 
-	class PxStringTableImpl : public PxStringTable, public Ps::UserAllocated
-	{
-		typedef PxProfileHashMap<const char*, PxU32> THashMapType;
-		PxProfileAllocatorWrapper mWrapper;
-		THashMapType mHashMap;
-	public:
+class PxStringTableImpl : public PxStringTable, public Ps::UserAllocated {
+    typedef PxProfileHashMap<const char*, PxU32> THashMapType;
+    PxProfileAllocatorWrapper mWrapper;
+    THashMapType mHashMap;
 
-		PxStringTableImpl( PxAllocatorCallback& inAllocator )
-			: mWrapper ( inAllocator )
-			, mHashMap ( mWrapper )
-		{
-		}
+public:
+    PxStringTableImpl(PxAllocatorCallback& inAllocator) : mWrapper(inAllocator), mHashMap(mWrapper) {}
 
-		virtual ~PxStringTableImpl()
-		{
-			for ( THashMapType::Iterator iter = mHashMap.getIterator();
-				iter.done() == false;
-				++iter )
-				PX_PROFILE_DELETE( mWrapper, const_cast<char*>( iter->first ) );
-			mHashMap.clear();
-		}
+    virtual ~PxStringTableImpl() {
+        for (THashMapType::Iterator iter = mHashMap.getIterator(); iter.done() == false; ++iter)
+            PX_PROFILE_DELETE(mWrapper, const_cast<char*>(iter->first));
+        mHashMap.clear();
+    }
 
+    virtual const char* allocateStr(const char* inSrc) {
+        if (inSrc == NULL) inSrc = "";
+        const THashMapType::Entry* existing(mHashMap.find(inSrc));
+        if (existing == NULL) {
+            size_t len(strlen(inSrc));
+            len += 1;
+            char* newMem = reinterpret_cast<char*>(
+                    mWrapper.getAllocator().allocate(len, "PxStringTableImpl: const char*", __FILE__, __LINE__));
+            physx::shdfnd::strlcpy(newMem, len, inSrc);
+            mHashMap.insert(newMem, 1);
+            return newMem;
+        } else {
+            ++const_cast<THashMapType::Entry*>(existing)->second;
+            return existing->first;
+        }
+    }
 
-		virtual const char* allocateStr( const char* inSrc )
-		{
-			if ( inSrc == NULL )
-				inSrc = "";
-			const THashMapType::Entry* existing( mHashMap.find( inSrc ) );
-			if ( existing == NULL )
-			{
-				size_t len( strlen( inSrc ) );
-				len += 1;
-				char* newMem = reinterpret_cast<char*>(mWrapper.getAllocator().allocate( len, "PxStringTableImpl: const char*", __FILE__, __LINE__ ));
-				physx::shdfnd::strlcpy( newMem, len, inSrc );
-				mHashMap.insert( newMem, 1 );
-				return newMem;
-			}
-			else
-			{
-				++const_cast<THashMapType::Entry*>(existing)->second;
-				return existing->first;
-			}
-		}
+    /**
+     *	Release the string table and all the strings associated with it.
+     */
+    virtual void release() { PX_PROFILE_DELETE(mWrapper.getAllocator(), this); }
+};
 
-		/**
-		 *	Release the string table and all the strings associated with it.
-		 */
-		virtual void release()
-		{
-			PX_PROFILE_DELETE( mWrapper.getAllocator(), this );
-		}
-	};
-
-	PxStringTable& PxStringTableExt::createStringTable( PxAllocatorCallback& inAllocator )
-	{
-		return *PX_PROFILE_NEW( inAllocator, PxStringTableImpl )( inAllocator );
-	}
+PxStringTable& PxStringTableExt::createStringTable(PxAllocatorCallback& inAllocator) {
+    return *PX_PROFILE_NEW(inAllocator, PxStringTableImpl)(inAllocator);
 }
+}  // namespace physx

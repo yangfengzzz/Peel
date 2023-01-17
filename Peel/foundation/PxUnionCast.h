@@ -37,33 +37,28 @@
 */
 
 #if !PX_DOXYGEN
-namespace physx
-{
+namespace physx {
 #endif
 
 template <class A, class B>
-PX_FORCE_INLINE A PxUnionCast(B b)
-{
-	union AB
-	{
-		AB(B bb) : _b(bb)
-		{
-		}
-		 B _b;
-		 A _a;
+PX_FORCE_INLINE A PxUnionCast(B b) {
+    union AB {
+        AB(B bb) : _b(bb) {}
+        B _b;
+        A _a;
 // needed for clang 7
-#if PX_LINUX && PX_CLANG 
-	} volatile u(b);
+#if PX_LINUX && PX_CLANG
+    } volatile u(b);
 #else
-	} u(b);
+    } u(b);
 #endif
-	return u._a;
+    return u._a;
 }
 
 #if !PX_DOXYGEN
-} // namespace physx
+}  // namespace physx
 #endif
 
 /** @} */
 
-#endif // PXFOUNDATION_PXUNIONCAST_H
+#endif  // PXFOUNDATION_PXUNIONCAST_H

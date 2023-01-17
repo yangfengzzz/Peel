@@ -11,23 +11,22 @@
 
 #include "PintDef.h"
 
-	class Pint;
+class Pint;
 
-	class Transformer
-	{
-		public:
-			Transformer();
-			~Transformer();
+class Transformer {
+public:
+    Transformer();
+    ~Transformer();
 
-			void	Reset();
+    void Reset();
 
-			void	Start(Pint& pint, PintActorHandle h);
-			void	Stop(Pint& pint, PintActorHandle h);
-			void	SetPose(Pint& pint, PintActorHandle h, const PR& pose);
+    void Start(Pint& pint, PintActorHandle h);
+    void Stop(Pint& pint, PintActorHandle h);
+    void SetPose(Pint& pint, PintActorHandle h, const PR& pose);
 
-		protected:
-			bool	mIsKine;
-			bool	mActive;
-	};
+protected:
+    bool mIsKine;
+    bool mActive;
+};
 
 #endif

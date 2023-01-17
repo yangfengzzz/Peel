@@ -11,30 +11,28 @@
 
 #include "Shader.h"
 
-	struct SimpleShaderProps : ShaderProps
-	{
-		Point	mBackLightDir;
-	};
+struct SimpleShaderProps : ShaderProps {
+    Point mBackLightDir;
+};
 
-	class SimpleShader : public PEEL::Shader
-	{
-						PREVENT_COPY(SimpleShader)
-		public:
-						SimpleShader(bool needs_vertex_normals);
-		virtual			~SimpleShader();
+class SimpleShader : public PEEL::Shader {
+    PREVENT_COPY(SimpleShader)
+public:
+    SimpleShader(bool needs_vertex_normals);
+    virtual ~SimpleShader();
 
-				bool	Init();
+    bool Init();
 
-				void	__UpdateCamera(const float* modelView, const float* proj);
+    void __UpdateCamera(const float* modelView, const float* proj);
 
-		// Shader
-		virtual	void	Activate(const ShaderProps& mat)	override;
-		//~Shader
-		
-		private:
-				float	mCamModelView[16];
-				float	mCamProj[16];
-		const	bool	mNeedsVertexNormals;
-	};
+    // Shader
+    virtual void Activate(const ShaderProps& mat) override;
+    //~Shader
+
+private:
+    float mCamModelView[16];
+    float mCamProj[16];
+    const bool mNeedsVertexNormals;
+};
 
 #endif

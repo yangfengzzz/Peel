@@ -9,61 +9,43 @@
 #include "stdafx.h"
 //
 #include "Foundation.h"
-
+#include "foundation/PxAllocatorCallback.h"
+#include "foundation/PxErrorCallback.h"
 #include "PxFoundation.h"
 #include "PxPhysicsVersion.h"
-#include "foundation/PxErrorCallback.h"
-#include "foundation/PxAllocatorCallback.h"
 using namespace physx;
 
 static PxFoundation* gFoundation = null;
 
-namespace
-{
-	class MyAllocatorCallback : public PxAllocatorCallback
-	{
-		public:
+namespace {
+class MyAllocatorCallback : public PxAllocatorCallback {
+public:
+    virtual void* allocate(size_t size, const char* /*typeName*/, const char* /*filename*/, int /*line*/) {
+        //			return _aligned_malloc(size, 16);
+        return ICE_ALLOC(size);
+    }
 
-		virtual void* allocate(size_t size, const char* /*typeName*/, const char* /*filename*/, int /*line*/)
-		{
-//			return _aligned_malloc(size, 16);
-			return ICE_ALLOC(size);
-		}
+    virtual void deallocate(void* ptr) {
+        //			_aligned_free(ptr);
+        ICE_FREE(ptr);
+    }
 
-		virtual void deallocate(void* ptr)
-		{
-//			_aligned_free(ptr);
-			ICE_FREE(ptr);
-		}
+} gMyAllocatorCallback;
 
-	}gMyAllocatorCallback;
+class MyErrorCallback : public PxErrorCallback {
+public:
+    virtual void reportError(PxErrorCode::Enum /*code*/, const char* message, const char* /*file*/, int /*line*/) {
+        printf("NV message: %s", message);
+    }
 
-	class MyErrorCallback : public PxErrorCallback
-	{
-		public:
+} gMyErrorCallback;
+}  // namespace
 
-		virtual void reportError(PxErrorCode::Enum /*code*/, const char* message, const char* /*file*/, int /*line*/)
-		{
-			printf("NV message: %s", message);
-		}
+void initFoundation() { gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gMyAllocatorCallback, gMyErrorCallback); }
 
-	}gMyErrorCallback;
+void releaseFoundation() {
+    if (gFoundation) gFoundation->release();
+    gFoundation = null;
 }
 
-void initFoundation()
-{
-	gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gMyAllocatorCallback, gMyErrorCallback);
-}
-
-void releaseFoundation()
-{
-	if(gFoundation)
-		gFoundation->release();
-	gFoundation = null;
-}
-
-bool isFoundationInitialized()
-{
-	return gFoundation!=null;
-}
-
+bool isFoundationInitialized() { return gFoundation != null; }

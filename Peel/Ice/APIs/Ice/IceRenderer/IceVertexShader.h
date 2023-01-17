@@ -12,20 +12,18 @@
 #ifndef ICEVERTEXSHADER_H
 #define ICEVERTEXSHADER_H
 
-	struct ICERENDERER_API VERTEXSHADERCREATE
-	{
-						VERTEXSHADERCREATE();
+struct ICERENDERER_API VERTEXSHADERCREATE {
+    VERTEXSHADERCREATE();
 
-		const char*		mFilename;
-	};
+    const char* mFilename;
+};
 
-	class ICERENDERER_API VertexShader
-	{
-		public:
-		//! Constructor
-										VertexShader()		{}
-		//! Destructor
-		virtual							~VertexShader()		{}
-	};
+class ICERENDERER_API VertexShader {
+public:
+    //! Constructor
+    VertexShader() {}
+    //! Destructor
+    virtual ~VertexShader() {}
+};
 
-#endif // ICEVERTEXSHADER_H
+#endif  // ICEVERTEXSHADER_H

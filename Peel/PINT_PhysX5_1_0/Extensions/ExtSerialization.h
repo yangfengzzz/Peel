@@ -24,20 +24,17 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
-
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_SERIALIZATION_H
 #define EXT_SERIALIZATION_H
 
-namespace physx
-{
-namespace Ext
-{
-	void RegisterExtensionsSerializers(PxSerializationRegistry& sr);
-	void UnregisterExtensionsSerializers(PxSerializationRegistry& sr);
-	void GetExtensionsBinaryMetaData(PxOutputStream& stream);
-}
-}
+namespace physx {
+namespace Ext {
+void RegisterExtensionsSerializers(PxSerializationRegistry& sr);
+void UnregisterExtensionsSerializers(PxSerializationRegistry& sr);
+void GetExtensionsBinaryMetaData(PxOutputStream& stream);
+}  // namespace Ext
+}  // namespace physx
 
 #endif

@@ -12,7 +12,7 @@
 #ifndef ICEUVCREATOR_H
 #define ICEUVCREATOR_H
 
-	FUNCTION MESHMERIZER_API bool ComputeSphereMapModel(udword nb_verts, const Point* verts, Point* uvs);
-	FUNCTION MESHMERIZER_API bool ComputePlanarModel(IndexedSurface* primary, IndexedSurface* detail);
+FUNCTION MESHMERIZER_API bool ComputeSphereMapModel(udword nb_verts, const Point* verts, Point* uvs);
+FUNCTION MESHMERIZER_API bool ComputePlanarModel(IndexedSurface* primary, IndexedSurface* detail);
 
-#endif // ICEUVCREATOR_H
+#endif  // ICEUVCREATOR_H

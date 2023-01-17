@@ -12,23 +12,22 @@
 #ifndef ICEFILTEREDVALUE_H
 #define ICEFILTEREDVALUE_H
 
-	class ICECORE_API FilteredValue
-	{
-		public:
-							FilteredValue()	: mTarget(0.0f), mMemory(0.0f), mFiltered(0.0f)	{}
-							~FilteredValue()												{}
+class ICECORE_API FilteredValue {
+public:
+    FilteredValue() : mTarget(0.0f), mMemory(0.0f), mFiltered(0.0f) {}
+    ~FilteredValue() {}
 
-		inline_	void		SetTarget(float target)			{ mTarget = target;				}
-		inline_	void		AddTarget(float incr)			{ mTarget += incr;				}
-		inline_	float		GetValue()				const	{ return mFiltered;				}
-		inline_	float		GetTarget()				const	{ return mTarget;				}
-		inline_	float		GetDelta()				const	{ return mFiltered - mTarget;	}
-		inline_	void		Update(float coeff)				{ mFiltered = FeedbackFilter(mTarget, mMemory, coeff);	}
+    inline_ void SetTarget(float target) { mTarget = target; }
+    inline_ void AddTarget(float incr) { mTarget += incr; }
+    inline_ float GetValue() const { return mFiltered; }
+    inline_ float GetTarget() const { return mTarget; }
+    inline_ float GetDelta() const { return mFiltered - mTarget; }
+    inline_ void Update(float coeff) { mFiltered = FeedbackFilter(mTarget, mMemory, coeff); }
 
-		private:
-				float		mTarget;
-				float		mMemory;
-				float		mFiltered;
-	};
+private:
+    float mTarget;
+    float mMemory;
+    float mFiltered;
+};
 
-#endif	// ICEFILTEREDVALUE_H
+#endif  // ICEFILTEREDVALUE_H

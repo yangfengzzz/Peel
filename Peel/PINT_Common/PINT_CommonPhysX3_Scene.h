@@ -11,16 +11,15 @@
 
 #include "..\Pint.h"
 
-	class PhysX_SceneAPI : public Pint_Scene
-	{
-		public:
-						PhysX_SceneAPI(Pint& pint);
-		virtual			~PhysX_SceneAPI();
+class PhysX_SceneAPI : public Pint_Scene {
+public:
+    PhysX_SceneAPI(Pint& pint);
+    virtual ~PhysX_SceneAPI();
 
-		virtual	bool	AddActors(udword nb_actors, const PintActorHandle* actors)	override;
+    virtual bool AddActors(udword nb_actors, const PintActorHandle* actors) override;
 
-		virtual	void	GetActors(Reporter& reporter)									const	override;
-		virtual	void	Cull(udword nb_planes, const Plane* planes, Reporter& reporter)	const	override;
-	};
+    virtual void GetActors(Reporter& reporter) const override;
+    virtual void Cull(udword nb_planes, const Plane* planes, Reporter& reporter) const override;
+};
 
 #endif

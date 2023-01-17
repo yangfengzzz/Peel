@@ -12,7 +12,13 @@
 #ifndef CTCTRIANGLECYLINDEROVERLAP_H
 #define CTCTRIANGLECYLINDEROVERLAP_H
 
-	// Triangle-cylinder intersection
-	CONTACT_API bool TriCylinder(const Point& p0, const Point& p1, const Point& p2, const Point& trinormal, const Point& cylindercenter, float cylinderradius, float cylinderhalfheight);
+// Triangle-cylinder intersection
+CONTACT_API bool TriCylinder(const Point& p0,
+                             const Point& p1,
+                             const Point& p2,
+                             const Point& trinormal,
+                             const Point& cylindercenter,
+                             float cylinderradius,
+                             float cylinderhalfheight);
 
-#endif // CTCTRIANGLECYLINDEROVERLAP_H
+#endif  // CTCTRIANGLECYLINDEROVERLAP_H

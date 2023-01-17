@@ -38,10 +38,8 @@ Alignment must be a power of 2!
 -- should be templated by a base allocator
 */
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 /**
 Allocator, which is used to access the global PxAllocatorCallback instance
 (used for dynamic data types template instantiation), which can align memory
@@ -51,38 +49,32 @@ Allocator, which is used to access the global PxAllocatorCallback instance
 // disabled for now to avoid GCC error
 
 template <uint32_t N, typename BaseAllocator = NonTrackingAllocator>
-class AlignedAllocator : public BaseAllocator
-{
-  public:
-	AlignedAllocator(const BaseAllocator& base = BaseAllocator()) : BaseAllocator(base)
-	{
-	}
+class AlignedAllocator : public BaseAllocator {
+public:
+    AlignedAllocator(const BaseAllocator& base = BaseAllocator()) : BaseAllocator(base) {}
 
-	void* allocate(size_t size, const char* file, int line)
-	{
-		size_t pad = N - 1 + sizeof(size_t); // store offset for delete.
-		uint8_t* base = reinterpret_cast<uint8_t*>(BaseAllocator::allocate(size + pad, file, line));
-		if(!base)
-			return NULL;
+    void* allocate(size_t size, const char* file, int line) {
+        size_t pad = N - 1 + sizeof(size_t);  // store offset for delete.
+        uint8_t* base = reinterpret_cast<uint8_t*>(BaseAllocator::allocate(size + pad, file, line));
+        if (!base) return NULL;
 
-		uint8_t* ptr = reinterpret_cast<uint8_t*>(size_t(base + pad) & ~(size_t(N) - 1)); // aligned pointer, ensuring N
-		// is a size_t
-		// wide mask
-		reinterpret_cast<size_t*>(ptr)[-1] = size_t(ptr - base); // store offset
+        uint8_t* ptr =
+                reinterpret_cast<uint8_t*>(size_t(base + pad) & ~(size_t(N) - 1));  // aligned pointer, ensuring N
+        // is a size_t
+        // wide mask
+        reinterpret_cast<size_t*>(ptr)[-1] = size_t(ptr - base);  // store offset
 
-		return ptr;
-	}
-	void deallocate(void* ptr)
-	{
-		if(ptr == NULL)
-			return;
+        return ptr;
+    }
+    void deallocate(void* ptr) {
+        if (ptr == NULL) return;
 
-		uint8_t* base = reinterpret_cast<uint8_t*>(ptr) - reinterpret_cast<size_t*>(ptr)[-1];
-		BaseAllocator::deallocate(base);
-	}
+        uint8_t* base = reinterpret_cast<uint8_t*>(ptr) - reinterpret_cast<size_t*>(ptr)[-1];
+        BaseAllocator::deallocate(base);
+    }
 };
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSALIGNEDMALLOC_H
+#endif  // #ifndef PSFOUNDATION_PSALIGNEDMALLOC_H

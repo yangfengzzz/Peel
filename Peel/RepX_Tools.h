@@ -9,6 +9,6 @@
 #ifndef REPX_TOOLS_H
 #define REPX_TOOLS_H
 
-	void ProcessRepXFile_RemoveDynamics(const char* filename);
+void ProcessRepXFile_RemoveDynamics(const char* filename);
 
 #endif

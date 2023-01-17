@@ -32,33 +32,29 @@
 //'symbol' is not defined as a preprocessor macro, replacing with '0' for 'directives'
 #pragma warning(disable : 4668)
 #if PX_VC == 10
-#pragma warning(disable : 4987) // nonstandard extension used: 'throw (...)'
+#pragma warning(disable : 4987)  // nonstandard extension used: 'throw (...)'
 #endif
 #include <intrin.h>
 #pragma warning(pop)
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
 #if PX_ARM || PX_A64
 #define cpuid(reg) reg[0] = reg[1] = reg[2] = reg[3] = 0;
 
-uint8_t Cpu::getCpuId()
-{
-	uint32_t cpuInfo[4];
-	cpuid(cpuInfo);
-	return static_cast<uint8_t>(cpuInfo[1] >> 24); // APIC Physical ID
+uint8_t Cpu::getCpuId() {
+    uint32_t cpuInfo[4];
+    cpuid(cpuInfo);
+    return static_cast<uint8_t>(cpuInfo[1] >> 24);  // APIC Physical ID
 }
 #else
-uint8_t Cpu::getCpuId()
-{
-	int CPUInfo[4];
-	int InfoType = 1;
-	__cpuid(CPUInfo, InfoType);
-	return static_cast<uint8_t>(CPUInfo[1] >> 24); // APIC Physical ID
+uint8_t Cpu::getCpuId() {
+    int CPUInfo[4];
+    int InfoType = 1;
+    __cpuid(CPUInfo, InfoType);
+    return static_cast<uint8_t>(CPUInfo[1] >> 24);  // APIC Physical ID
 }
 #endif
-}
-}
+}  // namespace shdfnd
+}  // namespace physx

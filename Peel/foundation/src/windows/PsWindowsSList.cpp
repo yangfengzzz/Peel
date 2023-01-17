@@ -27,51 +27,32 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "windows/PsWindowsInclude.h"
 #include "PsAllocator.h"
 #include "PsSList.h"
+#include "windows/PsWindowsInclude.h"
 
-namespace physx
-{
-namespace shdfnd
-{
-namespace
-{
+namespace physx {
+namespace shdfnd {
+namespace {
 template <typename T>
-SLIST_HEADER* getDetail(T* impl)
-{
-	return reinterpret_cast<SLIST_HEADER*>(impl);
+SLIST_HEADER* getDetail(T* impl) {
+    return reinterpret_cast<SLIST_HEADER*>(impl);
 }
+}  // namespace
+
+SListImpl::SListImpl() { InitializeSListHead(getDetail(this)); }
+
+SListImpl::~SListImpl() {}
+
+void SListImpl::push(SListEntry* entry) {
+    InterlockedPushEntrySList(getDetail(this), reinterpret_cast<SLIST_ENTRY*>(entry));
 }
 
-SListImpl::SListImpl()
-{
-	InitializeSListHead(getDetail(this));
-}
+SListEntry* SListImpl::pop() { return reinterpret_cast<SListEntry*>(InterlockedPopEntrySList(getDetail(this))); }
 
-SListImpl::~SListImpl()
-{
-}
+SListEntry* SListImpl::flush() { return reinterpret_cast<SListEntry*>(InterlockedFlushSList(getDetail(this))); }
 
-void SListImpl::push(SListEntry* entry)
-{
-	InterlockedPushEntrySList(getDetail(this), reinterpret_cast<SLIST_ENTRY*>(entry));
-}
+uint32_t SListImpl::getSize() { return sizeof(SLIST_HEADER); }
 
-SListEntry* SListImpl::pop()
-{
-	return reinterpret_cast<SListEntry*>(InterlockedPopEntrySList(getDetail(this)));
-}
-
-SListEntry* SListImpl::flush()
-{
-	return reinterpret_cast<SListEntry*>(InterlockedFlushSList(getDetail(this)));
-}
-
-uint32_t SListImpl::getSize()
-{
-	return sizeof(SLIST_HEADER);
-}
-
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

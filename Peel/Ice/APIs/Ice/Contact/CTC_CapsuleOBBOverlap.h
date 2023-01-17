@@ -12,10 +12,10 @@
 #ifndef CTCCAPSULEOBBOVERLAP_H
 #define CTCCAPSULEOBBOVERLAP_H
 
-	// Capsule-OBB intersection
-	// WARNING: it actually creates an OBB around the capsule so it's only an approximate (conservative) test !
-	CONTACT_API bool CapsuleOBBOverlap(const Segment& segment, float radius, const Point& center, const Point& extents, const Matrix3x3& rot);
-	CONTACT_API bool CapsuleAABBOverlap(const Segment& segment, float radius, const Point& center, const Point& extents);
+// Capsule-OBB intersection
+// WARNING: it actually creates an OBB around the capsule so it's only an approximate (conservative) test !
+CONTACT_API bool CapsuleOBBOverlap(
+        const Segment& segment, float radius, const Point& center, const Point& extents, const Matrix3x3& rot);
+CONTACT_API bool CapsuleAABBOverlap(const Segment& segment, float radius, const Point& center, const Point& extents);
 
-#endif // CTCCAPSULEOBBOVERLAP_H
-
+#endif  // CTCCAPSULEOBBOVERLAP_H

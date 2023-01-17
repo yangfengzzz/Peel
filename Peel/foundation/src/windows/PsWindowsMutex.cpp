@@ -27,136 +27,103 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "windows/PsWindowsInclude.h"
+#include "foundation/PxErrorCallback.h"
 #include "PsFoundation.h"
-#include "PsUserAllocated.h"
 #include "PsMutex.h"
 #include "PsThread.h"
-#include "foundation/PxErrorCallback.h"
+#include "PsUserAllocated.h"
+#include "windows/PsWindowsInclude.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
-namespace
-{
-struct MutexWinImpl
-{
-	CRITICAL_SECTION mLock;
-	Thread::Id mOwner;
+namespace {
+struct MutexWinImpl {
+    CRITICAL_SECTION mLock;
+    Thread::Id mOwner;
 };
 
-MutexWinImpl* getMutex(MutexImpl* impl)
-{
-	return reinterpret_cast<MutexWinImpl*>(impl);
-}
+MutexWinImpl* getMutex(MutexImpl* impl) { return reinterpret_cast<MutexWinImpl*>(impl); }
+}  // namespace
+
+MutexImpl::MutexImpl() {
+    InitializeCriticalSection(&getMutex(this)->mLock);
+    getMutex(this)->mOwner = 0;
 }
 
-MutexImpl::MutexImpl()
-{
-	InitializeCriticalSection(&getMutex(this)->mLock);
-	getMutex(this)->mOwner = 0;
-}
+MutexImpl::~MutexImpl() { DeleteCriticalSection(&getMutex(this)->mLock); }
 
-MutexImpl::~MutexImpl()
-{
-	DeleteCriticalSection(&getMutex(this)->mLock);
-}
-
-void MutexImpl::lock()
-{
-	EnterCriticalSection(&getMutex(this)->mLock);
+void MutexImpl::lock() {
+    EnterCriticalSection(&getMutex(this)->mLock);
 
 #if PX_DEBUG
-	getMutex(this)->mOwner = Thread::getId();
+    getMutex(this)->mOwner = Thread::getId();
 #endif
 }
 
-bool MutexImpl::trylock()
-{
-	bool success = TryEnterCriticalSection(&getMutex(this)->mLock) != 0;
+bool MutexImpl::trylock() {
+    bool success = TryEnterCriticalSection(&getMutex(this)->mLock) != 0;
 #if PX_DEBUG
-	if(success)
-		getMutex(this)->mOwner = Thread::getId();
+    if (success) getMutex(this)->mOwner = Thread::getId();
 #endif
-	return success;
+    return success;
 }
 
-void MutexImpl::unlock()
-{
+void MutexImpl::unlock() {
 #if PX_DEBUG
-	// ensure we are already holding the lock
-	if(getMutex(this)->mOwner != Thread::getId())
-	{
-		shdfnd::getFoundation().error(PxErrorCode::eINVALID_OPERATION, __FILE__, __LINE__,
-		                              "Mutex must be unlocked only by thread that has already acquired lock");
-		return;
-	}
+    // ensure we are already holding the lock
+    if (getMutex(this)->mOwner != Thread::getId()) {
+        shdfnd::getFoundation().error(PxErrorCode::eINVALID_OPERATION, __FILE__, __LINE__,
+                                      "Mutex must be unlocked only by thread that has already acquired lock");
+        return;
+    }
 
 #endif
 
-	LeaveCriticalSection(&getMutex(this)->mLock);
+    LeaveCriticalSection(&getMutex(this)->mLock);
 }
 
-uint32_t MutexImpl::getSize()
-{
-	return sizeof(MutexWinImpl);
-}
+uint32_t MutexImpl::getSize() { return sizeof(MutexWinImpl); }
 
-class ReadWriteLockImpl
-{
-	PX_NOCOPY(ReadWriteLockImpl)
-  public:
-	ReadWriteLockImpl()
-	{
-	}
-	Mutex mutex;
-	volatile LONG readerCount; // handle recursive writer locking
+class ReadWriteLockImpl {
+    PX_NOCOPY(ReadWriteLockImpl)
+public:
+    ReadWriteLockImpl() {}
+    Mutex mutex;
+    volatile LONG readerCount;  // handle recursive writer locking
 };
 
-ReadWriteLock::ReadWriteLock()
-{
-	mImpl = reinterpret_cast<ReadWriteLockImpl*>(PX_ALLOC(sizeof(ReadWriteLockImpl), "ReadWriteLockImpl"));
-	PX_PLACEMENT_NEW(mImpl, ReadWriteLockImpl);
+ReadWriteLock::ReadWriteLock() {
+    mImpl = reinterpret_cast<ReadWriteLockImpl*>(PX_ALLOC(sizeof(ReadWriteLockImpl), "ReadWriteLockImpl"));
+    PX_PLACEMENT_NEW(mImpl, ReadWriteLockImpl);
 
-	mImpl->readerCount = 0;
+    mImpl->readerCount = 0;
 }
 
-ReadWriteLock::~ReadWriteLock()
-{
-	mImpl->~ReadWriteLockImpl();
-	PX_FREE(mImpl);
+ReadWriteLock::~ReadWriteLock() {
+    mImpl->~ReadWriteLockImpl();
+    PX_FREE(mImpl);
 }
 
-void ReadWriteLock::lockReader(bool takeLock)
-{
-	if(takeLock)
-		mImpl->mutex.lock();
+void ReadWriteLock::lockReader(bool takeLock) {
+    if (takeLock) mImpl->mutex.lock();
 
-	InterlockedIncrement(&mImpl->readerCount);
+    InterlockedIncrement(&mImpl->readerCount);
 
-	if(takeLock)
-		mImpl->mutex.unlock();
+    if (takeLock) mImpl->mutex.unlock();
 }
 
-void ReadWriteLock::lockWriter()
-{
-	mImpl->mutex.lock();
+void ReadWriteLock::lockWriter() {
+    mImpl->mutex.lock();
 
-	// spin lock until no readers
-	while(mImpl->readerCount);
+    // spin lock until no readers
+    while (mImpl->readerCount)
+        ;
 }
 
-void ReadWriteLock::unlockReader()
-{
-	InterlockedDecrement(&mImpl->readerCount);
-}
+void ReadWriteLock::unlockReader() { InterlockedDecrement(&mImpl->readerCount); }
 
-void ReadWriteLock::unlockWriter()
-{
-	mImpl->mutex.unlock();
-}
+void ReadWriteLock::unlockWriter() { mImpl->mutex.unlock(); }
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

@@ -3,91 +3,86 @@
 #ifndef ICEEDITBOX_H
 #define ICEEDITBOX_H
 
-	enum EditBoxType
-	{
-		EDITBOX_NORMAL,
-		EDITBOX_READ_ONLY,
-		EDITBOX_PASSWORD,
-	};
+enum EditBoxType {
+    EDITBOX_NORMAL,
+    EDITBOX_READ_ONLY,
+    EDITBOX_PASSWORD,
+};
 
-	enum EditBoxStyle
-	{
-		EDITBOX_ALIGNED_RIGHT	= (1<<0),
-		EDITBOX_ALIGNED_CENTER	= (1<<1),
-	};
+enum EditBoxStyle {
+    EDITBOX_ALIGNED_RIGHT = (1 << 0),
+    EDITBOX_ALIGNED_CENTER = (1 << 1),
+};
 
-	enum EditBoxFilter
-	{
-		EDITBOX_TEXT,
-		EDITBOX_INTEGER,
-		EDITBOX_INTEGER_POSITIVE,
-		EDITBOX_FLOAT,
-		EDITBOX_FLOAT_POSITIVE,
-	};
+enum EditBoxFilter {
+    EDITBOX_TEXT,
+    EDITBOX_INTEGER,
+    EDITBOX_INTEGER_POSITIVE,
+    EDITBOX_FLOAT,
+    EDITBOX_FLOAT_POSITIVE,
+};
 
-	class IceEditBox;
+class IceEditBox;
 
-	// EditBox callback
-	typedef void (*EBCallback)	(const IceEditBox& edit_box, udword param, void* user_data);
+// EditBox callback
+typedef void (*EBCallback)(const IceEditBox& edit_box, udword param, void* user_data);
 
-	class ICEGUI_API EditBoxDesc : public WidgetDesc
-	{
-		public:
-								EditBoxDesc();
+class ICEGUI_API EditBoxDesc : public WidgetDesc {
+public:
+    EditBoxDesc();
 
-				EditBoxType		mType;
-				EditBoxFilter	mFilter;
-				udword			mStyle;
-				udword			mMaxLength;
-				EBCallback		mCallback;
-	};
+    EditBoxType mType;
+    EditBoxFilter mFilter;
+    udword mStyle;
+    udword mMaxLength;
+    EBCallback mCallback;
+};
 
-	class ICEGUI_API IceEditBox : public IceWidget
-	{
-		public:
-								IceEditBox(const EditBoxDesc& desc);
-		virtual					~IceEditBox();
+class ICEGUI_API IceEditBox : public IceWidget {
+public:
+    IceEditBox(const EditBoxDesc& desc);
+    virtual ~IceEditBox();
 
-				void			SetMaxLength(int max);
-				int				GetMaxLength()					const;
+    void SetMaxLength(int max);
+    int GetMaxLength() const;
 
-				void			SetReadOnly(bool flag);
+    void SetReadOnly(bool flag);
 
-				void			GetText(char* pOut, int len)	const;
-				void			SetText(const char* text);
-				void			SetMultilineText(const char* text);
+    void GetText(char* pOut, int len) const;
+    void SetText(const char* text);
+    void SetMultilineText(const char* text);
 
-				bool			GetTextAsFloat(float& value)	const;
-				bool			GetTextAsInt(sdword& value)		const;
-				bool			GetTextAsString(String& text)	const;
+    bool GetTextAsFloat(float& value) const;
+    bool GetTextAsInt(sdword& value) const;
+    bool GetTextAsString(String& text) const;
 
-		// New implementations
-				float			GetFloat()	const;
-				sdword			GetInt()	const;
+    // New implementations
+    float GetFloat() const;
+    sdword GetInt() const;
 
-		inline_	void			SetCallback(EBCallback callback)		{ mCallback = callback;	}
-		inline_	EBCallback		GetCallback()					const	{ return mCallback;		}
+    inline_ void SetCallback(EBCallback callback) { mCallback = callback; }
+    inline_ EBCallback GetCallback() const { return mCallback; }
 
-		inline_	EditBoxFilter	GetFilter()						const	{ return mFilter;		}
+    inline_ EditBoxFilter GetFilter() const { return mFilter; }
 
-		virtual	void			OnReturn();
+    virtual void OnReturn();
 
-		virtual	bool			FilterKey(udword key)			const;
+    virtual bool FilterKey(udword key) const;
 
-				enum CallbackParam
-				{
-					CB_PARAM_UNDEFINED,
-					CB_PARAM_RETURN,
-					CB_PARAM_FOCUS_LOST,
-				};
+    enum CallbackParam {
+        CB_PARAM_UNDEFINED,
+        CB_PARAM_RETURN,
+        CB_PARAM_FOCUS_LOST,
+    };
 
-		private:
-				EBCallback		mCallback;
-				EditBoxFilter	mFilter;
-		public:	// ### "temp"
-				CallbackParam	mParam;
+private:
+    EBCallback mCallback;
+    EditBoxFilter mFilter;
 
-				PREVENT_COPY(IceEditBox);
-	};
+public:  // ### "temp"
+    CallbackParam mParam;
 
-#endif	// ICEEDITBOX_H
+    PREVENT_COPY(IceEditBox);
+};
+
+#endif  // ICEEDITBOX_H

@@ -11,37 +11,35 @@
 
 #include "Common.h"
 
-	#define	TITLE_WIDTH		400
-	#define	TITLE_HEIGHT	195
+#define TITLE_WIDTH 400
+#define TITLE_HEIGHT 195
 
-	class TitleBitmapWindow;
+class TitleBitmapWindow;
 
-	class TitleWindow : public IceWindow
-	{
-		public:
-						TitleWindow(const WindowDesc& desc);
-		virtual			~TitleWindow();
+class TitleWindow : public IceWindow {
+public:
+    TitleWindow(const WindowDesc& desc);
+    virtual ~TitleWindow();
 
-		virtual void	redraw();
-		void			CreatePic();
+    virtual void redraw();
+    void CreatePic();
 
-		TitleBitmapWindow*	mRGBWindow;
-//		IceGroupBox*	mRGBGroup;
-		Picture			mPic;
-	};
+    TitleBitmapWindow* mRGBWindow;
+    //		IceGroupBox*	mRGBGroup;
+    Picture mPic;
+};
 
-	class TitleBitmapWindow: public IceWindow
-	{
-		public:
-						TitleBitmapWindow(const WindowDesc& desc);
-		virtual			~TitleBitmapWindow();
+class TitleBitmapWindow : public IceWindow {
+public:
+    TitleBitmapWindow(const WindowDesc& desc);
+    virtual ~TitleBitmapWindow();
 
-		virtual void	redraw();
+    virtual void redraw();
 
-		TitleWindow*	mMainW;
-	};
+    TitleWindow* mMainW;
+};
 
-	class Widgets;
-	TitleWindow* CreateTitleWindow(Widgets& owner, IceWidget* parent, sdword x, sdword y);
+class Widgets;
+TitleWindow* CreateTitleWindow(Widgets& owner, IceWidget* parent, sdword x, sdword y);
 
 #endif

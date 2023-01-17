@@ -12,50 +12,58 @@
 #ifndef ICESTRINGTABLE_H
 #define ICESTRINGTABLE_H
 
-	class ICECORE_API SortedStrings : public Allocateable
-	{
-		public:
-											SortedStrings()	: mSorted(FALSE){}
-											~SortedStrings()				{}
+class ICECORE_API SortedStrings : public Allocateable {
+public:
+    SortedStrings() : mSorted(FALSE) {}
+    ~SortedStrings() {}
 
-		inline_			udword				GetNbStrings()			const	{ return mContainer.GetNbEntries();										}
-		inline_			const String**		GetStrings()					{ if(!mSorted)	Sort();	return (const String**)mContainer.GetEntries();	}
-		inline_			const String*		GetString(udword i)				{ if(!mSorted)	Sort();	return (const String*)mContainer.GetEntry(i);	}
+    inline_ udword GetNbStrings() const { return mContainer.GetNbEntries(); }
+    inline_ const String** GetStrings() {
+        if (!mSorted) Sort();
+        return (const String**)mContainer.GetEntries();
+    }
+    inline_ const String* GetString(udword i) {
+        if (!mSorted) Sort();
+        return (const String*)mContainer.GetEntry(i);
+    }
 
-						SortedStrings&		AddString(const String& str)	{ mContainer.AddPtr(&str);	mSorted = FALSE; return *this;				}
-						udword				Find(const char* str);
-		private:
-						PtrContainer		mContainer;
-						BOOL				mSorted;
-		// Lazy-sorting
-						void				Sort();
-	};
+    SortedStrings& AddString(const String& str) {
+        mContainer.AddPtr(&str);
+        mSorted = FALSE;
+        return *this;
+    }
+    udword Find(const char* str);
 
-	class ICECORE_API StringDescriptor : public ListElem, public Allocateable
-	{
-		public:
-			inline_			StringDescriptor() : mStr(null)	{}
-			inline_			~StringDescriptor()				{}
+private:
+    PtrContainer mContainer;
+    BOOL mSorted;
+    // Lazy-sorting
+    void Sort();
+};
 
-		const String*		mStr;
-	};
+class ICECORE_API StringDescriptor : public ListElem, public Allocateable {
+public:
+    inline_ StringDescriptor() : mStr(null) {}
+    inline_ ~StringDescriptor() {}
 
-	class ICECORE_API StringTable : public Allocateable
-	{
-		public:
-						StringTable();
-						~StringTable();
+    const String* mStr;
+};
 
-		bool			Init(udword nb=10);
-		bool			Free();
+class ICECORE_API StringTable : public Allocateable {
+public:
+    StringTable();
+    ~StringTable();
 
-		bool					Add(const String& str);
-		const StringDescriptor*	Find(const String& str);
+    bool Init(udword nb = 10);
+    bool Free();
 
-		private:
-						udword			mNbLists;
-						udword			mMask;
-						LinkedList**	mLists;
-	};
+    bool Add(const String& str);
+    const StringDescriptor* Find(const String& str);
 
-#endif // ICESTRINGTABLE_H
+private:
+    udword mNbLists;
+    udword mMask;
+    LinkedList** mLists;
+};
+
+#endif  // ICESTRINGTABLE_H

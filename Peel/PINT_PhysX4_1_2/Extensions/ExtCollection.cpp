@@ -25,209 +25,177 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #include "common/PxBase.h"
-#include "geometry/PxConvexMesh.h"
-#include "geometry/PxTriangleMesh.h"
-#include "geometry/PxHeightField.h"
-#include "extensions/PxJoint.h"
-#include "extensions/PxConstraintExt.h"
 #include "extensions/PxCollectionExt.h"
-#include "PxShape.h"
-#include "PxMaterial.h"
-#include "PxArticulation.h"
-#include "PxAggregate.h"
-#include "PxPhysics.h"
-#include "PxScene.h"
-#include "PxPruningStructure.h"
-
-
+#include "extensions/PxConstraintExt.h"
+#include "extensions/PxJoint.h"
+#include "geometry/PxConvexMesh.h"
+#include "geometry/PxHeightField.h"
+#include "geometry/PxTriangleMesh.h"
 #include "PsArray.h"
+#include "PxAggregate.h"
+#include "PxArticulation.h"
+#include "PxMaterial.h"
+#include "PxPhysics.h"
+#include "PxPruningStructure.h"
+#include "PxScene.h"
+#include "PxShape.h"
 
 using namespace physx;
 
-void PxCollectionExt::releaseObjects(PxCollection& collection, bool releaseExclusiveShapes)
-{
-	shdfnd::Array<PxBase*> releasableObjects;
+void PxCollectionExt::releaseObjects(PxCollection& collection, bool releaseExclusiveShapes) {
+    shdfnd::Array<PxBase*> releasableObjects;
 
-	for (PxU32 i = 0; i < collection.getNbObjects(); ++i)
-	{	
-		PxBase* s = &collection.getObject(i);
-		// pruning structure must be released before its actors
-		if(s->is<PxPruningStructure>())
-		{
-			if(!releasableObjects.empty())
-			{
-				PxBase* first = releasableObjects[0];
-				releasableObjects.pushBack(first);
-				releasableObjects[0] = s;
-			}
-		}
-		else
-		{
-			if (s->isReleasable() && (releaseExclusiveShapes || !s->is<PxShape>() || !s->is<PxShape>()->isExclusive()))
-				releasableObjects.pushBack(s);
-		}
-	}
+    for (PxU32 i = 0; i < collection.getNbObjects(); ++i) {
+        PxBase* s = &collection.getObject(i);
+        // pruning structure must be released before its actors
+        if (s->is<PxPruningStructure>()) {
+            if (!releasableObjects.empty()) {
+                PxBase* first = releasableObjects[0];
+                releasableObjects.pushBack(first);
+                releasableObjects[0] = s;
+            }
+        } else {
+            if (s->isReleasable() && (releaseExclusiveShapes || !s->is<PxShape>() || !s->is<PxShape>()->isExclusive()))
+                releasableObjects.pushBack(s);
+        }
+    }
 
-	for (PxU32 i = 0; i < releasableObjects.size(); ++i)
-		releasableObjects[i]->release();		
+    for (PxU32 i = 0; i < releasableObjects.size(); ++i) releasableObjects[i]->release();
 
-	while (collection.getNbObjects() > 0)
-		collection.remove(collection.getObject(0));
+    while (collection.getNbObjects() > 0) collection.remove(collection.getObject(0));
 }
 
+void PxCollectionExt::remove(PxCollection& collection, PxType concreteType, PxCollection* to) {
+    shdfnd::Array<PxBase*> removeObjects;
 
-void PxCollectionExt::remove(PxCollection& collection, PxType concreteType, PxCollection* to)
-{	
-	shdfnd::Array<PxBase*> removeObjects;
-	
-	for (PxU32 i = 0; i < collection.getNbObjects(); i++)
-	{
-		PxBase& object = collection.getObject(i);
-		if(concreteType == object.getConcreteType())
-		{
-			if(to)
-			   to->add(object);	
+    for (PxU32 i = 0; i < collection.getNbObjects(); i++) {
+        PxBase& object = collection.getObject(i);
+        if (concreteType == object.getConcreteType()) {
+            if (to) to->add(object);
 
-			removeObjects.pushBack(&object);
-		}
-	}
+            removeObjects.pushBack(&object);
+        }
+    }
 
-	for (PxU32 i = 0; i < removeObjects.size(); ++i)
-		collection.remove(*removeObjects[i]);
+    for (PxU32 i = 0; i < removeObjects.size(); ++i) collection.remove(*removeObjects[i]);
 }
 
-PxCollection* PxCollectionExt::createCollection(PxPhysics& physics)
-{
-	PxCollection* collection = PxCreateCollection();
-	if (!collection)
-		return NULL;
+PxCollection* PxCollectionExt::createCollection(PxPhysics& physics) {
+    PxCollection* collection = PxCreateCollection();
+    if (!collection) return NULL;
 
-	// Collect convexes
-	{
-		shdfnd::Array<PxConvexMesh*> objects(physics.getNbConvexMeshes());
-		const PxU32 nb = physics.getConvexMeshes(objects.begin(), objects.size());
-		PX_ASSERT(nb == objects.size());
-		PX_UNUSED(nb);
+    // Collect convexes
+    {
+        shdfnd::Array<PxConvexMesh*> objects(physics.getNbConvexMeshes());
+        const PxU32 nb = physics.getConvexMeshes(objects.begin(), objects.size());
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-	// Collect triangle meshes
-	{
-		shdfnd::Array<PxTriangleMesh*> objects(physics.getNbTriangleMeshes());
-		const PxU32 nb = physics.getTriangleMeshes(objects.begin(), objects.size());
+    // Collect triangle meshes
+    {
+        shdfnd::Array<PxTriangleMesh*> objects(physics.getNbTriangleMeshes());
+        const PxU32 nb = physics.getTriangleMeshes(objects.begin(), objects.size());
 
-		PX_ASSERT(nb == objects.size());
-		PX_UNUSED(nb);
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-	// Collect heightfields
-	{
-		shdfnd::Array<PxHeightField*> objects(physics.getNbHeightFields());
-		const PxU32 nb = physics.getHeightFields(objects.begin(), objects.size());
+    // Collect heightfields
+    {
+        shdfnd::Array<PxHeightField*> objects(physics.getNbHeightFields());
+        const PxU32 nb = physics.getHeightFields(objects.begin(), objects.size());
 
-		PX_ASSERT(nb == objects.size());
-		PX_UNUSED(nb);
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-	// Collect materials
-	{
-		shdfnd::Array<PxMaterial*> objects(physics.getNbMaterials());
-		const PxU32 nb = physics.getMaterials(objects.begin(), objects.size());
+    // Collect materials
+    {
+        shdfnd::Array<PxMaterial*> objects(physics.getNbMaterials());
+        const PxU32 nb = physics.getMaterials(objects.begin(), objects.size());
 
-		PX_ASSERT(nb == objects.size());
-		PX_UNUSED(nb);
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-	// Collect shapes
-	{
-		shdfnd::Array<PxShape*> objects(physics.getNbShapes());
-		const PxU32 nb = physics.getShapes(objects.begin(), objects.size());
+    // Collect shapes
+    {
+        shdfnd::Array<PxShape*> objects(physics.getNbShapes());
+        const PxU32 nb = physics.getShapes(objects.begin(), objects.size());
 
-		PX_ASSERT(nb == objects.size());
-		PX_UNUSED(nb);
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
-	return collection;
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
+    return collection;
 }
 
-PxCollection* PxCollectionExt::createCollection(PxScene& scene)
-{
-	PxCollection* collection = PxCreateCollection();
-	if (!collection)
-		return NULL;
+PxCollection* PxCollectionExt::createCollection(PxScene& scene) {
+    PxCollection* collection = PxCreateCollection();
+    if (!collection) return NULL;
 
-	// Collect actors
-	{
-		PxActorTypeFlags selectionFlags = PxActorTypeFlag::eRIGID_STATIC | PxActorTypeFlag::eRIGID_DYNAMIC;
+    // Collect actors
+    {
+        PxActorTypeFlags selectionFlags = PxActorTypeFlag::eRIGID_STATIC | PxActorTypeFlag::eRIGID_DYNAMIC;
 
+        shdfnd::Array<PxActor*> objects(scene.getNbActors(selectionFlags));
+        const PxU32 nb = scene.getActors(selectionFlags, objects.begin(), objects.size());
 
-		shdfnd::Array<PxActor*> objects(scene.getNbActors(selectionFlags));
-		const PxU32 nb = scene.getActors(selectionFlags, objects.begin(), objects.size());
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-		PX_ASSERT(nb==objects.size());
-		PX_UNUSED(nb);
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+    // Collect constraints
+    {
+        shdfnd::Array<PxConstraint*> objects(scene.getNbConstraints());
+        const PxU32 nb = scene.getConstraints(objects.begin(), objects.size());
 
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-	// Collect constraints
-	{
-		shdfnd::Array<PxConstraint*> objects(scene.getNbConstraints());
-		const PxU32 nb = scene.getConstraints(objects.begin(), objects.size());
+        for (PxU32 i = 0; i < objects.size(); i++) {
+            PxU32 typeId;
+            PxJoint* joint = reinterpret_cast<PxJoint*>(objects[i]->getExternalReference(typeId));
+            if (typeId == PxConstraintExtIDs::eJOINT) collection->add(*joint);
+        }
+    }
 
-		PX_ASSERT(nb==objects.size());
-		PX_UNUSED(nb);
+    // Collect articulations
+    {
+        shdfnd::Array<PxArticulationBase*> objects(scene.getNbArticulations());
+        const PxU32 nb = scene.getArticulations(objects.begin(), objects.size());
 
-		for(PxU32 i=0;i<objects.size();i++)
-		{
-			PxU32 typeId;
-			PxJoint* joint = reinterpret_cast<PxJoint*>(objects[i]->getExternalReference(typeId));
-			if(typeId == PxConstraintExtIDs::eJOINT)
-				collection->add(*joint);
-		}
-	}
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-	// Collect articulations
-	{
-		shdfnd::Array<PxArticulationBase*> objects(scene.getNbArticulations());
-		const PxU32 nb = scene.getArticulations(objects.begin(), objects.size());
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-		PX_ASSERT(nb==objects.size());
-		PX_UNUSED(nb);
+    // Collect aggregates
+    {
+        shdfnd::Array<PxAggregate*> objects(scene.getNbAggregates());
+        const PxU32 nb = scene.getAggregates(objects.begin(), objects.size());
 
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
+        PX_ASSERT(nb == objects.size());
+        PX_UNUSED(nb);
 
-	// Collect aggregates
-	{
-		shdfnd::Array<PxAggregate*> objects(scene.getNbAggregates());
-		const PxU32 nb = scene.getAggregates(objects.begin(), objects.size());
+        for (PxU32 i = 0; i < objects.size(); i++) collection->add(*objects[i]);
+    }
 
-		PX_ASSERT(nb==objects.size());
-		PX_UNUSED(nb);
-
-		for(PxU32 i=0;i<objects.size();i++)
-			collection->add(*objects[i]);
-	}
-
-	return collection;
+    return collection;
 }

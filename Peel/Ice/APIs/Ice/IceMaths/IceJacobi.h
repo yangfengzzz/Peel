@@ -12,6 +12,6 @@
 #ifndef ICEJACOBI_H
 #define ICEJACOBI_H
 
-	ICEMATHS_API bool	JacobiTransform(int n, double a[], double w[]);
+ICEMATHS_API bool JacobiTransform(int n, double a[], double w[]);
 
-#endif	// ICEJACOBI_H
+#endif  // ICEJACOBI_H

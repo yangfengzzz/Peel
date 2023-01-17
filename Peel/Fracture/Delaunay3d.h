@@ -13,7 +13,7 @@
 
 #ifdef PEEL_USE_ICE_FRACTURE
 
-	#include <meshmerizer\IceDelaunay3d.h>
-	//typedef FractureConvex Convex;
+#include <meshmerizer\IceDelaunay3d.h>
+// typedef FractureConvex Convex;
 
 #endif

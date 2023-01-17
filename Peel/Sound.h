@@ -9,8 +9,8 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-	void	StartSound(const char* filename, udword pos);
-	udword	GetSoundPos();
-	void	SetFreq(int);
+void StartSound(const char* filename, udword pos);
+udword GetSoundPos();
+void SetFreq(int);
 
 #endif

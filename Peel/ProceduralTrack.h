@@ -9,18 +9,17 @@
 #ifndef PROCEDURAL_TRACK_H
 #define PROCEDURAL_TRACK_H
 
-	class RaceTrack
-	{
-		public:
-						RaceTrack();
-						~RaceTrack();
+class RaceTrack {
+public:
+    RaceTrack();
+    ~RaceTrack();
 
-			bool		Generate(float size = 2000.0f, float amplitude = 20.0f, float wall_height = 2.0f, float track_width = 15.0f);
+    bool Generate(float size = 2000.0f, float amplitude = 20.0f, float wall_height = 2.0f, float track_width = 15.0f);
 
-			udword		mNbVerts;
-			udword		mNbTris;
-			Point*		mVerts;
-			udword*		mIndices;
-	};
+    udword mNbVerts;
+    udword mNbTris;
+    Point* mVerts;
+    udword* mIndices;
+};
 
 #endif

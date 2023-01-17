@@ -40,38 +40,29 @@
 #define PX_SLIST_ALIGNMENT 8
 #endif
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable : 4324) // Padding was added at the end of a structure because of a __declspec(align) value.
+#pragma warning(disable : 4324)  // Padding was added at the end of a structure because of a __declspec(align) value.
 #endif
 
 #if !PX_GCC_FAMILY
 __declspec(align(PX_SLIST_ALIGNMENT))
 #endif
-    class SListEntry
-{
-	friend struct SListImpl;
+        class SListEntry {
+    friend struct SListImpl;
 
-  public:
-	SListEntry() : mNext(NULL)
-	{
-		PX_ASSERT((size_t(this) & (PX_SLIST_ALIGNMENT - 1)) == 0);
-	}
+public:
+    SListEntry() : mNext(NULL) { PX_ASSERT((size_t(this) & (PX_SLIST_ALIGNMENT - 1)) == 0); }
 
-	// Only use on elements returned by SList::flush()
-	// because the operation is not atomic.
-	SListEntry* next()
-	{
-		return mNext;
-	}
+    // Only use on elements returned by SList::flush()
+    // because the operation is not atomic.
+    SListEntry* next() { return mNext; }
 
-  private:
-	SListEntry* mNext;
+private:
+    SListEntry* mNext;
 }
 #if PX_GCC_FAMILY
 __attribute__((aligned(PX_SLIST_ALIGNMENT)));
@@ -84,57 +75,44 @@ __attribute__((aligned(PX_SLIST_ALIGNMENT)));
 #endif
 
 // template-less implementation
-struct PX_FOUNDATION_API SListImpl
-{
-	SListImpl();
-	~SListImpl();
-	void push(SListEntry* entry);
-	SListEntry* pop();
-	SListEntry* flush();
-	static uint32_t getSize();
+struct PX_FOUNDATION_API SListImpl {
+    SListImpl();
+    ~SListImpl();
+    void push(SListEntry* entry);
+    SListEntry* pop();
+    SListEntry* flush();
+    static uint32_t getSize();
 };
 
-template <typename Alloc = ReflectionAllocator<SListImpl> >
-class SListT : protected Alloc
-{
-  public:
-	SListT(const Alloc& alloc = Alloc()) : Alloc(alloc)
-	{
-		mImpl = reinterpret_cast<SListImpl*>(Alloc::allocate(SListImpl::getSize(), __FILE__, __LINE__));
-		PX_ASSERT((size_t(mImpl) & (PX_SLIST_ALIGNMENT - 1)) == 0);
-		PX_PLACEMENT_NEW(mImpl, SListImpl)();
-	}
-	~SListT()
-	{
-		mImpl->~SListImpl();
-		Alloc::deallocate(mImpl);
-	}
+template <typename Alloc = ReflectionAllocator<SListImpl>>
+class SListT : protected Alloc {
+public:
+    SListT(const Alloc& alloc = Alloc()) : Alloc(alloc) {
+        mImpl = reinterpret_cast<SListImpl*>(Alloc::allocate(SListImpl::getSize(), __FILE__, __LINE__));
+        PX_ASSERT((size_t(mImpl) & (PX_SLIST_ALIGNMENT - 1)) == 0);
+        PX_PLACEMENT_NEW(mImpl, SListImpl)();
+    }
+    ~SListT() {
+        mImpl->~SListImpl();
+        Alloc::deallocate(mImpl);
+    }
 
-	// pushes a new element to the list
-	void push(SListEntry& entry)
-	{
-		mImpl->push(&entry);
-	}
+    // pushes a new element to the list
+    void push(SListEntry& entry) { mImpl->push(&entry); }
 
-	// pops an element from the list
-	SListEntry* pop()
-	{
-		return mImpl->pop();
-	}
+    // pops an element from the list
+    SListEntry* pop() { return mImpl->pop(); }
 
-	// removes all items from list, returns pointer to first element
-	SListEntry* flush()
-	{
-		return mImpl->flush();
-	}
+    // removes all items from list, returns pointer to first element
+    SListEntry* flush() { return mImpl->flush(); }
 
-  private:
-	SListImpl* mImpl;
+private:
+    SListImpl* mImpl;
 };
 
 typedef SListT<> SList;
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSSLIST_H
+#endif  // #ifndef PSFOUNDATION_PSSLIST_H

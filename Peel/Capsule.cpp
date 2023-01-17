@@ -9,7 +9,6 @@
 //
 //
 #include "Capsule.h"
-
 #include "Common.h"
 #include "Sphere.h"
 

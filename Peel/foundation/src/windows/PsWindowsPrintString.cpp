@@ -27,28 +27,26 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "PsString.h"
 #include <stdio.h>
+
+#include "PsString.h"
 #pragma warning(push)
-#pragma warning(disable : 4668) //'symbol' is not defined as a preprocessor macro, replacing with '0' for 'directives'
+#pragma warning(disable : 4668)  //'symbol' is not defined as a preprocessor macro, replacing with '0' for 'directives'
 #include <windows.h>
 #pragma warning(pop)
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdarg.h>
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
-void printString(const char* str)
-{
-	puts(str); // do not use printf here, since str can contain multiple % signs that will not be printed
-	OutputDebugStringA(str);
-	OutputDebugStringA("\n");
+void printString(const char* str) {
+    puts(str);  // do not use printf here, since str can contain multiple % signs that will not be printed
+    OutputDebugStringA(str);
+    OutputDebugStringA("\n");
 }
-}
+}  // namespace shdfnd
 
-} // namespace physx
+}  // namespace physx

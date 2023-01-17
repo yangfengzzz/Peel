@@ -12,8 +12,7 @@
 #ifndef CTCPLANEPLANE_H
 #define CTCPLANEPLANE_H
 
-	CONTACT_API	bool	PlanePlaneContact(const Plane& plane0, const Plane& plane1, Ray& line);
-	CONTACT_API	bool	ClipAllPlanes(Vertices& verts, const Planes& planes);
+CONTACT_API bool PlanePlaneContact(const Plane& plane0, const Plane& plane1, Ray& line);
+CONTACT_API bool ClipAllPlanes(Vertices& verts, const Planes& planes);
 
-#endif // CTCPLANEPLANE_H
-
+#endif  // CTCPLANEPLANE_H

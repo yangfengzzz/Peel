@@ -117,8 +117,8 @@ typedef void ILvoid;
 #endif
 
 static void(ILAPIENTRY* gFunc_ilInit)() = null;
-// static ILuint		(ILAPIENTRY* gFunc_ilGenImage)		()								=
-// null;
+// static ILuint		(ILAPIENTRY* gFunc_ilGenImage)		()
+// = null;
 static void(ILAPIENTRY* gFunc_ilGenImages)(ILsizei Num, ILuint* Images) = null;
 static void(ILAPIENTRY* gFunc_ilBindImage)(ILuint Image) = null;
 #ifdef USE_DEVIL_1_8_0
@@ -128,8 +128,7 @@ static ILboolean(ILAPIENTRY* gFunc_ilLoadImage)(const ILstring FileName) = null;
 #endif
 static ILubyte*(ILAPIENTRY* gFunc_ilGetData)() = null;
 static ILint(ILAPIENTRY* gFunc_ilGetInteger)(ILenum Mode) = null;
-// static void			(ILAPIENTRY* gFunc_ilDeleteImage)	(const ILuint Num)				=
-// null;
+// static void			(ILAPIENTRY* gFunc_ilDeleteImage)	(const ILuint Num) = null;
 static ILvoid(ILAPIENTRY* gFunc_ilDeleteImages)(ILsizei Num, const ILuint* Images) = null;
 
 static ILboolean(ILAPIENTRY* gFunc_ilSetData)(void* Data) = null;
@@ -148,7 +147,7 @@ bool InitDevil() {
 
     if (!IceCore::LoadLibrary_("DevIL.dll", gHandle, false))
         //	if(!IceCore::LoadLibrary_("C:/Projects/#PEEL/PEEL_Externals/DevIL_1.8.0/lib/x86/Release/DevIL.dll",
-        //gHandle, false))
+        // gHandle, false))
         return false;
 
     *(void**)&gFunc_ilInit = IceCore::BindSymbol(gHandle, "ilInit");

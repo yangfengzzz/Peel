@@ -32,52 +32,52 @@
 
 #include "foundation/PxAllocatorCallback.h"
 #include "foundation/PxAssert.h"
-#include "PxFoundation.h"
 #include "Ps.h"
+#include "PxFoundation.h"
 
-#if(PX_WINDOWS_FAMILY || PX_XBOXONE)
-	#include <exception>
-	#include <typeinfo.h>
+#if (PX_WINDOWS_FAMILY || PX_XBOXONE)
+#include <exception>
+#include <typeinfo.h>
 #endif
-#if(PX_APPLE_FAMILY)
-	#include <typeinfo>
+#if (PX_APPLE_FAMILY)
+#include <typeinfo>
 #endif
 
 #include <new>
 
 // Allocation macros going through user allocator
 #if PX_CHECKED
-	#define PX_ALLOC(n, name) physx::shdfnd::NamedAllocator(name).allocate(n, __FILE__, __LINE__)
+#define PX_ALLOC(n, name) physx::shdfnd::NamedAllocator(name).allocate(n, __FILE__, __LINE__)
 #else
-	#define PX_ALLOC(n, name) physx::shdfnd::NonTrackingAllocator().allocate(n, __FILE__, __LINE__)
+#define PX_ALLOC(n, name) physx::shdfnd::NonTrackingAllocator().allocate(n, __FILE__, __LINE__)
 #endif
 #define PX_ALLOC_TEMP(n, name) PX_ALLOC(n, name)
 #define PX_FREE(x) physx::shdfnd::NonTrackingAllocator().deallocate(x)
-#define PX_FREE_AND_RESET(x)	\
-	{                           \
-		PX_FREE(x);             \
-		x = 0;                  \
-	}
+#define PX_FREE_AND_RESET(x) \
+    {                        \
+        PX_FREE(x);          \
+        x = 0;               \
+    }
 
 // The following macros support plain-old-types and classes derived from UserAllocated.
 #define PX_NEW(T) new (physx::shdfnd::ReflectionAllocator<T>(), __FILE__, __LINE__) T
 #define PX_NEW_TEMP(T) PX_NEW(T)
 #define PX_DELETE(x) delete x
-#define PX_DELETE_AND_RESET(x)	\
-	{                           \
-		PX_DELETE(x);           \
-		x = 0;                  \
-	}
-#define PX_DELETE_POD(x)        \
-	{                           \
-		PX_FREE(x);             \
-		x = 0;                  \
-	}
-#define PX_DELETE_ARRAY(x)      \
-	{                           \
-		PX_DELETE([] x);        \
-		x = 0;                  \
-	}
+#define PX_DELETE_AND_RESET(x) \
+    {                          \
+        PX_DELETE(x);          \
+        x = 0;                 \
+    }
+#define PX_DELETE_POD(x) \
+    {                    \
+        PX_FREE(x);      \
+        x = 0;           \
+    }
+#define PX_DELETE_ARRAY(x) \
+    {                      \
+        PX_DELETE([] x);   \
+        x = 0;             \
+    }
 
 // aligned allocation
 #define PX_ALIGNED16_ALLOC(n) physx::shdfnd::AlignedAllocator<16>().allocate(n, __FILE__, __LINE__)
@@ -87,38 +87,36 @@
 #define PX_PLACEMENT_NEW(p, T) new (p) T
 
 #if PX_DEBUG || PX_CHECKED
-	#define PX_USE_NAMED_ALLOCATOR 1
+#define PX_USE_NAMED_ALLOCATOR 1
 #else
-	#define PX_USE_NAMED_ALLOCATOR 0
+#define PX_USE_NAMED_ALLOCATOR 0
 #endif
 
 // Don't use inline for alloca !!!
 #if PX_WINDOWS_FAMILY
-	#include <malloc.h>
-	#define PxAlloca(x) _alloca(x)
+#include <malloc.h>
+#define PxAlloca(x) _alloca(x)
 #elif PX_LINUX || PX_ANDROID
-	#include <malloc.h>
-	#define PxAlloca(x) alloca(x)
+#include <malloc.h>
+#define PxAlloca(x) alloca(x)
 #elif PX_APPLE_FAMILY
-	#include <alloca.h>
-	#define PxAlloca(x) alloca(x)
+#include <alloca.h>
+#define PxAlloca(x) alloca(x)
 #elif PX_PS4
-	#include <memory.h>
-	#define PxAlloca(x) alloca(x)
+#include <memory.h>
+#define PxAlloca(x) alloca(x)
 #elif PX_XBOXONE
-	#include <malloc.h>
-	#define PxAlloca(x) alloca(x)
+#include <malloc.h>
+#define PxAlloca(x) alloca(x)
 #elif PX_SWITCH
-	#include <malloc.h>
-	#define PxAlloca(x) alloca(x)
+#include <malloc.h>
+#define PxAlloca(x) alloca(x)
 #endif
 
 #define PxAllocaAligned(x, alignment) ((size_t(PxAlloca(x + alignment)) + (alignment - 1)) & ~size_t(alignment - 1))
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
 PX_FOUNDATION_API PxAllocatorCallback& getAllocator();
 
@@ -126,36 +124,28 @@ PX_FOUNDATION_API PxAllocatorCallback& getAllocator();
 Allocator used to access the global PxAllocatorCallback instance without providing additional information.
 */
 
-class PX_FOUNDATION_API Allocator
-{
-  public:
-	Allocator(const char* = 0)
-	{
-	}
-	void* allocate(size_t size, const char* file, int line);
-	void deallocate(void* ptr);
+class PX_FOUNDATION_API Allocator {
+public:
+    Allocator(const char* = 0) {}
+    void* allocate(size_t size, const char* file, int line);
+    void deallocate(void* ptr);
 };
 
 /*
  * Bootstrap allocator using malloc/free.
  * Don't use unless your objects get allocated before foundation is initialized.
  */
-class RawAllocator
-{
-  public:
-	RawAllocator(const char* = 0)
-	{
-	}
-	void* allocate(size_t size, const char*, int)
-	{
-		// malloc returns valid pointer for size==0, no need to check
-		return ::malloc(size);
-	}
-	void deallocate(void* ptr)
-	{
-		// free(0) is guaranteed to have no side effect, no need to check
-		::free(ptr);
-	}
+class RawAllocator {
+public:
+    RawAllocator(const char* = 0) {}
+    void* allocate(size_t size, const char*, int) {
+        // malloc returns valid pointer for size==0, no need to check
+        return ::malloc(size);
+    }
+    void deallocate(void* ptr) {
+        // free(0) is guaranteed to have no side effect, no need to check
+        ::free(ptr);
+    }
 };
 
 /*
@@ -164,38 +154,27 @@ class RawAllocator
  * because it needs to be able to grow as a result of an allocation.
  * Making the hash table re-entrant to deal with this may not make sense.
  */
-class NonTrackingAllocator
-{
-  public:
-	PX_FORCE_INLINE NonTrackingAllocator(const char* = 0)
-	{
-	}
-	PX_FORCE_INLINE void* allocate(size_t size, const char* file, int line)
-	{
-		return !size ? 0 : getAllocator().allocate(size, "NonTrackedAlloc", file, line);
-	}
-	PX_FORCE_INLINE void deallocate(void* ptr)
-	{
-		if(ptr)
-			getAllocator().deallocate(ptr);
-	}
+class NonTrackingAllocator {
+public:
+    PX_FORCE_INLINE NonTrackingAllocator(const char* = 0) {}
+    PX_FORCE_INLINE void* allocate(size_t size, const char* file, int line) {
+        return !size ? 0 : getAllocator().allocate(size, "NonTrackedAlloc", file, line);
+    }
+    PX_FORCE_INLINE void deallocate(void* ptr) {
+        if (ptr) getAllocator().deallocate(ptr);
+    }
 };
 
 /*
 \brief	Virtual allocator callback used to provide run-time defined allocators to foundation types like Array or Bitmap.
         This is used by VirtualAllocator
 */
-class VirtualAllocatorCallback
-{
-  public:
-	VirtualAllocatorCallback()
-	{
-	}
-	virtual ~VirtualAllocatorCallback()
-	{
-	}
-	virtual void* allocate(const size_t size, const char* file, const int line) = 0;
-	virtual void deallocate(void* ptr) = 0;
+class VirtualAllocatorCallback {
+public:
+    VirtualAllocatorCallback() {}
+    virtual ~VirtualAllocatorCallback() {}
+    virtual void* allocate(const size_t size, const char* file, const int line) = 0;
+    virtual void deallocate(void* ptr) = 0;
 };
 
 /*
@@ -206,119 +185,91 @@ be a concrete type containing a pointer to a virtual callback. The callback may 
 therefore
 methods are provided to set the callback later.
 */
-class VirtualAllocator
-{
-  public:
-	VirtualAllocator(VirtualAllocatorCallback* callback = NULL) : mCallback(callback)
-	{
-	}
+class VirtualAllocator {
+public:
+    VirtualAllocator(VirtualAllocatorCallback* callback = NULL) : mCallback(callback) {}
 
-	void* allocate(const size_t size, const char* file, const int line)
-	{
-		PX_ASSERT(mCallback);
-		if(size)
-			return mCallback->allocate(size, file, line);
-		return NULL;
-	}
-	void deallocate(void* ptr)
-	{
-		PX_ASSERT(mCallback);
-		if(ptr)
-			mCallback->deallocate(ptr);
-	}
+    void* allocate(const size_t size, const char* file, const int line) {
+        PX_ASSERT(mCallback);
+        if (size) return mCallback->allocate(size, file, line);
+        return NULL;
+    }
+    void deallocate(void* ptr) {
+        PX_ASSERT(mCallback);
+        if (ptr) mCallback->deallocate(ptr);
+    }
 
-	void setCallback(VirtualAllocatorCallback* callback)
-	{
-		mCallback = callback;
-	}
-	VirtualAllocatorCallback* getCallback()
-	{
-		return mCallback;
-	}
+    void setCallback(VirtualAllocatorCallback* callback) { mCallback = callback; }
+    VirtualAllocatorCallback* getCallback() { return mCallback; }
 
-  private:
-	VirtualAllocatorCallback* mCallback;
-	VirtualAllocator& operator=(const VirtualAllocator&);
+private:
+    VirtualAllocatorCallback* mCallback;
+    VirtualAllocator& operator=(const VirtualAllocator&);
 };
 
-#if PX_USE_NAMED_ALLOCATOR // can be slow, so only use in debug/checked
-class PX_FOUNDATION_API NamedAllocator
-{
-  public:
-	NamedAllocator(const PxEMPTY);
-	NamedAllocator(const char* name = 0); // todo: should not have default argument!
-	NamedAllocator(const NamedAllocator&);
-	~NamedAllocator();
-	NamedAllocator& operator=(const NamedAllocator&);
-	void* allocate(size_t size, const char* filename, int line);
-	void deallocate(void* ptr);
+#if PX_USE_NAMED_ALLOCATOR  // can be slow, so only use in debug/checked
+class PX_FOUNDATION_API NamedAllocator {
+public:
+    NamedAllocator(const PxEMPTY);
+    NamedAllocator(const char* name = 0);  // todo: should not have default argument!
+    NamedAllocator(const NamedAllocator&);
+    ~NamedAllocator();
+    NamedAllocator& operator=(const NamedAllocator&);
+    void* allocate(size_t size, const char* filename, int line);
+    void deallocate(void* ptr);
 };
 #else
 class NamedAllocator;
-#endif // PX_DEBUG
+#endif  // PX_DEBUG
 
 /**
 Allocator used to access the global PxAllocatorCallback instance using a static name derived from T.
 */
 
 template <typename T>
-class ReflectionAllocator
-{
-	static const char* getName()
-	{
-		if(!PxGetFoundation().getReportAllocationNames())
-			return "<allocation names disabled>";
+class ReflectionAllocator {
+    static const char* getName() {
+        if (!PxGetFoundation().getReportAllocationNames()) return "<allocation names disabled>";
 #if PX_GCC_FAMILY
-		return __PRETTY_FUNCTION__;
+        return __PRETTY_FUNCTION__;
 #else
-		// name() calls malloc(), raw_name() wouldn't
-		return typeid(T).name();
+        // name() calls malloc(), raw_name() wouldn't
+        return typeid(T).name();
 #endif
-	}
+    }
 
-  public:
-	ReflectionAllocator(const PxEMPTY)
-	{
-	}
-	ReflectionAllocator(const char* = 0)
-	{
-	}
-	inline ReflectionAllocator(const ReflectionAllocator&)
-	{
-	}
-	void* allocate(size_t size, const char* filename, int line)
-	{
-		return size ? getAllocator().allocate(size, getName(), filename, line) : 0;
-	}
-	void deallocate(void* ptr)
-	{
-		if(ptr)
-			getAllocator().deallocate(ptr);
-	}
+public:
+    ReflectionAllocator(const PxEMPTY) {}
+    ReflectionAllocator(const char* = 0) {}
+    inline ReflectionAllocator(const ReflectionAllocator&) {}
+    void* allocate(size_t size, const char* filename, int line) {
+        return size ? getAllocator().allocate(size, getName(), filename, line) : 0;
+    }
+    void deallocate(void* ptr) {
+        if (ptr) getAllocator().deallocate(ptr);
+    }
 };
 
 template <typename T>
-struct AllocatorTraits
-{
+struct AllocatorTraits {
 #if PX_USE_NAMED_ALLOCATOR
-	typedef NamedAllocator Type;
+    typedef NamedAllocator Type;
 #else
-	typedef ReflectionAllocator<T> Type;
+    typedef ReflectionAllocator<T> Type;
 #endif
 };
 
 // if you get a build error here, you are trying to PX_NEW a class
 // that is neither plain-old-type nor derived from UserAllocated
 template <typename T, typename X>
-union EnableIfPod
-{
-	int i;
-	T t;
-	typedef X Type;
+union EnableIfPod {
+    int i;
+    T t;
+    typedef X Type;
 };
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
 // Global placement new for ReflectionAllocator templated by
 // plain-old-type. Allows using PX_NEW for pointers and built-in-types.
@@ -331,37 +282,43 @@ union EnableIfPod
 // PX_DELETE_POD was preferred over PX_DELETE_ARRAY because it is used
 // less often and applies to both single instances and arrays.
 template <typename T>
-PX_INLINE void* operator new(size_t size, physx::shdfnd::ReflectionAllocator<T> alloc, const char* fileName,
-                             typename physx::shdfnd::EnableIfPod<T, int>::Type line)
-{
-	return alloc.allocate(size, fileName, line);
+PX_INLINE void* operator new(size_t size,
+                             physx::shdfnd::ReflectionAllocator<T> alloc,
+                             const char* fileName,
+                             typename physx::shdfnd::EnableIfPod<T, int>::Type line) {
+    return alloc.allocate(size, fileName, line);
 }
 
 template <typename T>
-PX_INLINE void* operator new [](size_t size, physx::shdfnd::ReflectionAllocator<T> alloc, const char* fileName,
-                                typename physx::shdfnd::EnableIfPod<T, int>::Type line)
-{ return alloc.allocate(size, fileName, line); }
-
-// If construction after placement new throws, this placement delete is being called.
-template <typename T>
-PX_INLINE void operator delete(void* ptr, physx::shdfnd::ReflectionAllocator<T> alloc, const char* fileName,
-                               typename physx::shdfnd::EnableIfPod<T, int>::Type line)
-{
-	PX_UNUSED(fileName);
-	PX_UNUSED(line);
-
-	alloc.deallocate(ptr);
+PX_INLINE void* operator new[](size_t size,
+                               physx::shdfnd::ReflectionAllocator<T> alloc,
+                               const char* fileName,
+                               typename physx::shdfnd::EnableIfPod<T, int>::Type line) {
+    return alloc.allocate(size, fileName, line);
 }
 
 // If construction after placement new throws, this placement delete is being called.
 template <typename T>
-PX_INLINE void operator delete [](void* ptr, physx::shdfnd::ReflectionAllocator<T> alloc, const char* fileName,
-                                  typename physx::shdfnd::EnableIfPod<T, int>::Type line)
-{
-	PX_UNUSED(fileName);
-	PX_UNUSED(line);
+PX_INLINE void operator delete(void* ptr,
+                               physx::shdfnd::ReflectionAllocator<T> alloc,
+                               const char* fileName,
+                               typename physx::shdfnd::EnableIfPod<T, int>::Type line) {
+    PX_UNUSED(fileName);
+    PX_UNUSED(line);
 
-	alloc.deallocate(ptr);
+    alloc.deallocate(ptr);
 }
 
-#endif // #ifndef PSFOUNDATION_PSALLOCATOR_H
+// If construction after placement new throws, this placement delete is being called.
+template <typename T>
+PX_INLINE void operator delete[](void* ptr,
+                                 physx::shdfnd::ReflectionAllocator<T> alloc,
+                                 const char* fileName,
+                                 typename physx::shdfnd::EnableIfPod<T, int>::Type line) {
+    PX_UNUSED(fileName);
+    PX_UNUSED(line);
+
+    alloc.deallocate(ptr);
+}
+
+#endif  // #ifndef PSFOUNDATION_PSALLOCATOR_H

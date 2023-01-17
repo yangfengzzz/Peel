@@ -9,29 +9,22 @@
 #ifndef PINT_ENGINE_DATA_H
 #define PINT_ENGINE_DATA_H
 
-#include "PintTiming.h"
 #include "PintSQ.h"
+#include "PintTiming.h"
 #include "PintVisibilityManager.h"
 
-	struct EngineData
-	{
-		EngineData() :
-			mEngine					(null),
-			mVisHelper				(null),
-			mEnabled				(true),
-			mSupportsCurrentTest	(true)
-		{
-		}
+struct EngineData {
+    EngineData() : mEngine(null), mVisHelper(null), mEnabled(true), mSupportsCurrentTest(true) {}
 
-		void				Init(Pint* engine);
-		void				Reset();
+    void Init(Pint* engine);
+    void Reset();
 
-		Pint*				mEngine;
-		PintSQ				mSQHelper;
-		PintTiming			mTiming;
-		VisibilityManager*	mVisHelper;
-		bool				mEnabled;
-		bool				mSupportsCurrentTest;
-	};
+    Pint* mEngine;
+    PintSQ mSQHelper;
+    PintTiming mTiming;
+    VisibilityManager* mVisHelper;
+    bool mEnabled;
+    bool mSupportsCurrentTest;
+};
 
 #endif

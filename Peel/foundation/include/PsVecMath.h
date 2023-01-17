@@ -30,12 +30,12 @@
 #ifndef PSFOUNDATION_PSVECMATH_H
 #define PSFOUNDATION_PSVECMATH_H
 
-#include "Ps.h"
-#include "PsIntrinsics.h"
-#include "foundation/PxVec3.h"
-#include "foundation/PxVec4.h"
 #include "foundation/PxMat33.h"
 #include "foundation/PxUnionCast.h"
+#include "foundation/PxVec3.h"
+#include "foundation/PxVec4.h"
+#include "Ps.h"
+#include "PsIntrinsics.h"
 
 // We can opt to use the scalar version of vectorised functions.
 // This can catch type safety issues and might even work out more optimal on pc.
@@ -65,7 +65,7 @@
 #define COMPILE_VECTOR_INTRINSICS 0
 #endif
 
-#if COMPILE_VECTOR_INTRINSICS && PX_INTEL_FAMILY&&(PX_UNIX_FAMILY || PX_PS4)
+#if COMPILE_VECTOR_INTRINSICS && PX_INTEL_FAMILY && (PX_UNIX_FAMILY || PX_PS4)
 // only SSE2 compatible platforms should reach this
 #if PX_EMSCRIPTEN
 #include <emmintrin.h>
@@ -79,12 +79,9 @@
 #include "PsVecMathAoSScalar.h"
 #endif
 
-namespace physx
-{
-namespace shdfnd
-{
-namespace aos
-{
+namespace physx {
+namespace shdfnd {
+namespace aos {
 
 // Basic AoS types are
 // FloatV	- 16-byte aligned representation of float.
@@ -172,7 +169,8 @@ Vec4V Vec4V_From_PxVec3_WUndefined(const PxVec3& v);
 // Vec3V
 //(v.x,v.y,v.z,0)
 PX_FORCE_INLINE Vec3V Vec3V_From_Vec4V(Vec4V v);
-//(v.x,v.y,v.z,undefined) - be very careful with w!=0 because many functions require w==0 for correct operation eg V3Dot, V3Length, V3Cross etc etc.
+//(v.x,v.y,v.z,undefined) - be very careful with w!=0 because many functions require w==0 for correct operation eg
+//V3Dot, V3Length, V3Cross etc etc.
 PX_FORCE_INLINE Vec3V Vec3V_From_Vec4V_WUndefined(const Vec4V v);
 
 // Vec4V
@@ -251,8 +249,7 @@ PX_FORCE_INLINE bool isValidVec3V(const Vec3V a);
 // Use these tests for unit testing and asserts only.
 //////////////////////////////////////////////////////////////////
 
-namespace _VecMathTests
-{
+namespace _VecMathTests {
 PX_FORCE_INLINE Vec3V getInvalidVec3V();
 PX_FORCE_INLINE bool allElementsEqualFloatV(const FloatV a, const FloatV b);
 PX_FORCE_INLINE bool allElementsEqualVec3V(const Vec3V a, const Vec3V b);
@@ -261,41 +258,35 @@ PX_FORCE_INLINE bool allElementsEqualBoolV(const BoolV a, const BoolV b);
 PX_FORCE_INLINE bool allElementsEqualVecU32V(const VecU32V a, const VecU32V b);
 PX_FORCE_INLINE bool allElementsEqualVecI32V(const VecI32V a, const VecI32V b);
 
-PX_FORCE_INLINE bool allElementsEqualMat33V(const Mat33V& a, const Mat33V& b)
-{
-	return (allElementsEqualVec3V(a.col0, b.col0) && allElementsEqualVec3V(a.col1, b.col1) &&
-	        allElementsEqualVec3V(a.col2, b.col2));
+PX_FORCE_INLINE bool allElementsEqualMat33V(const Mat33V& a, const Mat33V& b) {
+    return (allElementsEqualVec3V(a.col0, b.col0) && allElementsEqualVec3V(a.col1, b.col1) &&
+            allElementsEqualVec3V(a.col2, b.col2));
 }
-PX_FORCE_INLINE bool allElementsEqualMat34V(const Mat34V& a, const Mat34V& b)
-{
-	return (allElementsEqualVec3V(a.col0, b.col0) && allElementsEqualVec3V(a.col1, b.col1) &&
-	        allElementsEqualVec3V(a.col2, b.col2) && allElementsEqualVec3V(a.col3, b.col3));
+PX_FORCE_INLINE bool allElementsEqualMat34V(const Mat34V& a, const Mat34V& b) {
+    return (allElementsEqualVec3V(a.col0, b.col0) && allElementsEqualVec3V(a.col1, b.col1) &&
+            allElementsEqualVec3V(a.col2, b.col2) && allElementsEqualVec3V(a.col3, b.col3));
 }
-PX_FORCE_INLINE bool allElementsEqualMat44V(const Mat44V& a, const Mat44V& b)
-{
-	return (allElementsEqualVec4V(a.col0, b.col0) && allElementsEqualVec4V(a.col1, b.col1) &&
-	        allElementsEqualVec4V(a.col2, b.col2) && allElementsEqualVec4V(a.col3, b.col3));
+PX_FORCE_INLINE bool allElementsEqualMat44V(const Mat44V& a, const Mat44V& b) {
+    return (allElementsEqualVec4V(a.col0, b.col0) && allElementsEqualVec4V(a.col1, b.col1) &&
+            allElementsEqualVec4V(a.col2, b.col2) && allElementsEqualVec4V(a.col3, b.col3));
 }
 
 PX_FORCE_INLINE bool allElementsNearEqualFloatV(const FloatV a, const FloatV b);
 PX_FORCE_INLINE bool allElementsNearEqualVec3V(const Vec3V a, const Vec3V b);
 PX_FORCE_INLINE bool allElementsNearEqualVec4V(const Vec4V a, const Vec4V b);
-PX_FORCE_INLINE bool allElementsNearEqualMat33V(const Mat33V& a, const Mat33V& b)
-{
-	return (allElementsNearEqualVec3V(a.col0, b.col0) && allElementsNearEqualVec3V(a.col1, b.col1) &&
-	        allElementsNearEqualVec3V(a.col2, b.col2));
+PX_FORCE_INLINE bool allElementsNearEqualMat33V(const Mat33V& a, const Mat33V& b) {
+    return (allElementsNearEqualVec3V(a.col0, b.col0) && allElementsNearEqualVec3V(a.col1, b.col1) &&
+            allElementsNearEqualVec3V(a.col2, b.col2));
 }
-PX_FORCE_INLINE bool allElementsNearEqualMat34V(const Mat34V& a, const Mat34V& b)
-{
-	return (allElementsNearEqualVec3V(a.col0, b.col0) && allElementsNearEqualVec3V(a.col1, b.col1) &&
-	        allElementsNearEqualVec3V(a.col2, b.col2) && allElementsNearEqualVec3V(a.col3, b.col3));
+PX_FORCE_INLINE bool allElementsNearEqualMat34V(const Mat34V& a, const Mat34V& b) {
+    return (allElementsNearEqualVec3V(a.col0, b.col0) && allElementsNearEqualVec3V(a.col1, b.col1) &&
+            allElementsNearEqualVec3V(a.col2, b.col2) && allElementsNearEqualVec3V(a.col3, b.col3));
 }
-PX_FORCE_INLINE bool allElementsNearEqualMat44V(const Mat44V& a, const Mat44V& b)
-{
-	return (allElementsNearEqualVec4V(a.col0, b.col0) && allElementsNearEqualVec4V(a.col1, b.col1) &&
-	        allElementsNearEqualVec4V(a.col2, b.col2) && allElementsNearEqualVec4V(a.col3, b.col3));
+PX_FORCE_INLINE bool allElementsNearEqualMat44V(const Mat44V& a, const Mat44V& b) {
+    return (allElementsNearEqualVec4V(a.col0, b.col0) && allElementsNearEqualVec4V(a.col1, b.col1) &&
+            allElementsNearEqualVec4V(a.col2, b.col2) && allElementsNearEqualVec4V(a.col3, b.col3));
 }
-}
+}  // namespace _VecMathTests
 
 //////////////////////////////////////////////////////////////////
 // Math operations on FloatV
@@ -480,7 +471,7 @@ PX_FORCE_INLINE Vec3V V3NegMulSub(const Vec3V a, const Vec3V b, const Vec3V c);
 // fabs(a)
 PX_FORCE_INLINE Vec3V V3Abs(const Vec3V a);
 
-// a.b 
+// a.b
 // Note: a.w and b.w must have value zero
 PX_FORCE_INLINE FloatV V3Dot(const Vec3V a, const Vec3V b);
 // aXb
@@ -498,7 +489,7 @@ PX_FORCE_INLINE Vec3V V3Normalize(const Vec3V a);
 // a.a>0 ? a*|a.a|^-1/2 : (0,0,0,0)
 // Note: a.w must have value zero
 PX_FORCE_INLINE FloatV V3Length(const Vec3V a);
-// a.a>0 ? a*|a.a|^-1/2 : unsafeReturnValue 
+// a.a>0 ? a*|a.a|^-1/2 : unsafeReturnValue
 // Note: a.w must have value zero
 PX_FORCE_INLINE Vec3V V3NormalizeSafe(const Vec3V a, const Vec3V unsafeReturnValue);
 // a.x + a.y + a.z
@@ -727,7 +718,7 @@ PX_FORCE_INLINE FloatV V4LengthSq(const Vec4V a);
 
 // a*|a.a|^-1/2
 PX_FORCE_INLINE Vec4V V4Normalize(const Vec4V a);
-// a.a>0 ? a*|a.a|^-1/2 : unsafeReturnValue 
+// a.a>0 ? a*|a.a|^-1/2 : unsafeReturnValue
 PX_FORCE_INLINE Vec4V V4NormalizeSafe(const Vec4V a, const Vec4V unsafeReturnValue);
 // a*|a.a|^-1/2
 PX_FORCE_INLINE Vec4V V4NormalizeFast(const Vec4V a);
@@ -1004,10 +995,8 @@ PX_FORCE_INLINE VecU32V V4U32Andc(VecU32V a, VecU32V b);
 PX_FORCE_INLINE VecU32V V4IsGrtrV32u(const Vec4V a, const Vec4V b);
 
 // Math operations on 16-byte aligned Mat33s (represents any 3x3 matrix)
-PX_FORCE_INLINE Mat33V M33Load(const PxMat33& m) 
-{
-	return Mat33V(Vec3V_From_Vec4V(V4LoadU(&m.column0.x)), 
-	Vec3V_From_Vec4V(V4LoadU(&m.column1.x)), V3LoadU(m.column2)); 
+PX_FORCE_INLINE Mat33V M33Load(const PxMat33& m) {
+    return Mat33V(Vec3V_From_Vec4V(V4LoadU(&m.column0.x)), Vec3V_From_Vec4V(V4LoadU(&m.column1.x)), V3LoadU(m.column2));
 }
 // a*b
 PX_FORCE_INLINE Vec3V M33MulV3(const Mat33V& a, const Vec3V b);
@@ -1075,23 +1064,23 @@ PX_FORCE_INLINE Mat33V M33Diagonal(const Vec3VArg);
 //}; //namespace _Mat34V
 
 // a*b
-//#define M34MulV3(a,b)			(M34MulV3(a,b))
+// #define M34MulV3(a,b)			(M34MulV3(a,b))
 ////a_rotation * b
-//#define M34Mul33V3(a,b)			(M34Mul33V3(a,b))
+// #define M34Mul33V3(a,b)			(M34Mul33V3(a,b))
 ////transpose(a_rotation)*b
-//#define M34TrnspsMul33V3(a,b)	(M34TrnspsMul33V3(a,b))
+// #define M34TrnspsMul33V3(a,b)	(M34TrnspsMul33V3(a,b))
 ////a*b
-//#define M34MulM34(a,b)			(_Mat34V::multiplyV(a,b))
-// a_rotation*b
-//#define M34MulM33(a,b)			(M34MulM33(a,b))
-// a_rotation*b_rotation
-//#define M34Mul33MM34(a,b)		(M34MulM33(a,b))
-// a+b
-//#define M34Add(a,b)				(M34Add(a,b))
+// #define M34MulM34(a,b)			(_Mat34V::multiplyV(a,b))
+//  a_rotation*b
+// #define M34MulM33(a,b)			(M34MulM33(a,b))
+//  a_rotation*b_rotation
+// #define M34Mul33MM34(a,b)		(M34MulM33(a,b))
+//  a+b
+// #define M34Add(a,b)				(M34Add(a,b))
 ////a^-1
-//#define M34Inverse(a,b)			(M34Inverse(a))
-// transpose(a_rotation)
-//#define M34Trnsps33(a)			(M33Trnsps3X3(a))
+// #define M34Inverse(a,b)			(M34Inverse(a))
+//  transpose(a_rotation)
+// #define M34Trnsps33(a)			(M33Trnsps3X3(a))
 
 // Math operations on 16-byte aligned Mat44s (represents any 4x4 matrix)
 // namespace _Mat44V
@@ -1157,148 +1146,94 @@ PX_FORCE_INLINE Mat33V M33Diagonal(const Vec3VArg);
 //};
 
 // a*b
-//#define M44MulV4(a,b)		(M44MulV4(a,b))
+// #define M44MulV4(a,b)		(M44MulV4(a,b))
 ////transpose(a)*b
-//#define M44TrnspsMulV4(a,b) (M44TrnspsMulV4(a,b))
+// #define M44TrnspsMulV4(a,b) (M44TrnspsMulV4(a,b))
 ////a*b
-//#define M44MulM44(a,b)		(M44MulM44(a,b))
+// #define M44MulM44(a,b)		(M44MulM44(a,b))
 ////a+b
-//#define M44Add(a,b)			(M44Add(a,b))
+// #define M44Add(a,b)			(M44Add(a,b))
 ////a&-1
-//#define M44Inverse(a)		(M44Inverse(a))
+// #define M44Inverse(a)		(M44Inverse(a))
 ////transpose(a)
-//#define M44Trnsps(a)		(M44Trnsps(a))
+// #define M44Trnsps(a)		(M44Trnsps(a))
 
 // dsequeira: these used to be assert'd out in SIMD builds, but they're necessary if
 // we want to be able to write some scalar functions which run using SIMD data structures
 
-PX_FORCE_INLINE void V3WriteX(Vec3V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec3&>(v).x = f;
-}
+PX_FORCE_INLINE void V3WriteX(Vec3V& v, const PxF32 f) { reinterpret_cast<PxVec3&>(v).x = f; }
 
-PX_FORCE_INLINE void V3WriteY(Vec3V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec3&>(v).y = f;
-}
+PX_FORCE_INLINE void V3WriteY(Vec3V& v, const PxF32 f) { reinterpret_cast<PxVec3&>(v).y = f; }
 
-PX_FORCE_INLINE void V3WriteZ(Vec3V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec3&>(v).z = f;
-}
+PX_FORCE_INLINE void V3WriteZ(Vec3V& v, const PxF32 f) { reinterpret_cast<PxVec3&>(v).z = f; }
 
-PX_FORCE_INLINE void V3WriteXYZ(Vec3V& v, const PxVec3& f)
-{
-	reinterpret_cast<PxVec3&>(v) = f;
-}
+PX_FORCE_INLINE void V3WriteXYZ(Vec3V& v, const PxVec3& f) { reinterpret_cast<PxVec3&>(v) = f; }
 
-PX_FORCE_INLINE PxF32 V3ReadX(const Vec3V& v)
-{
-	return reinterpret_cast<const PxVec3&>(v).x;
-}
+PX_FORCE_INLINE PxF32 V3ReadX(const Vec3V& v) { return reinterpret_cast<const PxVec3&>(v).x; }
 
-PX_FORCE_INLINE PxF32 V3ReadY(const Vec3V& v)
-{
-	return reinterpret_cast<const PxVec3&>(v).y;
-}
+PX_FORCE_INLINE PxF32 V3ReadY(const Vec3V& v) { return reinterpret_cast<const PxVec3&>(v).y; }
 
-PX_FORCE_INLINE PxF32 V3ReadZ(const Vec3V& v)
-{
-	return reinterpret_cast<const PxVec3&>(v).z;
-}
+PX_FORCE_INLINE PxF32 V3ReadZ(const Vec3V& v) { return reinterpret_cast<const PxVec3&>(v).z; }
 
-PX_FORCE_INLINE const PxVec3& V3ReadXYZ(const Vec3V& v)
-{
-	return reinterpret_cast<const PxVec3&>(v);
-}
+PX_FORCE_INLINE const PxVec3& V3ReadXYZ(const Vec3V& v) { return reinterpret_cast<const PxVec3&>(v); }
 
-PX_FORCE_INLINE void V4WriteX(Vec4V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec4&>(v).x = f;
-}
+PX_FORCE_INLINE void V4WriteX(Vec4V& v, const PxF32 f) { reinterpret_cast<PxVec4&>(v).x = f; }
 
-PX_FORCE_INLINE void V4WriteY(Vec4V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec4&>(v).y = f;
-}
+PX_FORCE_INLINE void V4WriteY(Vec4V& v, const PxF32 f) { reinterpret_cast<PxVec4&>(v).y = f; }
 
-PX_FORCE_INLINE void V4WriteZ(Vec4V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec4&>(v).z = f;
-}
+PX_FORCE_INLINE void V4WriteZ(Vec4V& v, const PxF32 f) { reinterpret_cast<PxVec4&>(v).z = f; }
 
-PX_FORCE_INLINE void V4WriteW(Vec4V& v, const PxF32 f)
-{
-	reinterpret_cast<PxVec4&>(v).w = f;
-}
+PX_FORCE_INLINE void V4WriteW(Vec4V& v, const PxF32 f) { reinterpret_cast<PxVec4&>(v).w = f; }
 
-PX_FORCE_INLINE void V4WriteXYZ(Vec4V& v, const PxVec3& f)
-{
-	reinterpret_cast<PxVec3&>(v) = f;
-}
+PX_FORCE_INLINE void V4WriteXYZ(Vec4V& v, const PxVec3& f) { reinterpret_cast<PxVec3&>(v) = f; }
 
-PX_FORCE_INLINE PxF32 V4ReadX(const Vec4V& v)
-{
-	return reinterpret_cast<const PxVec4&>(v).x;
-}
+PX_FORCE_INLINE PxF32 V4ReadX(const Vec4V& v) { return reinterpret_cast<const PxVec4&>(v).x; }
 
-PX_FORCE_INLINE PxF32 V4ReadY(const Vec4V& v)
-{
-	return reinterpret_cast<const PxVec4&>(v).y;
-}
+PX_FORCE_INLINE PxF32 V4ReadY(const Vec4V& v) { return reinterpret_cast<const PxVec4&>(v).y; }
 
-PX_FORCE_INLINE PxF32 V4ReadZ(const Vec4V& v)
-{
-	return reinterpret_cast<const PxVec4&>(v).z;
-}
+PX_FORCE_INLINE PxF32 V4ReadZ(const Vec4V& v) { return reinterpret_cast<const PxVec4&>(v).z; }
 
-PX_FORCE_INLINE PxF32 V4ReadW(const Vec4V& v)
-{
-	return reinterpret_cast<const PxVec4&>(v).w;
-}
+PX_FORCE_INLINE PxF32 V4ReadW(const Vec4V& v) { return reinterpret_cast<const PxVec4&>(v).w; }
 
-PX_FORCE_INLINE const PxVec3& V4ReadXYZ(const Vec4V& v)
-{
-	return reinterpret_cast<const PxVec3&>(v);
-}
+PX_FORCE_INLINE const PxVec3& V4ReadXYZ(const Vec4V& v) { return reinterpret_cast<const PxVec3&>(v); }
 
 // this macro transposes 4 Vec4V into 3 Vec4V (assuming that the W component can be ignored
-#define PX_TRANSPOSE_44_34(inA, inB, inC, inD, outA, outB, outC)                                                       \
-	\
-outA = V4UnpackXY(inA, inC);                                                                                           \
-	\
-inA = V4UnpackZW(inA, inC);                                                                                            \
-	\
-inC = V4UnpackXY(inB, inD);                                                                                            \
-	\
-inB = V4UnpackZW(inB, inD);                                                                                            \
-	\
-outB = V4UnpackZW(outA, inC);                                                                                          \
-	\
-outA = V4UnpackXY(outA, inC);                                                                                          \
-	\
-outC = V4UnpackXY(inA, inB);
+#define PX_TRANSPOSE_44_34(inA, inB, inC, inD, outA, outB, outC) \
+                                                                 \
+    outA = V4UnpackXY(inA, inC);                                 \
+                                                                 \
+    inA = V4UnpackZW(inA, inC);                                  \
+                                                                 \
+    inC = V4UnpackXY(inB, inD);                                  \
+                                                                 \
+    inB = V4UnpackZW(inB, inD);                                  \
+                                                                 \
+    outB = V4UnpackZW(outA, inC);                                \
+                                                                 \
+    outA = V4UnpackXY(outA, inC);                                \
+                                                                 \
+    outC = V4UnpackXY(inA, inB);
 
 // this macro transposes 3 Vec4V into 4 Vec4V (with W components as garbage!)
-#define PX_TRANSPOSE_34_44(inA, inB, inC, outA, outB, outC, outD)                                                      \
-	outA = V4UnpackXY(inA, inC);                                                                                       \
-	inA = V4UnpackZW(inA, inC);                                                                                        \
-	outC = V4UnpackXY(inB, inB);                                                                                       \
-	inC = V4UnpackZW(inB, inB);                                                                                        \
-	outB = V4UnpackZW(outA, outC);                                                                                     \
-	outA = V4UnpackXY(outA, outC);                                                                                     \
-	outC = V4UnpackXY(inA, inC);                                                                                       \
-	outD = V4UnpackZW(inA, inC);
+#define PX_TRANSPOSE_34_44(inA, inB, inC, outA, outB, outC, outD) \
+    outA = V4UnpackXY(inA, inC);                                  \
+    inA = V4UnpackZW(inA, inC);                                   \
+    outC = V4UnpackXY(inB, inB);                                  \
+    inC = V4UnpackZW(inB, inB);                                   \
+    outB = V4UnpackZW(outA, outC);                                \
+    outA = V4UnpackXY(outA, outC);                                \
+    outC = V4UnpackXY(inA, inC);                                  \
+    outD = V4UnpackZW(inA, inC);
 
-#define PX_TRANSPOSE_44(inA, inB, inC, inD, outA, outB, outC, outD)                                                    \
-	outA = V4UnpackXY(inA, inC);                                                                                       \
-	inA = V4UnpackZW(inA, inC);                                                                                        \
-	inC = V4UnpackXY(inB, inD);                                                                                        \
-	inB = V4UnpackZW(inB, inD);                                                                                        \
-	outB = V4UnpackZW(outA, inC);                                                                                      \
-	outA = V4UnpackXY(outA, inC);                                                                                      \
-	outC = V4UnpackXY(inA, inB);                                                                                       \
-	outD = V4UnpackZW(inA, inB);
+#define PX_TRANSPOSE_44(inA, inB, inC, inD, outA, outB, outC, outD) \
+    outA = V4UnpackXY(inA, inC);                                    \
+    inA = V4UnpackZW(inA, inC);                                     \
+    inC = V4UnpackXY(inB, inD);                                     \
+    inB = V4UnpackZW(inB, inD);                                     \
+    outB = V4UnpackZW(outA, inC);                                   \
+    outA = V4UnpackXY(outA, inC);                                   \
+    outC = V4UnpackXY(inA, inB);                                    \
+    outD = V4UnpackZW(inA, inB);
 
 // This function returns a Vec4V, where each element is the dot product of one pair of Vec3Vs. On PC, each element in
 // the result should be identical to the results if V3Dot was performed
@@ -1308,37 +1243,40 @@ outC = V4UnpackXY(inA, inB);
 // were used.
 // Where there does not exist a hw-accelerated dot-product operation, this approach should be the fastest way to compute
 // the dot product of 4 vectors.
-PX_FORCE_INLINE Vec4V V3Dot4(const Vec3VArg a0, const Vec3VArg b0, const Vec3VArg a1, const Vec3VArg b1,
-                             const Vec3VArg a2, const Vec3VArg b2, const Vec3VArg a3, const Vec3VArg b3)
-{
-	Vec4V a0b0 = Vec4V_From_Vec3V(V3Mul(a0, b0));
-	Vec4V a1b1 = Vec4V_From_Vec3V(V3Mul(a1, b1));
-	Vec4V a2b2 = Vec4V_From_Vec3V(V3Mul(a2, b2));
-	Vec4V a3b3 = Vec4V_From_Vec3V(V3Mul(a3, b3));
+PX_FORCE_INLINE Vec4V V3Dot4(const Vec3VArg a0,
+                             const Vec3VArg b0,
+                             const Vec3VArg a1,
+                             const Vec3VArg b1,
+                             const Vec3VArg a2,
+                             const Vec3VArg b2,
+                             const Vec3VArg a3,
+                             const Vec3VArg b3) {
+    Vec4V a0b0 = Vec4V_From_Vec3V(V3Mul(a0, b0));
+    Vec4V a1b1 = Vec4V_From_Vec3V(V3Mul(a1, b1));
+    Vec4V a2b2 = Vec4V_From_Vec3V(V3Mul(a2, b2));
+    Vec4V a3b3 = Vec4V_From_Vec3V(V3Mul(a3, b3));
 
-	Vec4V aTrnsps, bTrnsps, cTrnsps;
+    Vec4V aTrnsps, bTrnsps, cTrnsps;
 
-	PX_TRANSPOSE_44_34(a0b0, a1b1, a2b2, a3b3, aTrnsps, bTrnsps, cTrnsps);
+    PX_TRANSPOSE_44_34(a0b0, a1b1, a2b2, a3b3, aTrnsps, bTrnsps, cTrnsps);
 
-	return V4Add(V4Add(aTrnsps, bTrnsps), cTrnsps);
+    return V4Add(V4Add(aTrnsps, bTrnsps), cTrnsps);
 }
 
-//(f.x,f.y,f.z,0) - Alternative/faster V3LoadU implementation when it is safe to read "W", i.e. the 32bits after the PxVec3.
-PX_FORCE_INLINE Vec3V V3LoadU_SafeReadW(const PxVec3& f)
-{
-	return Vec3V_From_Vec4V(V4LoadU(&f.x));
-}
+//(f.x,f.y,f.z,0) - Alternative/faster V3LoadU implementation when it is safe to read "W", i.e. the 32bits after the
+//PxVec3.
+PX_FORCE_INLINE Vec3V V3LoadU_SafeReadW(const PxVec3& f) { return Vec3V_From_Vec4V(V4LoadU(&f.x)); }
 
-} // namespace aos
-} // namespace shdfnd
-} // namespace physx
+}  // namespace aos
+}  // namespace shdfnd
+}  // namespace physx
 
 // Now for the cross-platform implementations of the 16-byte aligned maths functions (win32/360/ppu/spu etc).
 #if COMPILE_VECTOR_INTRINSICS
 #include "PsInlineAoS.h"
-#else // #if COMPILE_VECTOR_INTRINSICS
+#else  // #if COMPILE_VECTOR_INTRINSICS
 #include "PsVecMathAoSScalarInline.h"
-#endif // #if !COMPILE_VECTOR_INTRINSICS
+#endif  // #if !COMPILE_VECTOR_INTRINSICS
 #include "PsVecQuat.h"
 
-#endif // PSFOUNDATION_PSVECMATH_H
+#endif  // PSFOUNDATION_PSVECMATH_H

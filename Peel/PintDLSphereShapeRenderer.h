@@ -11,34 +11,35 @@
 
 #include "PintDLShapeRenderer.h"
 
-	class PintDLSphereShapeRenderer : public PintDLShapeRenderer
-	{
-		friend PintDLSphereShapeRenderer* CreatePintDLSphereShapeRenderer(float radius, bool uses_vertex_normals, bool geo_sphere);
-							PintDLSphereShapeRenderer(float radius, bool uses_vertex_normals, bool geo_sphere);
-		public:
+class PintDLSphereShapeRenderer : public PintDLShapeRenderer {
+    friend PintDLSphereShapeRenderer* CreatePintDLSphereShapeRenderer(float radius,
+                                                                      bool uses_vertex_normals,
+                                                                      bool geo_sphere);
+    PintDLSphereShapeRenderer(float radius, bool uses_vertex_normals, bool geo_sphere);
 
-		// PintShapeRenderer
-		virtual	PtrContainer*	GetOwnerContainer()	const	override;
-		virtual	const char*		GetClassName()		const	override	{ return "PintDLSphereShapeRenderer";	}
-		//~PintShapeRenderer
+public:
+    // PintShapeRenderer
+    virtual PtrContainer* GetOwnerContainer() const override;
+    virtual const char* GetClassName() const override { return "PintDLSphereShapeRenderer"; }
+    //~PintShapeRenderer
 
-		struct Data
-		{
-			inline_	Data(float radius, bool uses_vertex_normals, bool geo_sphere) : mRadius(radius), mUsesVertexNormals(uses_vertex_normals), mGeoSphere(geo_sphere){}
+    struct Data {
+        inline_ Data(float radius, bool uses_vertex_normals, bool geo_sphere)
+            : mRadius(radius), mUsesVertexNormals(uses_vertex_normals), mGeoSphere(geo_sphere) {}
 
-			const float	mRadius;
-			const bool	mUsesVertexNormals;
-			const bool	mGeoSphere;
-		};
+        const float mRadius;
+        const bool mUsesVertexNormals;
+        const bool mGeoSphere;
+    };
 
-		inline_ bool Equal(const Data& p)	const
-		{
-			return mData.mRadius==p.mRadius && mData.mUsesVertexNormals==p.mUsesVertexNormals && mData.mGeoSphere==p.mGeoSphere;
-		};
+    inline_ bool Equal(const Data& p) const {
+        return mData.mRadius == p.mRadius && mData.mUsesVertexNormals == p.mUsesVertexNormals &&
+               mData.mGeoSphere == p.mGeoSphere;
+    };
 
-				const Data		mData;	// We only store this to implement sharing
-	};
+    const Data mData;  // We only store this to implement sharing
+};
 
-	PintDLSphereShapeRenderer* CreatePintDLSphereShapeRenderer(float radius, bool uses_vertex_normals, bool geo_sphere);
+PintDLSphereShapeRenderer* CreatePintDLSphereShapeRenderer(float radius, bool uses_vertex_normals, bool geo_sphere);
 
 #endif

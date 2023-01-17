@@ -9,7 +9,7 @@
 #ifndef TRASH_CACHE_H
 #define TRASH_CACHE_H
 
-	void trashCache();
+void trashCache();
 //	void trashIcacheAndBranchPredictors();
 
 #endif

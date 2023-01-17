@@ -12,29 +12,27 @@
 #ifndef ICECONSTANTLAYER_H
 #define ICECONSTANTLAYER_H
 
-	// Note: this layer is obsolete, replaced with the multiply-add layer.
+// Note: this layer is obsolete, replaced with the multiply-add layer.
 
-	struct ICETERRAIN_API CONSTANTLAYERCREATE : HEIGHTLAYERCREATE
-	{
-		CONSTANTLAYERCREATE() : mConstantHeight(0.0f)	{}
+struct ICETERRAIN_API CONSTANTLAYERCREATE : HEIGHTLAYERCREATE {
+    CONSTANTLAYERCREATE() : mConstantHeight(0.0f) {}
 
-		float	mConstantHeight;	//!< Constant height
-	};
+    float mConstantHeight;  //!< Constant height
+};
 
-	class ICETERRAIN_API ConstantLayer : public HeightLayer
-	{
-		public:
-						ConstantLayer();
-		virtual			~ConstantLayer();
+class ICETERRAIN_API ConstantLayer : public HeightLayer {
+public:
+    ConstantLayer();
+    virtual ~ConstantLayer();
 
-		virtual	bool	Init(const CONSTANTLAYERCREATE& create);
-		virtual	bool	Update(float* field, udword width, udword height)	const;
+    virtual bool Init(const CONSTANTLAYERCREATE& create);
+    virtual bool Update(float* field, udword width, udword height) const;
 
-		inline_	float	GetConstantHeight()	const	{ return mConstantHeight;	}
-		inline_	void	SetConstantHeight(float h)	{ mConstantHeight = h;		}
+    inline_ float GetConstantHeight() const { return mConstantHeight; }
+    inline_ void SetConstantHeight(float h) { mConstantHeight = h; }
 
-		protected:
-				float	mConstantHeight;
-	};
+protected:
+    float mConstantHeight;
+};
 
-#endif // ICECONSTANTLAYER_H
+#endif  // ICECONSTANTLAYER_H

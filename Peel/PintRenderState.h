@@ -9,10 +9,10 @@
 #ifndef PINT_RENDER_STATE_H
 #define PINT_RENDER_STATE_H
 
-	void	SetEngineColor(const Point& color);
-	void	SetMainColor(const Point& color);
-	void	SetMainColor(const RGBAColor& color);
-	void	ResetMainColor();
-	Point	GetMainColor();
+void SetEngineColor(const Point& color);
+void SetMainColor(const Point& color);
+void SetMainColor(const RGBAColor& color);
+void ResetMainColor();
+Point GetMainColor();
 
 #endif

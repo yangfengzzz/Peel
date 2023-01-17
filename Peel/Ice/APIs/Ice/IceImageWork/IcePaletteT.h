@@ -12,27 +12,26 @@
 #ifndef ICEPALETTET_H
 #define ICEPALETTET_H
 
-	template<class T>
-	class ICEIMAGEWORK_API Palette : public Allocateable
-	{
-		public:
-		//! Constructor
-								Palette()  : mNbColors(0), mColors(null)	{}
-		//! Destructor
-								~Palette()	{	Reset();	}
-		// Settings
-					bool		Init(udword nb_colors);
-					bool		SetColor(udword index, const T& color);
-					bool		Spread(udword from, udword to);
-		// Free
-					void		Reset();
-		// Data access
-		inline_		udword		GetNbColors()		const	{ return mNbColors; }
-		inline_		const T*	GetColor(udword i)	const	{ return i<mNbColors ? &mColors[i] : null; }
+template <class T>
+class ICEIMAGEWORK_API Palette : public Allocateable {
+public:
+    //! Constructor
+    Palette() : mNbColors(0), mColors(null) {}
+    //! Destructor
+    ~Palette() { Reset(); }
+    // Settings
+    bool Init(udword nb_colors);
+    bool SetColor(udword index, const T& color);
+    bool Spread(udword from, udword to);
+    // Free
+    void Reset();
+    // Data access
+    inline_ udword GetNbColors() const { return mNbColors; }
+    inline_ const T* GetColor(udword i) const { return i < mNbColors ? &mColors[i] : null; }
 
-		private:
-					udword		mNbColors;
-					T*			mColors;
-	};
+private:
+    udword mNbColors;
+    T* mColors;
+};
 
-#endif // ICEPALETTET_H
+#endif  // ICEPALETTET_H

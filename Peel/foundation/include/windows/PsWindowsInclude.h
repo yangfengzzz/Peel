@@ -36,7 +36,7 @@
 #error "This file should only be included by Windows builds!!"
 #endif
 
-#ifdef _WINDOWS_ // windows already included
+#ifdef _WINDOWS_  // windows already included
 #error "Only include windows.h through this file!!"
 #endif
 
@@ -45,7 +45,7 @@
 #if !PX_UWP
 #define _WIN32_WINNT 0x0501
 #else
-#define _WIN32_WINNT 0x0602 
+#define _WIN32_WINNT 0x0602
 #endif
 
 // turn off as much as we can for windows. All we really need is the thread functions(critical sections/Interlocked*
@@ -93,7 +93,7 @@
 #endif
 
 #pragma warning(push)
-#pragma warning(disable : 4668) //'symbol' is not defined as a preprocessor macro, replacing with '0' for 'directives'
+#pragma warning(disable : 4668)  //'symbol' is not defined as a preprocessor macro, replacing with '0' for 'directives'
 #include <windows.h>
 #pragma warning(pop)
 
@@ -101,4 +101,4 @@
 #include <xmmintrin.h>
 #endif
 
-#endif // #ifndef PSFOUNDATION_PSWINDOWSINCLUDE_H
+#endif  // #ifndef PSFOUNDATION_PSWINDOWSINCLUDE_H

@@ -12,7 +12,7 @@
 #ifndef ICECORETYPES_H
 #define ICECORETYPES_H
 
-	extern ICECORE_API const char* gID_DataBlock;
-	extern ICECORE_API const char* gID_CustomList;
+extern ICECORE_API const char* gID_DataBlock;
+extern ICECORE_API const char* gID_CustomList;
 
-#endif // ICECORETYPES_H
+#endif  // ICECORETYPES_H

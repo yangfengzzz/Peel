@@ -6,7 +6,7 @@
 /*!
 FramebufferObject Class. This class encapsulates the FramebufferObject
 (FBO) OpenGL spec. See the official spec at:
-	http://oss.sgi.com/projects/ogl-sample/registry/EXT/framebuffer_object.txt
+        http://oss.sgi.com/projects/ogl-sample/registry/EXT/framebuffer_object.txt
 
 for details.
 
@@ -17,9 +17,9 @@ share depth buffers between multiple sets of color buffers/textures and
 are a complete replacement for pbuffers.
 
 Performance Notes:
-  1) It is more efficient (but not required) to call Bind() 
+  1) It is more efficient (but not required) to call Bind()
      on an FBO before making multiple method calls. For example:
-		
+
       FramebufferObject fbo;
       fbo.Bind();
       fbo.AttachTexture(GL_TEXTURE_2D, texId0, GL_COLOR_ATTACHMENT0_EXT);
@@ -43,7 +43,7 @@ Performance Notes:
      and encourages rendundant Bind/Unbind coding. Binding an FBO is
      usually much faster than enabling/disabling a pbuffer, but is
      still a costly operation. When switching between multiple FBOs
-     and a visible OpenGL framebuffer, the following usage pattern 
+     and a visible OpenGL framebuffer, the following usage pattern
      is recommended:
 
       FramebufferObject fbo1, fbo2;
@@ -58,85 +58,81 @@ Performance Notes:
       // OpenGL framebuffer.
       FramebufferObject::Disable();
 */
-class FrameBufferObject
-{
+class FrameBufferObject {
 public:
-  /// Ctor/Dtor
-  FrameBufferObject();
-  ~FrameBufferObject();
+    /// Ctor/Dtor
+    FrameBufferObject();
+    ~FrameBufferObject();
 
-  /// Bind this FBO as current render target
-  void Bind();
+    /// Bind this FBO as current render target
+    void Bind();
 
-  /// Bind a texture to the "attachment" point of this FBO
-  void AttachTexture( GLenum texTarget, 
-                      GLuint texId,
-                      GLenum attachment = GL_COLOR_ATTACHMENT0_EXT,
-                      int mipLevel      = 0,
-                      int zSlice        = 0 );
+    /// Bind a texture to the "attachment" point of this FBO
+    void AttachTexture(GLenum texTarget,
+                       GLuint texId,
+                       GLenum attachment = GL_COLOR_ATTACHMENT0_EXT,
+                       int mipLevel = 0,
+                       int zSlice = 0);
 
-  /// Bind an array of textures to multiple "attachment" points of this FBO
-  ///  - By default, the first 'numTextures' attachments are used,
-  ///    starting with GL_COLOR_ATTACHMENT0_EXT
-/*  void AttachTextures( int numTextures, 
-                       GLenum texTarget[], 
-                       GLuint texId[],
-                       GLenum attachment[] = NULL,
-                       int mipLevel[]      = NULL,
-                       int zSlice[]        = NULL );*/
+    /// Bind an array of textures to multiple "attachment" points of this FBO
+    ///  - By default, the first 'numTextures' attachments are used,
+    ///    starting with GL_COLOR_ATTACHMENT0_EXT
+    /*  void AttachTextures( int numTextures,
+                           GLenum texTarget[],
+                           GLuint texId[],
+                           GLenum attachment[] = NULL,
+                           int mipLevel[]      = NULL,
+                           int zSlice[]        = NULL );*/
 
-  /// Bind a render buffer to the "attachment" point of this FBO
-/*  void AttachRenderBuffer( GLuint buffId,
-							GLenum attachment = GL_COLOR_ATTACHMENT0_EXT );
+    /// Bind a render buffer to the "attachment" point of this FBO
+    /*  void AttachRenderBuffer( GLuint buffId,
+                                                            GLenum attachment = GL_COLOR_ATTACHMENT0_EXT );
 
-  /// Bind an array of render buffers to corresponding "attachment" points
-  /// of this FBO.
-  /// - By default, the first 'numBuffers' attachments are used,
-  ///   starting with GL_COLOR_ATTACHMENT0_EXT
-  void AttachRenderBuffers( int numBuffers, GLuint buffId[],
-                            GLenum attachment[] = NULL );
+      /// Bind an array of render buffers to corresponding "attachment" points
+      /// of this FBO.
+      /// - By default, the first 'numBuffers' attachments are used,
+      ///   starting with GL_COLOR_ATTACHMENT0_EXT
+      void AttachRenderBuffers( int numBuffers, GLuint buffId[],
+                                GLenum attachment[] = NULL );
 
-  /// Free any resource bound to the "attachment" point of this FBO
-  void Unattach( GLenum attachment );
+      /// Free any resource bound to the "attachment" point of this FBO
+      void Unattach( GLenum attachment );
 
-  /// Free any resources bound to any attachment points of this FBO
-  void UnattachAll();*/
+      /// Free any resources bound to any attachment points of this FBO
+      void UnattachAll();*/
 
-  /// Is this FBO currently a valid render target?
-  ///  - Sends output to std::cerr by default but can
-  ///    be a user-defined C++ stream
-  ///
-  /// NOTE : This function works correctly in debug build
-  ///        mode but always returns "true" if NDEBUG is
-  ///        is defined (optimized builds)
+    /// Is this FBO currently a valid render target?
+    ///  - Sends output to std::cerr by default but can
+    ///    be a user-defined C++ stream
+    ///
+    /// NOTE : This function works correctly in debug build
+    ///        mode but always returns "true" if NDEBUG is
+    ///        is defined (optimized builds)
 #ifndef NDEBUG
-  bool IsValid( std::ostream& ostr = std::cerr );
+    bool IsValid(std::ostream& ostr = std::cerr);
 #else
-  bool IsValid( std::ostream& ostr = std::cerr ) { 
-    return true; 
-  }
+    bool IsValid(std::ostream& ostr = std::cerr) { return true; }
 #endif
 
-  /// BEGIN : Accessors
+    /// BEGIN : Accessors
     /// Is attached type GL_RENDERBUFFER_EXT or GL_TEXTURE?
-    GLenum GetAttachedType( GLenum attachment );
+    GLenum GetAttachedType(GLenum attachment);
 
-    /// What is the Id of Renderbuffer/texture currently 
+    /// What is the Id of Renderbuffer/texture currently
     /// attached to "attachement?"
-    GLuint GetAttachedId( GLenum attachment );
+    GLuint GetAttachedId(GLenum attachment);
 
     /// Which mipmap level is currently attached to "attachement?"
-    GLint  GetAttachedMipLevel( GLenum attachment );
+    GLint GetAttachedMipLevel(GLenum attachment);
 
     /// Which cube face is currently attached to "attachment?"
-    GLint  GetAttachedCubeFace( GLenum attachment );
+    GLint GetAttachedCubeFace(GLenum attachment);
 
     /// Which z-slice is currently attached to "attachment?"
-    GLint  GetAttachedZSlice( GLenum attachment );
-  /// END : Accessors
+    GLint GetAttachedZSlice(GLenum attachment);
+    /// END : Accessors
 
-
-  /// BEGIN : Static methods global to all FBOs
+    /// BEGIN : Static methods global to all FBOs
     /// Return number of color attachments permitted
     static int GetMaxColorAttachments();
 
@@ -150,15 +146,15 @@ public:
     ///     "Unbind" would likely lead to a large number of unnecessary
     ///     FBO enablings/disabling.
     static void Disable();
-  /// END : Static methods global to all FBOs
+    /// END : Static methods global to all FBOs
 
 protected:
-  void  _GuardedBind();
-  void  _GuardedUnbind();
+    void _GuardedBind();
+    void _GuardedUnbind();
+
 private:
-  GLuint m_fboId;
-  GLint  m_savedFboId;
+    GLuint m_fboId;
+    GLint m_savedFboId;
 };
 
 #endif
-

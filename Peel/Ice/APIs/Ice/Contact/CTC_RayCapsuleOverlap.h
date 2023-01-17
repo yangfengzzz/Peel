@@ -12,7 +12,6 @@
 #ifndef CTCRAYCAPSULEOVERLAP_H
 #define CTCRAYCAPSULEOVERLAP_H
 
-	CONTACT_API	udword	RayCapsuleOverlap(const Point& origin, const Point& dir, const LSS& capsule, float s[2]);
+CONTACT_API udword RayCapsuleOverlap(const Point& origin, const Point& dir, const LSS& capsule, float s[2]);
 
-#endif // CTCRAYCAPSULEOVERLAP_H
-
+#endif  // CTCRAYCAPSULEOVERLAP_H

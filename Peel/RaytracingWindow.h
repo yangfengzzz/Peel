@@ -11,39 +11,38 @@
 
 #include "Common.h"
 
-	#define	RAYTRACING_MAX_RENDER_SIZE	768
-	#define	RAYTRACING_DISPLAY_WIDTH	256
-	#define	RAYTRACING_DISPLAY_HEIGHT	256
+#define RAYTRACING_MAX_RENDER_SIZE 768
+#define RAYTRACING_DISPLAY_WIDTH 256
+#define RAYTRACING_DISPLAY_HEIGHT 256
 
-	class BitmapWindow;
+class BitmapWindow;
 
-	class RaytracingWindow : public IceWindow
-	{
-		public:
-						RaytracingWindow(const WindowDesc& desc);
-		virtual			~RaytracingWindow();
+class RaytracingWindow : public IceWindow {
+public:
+    RaytracingWindow(const WindowDesc& desc);
+    virtual ~RaytracingWindow();
 
-		virtual void	redraw();
-		void			CreatePic();
+    virtual void redraw();
+    void CreatePic();
 
-		BitmapWindow*	mRGBWindow;
-		IceGroupBox*	mRGBGroup;
-		Picture			mTarget;
-		Picture			mPic;
-	};
+    BitmapWindow* mRGBWindow;
+    IceGroupBox* mRGBGroup;
+    Picture mTarget;
+    Picture mPic;
+};
 
-	class BitmapWindow: public IceWindow
-	{
-		public:
-						BitmapWindow(const WindowDesc& desc);
-		virtual			~BitmapWindow();
+class BitmapWindow : public IceWindow {
+public:
+    BitmapWindow(const WindowDesc& desc);
+    virtual ~BitmapWindow();
 
-		virtual void	redraw();
+    virtual void redraw();
 
-		RaytracingWindow*	mMainW;
-	};
+    RaytracingWindow* mMainW;
+};
 
-	class Widgets;
-	RaytracingWindow* CreateRaytracingWindow(Widgets& owner, IceWidget* parent, sdword x, sdword y, sdword width, sdword height);
+class Widgets;
+RaytracingWindow* CreateRaytracingWindow(
+        Widgets& owner, IceWidget* parent, sdword x, sdword y, sdword width, sdword height);
 
 #endif

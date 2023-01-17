@@ -14,21 +14,24 @@
 
 #include "IceDelaunay3d.h"
 
-	class FractureConvex;
+class FractureConvex;
 
-	class MESHMERIZER_API FracturePattern : public Allocateable
-	{
-	public:
-							FracturePattern();
-							~FracturePattern();
+class MESHMERIZER_API FracturePattern : public Allocateable {
+public:
+    FracturePattern();
+    ~FracturePattern();
 
-				void		clear();
+    void clear();
 
-				void		create3dVoronoi(const Point dims, int numCells, float biasExp=1.0f, udword seed=42);
-				void		getConvexIntersection(const FractureConvex* convex, const Point& center, float scale, PtrContainer& convexes) const;
-	private:
-				AABB		mBounds;
-				Delaunay3d	mDelaunay3d;
-	};
+    void create3dVoronoi(const Point dims, int numCells, float biasExp = 1.0f, udword seed = 42);
+    void getConvexIntersection(const FractureConvex* convex,
+                               const Point& center,
+                               float scale,
+                               PtrContainer& convexes) const;
 
-#endif	// ICEFRACTUREPATTERN_H
+private:
+    AABB mBounds;
+    Delaunay3d mDelaunay3d;
+};
+
+#endif  // ICEFRACTUREPATTERN_H

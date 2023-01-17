@@ -9,8 +9,8 @@
 #ifndef PROGRESS_BAR_H
 #define PROGRESS_BAR_H
 
-	void CreateProgressBar(udword nb, const char* label);
-	void SetProgress(udword i);
-	void ReleaseProgressBar();
+void CreateProgressBar(udword nb, const char* label);
+void SetProgress(udword i);
+void ReleaseProgressBar();
 
 #endif

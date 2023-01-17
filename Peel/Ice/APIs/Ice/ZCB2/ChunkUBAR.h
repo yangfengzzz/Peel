@@ -12,11 +12,10 @@
 #ifndef CHUNKUBAR_H
 #define CHUNKUBAR_H
 
-	#define UBAR_VERSION	1
+#define UBAR_VERSION 1
 
-	class ZCB2_API UBARChunk : public BaseChunk
-	{
-		DECLARE_CHUNK(UBARChunk, mUBARCore)
-	};
+class ZCB2_API UBARChunk : public BaseChunk {
+    DECLARE_CHUNK(UBARChunk, mUBARCore)
+};
 
-#endif // CHUNKUBAR_H
+#endif  // CHUNKUBAR_H

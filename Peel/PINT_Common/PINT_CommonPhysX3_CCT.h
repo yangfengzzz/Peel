@@ -11,20 +11,19 @@
 
 #include "..\Pint.h"
 
-	class PhysX_CCT_API : public Pint_Character
-	{
-		public:
-										PhysX_CCT_API(Pint& pint);
-		virtual							~PhysX_CCT_API();
+class PhysX_CCT_API : public Pint_Character {
+public:
+    PhysX_CCT_API(Pint& pint);
+    virtual ~PhysX_CCT_API();
 
-		virtual	PintCharacterHandle		CreateCharacter(const PINT_CHARACTER_CREATE& create)	override;
-		virtual	PintActorHandle			GetCharacterActor(PintCharacterHandle h)	override;
-		virtual	udword					MoveCharacter(PintCharacterHandle h, const Point& disp)	override;
+    virtual PintCharacterHandle CreateCharacter(const PINT_CHARACTER_CREATE& create) override;
+    virtual PintActorHandle GetCharacterActor(PintCharacterHandle h) override;
+    virtual udword MoveCharacter(PintCharacterHandle h, const Point& disp) override;
 
-				PxControllerManager*	GetControllerManager();
-				void					ReleaseControllerManager();
+    PxControllerManager* GetControllerManager();
+    void ReleaseControllerManager();
 
-				PxControllerManager*	mControllerManager;
-	};
+    PxControllerManager* mControllerManager;
+};
 
 #endif

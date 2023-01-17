@@ -12,17 +12,16 @@
 #ifndef CHUNKTIME_H
 #define CHUNKTIME_H
 
-	#define TIME_VERSION	1
+#define TIME_VERSION 1
 
-	class ZCB2_API TIMEChunk : public BaseChunk
-	{
-		DECLARE_CHUNK(TIMEChunk, mTIMECore)
+class ZCB2_API TIMEChunk : public BaseChunk {
+    DECLARE_CHUNK(TIMEChunk, mTIMECore)
 
-		DECLARE_STD_MEMBER(DeltaTM,				float)
-		DECLARE_STD_MEMBER(GlobalFrameCounter,	udword)
-		DECLARE_STD_MEMBER(RelativeTime,		float)
-		DECLARE_STD_MEMBER(GlobalTime,			float)
-		DECLARE_STD_MEMBER(t,					float)
-	};
+    DECLARE_STD_MEMBER(DeltaTM, float)
+    DECLARE_STD_MEMBER(GlobalFrameCounter, udword)
+    DECLARE_STD_MEMBER(RelativeTime, float)
+    DECLARE_STD_MEMBER(GlobalTime, float)
+    DECLARE_STD_MEMBER(t, float)
+};
 
-#endif // CHUNKTIME_H
+#endif  // CHUNKTIME_H

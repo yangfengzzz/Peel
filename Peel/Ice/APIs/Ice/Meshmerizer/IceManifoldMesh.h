@@ -12,6 +12,6 @@
 #ifndef ICEMANIFOLDMESH_H
 #define ICEMANIFOLDMESH_H
 
-	MESHMERIZER_API	bool	MakeManifoldMesh(IndexedSurface& surface);
+MESHMERIZER_API bool MakeManifoldMesh(IndexedSurface& surface);
 
-#endif // ICEMANIFOLDMESH_H
+#endif  // ICEMANIFOLDMESH_H

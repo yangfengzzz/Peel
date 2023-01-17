@@ -12,21 +12,19 @@
 #ifndef CHUNKHELP_H
 #define CHUNKHELP_H
 
-	#define HELP_VERSION	2
+#define HELP_VERSION 2
 
-	enum ZCB2_HELP_Flag
-	{
-		ZCB2_HELP_GROUP_HEAD		= (1<<0),
-		ZCB2_HELP_SAVED_POS			= (1<<1),	// Reserved
-	};
+enum ZCB2_HELP_Flag {
+    ZCB2_HELP_GROUP_HEAD = (1 << 0),
+    ZCB2_HELP_SAVED_POS = (1 << 1),  // Reserved
+};
 
-	class ZCB2_API HELPChunk : public PRSChunk
-	{
-		DECLARE_CHUNK(HELPChunk, mHELPCore)
+class ZCB2_API HELPChunk : public PRSChunk {
+    DECLARE_CHUNK(HELPChunk, mHELPCore)
 
-		DECLARE_STD_MEMBER(SavedPos, Point)
-		DECLARE_SUBCHUNK(GroupedIDs, XIDSChunk)
-		DECLARE_STD_FLAG(GroupHead, ZCB2_HELP_GROUP_HEAD)
-	};
+    DECLARE_STD_MEMBER(SavedPos, Point)
+    DECLARE_SUBCHUNK(GroupedIDs, XIDSChunk)
+    DECLARE_STD_FLAG(GroupHead, ZCB2_HELP_GROUP_HEAD)
+};
 
-#endif // CHUNKHELP_H
+#endif  // CHUNKHELP_H

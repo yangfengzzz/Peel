@@ -11,34 +11,28 @@
 
 #include "PintDLShapeRenderer.h"
 
-	class PintDLCylinderShapeRenderer : public PintDLShapeRenderer
-	{
-		friend PintDLCylinderShapeRenderer* CreatePintDLCylinderShapeRenderer(float radius, float height);
-		PintDLCylinderShapeRenderer(float r, float h);
+class PintDLCylinderShapeRenderer : public PintDLShapeRenderer {
+    friend PintDLCylinderShapeRenderer* CreatePintDLCylinderShapeRenderer(float radius, float height);
+    PintDLCylinderShapeRenderer(float r, float h);
 
-		public:
+public:
+    // PintShapeRenderer
+    virtual PtrContainer* GetOwnerContainer() const override;
+    virtual const char* GetClassName() const override { return "PintDLCylinderShapeRenderer"; }
+    //~PintShapeRenderer
 
-		// PintShapeRenderer
-		virtual	PtrContainer*	GetOwnerContainer()	const	override;
-		virtual	const char*		GetClassName()		const	override	{ return "PintDLCylinderShapeRenderer";	}
-		//~PintShapeRenderer
+    struct Data {
+        inline_ Data(float radius, float height) : mRadius(radius), mHeight(height) {}
 
-		struct Data
-		{
-			inline_	Data(float radius, float height) : mRadius(radius), mHeight(height)	{}
+        const float mRadius;
+        const float mHeight;
+    };
 
-			const float	mRadius;
-			const float	mHeight;
-		};
+    inline_ bool Equal(const Data& p) const { return mData.mRadius == p.mRadius && mData.mHeight == p.mHeight; };
 
-		inline_ bool Equal(const Data& p)	const
-		{
-			return mData.mRadius==p.mRadius && mData.mHeight==p.mHeight;
-		};
+    const Data mData;  // We only store this to implement sharing
+};
 
-				const Data		mData;	// We only store this to implement sharing
-	};
-
-	PintDLCylinderShapeRenderer* CreatePintDLCylinderShapeRenderer(float radius, float height);
+PintDLCylinderShapeRenderer* CreatePintDLCylinderShapeRenderer(float radius, float height);
 
 #endif

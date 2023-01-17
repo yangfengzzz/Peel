@@ -15,7 +15,7 @@
 #ifdef _WIN64
 #define ICE_DEBUG_BREAK __debugbreak();
 #else
-//#define ICE_DEBUG_BREAK _asm { int 3 }
+// #define ICE_DEBUG_BREAK _asm { int 3 }
 #define ICE_DEBUG_BREAK
 #endif
 

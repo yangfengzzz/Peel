@@ -12,7 +12,10 @@
 #ifndef ICEINNERBOXES_H
 #define ICEINNERBOXES_H
 
-	// ### Warning: experimental
-	FUNCTION MESHMERIZER_API bool ComputeInnerBox(IndexedSurface* surface, const Matrix4x4& world, udword density, AABB& box);
+// ### Warning: experimental
+FUNCTION MESHMERIZER_API bool ComputeInnerBox(IndexedSurface* surface,
+                                              const Matrix4x4& world,
+                                              udword density,
+                                              AABB& box);
 
-#endif // ICEINNERBOXES_H
+#endif  // ICEINNERBOXES_H

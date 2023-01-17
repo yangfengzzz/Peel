@@ -9,17 +9,17 @@
 #ifndef MESH_CLEANER_H
 #define MESH_CLEANER_H
 
-	class MeshCleaner
-	{
-		public:
-			MeshCleaner(udword nbVerts, const Point* verts, udword nbTris, const udword* indices, float meshWeldTolerance=0.01f);
-			~MeshCleaner();
+class MeshCleaner {
+public:
+    MeshCleaner(
+            udword nbVerts, const Point* verts, udword nbTris, const udword* indices, float meshWeldTolerance = 0.01f);
+    ~MeshCleaner();
 
-			udword	mNbVerts;
-			udword	mNbTris;
-			Point*	mVerts;
-			udword*	mIndices;
-			udword*	mRemap;
-	};
+    udword mNbVerts;
+    udword mNbTris;
+    Point* mVerts;
+    udword* mIndices;
+    udword* mRemap;
+};
 
 #endif

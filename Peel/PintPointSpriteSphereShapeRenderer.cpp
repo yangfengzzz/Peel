@@ -8,22 +8,18 @@
 
 #include "stdafx.h"
 //
-#include "PintPointSpriteSphereShapeRenderer.h"
 #include "GLPointRenderer2.h"
+#include "PintPointSpriteSphereShapeRenderer.h"
 
 // This point-sprite sphere isn't perspective correct and cannot be combined with the DL version....
 // so we need the real raytaced version, and for that we need to compute the proper screen bounds.
 
-PintPointSpriteSphereShapeRenderer::PintPointSpriteSphereShapeRenderer(float radius) : mRadius(radius)
-{
-}
+PintPointSpriteSphereShapeRenderer::PintPointSpriteSphereShapeRenderer(float radius) : mRadius(radius) {}
 
-void PintPointSpriteSphereShapeRenderer::_Render(const PR& pose) const
-{
-//	glPushMatrix();
-//	GLRenderHelpers::SetupGLMatrix(pose);
-//	GLPointRenderer2::DrawPoint(pose.mPos, mRadius);
-	GLPointRenderer2::BatchPoint(pose.mPos, mRadius);
-//	glPopMatrix();
+void PintPointSpriteSphereShapeRenderer::_Render(const PR& pose) const {
+    //	glPushMatrix();
+    //	GLRenderHelpers::SetupGLMatrix(pose);
+    //	GLPointRenderer2::DrawPoint(pose.mPos, mRadius);
+    GLPointRenderer2::BatchPoint(pose.mPos, mRadius);
+    //	glPopMatrix();
 }
-

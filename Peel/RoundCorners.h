@@ -9,6 +9,6 @@
 #ifndef ROUND_CORNERS_H
 #define ROUND_CORNERS_H
 
-	void DrawRoundCorners(udword screen_width, udword screen_height, udword corner_size);
+void DrawRoundCorners(udword screen_width, udword screen_height, udword corner_size);
 
 #endif

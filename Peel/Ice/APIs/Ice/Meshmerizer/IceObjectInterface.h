@@ -12,24 +12,21 @@
 #ifndef ICEOBJECTINTERFACE_H
 #define ICEOBJECTINTERFACE_H
 
-	// Forward declarations
-	class MultiSurface;
+// Forward declarations
+class MultiSurface;
 
-	struct OBJECTCREATE
-	{
-	};
+struct OBJECTCREATE {};
 
-	class MESHMERIZER_API ObjectInterface : public IceInterface
-	{
-		public:
-		//! Constructor
-							ObjectInterface()			{}
-		//! Destructor
-		virtual				~ObjectInterface()			{}
+class MESHMERIZER_API ObjectInterface : public IceInterface {
+public:
+    //! Constructor
+    ObjectInterface() {}
+    //! Destructor
+    virtual ~ObjectInterface() {}
 
-							DECLARE_ICE_INTERFACE(ObjectInterface, IceInterface)
+    DECLARE_ICE_INTERFACE(ObjectInterface, IceInterface)
 
-		virtual	bool		MakeObject(const OBJECTCREATE* create, MultiSurface* surface) = 0;
-	};
+    virtual bool MakeObject(const OBJECTCREATE* create, MultiSurface* surface) = 0;
+};
 
-#endif // ICEOBJECTINTERFACE_H
+#endif  // ICEOBJECTINTERFACE_H

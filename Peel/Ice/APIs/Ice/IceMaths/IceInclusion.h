@@ -12,8 +12,8 @@
 #ifndef ICEINCLUSION_H
 #define ICEINCLUSION_H
 
-	ICEMATHS_API IceInterval	Fabs(const IceInterval& interval);
-	ICEMATHS_API void			CosinusInclusionSnyder92(IceInterval& dst, float a, float b);
-	ICEMATHS_API void			CosinusInclusionRevisited(IceInterval& dst, float a, float b);
+ICEMATHS_API IceInterval Fabs(const IceInterval& interval);
+ICEMATHS_API void CosinusInclusionSnyder92(IceInterval& dst, float a, float b);
+ICEMATHS_API void CosinusInclusionRevisited(IceInterval& dst, float a, float b);
 
-#endif // ICEINCLUSION_H
+#endif  // ICEINCLUSION_H

@@ -25,82 +25,55 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-
-#include "task/PxTask.h"
 #include "ExtCpuWorkerThread.h"
+
 #include "ExtDefaultCpuDispatcher.h"
 #include "ExtTaskQueueHelper.h"
 #include "PsFPU.h"
+#include "task/PxTask.h"
 
 using namespace physx;
 
-Ext::CpuWorkerThread::CpuWorkerThread()
-:	mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE),
-	mThreadId(0)
-{
+Ext::CpuWorkerThread::CpuWorkerThread() : mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE), mThreadId(0) {}
+
+Ext::CpuWorkerThread::~CpuWorkerThread() {}
+
+void Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher) { mOwner = ownerDispatcher; }
+
+bool Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task, Ps::Thread::Id taskSubmitionThread) {
+    if (taskSubmitionThread == mThreadId) {
+        SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
+        if (entry) {
+            mLocalJobList.push(*entry);
+            return true;
+        } else
+            return false;
+    }
+
+    return false;
 }
 
+PxBaseTask* Ext::CpuWorkerThread::giveUpJob() { return TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool); }
 
-Ext::CpuWorkerThread::~CpuWorkerThread()
-{
-}
+void Ext::CpuWorkerThread::execute() {
+    mThreadId = getId();
 
-
-void Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher)
-{
-	mOwner = ownerDispatcher;
-}
-
-
-bool Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task, Ps::Thread::Id taskSubmitionThread)
-{
-	if(taskSubmitionThread == mThreadId)
-	{
-		SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
-		if (entry)
-		{
-			mLocalJobList.push(*entry);
-			return true;
-		}
-		else
-			return false;
-	}
-
-	return false;
-}
-
-
-PxBaseTask* Ext::CpuWorkerThread::giveUpJob()
-{
-	return TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
-}
-
-
-void Ext::CpuWorkerThread::execute()
-{
-	mThreadId = getId();
-
-	while (!quitIsSignalled())
-    {
+    while (!quitIsSignalled()) {
         mOwner->resetWakeSignal();
 
-		PxBaseTask* task = TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
+        PxBaseTask* task = TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
 
-		if(!task)
-			task = mOwner->fetchNextTask();
-		
-		if (task)
-		{
-			mOwner->runTask(*task);
-			task->release();
-		}
-		else
-		{
-			mOwner->waitForWork();
-		}
-	}
+        if (!task) task = mOwner->fetchNextTask();
 
-	quit();
+        if (task) {
+            mOwner->runTask(*task);
+            task->release();
+        } else {
+            mOwner->waitForWork();
+        }
+    }
+
+    quit();
 }

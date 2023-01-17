@@ -11,30 +11,27 @@
 #include "Sound.h"
 
 #ifdef PEEL_SOUND
-	#ifdef _WIN64
-	static char* FMOD_DLL_Name = "fmod64.dll";
-	#else
-	static char* FMOD_DLL_Name = "fmod.dll";
-	#endif
-	#include <fmodapi375win/api/inc/fmoddyn.h>
-	static FMOD_INSTANCE* gFMOD = null;
-	static const int gFrequency	= 44100;
-	static udword gChannel		= INVALID_ID;
+#ifdef _WIN64
+static char* FMOD_DLL_Name = "fmod64.dll";
+#else
+static char* FMOD_DLL_Name = "fmod.dll";
+#endif
+#include <fmodapi375win/api/inc/fmoddyn.h>
+static FMOD_INSTANCE* gFMOD = null;
+static const int gFrequency = 44100;
+static udword gChannel = INVALID_ID;
 
 #ifdef _WIN64
-static FMOD_INSTANCE *FMOD_CreateInstance64(char *dllName)
-{
-    FMOD_INSTANCE *instance;
+static FMOD_INSTANCE* FMOD_CreateInstance64(char* dllName) {
+    FMOD_INSTANCE* instance;
 
-    instance = (FMOD_INSTANCE *)calloc(sizeof(FMOD_INSTANCE), 1);
-    if (!instance)
-    {
+    instance = (FMOD_INSTANCE*)calloc(sizeof(FMOD_INSTANCE), 1);
+    if (!instance) {
         return NULL;
     }
 
     instance->module = LoadLibrary(dllName);
-    if (!instance->module)
-    {
+    if (!instance->module) {
         free(instance);
         return NULL;
     }
@@ -271,88 +268,76 @@ static FMOD_INSTANCE *FMOD_CreateInstance64(char *dllName)
 #endif
 #endif
 
-
-static bool InitFMOD()
-{
+static bool InitFMOD() {
 #ifdef PEEL_SOUND
-	#ifdef _WIN64
-	gFMOD = FMOD_CreateInstance64(FMOD_DLL_Name);
-	#else
-	gFMOD = FMOD_CreateInstance(FMOD_DLL_Name);
-	#endif
-	if(!gFMOD)
-	{
-		IceCore::MessageBox(null, "FMOD dll not found.\nSound will be disabled.", "ICE Message", MB_OK);
-		Log("FMOD dll not found.\nSound will be disabled.\n");
-		return false;
-	}
-
-	if(gFMOD->FSOUND_GetVersion()<FMOD_VERSION)
-	{
-//		IceCore::MessageBox(null, "Wrong FMOD version", "Error", MB_OK);
-		Log("Wrong FMOD version\n");
-		gFMOD = null;
-		return false;
-	}
-
-	// INITIALIZE
-	if(!gFMOD->FSOUND_Init(gFrequency, 32, FSOUND_INIT_GLOBALFOCUS))
-	{
-//		IceCore::MessageBox(null, "FMOD init failed", "Error", MB_OK);
-		Log("FMOD init failed\n");
-		gFMOD = null;
-		return false;
-	}
+#ifdef _WIN64
+    gFMOD = FMOD_CreateInstance64(FMOD_DLL_Name);
+#else
+    gFMOD = FMOD_CreateInstance(FMOD_DLL_Name);
 #endif
-	return true;
+    if (!gFMOD) {
+        IceCore::MessageBox(null, "FMOD dll not found.\nSound will be disabled.", "ICE Message", MB_OK);
+        Log("FMOD dll not found.\nSound will be disabled.\n");
+        return false;
+    }
+
+    if (gFMOD->FSOUND_GetVersion() < FMOD_VERSION) {
+        //		IceCore::MessageBox(null, "Wrong FMOD version", "Error", MB_OK);
+        Log("Wrong FMOD version\n");
+        gFMOD = null;
+        return false;
+    }
+
+    // INITIALIZE
+    if (!gFMOD->FSOUND_Init(gFrequency, 32, FSOUND_INIT_GLOBALFOCUS)) {
+        //		IceCore::MessageBox(null, "FMOD init failed", "Error", MB_OK);
+        Log("FMOD init failed\n");
+        gFMOD = null;
+        return false;
+    }
+#endif
+    return true;
 }
 
-void StartSound(const char* filename, udword pos)
-{
+void StartSound(const char* filename, udword pos) {
 #ifdef PEEL_SOUND
-	const char* FindPEELFile(const char* filename);
-	const char* File = FindPEELFile(filename);
-	if(!File)
-		return;
+    const char* FindPEELFile(const char* filename);
+    const char* File = FindPEELFile(filename);
+    if (!File) return;
 
-	InitFMOD();
-	if(!gFMOD)
-		return;
+    InitFMOD();
+    if (!gFMOD) return;
 
-	VirtualFile Music(File);
-	udword Length;
-	const char* MusicData = (const char*)Music.Load(Length);
+    VirtualFile Music(File);
+    udword Length;
+    const char* MusicData = (const char*)Music.Load(Length);
 
-	FSOUND_SAMPLE* SoundSample = gFMOD->FSOUND_Sample_Load(0, MusicData, FSOUND_LOADMEMORY, 0, Length);
-	udword Channel = gFMOD->FSOUND_PlaySound(FSOUND_FREE, (FSOUND_SAMPLE*)SoundSample);
-	gFMOD->FSOUND_SetVolume(Channel, 200);
-//	gFMOD->FSOUND_SetVolume(Channel, 20);
-//	gFMOD->FSOUND_SetLoopMode(Channel, FSOUND_LOOP_OFF);
-	gFMOD->FSOUND_SetLoopMode(Channel, FSOUND_LOOP_NORMAL);
-	gFMOD->FSOUND_SetCurrentPosition(Channel, pos*1024);
-	gChannel = Channel;
+    FSOUND_SAMPLE* SoundSample = gFMOD->FSOUND_Sample_Load(0, MusicData, FSOUND_LOADMEMORY, 0, Length);
+    udword Channel = gFMOD->FSOUND_PlaySound(FSOUND_FREE, (FSOUND_SAMPLE*)SoundSample);
+    gFMOD->FSOUND_SetVolume(Channel, 200);
+    //	gFMOD->FSOUND_SetVolume(Channel, 20);
+    //	gFMOD->FSOUND_SetLoopMode(Channel, FSOUND_LOOP_OFF);
+    gFMOD->FSOUND_SetLoopMode(Channel, FSOUND_LOOP_NORMAL);
+    gFMOD->FSOUND_SetCurrentPosition(Channel, pos * 1024);
+    gChannel = Channel;
 #endif
 }
 
-udword GetSoundPos()
-{
+udword GetSoundPos() {
 #ifdef PEEL_SOUND
-	if(gChannel!=INVALID_ID)
-	{
-		const udword CurPos = gFMOD->FSOUND_GetCurrentPosition(gChannel)/1024;
-		//printf("Sound: %d\n", CurPos);
-		return CurPos;
-	}
+    if (gChannel != INVALID_ID) {
+        const udword CurPos = gFMOD->FSOUND_GetCurrentPosition(gChannel) / 1024;
+        // printf("Sound: %d\n", CurPos);
+        return CurPos;
+    }
 #endif
-	return INVALID_ID;
+    return INVALID_ID;
 }
 
-void SetFreq(int f)
-{
+void SetFreq(int f) {
 #ifdef PEEL_SOUND
-	if(gChannel!=INVALID_ID)
-	{
-		gFMOD->FSOUND_SetFrequency(gChannel, f);
-	}
+    if (gChannel != INVALID_ID) {
+        gFMOD->FSOUND_SetFrequency(gChannel, f);
+    }
 #endif
 }

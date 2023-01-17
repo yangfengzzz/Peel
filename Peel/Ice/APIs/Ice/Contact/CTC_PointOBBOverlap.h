@@ -12,21 +12,25 @@
 #ifndef CTCPOINTOBBOVERLAP_H
 #define CTCPOINTOBBOVERLAP_H
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/**
-	 *	Point-OBB collision test.
-	 *	\param		p			[in] world point
-	 *	\param		obb			[in] box
-	 *	\param		normal		[out] penetration direction from point to box
-	 *	\param		penetration	[out] penetration depth
-	 *	\return		TRUE if point is in the box, else FALSE
-	 */
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	CONTACT_API int PointOBBOverlap(const Point& p, const Point& center, const Point& extents, const Matrix3x3& rot, Point& normal, float& penetration);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ *	Point-OBB collision test.
+ *	\param		p			[in] world point
+ *	\param		obb			[in] box
+ *	\param		normal		[out] penetration direction from point to box
+ *	\param		penetration	[out] penetration depth
+ *	\return		TRUE if point is in the box, else FALSE
+ */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CONTACT_API int PointOBBOverlap(const Point& p,
+                                const Point& center,
+                                const Point& extents,
+                                const Matrix3x3& rot,
+                                Point& normal,
+                                float& penetration);
 
-	inline_ int PointOBBOverlap(const Point& p, const OBB& obb, Point& normal, float& penetration)
-	{
-		return Ctc::PointOBBOverlap(p, obb.mCenter, obb.mExtents, obb.mRot, normal, penetration);
-	}
+inline_ int PointOBBOverlap(const Point& p, const OBB& obb, Point& normal, float& penetration) {
+    return Ctc::PointOBBOverlap(p, obb.mCenter, obb.mExtents, obb.mRot, normal, penetration);
+}
 
-#endif // CTCPOINTOBBOVERLAP_H
+#endif  // CTCPOINTOBBOVERLAP_H

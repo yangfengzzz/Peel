@@ -11,16 +11,16 @@
 
 #include "PintShapeRenderer.h"
 
-	class PintPointSpriteSphereShapeRenderer : public PintShapeRenderer
-	{
-				float	mRadius;
-		public:
-						PintPointSpriteSphereShapeRenderer(float radius);
+class PintPointSpriteSphereShapeRenderer : public PintShapeRenderer {
+    float mRadius;
 
-		// PintShapeRenderer
-		virtual	const char*	GetClassName()			const	override	{ return "PintPointSpriteSphereShapeRenderer";	}
-		virtual	void		_Render(const PR& pose)	const	override;
-		//~PintShapeRenderer
-	};
+public:
+    PintPointSpriteSphereShapeRenderer(float radius);
+
+    // PintShapeRenderer
+    virtual const char* GetClassName() const override { return "PintPointSpriteSphereShapeRenderer"; }
+    virtual void _Render(const PR& pose) const override;
+    //~PintShapeRenderer
+};
 
 #endif

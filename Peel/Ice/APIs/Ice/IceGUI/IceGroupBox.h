@@ -3,27 +3,26 @@
 #ifndef ICEGROUPBOX_H
 #define ICEGROUPBOX_H
 
-	class ICEGUI_API GroupBoxDesc : public WidgetDesc
-	{
-		public:
-							GroupBoxDesc();
-	};
+class ICEGUI_API GroupBoxDesc : public WidgetDesc {
+public:
+    GroupBoxDesc();
+};
 
-	class ICEGUI_API IceGroupBox : public IceWidget
-	{
-		public:
-							IceGroupBox(const GroupBoxDesc& desc);
-		virtual				~IceGroupBox();
+class ICEGUI_API IceGroupBox : public IceWidget {
+public:
+    IceGroupBox(const GroupBoxDesc& desc);
+    virtual ~IceGroupBox();
 
-		inline_	IceWindow*	GetSupport()	{ return mSupport;	}
-		virtual	void		SetVisible(bool b);
+    inline_ IceWindow* GetSupport() { return mSupport; }
+    virtual void SetVisible(bool b);
 
-				void		GetText(String& text)		const;
-				void		SetText(const char* text)	const;
-		private:
-				IceWindow*	mSupport;
+    void GetText(String& text) const;
+    void SetText(const char* text) const;
 
-				PREVENT_COPY(IceGroupBox);
-	};
+private:
+    IceWindow* mSupport;
 
-#endif	// ICEGROUPBOX_H
+    PREVENT_COPY(IceGroupBox);
+};
+
+#endif  // ICEGROUPBOX_H

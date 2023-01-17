@@ -33,36 +33,27 @@
 #include "PsArray.h"
 #include "PsInlineAllocator.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
 // array that pre-allocates for N elements
 template <typename T, uint32_t N, typename Alloc = typename AllocatorTraits<T>::Type>
-class InlineArray : public Array<T, InlineAllocator<N * sizeof(T), Alloc> >
-{
-	typedef InlineAllocator<N * sizeof(T), Alloc> Allocator;
+class InlineArray : public Array<T, InlineAllocator<N * sizeof(T), Alloc>> {
+    typedef InlineAllocator<N * sizeof(T), Alloc> Allocator;
 
-  public:
-	InlineArray(const PxEMPTY v) : Array<T, Allocator>(v)
-	{
-		if(isInlined())
-			this->mData = reinterpret_cast<T*>(Array<T, Allocator>::getInlineBuffer());
-	}
+public:
+    InlineArray(const PxEMPTY v) : Array<T, Allocator>(v) {
+        if (isInlined()) this->mData = reinterpret_cast<T*>(Array<T, Allocator>::getInlineBuffer());
+    }
 
-	PX_INLINE bool isInlined() const
-	{
-		return Allocator::isBufferUsed();
-	}
+    PX_INLINE bool isInlined() const { return Allocator::isBufferUsed(); }
 
-	PX_INLINE explicit InlineArray(const Alloc& alloc = Alloc()) : Array<T, Allocator>(alloc)
-	{
-		this->mData = this->allocate(N);
-		this->mCapacity = N;
-	}
+    PX_INLINE explicit InlineArray(const Alloc& alloc = Alloc()) : Array<T, Allocator>(alloc) {
+        this->mData = this->allocate(N);
+        this->mCapacity = N;
+    }
 };
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSINLINEARRAY_H
+#endif  // #ifndef PSFOUNDATION_PSINLINEARRAY_H

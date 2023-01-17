@@ -3,40 +3,38 @@
 #ifndef ICEVECTOREDITBOX_H
 #define ICEVECTOREDITBOX_H
 
-	class VectorEditBox;
-	typedef void (*VectorEditCB)	(const VectorEditBox& edit_box);
+class VectorEditBox;
+typedef void (*VectorEditCB)(const VectorEditBox& edit_box);
 
-	class ICEGUI_API VectorEditDesc : public WindowDesc
-	{
-		public:
-								VectorEditDesc() : mCallback(null)
-								{
-									mEditBoxWidth = 40;
-									mValue.Zero();
-								}
+class ICEGUI_API VectorEditDesc : public WindowDesc {
+public:
+    VectorEditDesc() : mCallback(null) {
+        mEditBoxWidth = 40;
+        mValue.Zero();
+    }
 
-				Point			mValue;
-				udword			mEditBoxWidth;
-				VectorEditCB	mCallback;
-	};
+    Point mValue;
+    udword mEditBoxWidth;
+    VectorEditCB mCallback;
+};
 
-	class ICEGUI_API VectorEditBox : public IceWindow
-	{
-		public:
-								VectorEditBox(const VectorEditDesc& desc);
-		virtual					~VectorEditBox();
+class ICEGUI_API VectorEditBox : public IceWindow {
+public:
+    VectorEditBox(const VectorEditDesc& desc);
+    virtual ~VectorEditBox();
 
-				bool			GetVector(Point& vector)	const;
-				void			SetVector(const Point& vector);
+    bool GetVector(Point& vector) const;
+    void SetVector(const Point& vector);
 
-		inline_	VectorEditCB	GetCallback()				{ return mCallback;	}
-		private:
-				VectorEditCB	mCallback;
-				IceLabel*		mLabel[3];
-				IceEditBox*		mEditBox[3];
-				IceScrollbar*	mScrollBar[3];
+    inline_ VectorEditCB GetCallback() { return mCallback; }
 
-				PREVENT_COPY(VectorEditBox);
-	};
+private:
+    VectorEditCB mCallback;
+    IceLabel* mLabel[3];
+    IceEditBox* mEditBox[3];
+    IceScrollbar* mScrollBar[3];
 
-#endif	// ICEVECTOREDITBOX_H
+    PREVENT_COPY(VectorEditBox);
+};
+
+#endif  // ICEVECTOREDITBOX_H

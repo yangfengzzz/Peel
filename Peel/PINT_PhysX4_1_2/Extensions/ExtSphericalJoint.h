@@ -25,106 +25,105 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef NP_SPHERICALJOINTCONSTRAINT_H
 #define NP_SPHERICALJOINTCONSTRAINT_H
 
-#include "extensions/PxSphericalJoint.h"
-
-#include "ExtJoint.h"
 #include "CmUtils.h"
+#include "extensions/PxSphericalJoint.h"
+#include "ExtJoint.h"
 
-namespace physx
-{
+namespace physx {
 struct PxSphericalJointGeneratedValues;
-namespace Ext
-{
-	struct SphericalJointData: public JointData
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
-		PxJointLimitCone		limit;
+namespace Ext {
+struct SphericalJointData : public JointData {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+    PxJointLimitCone limit;
 
-		PxReal					projectionLinearTolerance;
+    PxReal projectionLinearTolerance;
 
-		PxSphericalJointFlags	jointFlags;
-		// forestall compiler complaints about not being able to generate a constructor
-	private:
-		SphericalJointData(const PxJointLimitCone &cone):
-			limit(cone) {}
-	};
-    
-    typedef Joint<PxSphericalJoint, PxSphericalJointGeneratedValues> SphericalJointT;
-   
-	class SphericalJoint : public SphericalJointT
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
-	public:
-// PX_SERIALIZATION
-									SphericalJoint(PxBaseFlags baseFlags) : SphericalJointT(baseFlags) {}
-		virtual		void			exportExtraData(PxSerializationContext& context);
-					void			importExtraData(PxDeserializationContext& context);
-					void			resolveReferences(PxDeserializationContext& context);
-		static		SphericalJoint*	createObject(PxU8*& address, PxDeserializationContext& context);
-		static		void			getBinaryMetaData(PxOutputStream& stream);
-//~PX_SERIALIZATION
+    PxSphericalJointFlags jointFlags;
+    // forestall compiler complaints about not being able to generate a constructor
+private:
+    SphericalJointData(const PxJointLimitCone& cone) : limit(cone) {}
+};
 
-		SphericalJoint(const PxTolerancesScale& /*scale*/, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1) :
-			SphericalJointT(PxJointConcreteType::eSPHERICAL, PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE, actor0, localFrame0, actor1, localFrame1, sizeof(SphericalJointData), "SphericalJointData")
-		{
-			SphericalJointData* data = static_cast<SphericalJointData*>(mData);
+typedef Joint<PxSphericalJoint, PxSphericalJointGeneratedValues> SphericalJointT;
 
-			data->projectionLinearTolerance	= 1e10f;
-			data->limit						= PxJointLimitCone(PxPi/2, PxPi/2);
-			data->jointFlags				= PxSphericalJointFlags();
-		}
+class SphericalJoint : public SphericalJointT {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+public:
+    // PX_SERIALIZATION
+    SphericalJoint(PxBaseFlags baseFlags) : SphericalJointT(baseFlags) {}
+    virtual void exportExtraData(PxSerializationContext& context);
+    void importExtraData(PxDeserializationContext& context);
+    void resolveReferences(PxDeserializationContext& context);
+    static SphericalJoint* createObject(PxU8*& address, PxDeserializationContext& context);
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
 
-		// PxSphericalJoint
-		virtual	void					setLimitCone(const PxJointLimitCone &limit);
-		virtual	PxJointLimitCone		getLimitCone() const;
-		virtual	void					setSphericalJointFlags(PxSphericalJointFlags flags);
-		virtual	void					setSphericalJointFlag(PxSphericalJointFlag::Enum flag, bool value);
-		virtual	PxSphericalJointFlags	getSphericalJointFlags(void) const;
-		virtual	void					setProjectionLinearTolerance(PxReal distance);
-		virtual	PxReal					getProjectionLinearTolerance() const;
-		virtual PxReal					getSwingYAngle() const;
-		virtual PxReal					getSwingZAngle() const;
-		//~PxSphericalJoint
+    SphericalJoint(const PxTolerancesScale& /*scale*/,
+                   PxRigidActor* actor0,
+                   const PxTransform& localFrame0,
+                   PxRigidActor* actor1,
+                   const PxTransform& localFrame1)
+        : SphericalJointT(PxJointConcreteType::eSPHERICAL,
+                          PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE,
+                          actor0,
+                          localFrame0,
+                          actor1,
+                          localFrame1,
+                          sizeof(SphericalJointData),
+                          "SphericalJointData") {
+        SphericalJointData* data = static_cast<SphericalJointData*>(mData);
 
-		bool					attach(PxPhysics &physics, PxRigidActor* actor0, PxRigidActor* actor1);
-		
-		static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
+        data->projectionLinearTolerance = 1e10f;
+        data->limit = PxJointLimitCone(PxPi / 2, PxPi / 2);
+        data->jointFlags = PxSphericalJointFlags();
+    }
 
-		virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
-		
-	private:
+    // PxSphericalJoint
+    virtual void setLimitCone(const PxJointLimitCone& limit);
+    virtual PxJointLimitCone getLimitCone() const;
+    virtual void setSphericalJointFlags(PxSphericalJointFlags flags);
+    virtual void setSphericalJointFlag(PxSphericalJointFlag::Enum flag, bool value);
+    virtual PxSphericalJointFlags getSphericalJointFlags(void) const;
+    virtual void setProjectionLinearTolerance(PxReal distance);
+    virtual PxReal getProjectionLinearTolerance() const;
+    virtual PxReal getSwingYAngle() const;
+    virtual PxReal getSwingZAngle() const;
+    //~PxSphericalJoint
 
-		static PxConstraintShaderTable sShaders;
+    bool attach(PxPhysics& physics, PxRigidActor* actor0, PxRigidActor* actor1);
 
-		PX_FORCE_INLINE SphericalJointData& data() const				
-		{	
-			return *static_cast<SphericalJointData*>(mData);
-		}
-	};
+    static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
 
-} // namespace Ext
+    virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
 
-namespace Ext
-{
-	// global function to share the joint shaders with API capture	
-	extern "C" const PxConstraintShaderTable* GetSphericalJointShaderTable();
-}
+private:
+    static PxConstraintShaderTable sShaders;
 
-}
+    PX_FORCE_INLINE SphericalJointData& data() const { return *static_cast<SphericalJointData*>(mData); }
+};
+
+}  // namespace Ext
+
+namespace Ext {
+// global function to share the joint shaders with API capture
+extern "C" const PxConstraintShaderTable* GetSphericalJointShaderTable();
+}  // namespace Ext
+
+}  // namespace physx
 
 #endif

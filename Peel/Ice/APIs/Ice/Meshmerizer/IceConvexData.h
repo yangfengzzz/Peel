@@ -12,32 +12,31 @@
 #ifndef ICECONVEXDATA_H
 #define ICECONVEXDATA_H
 
-	class MESHMERIZER_API ConvexData
-	{
-		public:
-								ConvexData();
-								~ConvexData();
+class MESHMERIZER_API ConvexData {
+public:
+    ConvexData();
+    ~ConvexData();
 
-				void			Init(udword nb_verts, udword nb_polygons, udword nb_data);
-				bool			Init(const ConvexHull& hull);
+    void Init(udword nb_verts, udword nb_polygons, udword nb_data);
+    bool Init(const ConvexHull& hull);
 
-				void			ComputeCenter(Point& center)												const;
-				void			Cut(ConvexData& cdp, ConvexData& cdn, const Plane& local_plane)				const;
-				void			Cut2(ConvexData& cdp, ConvexData& cdn, const Plane& local_plane)			const;
+    void ComputeCenter(Point& center) const;
+    void Cut(ConvexData& cdp, ConvexData& cdn, const Plane& local_plane) const;
+    void Cut2(ConvexData& cdp, ConvexData& cdn, const Plane& local_plane) const;
 
-		inline_	udword			GetNbVerts()		const	{ return mNbVerts;		}
-		inline_	const Point*	GetVerts()			const	{ return mVerts;		}
+    inline_ udword GetNbVerts() const { return mNbVerts; }
+    inline_ const Point* GetVerts() const { return mVerts; }
 
-		inline_	udword			GetNbPolygons()		const	{ return mNbPolygons;	}
-		inline_	const udword*	GetPolygonData()	const	{ return mPolygonData;	}
-		inline_	udword*			GetPolygonData()			{ return mPolygonData;	}
+    inline_ udword GetNbPolygons() const { return mNbPolygons; }
+    inline_ const udword* GetPolygonData() const { return mPolygonData; }
+    inline_ udword* GetPolygonData() { return mPolygonData; }
 
-		protected:
-				udword			mNbVerts;
-				Point*			mVerts;
-				udword			mNbPolygons;
-				udword*			mPolygonData;
-				bool*			mInternal;
-	};
+protected:
+    udword mNbVerts;
+    Point* mVerts;
+    udword mNbPolygons;
+    udword* mPolygonData;
+    bool* mInternal;
+};
 
-#endif // ICECONVEXDATA_H
+#endif  // ICECONVEXDATA_H

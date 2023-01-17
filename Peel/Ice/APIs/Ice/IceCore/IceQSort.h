@@ -12,26 +12,28 @@
 #ifndef ICEQSORT_H
 #define ICEQSORT_H
 
-	ICECORE_API void QSort(void* base, size_t num, size_t width, int (__cdecl* compare)(const void* elem1, const void* elem2));
+ICECORE_API void QSort(void* base,
+                       size_t num,
+                       size_t width,
+                       int(__cdecl* compare)(const void* elem1, const void* elem2));
 
-	ICECORE_API void QSort(int n, int* x);
-	ICECORE_API void QSort(int n, float* x);
+ICECORE_API void QSort(int n, int* x);
+ICECORE_API void QSort(int n, float* x);
 
-	class ICECORE_API QuickSort
-	{
-		public:
-							QuickSort();
-							~QuickSort();
+class ICECORE_API QuickSort {
+public:
+    QuickSort();
+    ~QuickSort();
 
-		// Sorting method
-		const	udword*		Sort(sdword nb, const udword* list);
+    // Sorting method
+    const udword* Sort(sdword nb, const udword* list);
 
-		private:
-				udword*		mIndices;
+private:
+    udword* mIndices;
 
-		// Internal methods
-				void		qsort(sdword first, sdword last, const sdword* list);
-				void		isort(sdword n, const sdword* list);
-	};
+    // Internal methods
+    void qsort(sdword first, sdword last, const sdword* list);
+    void isort(sdword n, const sdword* list);
+};
 
-#endif // ICEQSORT_H
+#endif  // ICEQSORT_H

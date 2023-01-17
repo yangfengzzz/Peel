@@ -12,39 +12,36 @@
 #ifndef ICEDUALSILHOUETTE_H
 #define ICEDUALSILHOUETTE_H
 
-	struct MESHMERIZER_API DUALSILHOUETTECREATE
-	{
-		IndexedSurface*	mSurface;
-	};
+struct MESHMERIZER_API DUALSILHOUETTECREATE {
+    IndexedSurface* mSurface;
+};
 
-	// warning : words here
-	struct MESHMERIZER_API SilEdgeRef
-	{
-		uword Ref0;
-		uword Ref1;
-	};
+// warning : words here
+struct MESHMERIZER_API SilEdgeRef {
+    uword Ref0;
+    uword Ref1;
+};
 
-	//! A silhouette class.
-	class MESHMERIZER_API DualSilhouette
-	{
-		public:
-									DualSilhouette();
-		virtual						~DualSilhouette();
+//! A silhouette class.
+class MESHMERIZER_API DualSilhouette {
+public:
+    DualSilhouette();
+    virtual ~DualSilhouette();
 
-				bool				Init(const DUALSILHOUETTECREATE& create);
+    bool Init(const DUALSILHOUETTECREATE& create);
 
-				bool				ComputeSilhouette(const Point& view_point);
+    bool ComputeSilhouette(const Point& view_point);
 
-		// Data access
-				udword				GetNbSilhouetteEdges()	const	{ return mSilhouetteEdges.GetNbEntries();/* not >>1 since words*/	}
-				const SilEdgeRef*	GetSilhouetteEdges()	const	{ return (const SilEdgeRef*)mSilhouetteEdges.GetEntries();			}
+    // Data access
+    udword GetNbSilhouetteEdges() const { return mSilhouetteEdges.GetNbEntries(); /* not >>1 since words*/ }
+    const SilEdgeRef* GetSilhouetteEdges() const { return (const SilEdgeRef*)mSilhouetteEdges.GetEntries(); }
 
-		private:
-				Container			mSilhouetteEdges;
-				IndexedSurface*		mSurface;
-				EdgeList*			mEdgeList;
-				Point*				mDualPts;
-				int*				mIndices;
-	};
+private:
+    Container mSilhouetteEdges;
+    IndexedSurface* mSurface;
+    EdgeList* mEdgeList;
+    Point* mDualPts;
+    int* mIndices;
+};
 
-#endif // ICEDUALSILHOUETTE_H
+#endif  // ICEDUALSILHOUETTE_H

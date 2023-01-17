@@ -27,103 +27,82 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "foundation/PxMath.h"
-
-#include "PsFoundation.h"
 #include "PsTempAllocator.h"
+
+#include "foundation/PxMath.h"
 #include "PsArray.h"
-#include "PsMutex.h"
 #include "PsAtomic.h"
-#include "PsIntrinsics.h"
 #include "PsBitUtils.h"
+#include "PsFoundation.h"
+#include "PsIntrinsics.h"
+#include "PsMutex.h"
 
 #if PX_VC
-#pragma warning(disable : 4706) // assignment within conditional expression
+#pragma warning(disable : 4706)  // assignment within conditional expression
 #endif
 
-namespace physx
-{
-namespace shdfnd
-{
-namespace
-{
+namespace physx {
+namespace shdfnd {
+namespace {
 typedef TempAllocatorChunk Chunk;
 typedef Array<Chunk*, NonTrackingAllocator> AllocFreeTable;
 
-PX_INLINE Foundation::AllocFreeTable& getFreeTable()
-{
-	return getFoundation().getTempAllocFreeTable();
-}
-PX_INLINE Foundation::Mutex& getMutex()
-{
-	return getFoundation().getTempAllocMutex();
-}
+PX_INLINE Foundation::AllocFreeTable& getFreeTable() { return getFoundation().getTempAllocFreeTable(); }
+PX_INLINE Foundation::Mutex& getMutex() { return getFoundation().getTempAllocMutex(); }
 
-const PxU32 sMinIndex = 8;  // 256B min
-const PxU32 sMaxIndex = 17; // 128kB max
-}
+const PxU32 sMinIndex = 8;   // 256B min
+const PxU32 sMaxIndex = 17;  // 128kB max
+}  // namespace
 
-void* TempAllocator::allocate(size_t size, const char* filename, int line)
-{
-	if(!size)
-		return 0;
+void* TempAllocator::allocate(size_t size, const char* filename, int line) {
+    if (!size) return 0;
 
-	uint32_t index = PxMax(highestSetBit(uint32_t(size) + sizeof(Chunk) - 1), sMinIndex);
+    uint32_t index = PxMax(highestSetBit(uint32_t(size) + sizeof(Chunk) - 1), sMinIndex);
 
-	Chunk* chunk = 0;
-	if(index < sMaxIndex)
-	{
-		Foundation::Mutex::ScopedLock lock(getMutex());
+    Chunk* chunk = 0;
+    if (index < sMaxIndex) {
+        Foundation::Mutex::ScopedLock lock(getMutex());
 
-		// find chunk up to 16x bigger than necessary
-		Chunk** it = getFreeTable().begin() + index - sMinIndex;
-		Chunk** end = PxMin(it + 3, getFreeTable().end());
-		while(it < end && !(*it))
-			++it;
+        // find chunk up to 16x bigger than necessary
+        Chunk** it = getFreeTable().begin() + index - sMinIndex;
+        Chunk** end = PxMin(it + 3, getFreeTable().end());
+        while (it < end && !(*it)) ++it;
 
-		if(it < end)
-		{
-			// pop top off freelist
-			chunk = *it;
-			*it = chunk->mNext;
-			index = uint32_t(it - getFreeTable().begin() + sMinIndex);
-		}
-		else
-			// create new chunk
-			chunk = reinterpret_cast<Chunk*>(NonTrackingAllocator().allocate(size_t(2 << index), filename, line));
-	}
-	else
-	{
-		// too big for temp allocation, forward to base allocator
-		chunk = reinterpret_cast<Chunk*>(NonTrackingAllocator().allocate(size + sizeof(Chunk), filename, line));
-	}
+        if (it < end) {
+            // pop top off freelist
+            chunk = *it;
+            *it = chunk->mNext;
+            index = uint32_t(it - getFreeTable().begin() + sMinIndex);
+        } else
+            // create new chunk
+            chunk = reinterpret_cast<Chunk*>(NonTrackingAllocator().allocate(size_t(2 << index), filename, line));
+    } else {
+        // too big for temp allocation, forward to base allocator
+        chunk = reinterpret_cast<Chunk*>(NonTrackingAllocator().allocate(size + sizeof(Chunk), filename, line));
+    }
 
-	chunk->mIndex = index;
-	void* ret = chunk + 1;
-	PX_ASSERT((size_t(ret) & 0xf) == 0); // SDK types require at minimum 16 byte allignment.
-	return ret;
+    chunk->mIndex = index;
+    void* ret = chunk + 1;
+    PX_ASSERT((size_t(ret) & 0xf) == 0);  // SDK types require at minimum 16 byte allignment.
+    return ret;
 }
 
-void TempAllocator::deallocate(void* ptr)
-{
-	if(!ptr)
-		return;
+void TempAllocator::deallocate(void* ptr) {
+    if (!ptr) return;
 
-	Chunk* chunk = reinterpret_cast<Chunk*>(ptr) - 1;
-	uint32_t index = chunk->mIndex;
+    Chunk* chunk = reinterpret_cast<Chunk*>(ptr) - 1;
+    uint32_t index = chunk->mIndex;
 
-	if(index >= sMaxIndex)
-		return NonTrackingAllocator().deallocate(chunk);
+    if (index >= sMaxIndex) return NonTrackingAllocator().deallocate(chunk);
 
-	Foundation::Mutex::ScopedLock lock(getMutex());
+    Foundation::Mutex::ScopedLock lock(getMutex());
 
-	index -= sMinIndex;
-	if(getFreeTable().size() <= index)
-		getFreeTable().resize(index + 1);
+    index -= sMinIndex;
+    if (getFreeTable().size() <= index) getFreeTable().resize(index + 1);
 
-	chunk->mNext = getFreeTable()[index];
-	getFreeTable()[index] = chunk;
+    chunk->mNext = getFreeTable()[index];
+    getFreeTable()[index] = chunk;
 }
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

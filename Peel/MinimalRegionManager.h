@@ -11,17 +11,16 @@
 
 #include "Streaming.h"
 
-	class Pint;
-	class MinimalRegionManager : public StreamInterface
-	{
-		Pint&	mPint;
+class Pint;
+class MinimalRegionManager : public StreamInterface {
+    Pint& mPint;
 
-		public:
-						MinimalRegionManager(Pint& pint);
+public:
+    MinimalRegionManager(Pint& pint);
 
-		virtual	void	AddRegion(StreamRegion& region)				override;
-		virtual	void	UpdateRegion(const StreamRegion& region)	override;
-		virtual	void	RemoveRegion(const StreamRegion& region)	override;
-	};
+    virtual void AddRegion(StreamRegion& region) override;
+    virtual void UpdateRegion(const StreamRegion& region) override;
+    virtual void RemoveRegion(const StreamRegion& region) override;
+};
 
 #endif

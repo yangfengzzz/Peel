@@ -12,13 +12,13 @@
 #ifndef ICETRASHBUFFER_H
 #define ICETRASHBUFFER_H
 
-	// Trash buffer
-	FUNCTION ICECORE_API void*		GetTrashBuffer(udword size, bool discard_contents=true);
-	FUNCTION ICECORE_API void		ReleaseTrashBuffer();
-	FUNCTION ICECORE_API udword		GetTrashBufferSize();
+// Trash buffer
+FUNCTION ICECORE_API void* GetTrashBuffer(udword size, bool discard_contents = true);
+FUNCTION ICECORE_API void ReleaseTrashBuffer();
+FUNCTION ICECORE_API udword GetTrashBufferSize();
 
-	// Trash container
-	FUNCTION ICECORE_API Container*	GetTrashContainer();
-	FUNCTION ICECORE_API void		ReleaseTrashContainer();
+// Trash container
+FUNCTION ICECORE_API Container* GetTrashContainer();
+FUNCTION ICECORE_API void ReleaseTrashContainer();
 
-#endif // ICETRASHBUFFER_H
+#endif  // ICETRASHBUFFER_H

@@ -12,7 +12,11 @@
 #ifndef CTCSPHEREPLANEOVERLAP_H
 #define CTCSPHEREPLANEOVERLAP_H
 
-	// Sphere-plane intersection
-	CONTACT_API float SpherePlane(const Point& center, float radius, const Plane& plane, Point* contact_point=null, Point* contact_normal=null);
+// Sphere-plane intersection
+CONTACT_API float SpherePlane(const Point& center,
+                              float radius,
+                              const Plane& plane,
+                              Point* contact_point = null,
+                              Point* contact_normal = null);
 
-#endif // CTCSPHEREPLANEOVERLAP_H
+#endif  // CTCSPHEREPLANEOVERLAP_H

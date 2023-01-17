@@ -12,34 +12,30 @@
 #ifndef ICESPECTRALLAYER_H
 #define ICESPECTRALLAYER_H
 
-	struct ICETERRAIN_API SPECTRALLAYERCREATE : HEIGHTLAYERCREATE
-	{
-		SPECTRALLAYERCREATE() : mLevel(0), mSmoothness(0.0f)
-		{
-		}
+struct ICETERRAIN_API SPECTRALLAYERCREATE : HEIGHTLAYERCREATE {
+    SPECTRALLAYERCREATE() : mLevel(0), mSmoothness(0.0f) {}
 
-		udword	mLevel;
-		float	mSmoothness;
-	};
+    udword mLevel;
+    float mSmoothness;
+};
 
-	class ICETERRAIN_API SpectralLayer : public HeightLayer
-	{
-		public:
-						SpectralLayer();
-		virtual			~SpectralLayer();
+class ICETERRAIN_API SpectralLayer : public HeightLayer {
+public:
+    SpectralLayer();
+    virtual ~SpectralLayer();
 
-		virtual	bool	Init(const SPECTRALLAYERCREATE& create);
-		virtual	bool	Update(float* field, udword width, udword height)	const;
+    virtual bool Init(const SPECTRALLAYERCREATE& create);
+    virtual bool Update(float* field, udword width, udword height) const;
 
-		inline_	udword	GetLevel()			const	{ return mLevel;		}
-		inline_	float	GetSmoothness()		const	{ return mSmoothness;	}
+    inline_ udword GetLevel() const { return mLevel; }
+    inline_ float GetSmoothness() const { return mSmoothness; }
 
-		inline_	void	SetLevel(udword level)		{ mLevel = level;		}
-		inline_	void	SetSmoothness(float s)		{ mSmoothness = s;		}
+    inline_ void SetLevel(udword level) { mLevel = level; }
+    inline_ void SetSmoothness(float s) { mSmoothness = s; }
 
-		protected:
-				udword	mLevel;
-				float	mSmoothness;
-	};
+protected:
+    udword mLevel;
+    float mSmoothness;
+};
 
-#endif // ICESPECTRALLAYER_H
+#endif  // ICESPECTRALLAYER_H

@@ -12,51 +12,48 @@
 #include "PintDef.h"
 #include "PintGUIHelper.h"
 
-	class Pint;
+class Pint;
 
-	class ActorSelectionCallback
-	{
-		public:
-		virtual	void	OnSelectedActor(Pint* pint, PintActorHandle h, void* user_data)	= 0;
-	};
+class ActorSelectionCallback {
+public:
+    virtual void OnSelectedActor(Pint* pint, PintActorHandle h, void* user_data) = 0;
+};
 
-	class ShapeSelectionCallback
-	{
-		public:
-		virtual	void	OnSelectedShape(PintShapeHandle h, void* user_data)	= 0;
-	};
+class ShapeSelectionCallback {
+public:
+    virtual void OnSelectedShape(PintShapeHandle h, void* user_data) = 0;
+};
 
-	class ItemSelectionWindow : public IceWindow
-	{
-		public:
-										ItemSelectionWindow(const WindowDesc& desc);
-		virtual							~ItemSelectionWindow();
+class ItemSelectionWindow : public IceWindow {
+public:
+    ItemSelectionWindow(const WindowDesc& desc);
+    virtual ~ItemSelectionWindow();
 
-		virtual int						handleEvent(IceGUIEvent* event);
+    virtual int handleEvent(IceGUIEvent* event);
 
-				void					Populate();
-				void					Populate(Pint& pint, PintActorHandle actor);
-				void					Reset();
-				void					OnOK();
+    void Populate();
+    void Populate(Pint& pint, PintActorHandle actor);
+    void Reset();
+    void OnOK();
 
-				ButtonPtr				mOKButton;
-				ButtonPtr				mCancelButton;
-				ListBoxPtr				mItems;
+    ButtonPtr mOKButton;
+    ButtonPtr mCancelButton;
+    ListBoxPtr mItems;
 
-				ActorSelectionCallback*	mActorCallback;
-				ShapeSelectionCallback*	mShapeCallback;
+    ActorSelectionCallback* mActorCallback;
+    ShapeSelectionCallback* mShapeCallback;
 
-				void*					mUserData;
+    void* mUserData;
 
-				PintActorHandle			mActorOwner;	// For shape selector
-	};
+    PintActorHandle mActorOwner;  // For shape selector
+};
 
-	ItemSelectionWindow*	CreateItemSelectionWindow(IceWidget* parent, sdword x, sdword y);
-	void					CloseItemSelectionWindow();
+ItemSelectionWindow* CreateItemSelectionWindow(IceWidget* parent, sdword x, sdword y);
+void CloseItemSelectionWindow();
 
-	void					ShowActorSelectionWindow(ActorSelectionCallback*, void* user_data=null);
-	void					ShowShapeSelectionWindow(Pint& pint, PintActorHandle actor, ShapeSelectionCallback*, void* user_data=null);
-	void					HideItemSelectionWindow();
-	ItemSelectionWindow*	GetVisibleItemSelectionWindow();
+void ShowActorSelectionWindow(ActorSelectionCallback*, void* user_data = null);
+void ShowShapeSelectionWindow(Pint& pint, PintActorHandle actor, ShapeSelectionCallback*, void* user_data = null);
+void HideItemSelectionWindow();
+ItemSelectionWindow* GetVisibleItemSelectionWindow();
 
 #endif

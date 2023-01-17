@@ -12,11 +12,10 @@
 #ifndef CHUNKFCAM_H
 #define CHUNKFCAM_H
 
-	#define FCAM_VERSION	1
+#define FCAM_VERSION 1
 
-	class ZCB2_API FCAMChunk : public CAMEChunk
-	{
-		DECLARE_CHUNK(FCAMChunk, mFCAMCore)
-	};
+class ZCB2_API FCAMChunk : public CAMEChunk {
+    DECLARE_CHUNK(FCAMChunk, mFCAMCore)
+};
 
-#endif // CHUNKFCAM_H
+#endif  // CHUNKFCAM_H

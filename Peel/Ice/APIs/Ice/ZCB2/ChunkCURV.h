@@ -12,18 +12,16 @@
 #ifndef CHUNKCURV_H
 #define CHUNKCURV_H
 
-	#define CURV_VERSION	1
+#define CURV_VERSION 1
 
-	enum ZCB2_CURV_Flag
-	{
-		ZCB2_CURV_CLOSED	= (1<<0),		//!< true : the curve is closed
-	};
+enum ZCB2_CURV_Flag {
+    ZCB2_CURV_CLOSED = (1 << 0),  //!< true : the curve is closed
+};
 
-	class ZCB2_API CURVChunk : public PNTSChunk
-	{
-		DECLARE_CHUNK(CURVChunk, mCURVCore)
+class ZCB2_API CURVChunk : public PNTSChunk {
+    DECLARE_CHUNK(CURVChunk, mCURVCore)
 
-		DECLARE_STD_FLAG(Closed, ZCB2_CURV_CLOSED)
-	};
+    DECLARE_STD_FLAG(Closed, ZCB2_CURV_CLOSED)
+};
 
-#endif // CHUNKCURV_H
+#endif  // CHUNKCURV_H

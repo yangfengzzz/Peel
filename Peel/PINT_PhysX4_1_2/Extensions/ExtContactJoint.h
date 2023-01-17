@@ -25,99 +25,97 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
-
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef NP_CONTACTJOINTCONSTRAINT_H
 #define NP_CONTACTJOINTCONSTRAINT_H
 
+#include "CmUtils.h"
 #include "common/PxTolerancesScale.h"
 #include "extensions/PxContactJoint.h"
-
 #include "ExtJoint.h"
 #include "PsUserAllocated.h"
-#include "CmUtils.h"
 
-namespace physx
-{
+namespace physx {
 struct PxContactJointGeneratedValues;
-namespace Ext
-{
-	struct ContactJointData : public JointData
-	{
-		PxVec3	contact;
-		PxVec3	normal;
-		PxReal	penetration;
-		PxReal  restitution;
-		PxReal	bounceThreshold;
-	};
+namespace Ext {
+struct ContactJointData : public JointData {
+    PxVec3 contact;
+    PxVec3 normal;
+    PxReal penetration;
+    PxReal restitution;
+    PxReal bounceThreshold;
+};
 
-	typedef Joint<PxContactJoint, PxContactJointGeneratedValues> ContactJointT;
-	class ContactJoint : public ContactJointT
-	{
-	public:
-		// PX_SERIALIZATION
-		ContactJoint(PxBaseFlags baseFlags) : ContactJointT(baseFlags) {}
-		virtual		void			exportExtraData(PxSerializationContext& context);
-		void						importExtraData(PxDeserializationContext& context);
-		void						resolveReferences(PxDeserializationContext& context);
-		static		ContactJoint*	createObject(PxU8*& address, PxDeserializationContext& context);
-		static		void			getBinaryMetaData(PxOutputStream& stream);
-		//~PX_SERIALIZATION
+typedef Joint<PxContactJoint, PxContactJointGeneratedValues> ContactJointT;
+class ContactJoint : public ContactJointT {
+public:
+    // PX_SERIALIZATION
+    ContactJoint(PxBaseFlags baseFlags) : ContactJointT(baseFlags) {}
+    virtual void exportExtraData(PxSerializationContext& context);
+    void importExtraData(PxDeserializationContext& context);
+    void resolveReferences(PxDeserializationContext& context);
+    static ContactJoint* createObject(PxU8*& address, PxDeserializationContext& context);
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
 
-		ContactJoint(const PxTolerancesScale& scale, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1) :
-			ContactJointT(PxJointConcreteType::eCONTACT, PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE, actor0, localFrame0, actor1, localFrame1, sizeof(ContactJointData), "ContactJointData")
-		{
-			PX_UNUSED(scale);
+    ContactJoint(const PxTolerancesScale& scale,
+                 PxRigidActor* actor0,
+                 const PxTransform& localFrame0,
+                 PxRigidActor* actor1,
+                 const PxTransform& localFrame1)
+        : ContactJointT(PxJointConcreteType::eCONTACT,
+                        PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE,
+                        actor0,
+                        localFrame0,
+                        actor1,
+                        localFrame1,
+                        sizeof(ContactJointData),
+                        "ContactJointData") {
+        PX_UNUSED(scale);
 
-			ContactJointData* data = static_cast<ContactJointData*>(mData);
+        ContactJointData* data = static_cast<ContactJointData*>(mData);
 
-			data->contact = PxVec3(0.f);
-			data->normal = PxVec3(0.f);
-			data->penetration = 0.f;
-			data->restitution = 0.f;
-			data->bounceThreshold = 0.f;
-		}
+        data->contact = PxVec3(0.f);
+        data->normal = PxVec3(0.f);
+        data->penetration = 0.f;
+        data->restitution = 0.f;
+        data->bounceThreshold = 0.f;
+    }
 
-		// PxContactJoint
-		virtual	PxVec3					getContact()	const;
-		virtual	void					setContact(const PxVec3& contact);
-		virtual	PxVec3					getContactNormal()	const;
-		virtual	void					setContactNormal(const PxVec3& normal);
-		virtual	PxReal					getPenetration()	const;
-		virtual	void					setPenetration(const PxReal penetration);
-		virtual	PxReal					getResititution()	const;
-		virtual	void					setResititution(const PxReal resititution);
-		virtual PxReal					getBounceThreshold() const;
-		virtual void					setBounceThreshold(const PxReal bounceThreshold);
-		virtual void					computeJacobians(PxJacobianRow* jacobian) const;
-		virtual PxU32					getNbJacobianRows() const;
+    // PxContactJoint
+    virtual PxVec3 getContact() const;
+    virtual void setContact(const PxVec3& contact);
+    virtual PxVec3 getContactNormal() const;
+    virtual void setContactNormal(const PxVec3& normal);
+    virtual PxReal getPenetration() const;
+    virtual void setPenetration(const PxReal penetration);
+    virtual PxReal getResititution() const;
+    virtual void setResititution(const PxReal resititution);
+    virtual PxReal getBounceThreshold() const;
+    virtual void setBounceThreshold(const PxReal bounceThreshold);
+    virtual void computeJacobians(PxJacobianRow* jacobian) const;
+    virtual PxU32 getNbJacobianRows() const;
 
-		//~PxContactJoint
-		bool					attach(PxPhysics &physics, PxRigidActor* actor0, PxRigidActor* actor1);
+    //~PxContactJoint
+    bool attach(PxPhysics& physics, PxRigidActor* actor0, PxRigidActor* actor1);
 
-		static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
+    static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
 
-		virtual PxConstraintSolverPrep getPrep()const { return sShaders.solverPrep; }
+    virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
 
-	private:
+private:
+    static PxConstraintShaderTable sShaders;
 
-		static PxConstraintShaderTable sShaders;
+    PX_FORCE_INLINE ContactJointData& data() const { return *static_cast<ContactJointData*>(mData); }
+};
 
-		PX_FORCE_INLINE ContactJointData& data() const
-		{
-			return *static_cast<ContactJointData*>(mData);
-		}
-	};
+}  // namespace Ext
 
+namespace Ext {
+// global function to share the joint shaders with API capture
+extern "C" const PxConstraintShaderTable* GetContactJointShaderTable();
+}  // namespace Ext
 
-}// namespace Ext
-
-namespace Ext
-{
-	// global function to share the joint shaders with API capture	
-	extern "C" const PxConstraintShaderTable* GetContactJointShaderTable();
-}
-
-}//physx
+}  // namespace physx
 #endif

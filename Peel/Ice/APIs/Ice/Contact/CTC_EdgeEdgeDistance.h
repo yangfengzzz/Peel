@@ -12,6 +12,7 @@
 #ifndef CTCEDGEEDGEDISTANCE_H
 #define CTCEDGEEDGEDISTANCE_H
 
-	CONTACT_API void EdgeEdgeDist(Point& x, Point& y, const Point& p0, const Point& dir0, const Point& p1, const Point& dir1);
+CONTACT_API void EdgeEdgeDist(
+        Point& x, Point& y, const Point& p0, const Point& dir0, const Point& p1, const Point& dir1);
 
-#endif // CTCEDGEEDGEDISTANCE_H
+#endif  // CTCEDGEEDGEDISTANCE_H

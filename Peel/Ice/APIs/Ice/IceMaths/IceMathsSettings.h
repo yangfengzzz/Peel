@@ -12,6 +12,6 @@
 #ifndef ICEMATHSSETTINGS_H
 #define ICEMATHSSETTINGS_H
 
-	#define ICE_USE_MINMAX		// if defined, use (Min, Max) AABBs, else use (Center, Extents) ones.
+#define ICE_USE_MINMAX  // if defined, use (Min, Max) AABBs, else use (Center, Extents) ones.
 
-#endif // ICEMATHSSETTINGS_H
+#endif  // ICEMATHSSETTINGS_H

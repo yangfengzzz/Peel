@@ -12,13 +12,12 @@
 #ifndef CTCPOINTAABBDISTANCE_H
 #define CTCPOINTAABBDISTANCE_H
 
-	// Point-AABB squared distance
-	CONTACT_API float PointAABBSqrDist(const Point& point, const Point& center, const Point& extents, Point* params=null);
+// Point-AABB squared distance
+CONTACT_API float PointAABBSqrDist(const Point& point, const Point& center, const Point& extents, Point* params = null);
 
-	// Point-AABB distance
-	inline_ float PointAABBDist(const Point& point, const Point& center, const Point& extents, Point* params=null)
-	{
-		return sqrtf(PointAABBSqrDist(point, center, extents, params));
-	}
+// Point-AABB distance
+inline_ float PointAABBDist(const Point& point, const Point& center, const Point& extents, Point* params = null) {
+    return sqrtf(PointAABBSqrDist(point, center, extents, params));
+}
 
-#endif // CTCPOINTAABBDISTANCE_H
+#endif  // CTCPOINTAABBDISTANCE_H

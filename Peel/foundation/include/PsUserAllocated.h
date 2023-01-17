@@ -32,73 +32,57 @@
 
 #include "PsAllocator.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 /**
 Provides new and delete using a UserAllocator.
 Guarantees that 'delete x;' uses the UserAllocator too.
 */
-class UserAllocated
-{
-  public:
-	// PX_SERIALIZATION
-	PX_INLINE void* operator new(size_t, void* address)
-	{
-		return address;
-	}
-	//~PX_SERIALIZATION
-	// Matching operator delete to the above operator new.  Don't ask me
-	// how this makes any sense - Nuernberger.
-	PX_INLINE void operator delete(void*, void*)
-	{
-	}
+class UserAllocated {
+public:
+    // PX_SERIALIZATION
+    PX_INLINE void* operator new(size_t, void* address) { return address; }
+    //~PX_SERIALIZATION
+    // Matching operator delete to the above operator new.  Don't ask me
+    // how this makes any sense - Nuernberger.
+    PX_INLINE void operator delete(void*, void*) {}
 
-	template <typename Alloc>
-	PX_INLINE void* operator new(size_t size, Alloc alloc, const char* fileName, int line)
-	{
-		return alloc.allocate(size, fileName, line);
-	}
-	template <typename Alloc>
-	PX_INLINE void* operator new(size_t size, size_t /*align*/, Alloc alloc, const char* fileName, int line)
-	{
-		// align is not respected, we have 16bit aligned allocator
-		return alloc.allocate(size, fileName, line);
-	}	
-	template <typename Alloc>
-	PX_INLINE void* operator new [](size_t size, Alloc alloc, const char* fileName, int line)
-	{ return alloc.allocate(size, fileName, line); }
-	template <typename Alloc>
-	PX_INLINE void* operator new [](size_t size, size_t /*align*/, Alloc alloc, const char* fileName, int line)
-	{ 
-		// align is not respected, we have 16bit aligned allocator
-		return alloc.allocate(size, fileName, line); 
-	}
+    template <typename Alloc>
+    PX_INLINE void* operator new(size_t size, Alloc alloc, const char* fileName, int line) {
+        return alloc.allocate(size, fileName, line);
+    }
+    template <typename Alloc>
+    PX_INLINE void* operator new(size_t size, size_t /*align*/, Alloc alloc, const char* fileName, int line) {
+        // align is not respected, we have 16bit aligned allocator
+        return alloc.allocate(size, fileName, line);
+    }
+    template <typename Alloc>
+    PX_INLINE void* operator new[](size_t size, Alloc alloc, const char* fileName, int line) {
+        return alloc.allocate(size, fileName, line);
+    }
+    template <typename Alloc>
+    PX_INLINE void* operator new[](size_t size, size_t /*align*/, Alloc alloc, const char* fileName, int line) {
+        // align is not respected, we have 16bit aligned allocator
+        return alloc.allocate(size, fileName, line);
+    }
 
-	// placement delete
-	template <typename Alloc>
-	PX_INLINE void operator delete(void* ptr, Alloc alloc, const char* fileName, int line)
-	{
-		PX_UNUSED(fileName);
-		PX_UNUSED(line);
-		alloc.deallocate(ptr);
-	}
-	template <typename Alloc>
-	PX_INLINE void operator delete [](void* ptr, Alloc alloc, const char* fileName, int line)
-	{
-		PX_UNUSED(fileName);
-		PX_UNUSED(line);
-		alloc.deallocate(ptr);
-	} PX_INLINE void
-	operator delete(void* ptr)
-	{
-		NonTrackingAllocator().deallocate(ptr);
-	}
-	PX_INLINE void operator delete [](void* ptr)
-	{ NonTrackingAllocator().deallocate(ptr); }
+    // placement delete
+    template <typename Alloc>
+    PX_INLINE void operator delete(void* ptr, Alloc alloc, const char* fileName, int line) {
+        PX_UNUSED(fileName);
+        PX_UNUSED(line);
+        alloc.deallocate(ptr);
+    }
+    template <typename Alloc>
+    PX_INLINE void operator delete[](void* ptr, Alloc alloc, const char* fileName, int line) {
+        PX_UNUSED(fileName);
+        PX_UNUSED(line);
+        alloc.deallocate(ptr);
+    }
+    PX_INLINE void operator delete(void* ptr) { NonTrackingAllocator().deallocate(ptr); }
+    PX_INLINE void operator delete[](void* ptr) { NonTrackingAllocator().deallocate(ptr); }
 };
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSUSERALLOCATED_H
+#endif  // #ifndef PSFOUNDATION_PSUSERALLOCATED_H

@@ -3,8 +3,7 @@
 #ifndef CTCSWEEPCAPSULECAPSULE_H
 #define CTCSWEEPCAPSULECAPSULE_H
 
-	CONTACT_API	bool	SweepCapsuleCapsule(const LSS& lss0, const LSS& lss1, const Point& dir, float length, float& min_dist, Point& ip, Point& normal);
+CONTACT_API bool SweepCapsuleCapsule(
+        const LSS& lss0, const LSS& lss1, const Point& dir, float length, float& min_dist, Point& ip, Point& normal);
 
-#endif // CTCSWEEPCAPSULECAPSULE_H
-
-
+#endif  // CTCSWEEPCAPSULECAPSULE_H

@@ -34,8 +34,8 @@
 @{
 */
 
-#include "PsSortInternals.h"
 #include "PsAlloca.h"
+#include "PsSortInternals.h"
 
 #define PX_SORT_PARANOIA PX_DEBUG
 
@@ -48,83 +48,70 @@ that the predicate implements the < operator:
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable : 4706) // disable the warning that we did an assignment within a conditional expression, as
+#pragma warning(disable : 4706)  // disable the warning that we did an assignment within a conditional expression, as
 // this was intentional.
 #endif
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 template <class T, class Predicate, class Allocator>
-void sort(T* elements, uint32_t count, const Predicate& compare, const Allocator& inAllocator,
-          const uint32_t initialStackSize = 32)
-{
-	static const uint32_t SMALL_SORT_CUTOFF = 5; // must be >= 3 since we need 3 for median
+void sort(T* elements,
+          uint32_t count,
+          const Predicate& compare,
+          const Allocator& inAllocator,
+          const uint32_t initialStackSize = 32) {
+    static const uint32_t SMALL_SORT_CUTOFF = 5;  // must be >= 3 since we need 3 for median
 
-	PX_ALLOCA(stackMem, int32_t, initialStackSize);
-	internal::Stack<Allocator> stack(stackMem, initialStackSize, inAllocator);
+    PX_ALLOCA(stackMem, int32_t, initialStackSize);
+    internal::Stack<Allocator> stack(stackMem, initialStackSize, inAllocator);
 
-	int32_t first = 0, last = int32_t(count - 1);
-	if(last > first)
-	{
-		for(;;)
-		{
-			while(last > first)
-			{
-				PX_ASSERT(first >= 0 && last < int32_t(count));
-				if(uint32_t(last - first) < SMALL_SORT_CUTOFF)
-				{
-					internal::smallSort(elements, first, last, compare);
-					break;
-				}
-				else
-				{
-					const int32_t partIndex = internal::partition(elements, first, last, compare);
+    int32_t first = 0, last = int32_t(count - 1);
+    if (last > first) {
+        for (;;) {
+            while (last > first) {
+                PX_ASSERT(first >= 0 && last < int32_t(count));
+                if (uint32_t(last - first) < SMALL_SORT_CUTOFF) {
+                    internal::smallSort(elements, first, last, compare);
+                    break;
+                } else {
+                    const int32_t partIndex = internal::partition(elements, first, last, compare);
 
-					// push smaller sublist to minimize stack usage
-					if((partIndex - first) < (last - partIndex))
-					{
-						stack.push(first, partIndex - 1);
-						first = partIndex + 1;
-					}
-					else
-					{
-						stack.push(partIndex + 1, last);
-						last = partIndex - 1;
-					}
-				}
-			}
+                    // push smaller sublist to minimize stack usage
+                    if ((partIndex - first) < (last - partIndex)) {
+                        stack.push(first, partIndex - 1);
+                        first = partIndex + 1;
+                    } else {
+                        stack.push(partIndex + 1, last);
+                        last = partIndex - 1;
+                    }
+                }
+            }
 
-			if(stack.empty())
-				break;
+            if (stack.empty()) break;
 
-			stack.pop(first, last);
-		}
-	}
+            stack.pop(first, last);
+        }
+    }
 #if PX_SORT_PARANOIA
-	for(uint32_t i = 1; i < count; i++)
-		PX_ASSERT(!compare(elements[i], elements[i - 1]));
+    for (uint32_t i = 1; i < count; i++) PX_ASSERT(!compare(elements[i], elements[i - 1]));
 #endif
 }
 
 template <class T, class Predicate>
-void sort(T* elements, uint32_t count, const Predicate& compare)
-{
-	sort(elements, count, compare, typename shdfnd::AllocatorTraits<T>::Type());
+void sort(T* elements, uint32_t count, const Predicate& compare) {
+    sort(elements, count, compare, typename shdfnd::AllocatorTraits<T>::Type());
 }
 
 template <class T>
-void sort(T* elements, uint32_t count)
-{
-	sort(elements, count, shdfnd::Less<T>(), typename shdfnd::AllocatorTraits<T>::Type());
+void sort(T* elements, uint32_t count) {
+    sort(elements, count, shdfnd::Less<T>(), typename shdfnd::AllocatorTraits<T>::Type());
 }
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
 #if PX_VC
 #pragma warning(pop)
 #endif
 
-#endif // #ifndef PSFOUNDATION_PSSORT_H
+#endif  // #ifndef PSFOUNDATION_PSSORT_H

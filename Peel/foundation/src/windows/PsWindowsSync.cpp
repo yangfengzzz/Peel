@@ -27,55 +27,32 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "windows/PsWindowsInclude.h"
-#include "PsUserAllocated.h"
 #include "PsSync.h"
+#include "PsUserAllocated.h"
+#include "windows/PsWindowsInclude.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
-namespace
-{
-HANDLE& getSync(SyncImpl* impl)
-{
-	return *reinterpret_cast<HANDLE*>(impl);
-}
-}
+namespace {
+HANDLE& getSync(SyncImpl* impl) { return *reinterpret_cast<HANDLE*>(impl); }
+}  // namespace
 
-uint32_t SyncImpl::getSize()
-{
-	return sizeof(HANDLE);
-}
+uint32_t SyncImpl::getSize() { return sizeof(HANDLE); }
 
-SyncImpl::SyncImpl()
-{
-	getSync(this) = CreateEvent(0, true, false, 0);
-}
+SyncImpl::SyncImpl() { getSync(this) = CreateEvent(0, true, false, 0); }
 
-SyncImpl::~SyncImpl()
-{
-	CloseHandle(getSync(this));
+SyncImpl::~SyncImpl() { CloseHandle(getSync(this)); }
+
+void SyncImpl::reset() { ResetEvent(getSync(this)); }
+
+void SyncImpl::set() { SetEvent(getSync(this)); }
+
+bool SyncImpl::wait(uint32_t milliseconds) {
+    if (milliseconds == -1) milliseconds = INFINITE;
+
+    return WaitForSingleObject(getSync(this), milliseconds) == WAIT_OBJECT_0 ? true : false;
 }
 
-void SyncImpl::reset()
-{
-	ResetEvent(getSync(this));
-}
-
-void SyncImpl::set()
-{
-	SetEvent(getSync(this));
-}
-
-bool SyncImpl::wait(uint32_t milliseconds)
-{
-	if(milliseconds == -1)
-		milliseconds = INFINITE;
-
-	return WaitForSingleObject(getSync(this), milliseconds) == WAIT_OBJECT_0 ? true : false;
-}
-
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

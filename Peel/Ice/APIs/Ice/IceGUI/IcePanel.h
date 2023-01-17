@@ -3,27 +3,26 @@
 #ifndef ICEPANEL_H
 #define ICEPANEL_H
 
-	class ICEGUI_API PanelDesc : public WindowDesc
-	{
-		public:
-								PanelDesc();
-	};
+class ICEGUI_API PanelDesc : public WindowDesc {
+public:
+    PanelDesc();
+};
 
-	class ICEGUI_API IcePanel : public IceWindow
-	{
-		public:
-								IcePanel(const PanelDesc& desc);
-		virtual					~IcePanel();
+class ICEGUI_API IcePanel : public IceWindow {
+public:
+    IcePanel(const PanelDesc& desc);
+    virtual ~IcePanel();
 
-		virtual	void			Refresh();
-		virtual int				handleEvent(IceGUIEvent* event);
+    virtual void Refresh();
+    virtual int handleEvent(IceGUIEvent* event);
 
-				bool			AddWidget(IceWidget* widget);
-				bool			Update();
-		private:
-				udword			mPanelFlags;
-				udword			mOffsetY;
-				PtrContainer	mWidgets;
-	};
+    bool AddWidget(IceWidget* widget);
+    bool Update();
 
-#endif	// ICEPANEL_H
+private:
+    udword mPanelFlags;
+    udword mOffsetY;
+    PtrContainer mWidgets;
+};
+
+#endif  // ICEPANEL_H

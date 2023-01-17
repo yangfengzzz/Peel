@@ -38,8 +38,7 @@
 #include "foundation/PxFoundationConfig.h"
 
 #if !PX_DOXYGEN
-namespace physx
-{
+namespace physx {
 #endif
 
 /**
@@ -67,7 +66,7 @@ If the matrix is not symmetric, the result is undefined.
 PX_FOUNDATION_API PxVec3 PxDiagonalize(const PxMat33& m, PxQuat& axes);
 
 #if !PX_DOXYGEN
-} // namespace physx
+}  // namespace physx
 #endif
 
 /** @} */

@@ -25,171 +25,119 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
-
-#include "foundation/PxPreprocessor.h"
-#include "foundation/PxAssert.h"
-#include "foundation/PxAllocatorCallback.h"
-#include "foundation/PxMemory.h"
-#include "extensions/PxDefaultStreams.h"
-
-#include "PsFoundation.h"
-#include "SnFile.h"
-#include "CmPhysXCommon.h"
-#include "PsUtilities.h"
-#include "PsBitUtils.h"
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #include <errno.h>
 
+#include "CmPhysXCommon.h"
+#include "extensions/PxDefaultStreams.h"
+#include "foundation/PxAllocatorCallback.h"
+#include "foundation/PxAssert.h"
+#include "foundation/PxMemory.h"
+#include "foundation/PxPreprocessor.h"
+#include "PsBitUtils.h"
+#include "PsFoundation.h"
+#include "PsUtilities.h"
+#include "SnFile.h"
+
 using namespace physx;
 
-PxDefaultMemoryOutputStream::PxDefaultMemoryOutputStream(PxAllocatorCallback &allocator) 
-:	mAllocator	(allocator)	
-,	mData		(NULL)
-,	mSize		(0)
-,	mCapacity	(0)
-{
+PxDefaultMemoryOutputStream::PxDefaultMemoryOutputStream(PxAllocatorCallback& allocator)
+    : mAllocator(allocator), mData(NULL), mSize(0), mCapacity(0) {}
+
+PxDefaultMemoryOutputStream::~PxDefaultMemoryOutputStream() {
+    if (mData) mAllocator.deallocate(mData);
 }
 
-PxDefaultMemoryOutputStream::~PxDefaultMemoryOutputStream()
-{
-	if(mData)
-		mAllocator.deallocate(mData);
-}
+PxU32 PxDefaultMemoryOutputStream::write(const void* src, PxU32 size) {
+    PxU32 expectedSize = mSize + size;
+    if (expectedSize > mCapacity) {
+        mCapacity = PxMax(Ps::nextPowerOfTwo(expectedSize), 4096u);
 
-PxU32 PxDefaultMemoryOutputStream::write(const void* src, PxU32 size)
-{
-	PxU32 expectedSize = mSize + size;
-	if(expectedSize > mCapacity)
-	{
-		mCapacity = PxMax(Ps::nextPowerOfTwo(expectedSize), 4096u);
+        PxU8* newData = reinterpret_cast<PxU8*>(
+                mAllocator.allocate(mCapacity, "PxDefaultMemoryOutputStream", __FILE__, __LINE__));
+        PX_ASSERT(newData != NULL);
 
-		PxU8* newData = reinterpret_cast<PxU8*>(mAllocator.allocate(mCapacity,"PxDefaultMemoryOutputStream",__FILE__,__LINE__));
-		PX_ASSERT(newData!=NULL);
+        PxMemCopy(newData, mData, mSize);
+        if (mData) mAllocator.deallocate(mData);
 
-		PxMemCopy(newData, mData, mSize);
-		if(mData)
-			mAllocator.deallocate(mData);
-
-		mData = newData;
-	}
-	PxMemCopy(mData+mSize, src, size);
-	mSize += size;
-	return size;
+        mData = newData;
+    }
+    PxMemCopy(mData + mSize, src, size);
+    mSize += size;
+    return size;
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-PxDefaultMemoryInputData::PxDefaultMemoryInputData(PxU8* data, PxU32 length) :
-	mSize	(length),
-	mData	(data),
-	mPos	(0)
-{
+PxDefaultMemoryInputData::PxDefaultMemoryInputData(PxU8* data, PxU32 length) : mSize(length), mData(data), mPos(0) {}
+
+PxU32 PxDefaultMemoryInputData::read(void* dest, PxU32 count) {
+    PxU32 length = PxMin<PxU32>(count, mSize - mPos);
+    PxMemCopy(dest, mData + mPos, length);
+    mPos += length;
+    return length;
 }
 
-PxU32 PxDefaultMemoryInputData::read(void* dest, PxU32 count)
-{
-	PxU32 length = PxMin<PxU32>(count, mSize-mPos);
-	PxMemCopy(dest, mData+mPos, length);
-	mPos += length;
-	return length;
+PxU32 PxDefaultMemoryInputData::getLength() const { return mSize; }
+
+void PxDefaultMemoryInputData::seek(PxU32 offset) { mPos = PxMin<PxU32>(mSize, offset); }
+
+PxU32 PxDefaultMemoryInputData::tell() const { return mPos; }
+
+PxDefaultFileOutputStream::PxDefaultFileOutputStream(const char* filename) {
+    mFile = NULL;
+    sn::fopen_s(&mFile, filename, "wb");
+    // PT: when this fails, check that:
+    // - the path is correct
+    // - the file does not already exist. If it does, check that it is not write protected.
+    if (NULL == mFile) {
+        Ps::getFoundation().error(PxErrorCode::eINTERNAL_ERROR, __FILE__, __LINE__,
+                                  "Unable to open file %s, errno 0x%x\n", filename, errno);
+    }
+    PX_ASSERT(mFile);
 }
 
-PxU32 PxDefaultMemoryInputData::getLength() const
-{
-	return mSize;
+PxDefaultFileOutputStream::~PxDefaultFileOutputStream() {
+    if (mFile) fclose(mFile);
 }
 
-void PxDefaultMemoryInputData::seek(PxU32 offset)
-{
-	mPos = PxMin<PxU32>(mSize, offset);
+PxU32 PxDefaultFileOutputStream::write(const void* src, PxU32 count) {
+    return mFile ? PxU32(fwrite(src, 1, count, mFile)) : 0;
 }
 
-PxU32 PxDefaultMemoryInputData::tell() const
-{
-	return mPos;
-}
-
-PxDefaultFileOutputStream::PxDefaultFileOutputStream(const char* filename)
-{
-	mFile = NULL;
-	sn::fopen_s(&mFile, filename, "wb");
-	// PT: when this fails, check that:
-	// - the path is correct
-	// - the file does not already exist. If it does, check that it is not write protected.
-	if(NULL == mFile)
-	{
-		Ps::getFoundation().error(PxErrorCode::eINTERNAL_ERROR, __FILE__, __LINE__, 
-			"Unable to open file %s, errno 0x%x\n",filename,errno);
-	}
-	PX_ASSERT(mFile);
-}
-
-PxDefaultFileOutputStream::~PxDefaultFileOutputStream()
-{
-	if(mFile)
-		fclose(mFile);
-}
-
-PxU32 PxDefaultFileOutputStream::write(const void* src, PxU32 count)
-{
-	return mFile ? PxU32(fwrite(src, 1, count, mFile)) : 0;
-}
-
-bool PxDefaultFileOutputStream::isValid()
-{
-	return mFile != NULL;
-}
+bool PxDefaultFileOutputStream::isValid() { return mFile != NULL; }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-PxDefaultFileInputData::PxDefaultFileInputData(const char* filename)
-{
-	mFile = NULL;
-	sn::fopen_s(&mFile, filename, "rb");
+PxDefaultFileInputData::PxDefaultFileInputData(const char* filename) {
+    mFile = NULL;
+    sn::fopen_s(&mFile, filename, "rb");
 
-	if(mFile)
-	{
-		fseek(mFile, 0, SEEK_END);
-		mLength = PxU32(ftell(mFile));
-		fseek(mFile, 0, SEEK_SET);
-	}
-	else
-	{
-		mLength = 0;
-	}
+    if (mFile) {
+        fseek(mFile, 0, SEEK_END);
+        mLength = PxU32(ftell(mFile));
+        fseek(mFile, 0, SEEK_SET);
+    } else {
+        mLength = 0;
+    }
 }
 
-PxDefaultFileInputData::~PxDefaultFileInputData()
-{
-	if(mFile)
-		fclose(mFile);
+PxDefaultFileInputData::~PxDefaultFileInputData() {
+    if (mFile) fclose(mFile);
 }
 
-PxU32 PxDefaultFileInputData::read(void* dest, PxU32 count)
-{
-	PX_ASSERT(mFile);
-	const size_t size = fread(dest, 1, count, mFile);
-	// there should be no assert here since by spec of PxInputStream we can read fewer bytes than expected
-	return PxU32(size);
+PxU32 PxDefaultFileInputData::read(void* dest, PxU32 count) {
+    PX_ASSERT(mFile);
+    const size_t size = fread(dest, 1, count, mFile);
+    // there should be no assert here since by spec of PxInputStream we can read fewer bytes than expected
+    return PxU32(size);
 }
 
-PxU32 PxDefaultFileInputData::getLength() const
-{
-	return mLength;
-}
+PxU32 PxDefaultFileInputData::getLength() const { return mLength; }
 
-void PxDefaultFileInputData::seek(PxU32 pos)
-{
-	fseek(mFile, long(pos), SEEK_SET);
-}
+void PxDefaultFileInputData::seek(PxU32 pos) { fseek(mFile, long(pos), SEEK_SET); }
 
-PxU32 PxDefaultFileInputData::tell() const
-{
-	return PxU32(ftell(mFile));
-}
+PxU32 PxDefaultFileInputData::tell() const { return PxU32(ftell(mFile)); }
 
-bool PxDefaultFileInputData::isValid() const
-{
-	return mFile != NULL;
-}
+bool PxDefaultFileInputData::isValid() const { return mFile != NULL; }

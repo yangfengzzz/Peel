@@ -11,46 +11,45 @@
 
 #include "ToolRayBased.h"
 
-	class TextureComboBox;
+class TextureComboBox;
 
-	class ToolTexture : public ToolRayBased
-	{
-		public:
-									ToolTexture();
-		virtual						~ToolTexture();
+class ToolTexture : public ToolRayBased {
+public:
+    ToolTexture();
+    virtual ~ToolTexture();
 
-		virtual	void				CreateUI			(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
+    virtual void CreateUI(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
 
-		virtual	void				Select				();
-		virtual	void				Deselect			();
-		virtual	void				Reset				(udword pint_index);
+    virtual void Select();
+    virtual void Deselect();
+    virtual void Reset(udword pint_index);
 
-		virtual	void				KeyboardCallback	(Pint& pint, udword pint_index, unsigned char key, bool down);
+    virtual void KeyboardCallback(Pint& pint, udword pint_index, unsigned char key, bool down);
 
-		virtual	void				RightDownCallback	(Pint& pint, udword pint_index);
-		virtual	void				RightDragCallback	(Pint& pint, udword pint_index);
-		virtual	void				RightUpCallback		(Pint& pint, udword pint_index);
+    virtual void RightDownCallback(Pint& pint, udword pint_index);
+    virtual void RightDragCallback(Pint& pint, udword pint_index);
+    virtual void RightUpCallback(Pint& pint, udword pint_index);
 
-		// GUI_RenderInterface
-		virtual	void				FinalRenderCallback	()	override;
-		//~GUI_RenderInterface
+    // GUI_RenderInterface
+    virtual void FinalRenderCallback() override;
+    //~GUI_RenderInterface
 
-		private:
-				TextureComboBox*	mTextureComboBox;
-				TextureComboBox*	mTextureComboBox2;
-				EditBoxPtr			mEditBox_Width;
-				EditBoxPtr			mEditBox_Height;
-				EditBoxPtr			mEditBox_Scale;
-				udword				mTimestamp;
-				udword				mTimestamp2;
-				sdword				mMinX, mMinY;
-				sdword				mMaxX, mMaxY;
-				sdword				mOffsetX, mOffsetY;
-				bool				mCapture;
-				bool				mST;
+private:
+    TextureComboBox* mTextureComboBox;
+    TextureComboBox* mTextureComboBox2;
+    EditBoxPtr mEditBox_Width;
+    EditBoxPtr mEditBox_Height;
+    EditBoxPtr mEditBox_Scale;
+    udword mTimestamp;
+    udword mTimestamp2;
+    sdword mMinX, mMinY;
+    sdword mMaxX, mMaxY;
+    sdword mOffsetX, mOffsetY;
+    bool mCapture;
+    bool mST;
 
-				void				UpdateUI();
-		friend	class	TextureComboBox;
-	};
+    void UpdateUI();
+    friend class TextureComboBox;
+};
 
 #endif

@@ -12,7 +12,6 @@
 #ifndef CTCRAYPOLYGONOVERLAP_H
 #define CTCRAYPOLYGONOVERLAP_H
 
-	CONTACT_API	bool	RayPolygon(udword nb_verts, const Point* verts, const udword* indices, const Ray& ray, float& t);
+CONTACT_API bool RayPolygon(udword nb_verts, const Point* verts, const udword* indices, const Ray& ray, float& t);
 
-#endif // CTCRAYPOLYGONOVERLAP_H
-
+#endif  // CTCRAYPOLYGONOVERLAP_H

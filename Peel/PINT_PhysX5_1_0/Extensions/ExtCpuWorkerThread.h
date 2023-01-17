@@ -24,51 +24,48 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_CPU_WORKER_THREAD_H
 #define EXT_CPU_WORKER_THREAD_H
 
-#include "foundation/PxThread.h"
 #include "ExtDefaultCpuDispatcher.h"
 #include "ExtSharedQueueEntryPool.h"
+#include "foundation/PxThread.h"
 
-namespace physx
-{
-namespace Ext
-{
+namespace physx {
+namespace Ext {
 class DefaultCpuDispatcher;
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable:4324)	// Padding was added at the end of a structure because of a __declspec(align) value.
-#endif							// Because of the SList member I assume
+#pragma warning(disable : 4324)  // Padding was added at the end of a structure because of a __declspec(align) value.
+#endif                           // Because of the SList member I assume
 
-	class CpuWorkerThread : public PxThread
-	{
-	public:
-								CpuWorkerThread();
-								~CpuWorkerThread();
-		
-		void					initialize(DefaultCpuDispatcher* ownerDispatcher);
-		void					execute();
-		bool					tryAcceptJobToLocalQueue(PxBaseTask& task, PxThread::Id taskSubmitionThread);
-		PxBaseTask*				giveUpJob();
-		PxThread::Id			getWorkerThreadId() const { return mThreadId; }
+class CpuWorkerThread : public PxThread {
+public:
+    CpuWorkerThread();
+    ~CpuWorkerThread();
 
-	protected:
-		SharedQueueEntryPool<>	mQueueEntryPool;
-		DefaultCpuDispatcher*	mOwner;
-		PxSList					mLocalJobList;
-		PxThread::Id			mThreadId;
-	};
+    void initialize(DefaultCpuDispatcher* ownerDispatcher);
+    void execute();
+    bool tryAcceptJobToLocalQueue(PxBaseTask& task, PxThread::Id taskSubmitionThread);
+    PxBaseTask* giveUpJob();
+    PxThread::Id getWorkerThreadId() const { return mThreadId; }
+
+protected:
+    SharedQueueEntryPool<> mQueueEntryPool;
+    DefaultCpuDispatcher* mOwner;
+    PxSList mLocalJobList;
+    PxThread::Id mThreadId;
+};
 
 #if PX_VC
 #pragma warning(pop)
 #endif
 
-} // namespace Ext
+}  // namespace Ext
 
-}
+}  // namespace physx
 
 #endif

@@ -12,13 +12,18 @@
 #ifndef CTCCIRCLECIRCLEDISTANCE_H
 #define CTCCIRCLECIRCLEDISTANCE_H
 
-	// Circle-Circle squared distance
-	CONTACT_API float CircleCircleSqrDist(const Circle& circle0, const Circle& circle1, Point* closest0=null, Point* closest1=null);
+// Circle-Circle squared distance
+CONTACT_API float CircleCircleSqrDist(const Circle& circle0,
+                                      const Circle& circle1,
+                                      Point* closest0 = null,
+                                      Point* closest1 = null);
 
-	// Circle-Circle distance
-	inline_ float CircleCircleDist(const Circle& circle0, const Circle& circle1, Point* closest0=null, Point* closest1=null)
-	{
-		return sqrtf(CircleCircleSqrDist(circle0, circle1, closest0, closest1));
-	}
+// Circle-Circle distance
+inline_ float CircleCircleDist(const Circle& circle0,
+                               const Circle& circle1,
+                               Point* closest0 = null,
+                               Point* closest1 = null) {
+    return sqrtf(CircleCircleSqrDist(circle0, circle1, closest0, closest1));
+}
 
-#endif // CTCCIRCLECIRCLEDISTANCE_H
+#endif  // CTCCIRCLECIRCLEDISTANCE_H

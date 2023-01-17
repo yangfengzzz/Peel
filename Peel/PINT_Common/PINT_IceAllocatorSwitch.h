@@ -9,15 +9,14 @@
 #ifndef PINT_ICE_ALLOCATOR_SWITCH_H
 #define PINT_ICE_ALLOCATOR_SWITCH_H
 
-	class AllocSwitch
-	{
-	public:
-		AllocSwitch();
-		~AllocSwitch();
-	};
+class AllocSwitch {
+public:
+    AllocSwitch();
+    ~AllocSwitch();
+};
 
-	void	InitIceAllocator(const char* name);
-	void	ReleaseIceAllocator();
-	udword	GetIceAllocatorUsedMemory();
+void InitIceAllocator(const char* name);
+void ReleaseIceAllocator();
+udword GetIceAllocatorUsedMemory();
 
 #endif

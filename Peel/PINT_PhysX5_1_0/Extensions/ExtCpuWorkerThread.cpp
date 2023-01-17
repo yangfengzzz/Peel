@@ -24,90 +24,63 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "task/PxTask.h"
 #include "ExtCpuWorkerThread.h"
+
 #include "ExtDefaultCpuDispatcher.h"
 #include "ExtTaskQueueHelper.h"
 #include "foundation/PxFPU.h"
+#include "task/PxTask.h"
 
 using namespace physx;
 
-Ext::CpuWorkerThread::CpuWorkerThread()
-:	mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE),
-	mThreadId(0)
-{
+Ext::CpuWorkerThread::CpuWorkerThread() : mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE), mThreadId(0) {}
+
+Ext::CpuWorkerThread::~CpuWorkerThread() {}
+
+void Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher) { mOwner = ownerDispatcher; }
+
+bool Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task, PxThread::Id taskSubmitionThread) {
+    if (taskSubmitionThread == mThreadId) {
+        SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
+        if (entry) {
+            mLocalJobList.push(*entry);
+            return true;
+        } else
+            return false;
+    }
+
+    return false;
 }
 
-Ext::CpuWorkerThread::~CpuWorkerThread()
-{
-}
+PxBaseTask* Ext::CpuWorkerThread::giveUpJob() { return TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool); }
 
-void Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher)
-{
-	mOwner = ownerDispatcher;
-}
+void Ext::CpuWorkerThread::execute() {
+    mThreadId = getId();
 
-bool Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task, PxThread::Id taskSubmitionThread)
-{
-	if(taskSubmitionThread == mThreadId)
-	{
-		SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
-		if (entry)
-		{
-			mLocalJobList.push(*entry);
-			return true;
-		}
-		else
-			return false;
-	}
+    const PxDefaultCpuDispatcherWaitForWorkMode::Enum ownerWaitForWorkMode = mOwner->getWaitForWorkMode();
 
-	return false;
-}
+    while (!quitIsSignalled()) {
+        if (PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode) mOwner->resetWakeSignal();
 
-PxBaseTask* Ext::CpuWorkerThread::giveUpJob()
-{
-	return TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
-}
+        PxBaseTask* task = TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
 
-void Ext::CpuWorkerThread::execute()
-{
-	mThreadId = getId();
+        if (!task) task = mOwner->fetchNextTask();
 
-	const PxDefaultCpuDispatcherWaitForWorkMode::Enum ownerWaitForWorkMode = mOwner->getWaitForWorkMode();
+        if (task) {
+            mOwner->runTask(*task);
+            task->release();
+        } else if (PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_THREAD == ownerWaitForWorkMode) {
+            PxThread::yield();
+        } else if (PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_PROCESSOR == ownerWaitForWorkMode) {
+            const PxU32 pauseCounter = mOwner->getYieldProcessorCount();
+            for (PxU32 j = 0; j < pauseCounter; j++) PxThread::yieldProcesor();
+        } else {
+            PX_ASSERT(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode);
+            mOwner->waitForWork();
+        }
+    }
 
-	while(!quitIsSignalled())
-    {
-		if(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode)
-			mOwner->resetWakeSignal();
-
-		PxBaseTask* task = TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
-
-		if(!task)
-			task = mOwner->fetchNextTask();
-		
-		if(task)
-		{
-			mOwner->runTask(*task);
-			task->release();
-		}
-		else if(PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_THREAD == ownerWaitForWorkMode)
-		{
-			PxThread::yield();
-		}
-		else if(PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_PROCESSOR == ownerWaitForWorkMode)
-		{
-			const PxU32 pauseCounter = mOwner->getYieldProcessorCount();
-			for(PxU32 j = 0; j < pauseCounter; j++)
-				PxThread::yieldProcesor();
-		}
-		else
-		{
-			PX_ASSERT(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode);
-			mOwner->waitForWork();
-		}
-	}
-
-	quit();
+    quit();
 }

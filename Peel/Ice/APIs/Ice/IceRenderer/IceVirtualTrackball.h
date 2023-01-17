@@ -12,18 +12,19 @@
 #ifndef ICEVIRTUALTRACKBALL_H
 #define ICEVIRTUALTRACKBALL_H
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/**
-	 *	Implements a virtual trackball.
-	 *	
-	 *	\param		q		[out] rotation arc quaternion, to combine to object's current rotation
-	 *	\param		cop		[in] camera's position in world space
-	 *	\param		cor		[in] center of rotation = object's position in world space
-	 *	\param		dir1	[in] previous world ray from the mouse
-	 *	\param		dir2	[in] current world ray from the mouse
-	 *	\param		radius	[in] object's bounding sphere's radius
-	 */
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	ICERENDERER_API void VirtualTrackBall(Quat& q, const Point& cop, const Point& cor, const Point& dir1, const Point& dir2, float radius);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ *	Implements a virtual trackball.
+ *
+ *	\param		q		[out] rotation arc quaternion, to combine to object's current rotation
+ *	\param		cop		[in] camera's position in world space
+ *	\param		cor		[in] center of rotation = object's position in world space
+ *	\param		dir1	[in] previous world ray from the mouse
+ *	\param		dir2	[in] current world ray from the mouse
+ *	\param		radius	[in] object's bounding sphere's radius
+ */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ICERENDERER_API void VirtualTrackBall(
+        Quat& q, const Point& cop, const Point& cor, const Point& dir1, const Point& dir2, float radius);
 
-#endif // ICEVIRTUALTRACKBALL_H
+#endif  // ICEVIRTUALTRACKBALL_H

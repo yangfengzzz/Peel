@@ -13,75 +13,88 @@
 #define ICESHADER_H
 
 #ifdef TOFIX
-	class Shader;
+class Shader;
 
-	class ICERENDERER_API Technique
-	{
-		private:
-												Technique();
-												~Technique();
-		public:
-		// Name
-						Technique&				SetName(const String& name)			{ mName.Set(name);	return *this;	}
-						String*					GetName()							{ return &mName;					}
-		// Passes
-		__forceinline	udword					GetNbPasses()				const	{ return mPasses.GetNbEntries();	}
-		__forceinline	udword					GetPasse(udword i)			const	{ return mPasses.GetEntry(i);		}
+class ICERENDERER_API Technique {
+private:
+    Technique();
+    ~Technique();
 
-		private:
-						String					mName;
-						Container				mPasses;
+public:
+    // Name
+    Technique& SetName(const String& name) {
+        mName.Set(name);
+        return *this;
+    }
+    String* GetName() { return &mName; }
+    // Passes
+    __forceinline udword GetNbPasses() const { return mPasses.GetNbEntries(); }
+    __forceinline udword GetPasse(udword i) const { return mPasses.GetEntry(i); }
 
-		friend class Shader;
-	};
+private:
+    String mName;
+    Container mPasses;
 
-	class ICERENDERER_API ShaderParam
-	{
-		public:
-		// Constructors/Destructor
-												ShaderParam()					{}
-												~ShaderParam()					{}
+    friend class Shader;
+};
 
-						String					mDecl;
-						ucell					mValue;
-	};
+class ICERENDERER_API ShaderParam {
+public:
+    // Constructors/Destructor
+    ShaderParam() {}
+    ~ShaderParam() {}
 
-	typedef bool	(*SHADER_REQUEST_CALLBACK)		(ShaderParam& param, udword user_data);
-	typedef bool	(*SHADER_COMMAND_CALLBACK)		(const String& command, udword user_data);
+    String mDecl;
+    ucell mValue;
+};
 
-	//! A shader
-	class ICERENDERER_API Shader
-	{
-		public:
-												Shader();
-		virtual									~Shader();
+typedef bool (*SHADER_REQUEST_CALLBACK)(ShaderParam& param, udword user_data);
+typedef bool (*SHADER_COMMAND_CALLBACK)(const String& command, udword user_data);
 
-		// Creation
-						bool					Create(Renderer* rd, const char* filename);
+//! A shader
+class ICERENDERER_API Shader {
+public:
+    Shader();
+    virtual ~Shader();
 
-		// Callback control
-		__forceinline	Shader&					SetParamUserData(udword data)							{ mParamUserData	= data;			return *this;	}
-		__forceinline	Shader&					SetParamCallback(SHADER_REQUEST_CALLBACK callback)		{ mParamCallback	= callback;		return *this;	}
-		__forceinline	Shader&					SetCommandUserData(udword data)							{ mCommandUserData	= data;			return *this;	}
-		__forceinline	Shader&					SetCommandCallback(SHADER_COMMAND_CALLBACK callback)	{ mCommandCallback	= callback;		return *this;	}
+    // Creation
+    bool Create(Renderer* rd, const char* filename);
 
-		// Passes
-		__forceinline	udword					GetNbTechniques()			const		{ return mTechniques.GetNbEntries();			}
-		__forceinline	Technique*				GetTechnique(udword i)		const		{ return (Technique*)mTechniques.GetEntry(i);	}
+    // Callback control
+    __forceinline Shader& SetParamUserData(udword data) {
+        mParamUserData = data;
+        return *this;
+    }
+    __forceinline Shader& SetParamCallback(SHADER_REQUEST_CALLBACK callback) {
+        mParamCallback = callback;
+        return *this;
+    }
+    __forceinline Shader& SetCommandUserData(udword data) {
+        mCommandUserData = data;
+        return *this;
+    }
+    __forceinline Shader& SetCommandCallback(SHADER_COMMAND_CALLBACK callback) {
+        mCommandCallback = callback;
+        return *this;
+    }
 
-		// Parameters
-		__forceinline	udword					GetNbParams()				const		{ return mParams.GetNbEntries();				}
-		__forceinline	ShaderParam*			GetParam(udword i)			const		{ return (ShaderParam*)mParams.GetEntry(i);		}
+    // Passes
+    __forceinline udword GetNbTechniques() const { return mTechniques.GetNbEntries(); }
+    __forceinline Technique* GetTechnique(udword i) const { return (Technique*)mTechniques.GetEntry(i); }
 
-		private:
-		static			udword					mParamUserData;		//!< User-defined data
-		static			udword					mCommandUserData;	//!< User-defined data
-		static			SHADER_REQUEST_CALLBACK	mParamCallback;		//!< Shader parameters callback
-		static			SHADER_COMMAND_CALLBACK	mCommandCallback;	//!< Shader command callback
+    // Parameters
+    __forceinline udword GetNbParams() const { return mParams.GetNbEntries(); }
+    __forceinline ShaderParam* GetParam(udword i) const { return (ShaderParam*)mParams.GetEntry(i); }
 
-						Container				mTechniques;		//!< Array of Technique pointers
-						Container				mParams;			//!< Array of ShaderParam pointers
-	};
+private:
+    static udword mParamUserData;                     //!< User-defined data
+    static udword mCommandUserData;                   //!< User-defined data
+    static SHADER_REQUEST_CALLBACK mParamCallback;    //!< Shader parameters callback
+    static SHADER_COMMAND_CALLBACK mCommandCallback;  //!< Shader command callback
+
+    Container mTechniques;  //!< Array of Technique pointers
+    Container mParams;      //!< Array of ShaderParam pointers
+};
 #endif
 
-#endif // ICESHADER_H
+#endif  // ICESHADER_H

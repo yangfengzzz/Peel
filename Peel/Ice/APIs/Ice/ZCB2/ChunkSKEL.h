@@ -12,19 +12,16 @@
 #ifndef CHUNKSKEL_H
 #define CHUNKSKEL_H
 
-	#define SKEL_VERSION	1
+#define SKEL_VERSION 1
 
-	enum ZCB2_SKEL_Flag
-	{
-	};
+enum ZCB2_SKEL_Flag {};
 
-	class ZCB2_API SKELChunk : public HELPChunk
-	{
-		DECLARE_CHUNK(SKELChunk, mSKELCore)
+class ZCB2_API SKELChunk : public HELPChunk {
+    DECLARE_CHUNK(SKELChunk, mSKELCore)
 
-		DECLARE_SUBCHUNK(BodyPartIDs,	XIDSChunk)
-		DECLARE_STD_ARRAY(CSID,			udword)
-		DECLARE_STD_ICE_ARRAY(Translations,	Point)
-	};
+    DECLARE_SUBCHUNK(BodyPartIDs, XIDSChunk)
+    DECLARE_STD_ARRAY(CSID, udword)
+    DECLARE_STD_ICE_ARRAY(Translations, Point)
+};
 
-#endif // CHUNKSKEL_H
+#endif  // CHUNKSKEL_H

@@ -11,17 +11,16 @@
 
 #include "Pint.h"
 
-	class RevolutionShape
-	{
-		public:
-									RevolutionShape();
-									~RevolutionShape();
+class RevolutionShape {
+public:
+    RevolutionShape();
+    ~RevolutionShape();
 
-			bool					Init(const char* filename, const Point& offset, float scale);
+    bool Init(const char* filename, const Point& offset, float scale);
 
-			udword					mNbSlices;
-			Point**					mVertsCopy;
-			PINT_CONVEX_CREATE**	mShapes;
-	};
+    udword mNbSlices;
+    Point** mVertsCopy;
+    PINT_CONVEX_CREATE** mShapes;
+};
 
 #endif

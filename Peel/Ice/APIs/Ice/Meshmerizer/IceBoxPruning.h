@@ -13,13 +13,15 @@
 #define ICEBOXPRUNING_H
 
 #ifdef MOVED_TO_OPCODE
-	// Optimized versions
-	FUNCTION MESHMERIZER_API bool CompleteBoxPruning(udword nb, const AABB** array, Pairs& pairs, const Axes& axes);
-	FUNCTION MESHMERIZER_API bool BipartiteBoxPruning(udword nb0, const AABB** array0, udword nb1, const AABB** array1, Pairs& pairs, const Axes& axes);
+// Optimized versions
+FUNCTION MESHMERIZER_API bool CompleteBoxPruning(udword nb, const AABB** array, Pairs& pairs, const Axes& axes);
+FUNCTION MESHMERIZER_API bool BipartiteBoxPruning(
+        udword nb0, const AABB** array0, udword nb1, const AABB** array1, Pairs& pairs, const Axes& axes);
 
-	// Brute-force versions
-	FUNCTION MESHMERIZER_API bool BruteForceCompleteBoxTest(udword nb, const AABB** array, Pairs& pairs);
-	FUNCTION MESHMERIZER_API bool BruteForceBipartiteBoxTest(udword nb0, const AABB** array0, udword nb1, const AABB** array1, Pairs& pairs);
+// Brute-force versions
+FUNCTION MESHMERIZER_API bool BruteForceCompleteBoxTest(udword nb, const AABB** array, Pairs& pairs);
+FUNCTION MESHMERIZER_API bool BruteForceBipartiteBoxTest(
+        udword nb0, const AABB** array0, udword nb1, const AABB** array1, Pairs& pairs);
 #endif
 
-#endif // ICEBOXPRUNING_H
+#endif  // ICEBOXPRUNING_H

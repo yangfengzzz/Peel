@@ -11,22 +11,21 @@
 
 #include "PintShapeRenderer.h"
 
-	class PintDLShapeRenderer : public PintShapeRenderer
-	{
-//				Matrix4x4	mCached;
-//				PR			mLastPR;
-		public:
-							PintDLShapeRenderer();
-		virtual				~PintDLShapeRenderer();
+class PintDLShapeRenderer : public PintShapeRenderer {
+    //				Matrix4x4	mCached;
+    //				PR			mLastPR;
+public:
+    PintDLShapeRenderer();
+    virtual ~PintDLShapeRenderer();
 
-		// PintShapeRenderer
-		virtual	const char*	GetClassName()			const	override	{ return "PintDLShapeRenderer";	}
-		virtual	void		_Render(const PR& pose)	const	override;
-		//~PintShapeRenderer
+    // PintShapeRenderer
+    virtual const char* GetClassName() const override { return "PintDLShapeRenderer"; }
+    virtual void _Render(const PR& pose) const override;
+    //~PintShapeRenderer
 
-		protected:
-				GLuint		mDisplayListNum;
-//				udword		mNbVerts;
-	};
+protected:
+    GLuint mDisplayListNum;
+    //				udword		mNbVerts;
+};
 
 #endif

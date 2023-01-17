@@ -32,10 +32,8 @@
 
 #include "PsAllocator.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 /*!
 Implementation notes:
 * - Calling set() on an already signaled Sync does not change its state.
@@ -45,34 +43,33 @@ Implementation notes:
 * - NOTE: be careful when pulsing an event with set() followed by reset(), because a
 *   thread that is not waiting on the event will miss the signal.
 */
-class PX_FOUNDATION_API SyncImpl
-{
-  public:
-	static const uint32_t waitForever = 0xffffffff;
+class PX_FOUNDATION_API SyncImpl {
+public:
+    static const uint32_t waitForever = 0xffffffff;
 
-	SyncImpl();
+    SyncImpl();
 
-	~SyncImpl();
+    ~SyncImpl();
 
-	/** Wait on the object for at most the given number of ms. Returns
-	*  true if the object is signaled. Sync::waitForever will block forever
-	*  or until the object is signaled.
-	*/
+    /** Wait on the object for at most the given number of ms. Returns
+     *  true if the object is signaled. Sync::waitForever will block forever
+     *  or until the object is signaled.
+     */
 
-	bool wait(uint32_t milliseconds = waitForever);
+    bool wait(uint32_t milliseconds = waitForever);
 
-	/** Signal the synchronization object, waking all threads waiting on it */
+    /** Signal the synchronization object, waking all threads waiting on it */
 
-	void set();
+    void set();
 
-	/** Reset the synchronization object */
+    /** Reset the synchronization object */
 
-	void reset();
+    void reset();
 
-	/**
-	Size of this class.
-	*/
-	static uint32_t getSize();
+    /**
+    Size of this class.
+    */
+    static uint32_t getSize();
 };
 
 /*!
@@ -84,55 +81,43 @@ Implementation notes:
 * - NOTE: be careful when pulsing an event with set() followed by reset(), because a
 *   thread that is not waiting on the event will miss the signal.
 */
-template <typename Alloc = ReflectionAllocator<SyncImpl> >
-class SyncT : protected Alloc
-{
-  public:
-	static const uint32_t waitForever = SyncImpl::waitForever;
+template <typename Alloc = ReflectionAllocator<SyncImpl>>
+class SyncT : protected Alloc {
+public:
+    static const uint32_t waitForever = SyncImpl::waitForever;
 
-	SyncT(const Alloc& alloc = Alloc()) : Alloc(alloc)
-	{
-		mImpl = reinterpret_cast<SyncImpl*>(Alloc::allocate(SyncImpl::getSize(), __FILE__, __LINE__));
-		PX_PLACEMENT_NEW(mImpl, SyncImpl)();
-	}
+    SyncT(const Alloc& alloc = Alloc()) : Alloc(alloc) {
+        mImpl = reinterpret_cast<SyncImpl*>(Alloc::allocate(SyncImpl::getSize(), __FILE__, __LINE__));
+        PX_PLACEMENT_NEW(mImpl, SyncImpl)();
+    }
 
-	~SyncT()
-	{
-		mImpl->~SyncImpl();
-		Alloc::deallocate(mImpl);
-	}
+    ~SyncT() {
+        mImpl->~SyncImpl();
+        Alloc::deallocate(mImpl);
+    }
 
-	/** Wait on the object for at most the given number of ms. Returns
-	*  true if the object is signaled. Sync::waitForever will block forever
-	*  or until the object is signaled.
-	*/
+    /** Wait on the object for at most the given number of ms. Returns
+     *  true if the object is signaled. Sync::waitForever will block forever
+     *  or until the object is signaled.
+     */
 
-	bool wait(uint32_t milliseconds = SyncImpl::waitForever)
-	{
-		return mImpl->wait(milliseconds);
-	}
+    bool wait(uint32_t milliseconds = SyncImpl::waitForever) { return mImpl->wait(milliseconds); }
 
-	/** Signal the synchronization object, waking all threads waiting on it */
+    /** Signal the synchronization object, waking all threads waiting on it */
 
-	void set()
-	{
-		mImpl->set();
-	}
+    void set() { mImpl->set(); }
 
-	/** Reset the synchronization object */
+    /** Reset the synchronization object */
 
-	void reset()
-	{
-		mImpl->reset();
-	}
+    void reset() { mImpl->reset(); }
 
-  private:
-	class SyncImpl* mImpl;
+private:
+    class SyncImpl* mImpl;
 };
 
 typedef SyncT<> Sync;
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSSYNC_H
+#endif  // #ifndef PSFOUNDATION_PSSYNC_H

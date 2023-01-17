@@ -25,111 +25,88 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "foundation/PxIO.h"
 #include "common/PxMetaData.h"
 #include "common/PxSerializer.h"
+#include "ExtD6Joint.h"
+#include "ExtDistanceJoint.h"
 #include "extensions/PxExtensionsAPI.h"
 #include "extensions/PxRepXSerializer.h"
-
-#include "PsFoundation.h"
-#include "ExtDistanceJoint.h"
-#include "ExtD6Joint.h"
 #include "ExtFixedJoint.h"
 #include "ExtPrismaticJoint.h"
 #include "ExtRevoluteJoint.h"
-#include "ExtSphericalJoint.h"
 #include "ExtSerialization.h"
+#include "ExtSphericalJoint.h"
+#include "foundation/PxIO.h"
+#include "PsFoundation.h"
 
 #if PX_SUPPORT_PVD
 #include "ExtPvd.h"
-#include "PxPvdDataStream.h"
-#include "PxPvdClient.h"
 #include "PsPvd.h"
+#include "PxPvdClient.h"
+#include "PxPvdDataStream.h"
 #endif
 
 using namespace physx;
 using namespace physx::pvdsdk;
 
 #if PX_SUPPORT_PVD
-struct JointConnectionHandler : public PvdClient
-{
-	JointConnectionHandler() : mPvd(NULL),mConnected(false){}
+struct JointConnectionHandler : public PvdClient {
+    JointConnectionHandler() : mPvd(NULL), mConnected(false) {}
 
-	PvdDataStream*		getDataStream()
-	{
-		return NULL;
-	}	
+    PvdDataStream* getDataStream() { return NULL; }
 
-	void onPvdConnected()
-	{
-		PvdDataStream* stream = PvdDataStream::create(mPvd);
-		if(stream)
-		{
-			mConnected = true;
-			Ext::Pvd::sendClassDescriptions(*stream);	
-			stream->release();
-		}		
-	}
+    void onPvdConnected() {
+        PvdDataStream* stream = PvdDataStream::create(mPvd);
+        if (stream) {
+            mConnected = true;
+            Ext::Pvd::sendClassDescriptions(*stream);
+            stream->release();
+        }
+    }
 
-	bool isConnected() const
-	{
-		return mConnected;
-	}
+    bool isConnected() const { return mConnected; }
 
-	void onPvdDisconnected()
-	{
-		mConnected = false;
-	}
+    void onPvdDisconnected() { mConnected = false; }
 
-	void flush()
-	{
-	}
+    void flush() {}
 
-	PsPvd* mPvd;
-	bool mConnected;
+    PsPvd* mPvd;
+    bool mConnected;
 };
 
 static JointConnectionHandler gPvdHandler;
 #endif
 
-bool PxInitExtensions(PxPhysics& physics, PxPvd* pvd)
-{
-	PX_ASSERT(static_cast<Ps::Foundation*>(&physics.getFoundation()) == &Ps::Foundation::getInstance());
-	PX_UNUSED(physics);
-	PX_UNUSED(pvd);
-	Ps::Foundation::incRefCount();
+bool PxInitExtensions(PxPhysics& physics, PxPvd* pvd) {
+    PX_ASSERT(static_cast<Ps::Foundation*>(&physics.getFoundation()) == &Ps::Foundation::getInstance());
+    PX_UNUSED(physics);
+    PX_UNUSED(pvd);
+    Ps::Foundation::incRefCount();
 
 #if PX_SUPPORT_PVD
-	if(pvd)
-	{
-		gPvdHandler.mPvd = static_cast<PsPvd*>(pvd);
-		gPvdHandler.mPvd->addClient(&gPvdHandler);
-	}
+    if (pvd) {
+        gPvdHandler.mPvd = static_cast<PsPvd*>(pvd);
+        gPvdHandler.mPvd->addClient(&gPvdHandler);
+    }
 #endif
 
-	return true;
+    return true;
 }
 
-void PxCloseExtensions(void)
-{	
-	Ps::Foundation::decRefCount();
+void PxCloseExtensions(void) {
+    Ps::Foundation::decRefCount();
 
 #if PX_SUPPORT_PVD
-	if(gPvdHandler.mConnected)
-	{	
-		PX_ASSERT(gPvdHandler.mPvd);
-		gPvdHandler.mPvd->removeClient(&gPvdHandler);
-		gPvdHandler.mPvd = NULL;
-	}
+    if (gPvdHandler.mConnected) {
+        PX_ASSERT(gPvdHandler.mPvd);
+        gPvdHandler.mPvd->removeClient(&gPvdHandler);
+        gPvdHandler.mPvd = NULL;
+    }
 #endif
 }
 
-void Ext::RegisterExtensionsSerializers(PxSerializationRegistry& sr)
-{
-}
+void Ext::RegisterExtensionsSerializers(PxSerializationRegistry& sr) {}
 
-void Ext::UnregisterExtensionsSerializers(PxSerializationRegistry& sr)
-{
-}
+void Ext::UnregisterExtensionsSerializers(PxSerializationRegistry& sr) {}

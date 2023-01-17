@@ -14,63 +14,57 @@
 
 #define SUPPORT_TRANSLATE_TOOL_UI
 
-	class ToolTranslate : public ToolRayBased
-	{
-		public:
-								ToolTranslate();
-		virtual					~ToolTranslate();
+class ToolTranslate : public ToolRayBased {
+public:
+    ToolTranslate();
+    virtual ~ToolTranslate();
 
 #ifdef SUPPORT_TRANSLATE_TOOL_UI
-		virtual	void			CreateUI			(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
+    virtual void CreateUI(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
 #endif
-		virtual	void			Select				();
-		virtual	void			Deselect			();
-		virtual	void			Reset				(udword pint_index);
+    virtual void Select();
+    virtual void Deselect();
+    virtual void Reset(udword pint_index);
 
-		virtual	void			OnObjectReleased	(Pint& pint, PintActorHandle removed_object);
+    virtual void OnObjectReleased(Pint& pint, PintActorHandle removed_object);
 
-		virtual	void			KeyboardCallback	(Pint& pint, udword pint_index, unsigned char key, bool down);
+    virtual void KeyboardCallback(Pint& pint, udword pint_index, unsigned char key, bool down);
 
-		virtual	void			RightDownCallback	(Pint& pint, udword pint_index);
-		virtual	void			RightDragCallback	(Pint& pint, udword pint_index);
-		virtual	void			RightUpCallback		(Pint& pint, udword pint_index);
+    virtual void RightDownCallback(Pint& pint, udword pint_index);
+    virtual void RightDragCallback(Pint& pint, udword pint_index);
+    virtual void RightUpCallback(Pint& pint, udword pint_index);
 
-		// GUI_RenderInterface
-		virtual	void			RenderCallback		(PintRender& render, Pint& pint, udword pint_index)	override;
-		virtual	void			PostRenderCallback	()													override;
-		//~GUI_RenderInterface
+    // GUI_RenderInterface
+    virtual void RenderCallback(PintRender& render, Pint& pint, udword pint_index) override;
+    virtual void PostRenderCallback() override;
+    //~GUI_RenderInterface
 
 #ifdef SUPPORT_TRANSLATE_TOOL_UI
-				EditPosWindowPtr	mEditPos;
+    EditPosWindowPtr mEditPos;
 #endif
-				Point			mCachedOrigin;
-				Point			mCachedDir;
+    Point mCachedOrigin;
+    Point mCachedDir;
 
-				struct TranslateData
-				{
-					TranslateData()
-					{
-						Reset();
-					}
+    struct TranslateData {
+        TranslateData() { Reset(); }
 
-					inline	void	Reset()
-					{
-						mObject = null;
-						mDelta.Zero();
-						mDistance = 0.0f;
-						mCaptured = false;
-						mTransformer.Reset();
-					}
+        inline void Reset() {
+            mObject = null;
+            mDelta.Zero();
+            mDistance = 0.0f;
+            mCaptured = false;
+            mTransformer.Reset();
+        }
 
-					PintActorHandle	mObject;
-					Point			mDelta;
-					float			mDistance;
-					bool			mCaptured;
-					Transformer		mTransformer;
-				};
+        PintActorHandle mObject;
+        Point mDelta;
+        float mDistance;
+        bool mCaptured;
+        Transformer mTransformer;
+    };
 
-				TranslateData	mData[MAX_NB_ENGINES];
-				bool			mDrag;
-	};
+    TranslateData mData[MAX_NB_ENGINES];
+    bool mDrag;
+};
 
 #endif

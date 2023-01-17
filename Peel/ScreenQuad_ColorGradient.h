@@ -11,22 +11,21 @@
 
 #include "ScreenQuad.h"
 
-	class ScreenQuadColorGradient : public ScreenQuadMode, public ColorPickerCallback
-	{
-		public:
-							ScreenQuadColorGradient(const Point& top_color, const Point& bottom_color);
-		virtual				~ScreenQuadColorGradient();
+class ScreenQuadColorGradient : public ScreenQuadMode, public ColorPickerCallback {
+public:
+    ScreenQuadColorGradient(const Point& top_color, const Point& bottom_color);
+    virtual ~ScreenQuadColorGradient();
 
-		virtual	const char*	GetUIName()		const		{ return "Gradient";	}
-		virtual	void		Apply(udword screen_width, udword screen_height);
-		virtual	void		CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
+    virtual const char* GetUIName() const { return "Gradient"; }
+    virtual void Apply(udword screen_width, udword screen_height);
+    virtual void CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
 
-		// ColorPickerCallback
-		virtual	void		OnNewColorSelected(ubyte r, ubyte g, ubyte b);
+    // ColorPickerCallback
+    virtual void OnNewColorSelected(ubyte r, ubyte g, ubyte b);
 
-				Point		mTopColor;
-				Point		mBottomColor;
-				udword		mID;
-	};
+    Point mTopColor;
+    Point mBottomColor;
+    udword mID;
+};
 
 #endif

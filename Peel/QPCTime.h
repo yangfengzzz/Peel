@@ -11,47 +11,42 @@
 
 #include "Common.h"
 
-	struct CounterFrequencyToTensOfNanos
-	{
-		unsigned __int64	mNumerator;
-		unsigned __int64	mDenominator;
+struct CounterFrequencyToTensOfNanos {
+    unsigned __int64 mNumerator;
+    unsigned __int64 mDenominator;
 
-		CounterFrequencyToTensOfNanos(unsigned __int64 inNum, unsigned __int64 inDenom) : mNumerator(inNum), mDenominator(inDenom)	{}
+    CounterFrequencyToTensOfNanos(unsigned __int64 inNum, unsigned __int64 inDenom)
+        : mNumerator(inNum), mDenominator(inDenom) {}
 
-		unsigned __int64 toTensOfNanos(unsigned __int64 inCounter) const
-		{
-			return (inCounter * mNumerator) / mDenominator;
-		}
-	};
+    unsigned __int64 toTensOfNanos(unsigned __int64 inCounter) const { return (inCounter * mNumerator) / mDenominator; }
+};
 
-	class QPCTime
-	{
-	public:
-		typedef double Second;
-		static const unsigned __int64 sNumTensOfNanoSecondsInASecond = 100000000;
-		//This is supposedly guaranteed to not change after system boot
-		//regardless of processors, speedstep, etc.		
-		static const CounterFrequencyToTensOfNanos& getBootCounterFrequency();
+class QPCTime {
+public:
+    typedef double Second;
+    static const unsigned __int64 sNumTensOfNanoSecondsInASecond = 100000000;
+    // This is supposedly guaranteed to not change after system boot
+    // regardless of processors, speedstep, etc.
+    static const CounterFrequencyToTensOfNanos& getBootCounterFrequency();
 
-		static CounterFrequencyToTensOfNanos getCounterFrequency();
+    static CounterFrequencyToTensOfNanos getCounterFrequency();
 
-		static unsigned __int64 getCurrentCounterValue();
+    static unsigned __int64 getCurrentCounterValue();
 
-		//SLOW!!
-		//Thar be a 64 bit divide in thar!
-		static unsigned __int64 getCurrentTimeInTensOfNanoSeconds()
-		{
-			unsigned __int64 ticks = getCurrentCounterValue();
-			return getBootCounterFrequency().toTensOfNanos(ticks);
-		}
+    // SLOW!!
+    // Thar be a 64 bit divide in thar!
+    static unsigned __int64 getCurrentTimeInTensOfNanoSeconds() {
+        unsigned __int64 ticks = getCurrentCounterValue();
+        return getBootCounterFrequency().toTensOfNanos(ticks);
+    }
 
-		QPCTime();
-		Second getElapsedSeconds();
-		Second peekElapsedSeconds();
-		Second getLastTime() const;
+    QPCTime();
+    Second getElapsedSeconds();
+    Second peekElapsedSeconds();
+    Second getLastTime() const;
 
-	private:
-		signed __int64	mTickCount;
-	};
+private:
+    signed __int64 mTickCount;
+};
 
 #endif

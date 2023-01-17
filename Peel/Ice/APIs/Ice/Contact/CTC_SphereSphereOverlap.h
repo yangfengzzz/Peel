@@ -12,8 +12,15 @@
 #ifndef CTCSPHERESPHEREOVERLAP_H
 #define CTCSPHERESPHEREOVERLAP_H
 
-	// Sphere-Sphere intersection
-	CONTACT_API bool SphereSphere(const Point& center0, float radius0, const Point& center1, float radius1, Point* hitpos=null, Point* hitnrm=null, float* d=null);
-	CONTACT_API float SphereSphere(const Point& center1, float radius1, const Point& center2, float radius2, Point& p, Point& normal);
+// Sphere-Sphere intersection
+CONTACT_API bool SphereSphere(const Point& center0,
+                              float radius0,
+                              const Point& center1,
+                              float radius1,
+                              Point* hitpos = null,
+                              Point* hitnrm = null,
+                              float* d = null);
+CONTACT_API float SphereSphere(
+        const Point& center1, float radius1, const Point& center2, float radius2, Point& p, Point& normal);
 
-#endif // CTCSPHERESPHEREOVERLAP_H
+#endif  // CTCSPHERESPHEREOVERLAP_H

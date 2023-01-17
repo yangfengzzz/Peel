@@ -9,8 +9,8 @@
 #ifndef ZB2_EXPORT_H
 #define ZB2_EXPORT_H
 
-	class EditorPlugin;
+class EditorPlugin;
 
-	void ExportZB2(const EditorPlugin& editor, const char* filename);
+void ExportZB2(const EditorPlugin& editor, const char* filename);
 
 #endif

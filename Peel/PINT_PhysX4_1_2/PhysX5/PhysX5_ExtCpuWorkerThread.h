@@ -26,52 +26,49 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef PHYSX5_EXT_CPU_WORKER_THREAD_H
 #define PHYSX5_EXT_CPU_WORKER_THREAD_H
 
 #include "CmPhysXCommon.h"
-#include "PsThread.h"
-#include "PhysX5_PxDefaultCpuDispatcher.h"
 #include "extensions/ExtSharedQueueEntryPool.h"
+#include "PhysX5_PxDefaultCpuDispatcher.h"
+#include "PsThread.h"
 
-namespace physx5
-{
-namespace Ext
-{
+namespace physx5 {
+namespace Ext {
 class DefaultCpuDispatcher;
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable:4324)	// Padding was added at the end of a structure because of a __declspec(align) value.
-#endif							// Because of the SList member I assume
+#pragma warning(disable : 4324)  // Padding was added at the end of a structure because of a __declspec(align) value.
+#endif                           // Because of the SList member I assume
 
-	class CpuWorkerThread : public physx::shdfnd::Thread
-	{
-	public:
-										CpuWorkerThread();
-										~CpuWorkerThread();
-		
-		void							initialize(DefaultCpuDispatcher* ownerDispatcher);
-		void							execute();
-		bool							tryAcceptJobToLocalQueue(physx::PxBaseTask& task, physx::shdfnd::Thread::Id taskSubmitionThread);
-		physx::PxBaseTask*				giveUpJob();
-		physx::shdfnd::Thread::Id		getWorkerThreadId() const { return mThreadId; }
+class CpuWorkerThread : public physx::shdfnd::Thread {
+public:
+    CpuWorkerThread();
+    ~CpuWorkerThread();
 
-	protected:
-	physx::Ext::SharedQueueEntryPool<>	mQueueEntryPool;
-		DefaultCpuDispatcher*			mOwner;
-		physx::shdfnd::SList			mLocalJobList;
-		physx::shdfnd::Thread::Id		mThreadId;
-	};
+    void initialize(DefaultCpuDispatcher* ownerDispatcher);
+    void execute();
+    bool tryAcceptJobToLocalQueue(physx::PxBaseTask& task, physx::shdfnd::Thread::Id taskSubmitionThread);
+    physx::PxBaseTask* giveUpJob();
+    physx::shdfnd::Thread::Id getWorkerThreadId() const { return mThreadId; }
+
+protected:
+    physx::Ext::SharedQueueEntryPool<> mQueueEntryPool;
+    DefaultCpuDispatcher* mOwner;
+    physx::shdfnd::SList mLocalJobList;
+    physx::shdfnd::Thread::Id mThreadId;
+};
 
 #if PX_VC
 #pragma warning(pop)
 #endif
 
-} // namespace Ext
+}  // namespace Ext
 
-}
+}  // namespace physx5
 
 #endif

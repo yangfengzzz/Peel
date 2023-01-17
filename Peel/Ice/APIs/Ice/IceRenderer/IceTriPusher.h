@@ -12,29 +12,29 @@
 #ifndef ICETRIPUSHER_H
 #define ICETRIPUSHER_H
 
-	class ICERENDERER_API TriPusher : public Allocateable
-	{
-		public:
-		// Constructor
-								TriPusher();
-		// Destructor
-								~TriPusher();
-		// Lifetime
-				bool			Init(Renderer* rd, udword fvf, udword nb_faces=5000, udword batch_size=5000);
-				bool			Release();
-		// Standard use
-				bool			Push(Renderer* rd, udword nb_faces, const ubyte* data);
-		// Batch processing
-				bool			Batch(Renderer* rd, udword nb_verts, const ubyte* data);
-				bool			FlushBatch(Renderer* rd);
-		private:
-				VertexBuffer*	mVB;
-				udword			mVertexOffset;
+class ICERENDERER_API TriPusher : public Allocateable {
+public:
+    // Constructor
+    TriPusher();
+    // Destructor
+    ~TriPusher();
+    // Lifetime
+    bool Init(Renderer* rd, udword fvf, udword nb_faces = 5000, udword batch_size = 5000);
+    bool Release();
+    // Standard use
+    bool Push(Renderer* rd, udword nb_faces, const ubyte* data);
+    // Batch processing
+    bool Batch(Renderer* rd, udword nb_verts, const ubyte* data);
+    bool FlushBatch(Renderer* rd);
 
-			// Batch
-				udword			mBatchSize;
-				udword			mBatchIndex;
-				ubyte*			mBatchBuffer;
-	};
+private:
+    VertexBuffer* mVB;
+    udword mVertexOffset;
 
-#endif // ICETRIPUSHER_H
+    // Batch
+    udword mBatchSize;
+    udword mBatchIndex;
+    ubyte* mBatchBuffer;
+};
+
+#endif  // ICETRIPUSHER_H

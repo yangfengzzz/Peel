@@ -3,40 +3,38 @@
 #ifndef ICETOGGLEBUTTON_H
 #define ICETOGGLEBUTTON_H
 
-	class IceToggleButton;
+class IceToggleButton;
 
-	// Toggle button callback
-	typedef void (*TBCallback)	(const IceToggleButton& button, bool checked, void* user_data);
+// Toggle button callback
+typedef void (*TBCallback)(const IceToggleButton& button, bool checked, void* user_data);
 
-	class ICEGUI_API ToggleButtonDesc : public ButtonDesc
-	{
-		public:
-							ToggleButtonDesc();
+class ICEGUI_API ToggleButtonDesc : public ButtonDesc {
+public:
+    ToggleButtonDesc();
 
-				TBCallback	mCallback;
-				bool		mChecked;
-	};
-	
-	class ICEGUI_API IceToggleButton : public IceWidget
-	{
-		public:
-							IceToggleButton(const ToggleButtonDesc& desc);
-		virtual				~IceToggleButton();
+    TBCallback mCallback;
+    bool mChecked;
+};
 
-				void		SetChecked(bool b);
-				bool		IsChecked() const;
+class ICEGUI_API IceToggleButton : public IceWidget {
+public:
+    IceToggleButton(const ToggleButtonDesc& desc);
+    virtual ~IceToggleButton();
 
-		virtual	void		OnClick();
+    void SetChecked(bool b);
+    bool IsChecked() const;
 
-		inline_	void		SetCallback(TBCallback callback)	{ mCallback = callback;	}
-		inline_	TBCallback	GetCallback()	const				{ return mCallback;		}
+    virtual void OnClick();
 
-				bool		SetImage(const IceBitmap& bitmap);
+    inline_ void SetCallback(TBCallback callback) { mCallback = callback; }
+    inline_ TBCallback GetCallback() const { return mCallback; }
 
-		private:
-				TBCallback	mCallback;
+    bool SetImage(const IceBitmap& bitmap);
 
-				PREVENT_COPY(IceToggleButton);
-	};
+private:
+    TBCallback mCallback;
 
-#endif	// ICETOGGLEBUTTON_H
+    PREVENT_COPY(IceToggleButton);
+};
+
+#endif  // ICETOGGLEBUTTON_H

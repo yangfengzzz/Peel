@@ -9,101 +9,100 @@
 #ifndef GUI_ACTOR_EDIT_H
 #define GUI_ACTOR_EDIT_H
 
-#include "PintDef.h"
-#include "Pint.h"
 #include "GUI_EditBox.h"
-#include "GUI_RenderInterface.h"
 #include "GUI_JointParams.h"
+#include "GUI_RenderInterface.h"
+#include "Pint.h"
+#include "PintDef.h"
 
-	class Pint;
+class Pint;
 
-	class EditJointSubWindow : public IceWindow
-	{
-		public:
-											EditJointSubWindow(const WindowDesc& desc, EditBoxInterface& owner);
-		virtual								~EditJointSubWindow();
+class EditJointSubWindow : public IceWindow {
+public:
+    EditJointSubWindow(const WindowDesc& desc, EditBoxInterface& owner);
+    virtual ~EditJointSubWindow();
 
-				void						InitFrom(Pint* pint, PintJointHandle handle, PintActorHandle owner);
-				void						ReleaseJoint();
-				void						SwapActors();
+    void InitFrom(Pint* pint, PintJointHandle handle, PintActorHandle owner);
+    void ReleaseJoint();
+    void SwapActors();
 
-				void						SaveParams();
-				void						Cancel();
+    void SaveParams();
+    void Cancel();
 
-				void						Render();
+    void Render();
 
-				PEEL_EditBox*				mJointNameUI;
-				LabelPtr					mTypeLabel;
-				LabelPtr					mActor0Label;
-				LabelPtr					mActor1Label;
-				EditPosWindowPtr			mEditPos0;
-				EditPosWindowPtr			mEditPos1;
+    PEEL_EditBox* mJointNameUI;
+    LabelPtr mTypeLabel;
+    LabelPtr mActor0Label;
+    LabelPtr mActor1Label;
+    EditPosWindowPtr mEditPos0;
+    EditPosWindowPtr mEditPos1;
 
-				ButtonPtr					mButton0;
-				ButtonPtr					mButton1;
+    ButtonPtr mButton0;
+    ButtonPtr mButton1;
 
-				GUI_JointParams*			mJointParams[PINT_JOINT_NB];
+    GUI_JointParams* mJointParams[PINT_JOINT_NB];
 
-				bool						SomethingChanged()	const;
-		private:
-				Pint*						mPint;
-				PintJointHandle				mHandle;
+    bool SomethingChanged() const;
 
-				void						AskUserForSave();
-	};
+private:
+    Pint* mPint;
+    PintJointHandle mHandle;
 
-	class EditActorWindow : public IceWindow, public EditBoxInterface, public GUI_RenderInterface
-	{
-		public:
-									EditActorWindow(const WindowDesc& desc);
-		virtual						~EditActorWindow();
+    void AskUserForSave();
+};
 
-		virtual int					handleEvent(IceGUIEvent* event);
+class EditActorWindow : public IceWindow, public EditBoxInterface, public GUI_RenderInterface {
+public:
+    EditActorWindow(const WindowDesc& desc);
+    virtual ~EditActorWindow();
 
-		// EditBoxInterface
-		virtual	void				ChangeNotification()	override;
-		//~EditBoxInterface
+    virtual int handleEvent(IceGUIEvent* event);
 
-		// GUI_RenderInterface
-		virtual	void				PreRenderCallback()	override;
-		//~GUI_RenderInterface
+    // EditBoxInterface
+    virtual void ChangeNotification() override;
+    //~EditBoxInterface
 
-				void				InitFrom(Pint* pint, PintActorHandle handle);
+    // GUI_RenderInterface
+    virtual void PreRenderCallback() override;
+    //~GUI_RenderInterface
 
-				void				SaveParams();
-				void				Cancel();
+    void InitFrom(Pint* pint, PintActorHandle handle);
 
-				void				JointNameHasChanged(PintJointHandle handle);
-		//private:
-				PEEL_EditBox*		mActorNameUI;
-				PEEL_EditBox*		mActorMassUI;
-				PEEL_EditBox*		mActorLinearDampingUI;
-				PEEL_EditBox*		mActorAngularDampingUI;
+    void SaveParams();
+    void Cancel();
 
-				ButtonPtr			mOKButton;
-				ButtonPtr			mCancelButton;
+    void JointNameHasChanged(PintJointHandle handle);
+    // private:
+    PEEL_EditBox* mActorNameUI;
+    PEEL_EditBox* mActorMassUI;
+    PEEL_EditBox* mActorLinearDampingUI;
+    PEEL_EditBox* mActorAngularDampingUI;
 
-				LabelPtr			mShapesAndJointsLabel;
-				LabelPtr			mInfoLabel;
-				ListBoxPtr			mShapesAndJoints;
+    ButtonPtr mOKButton;
+    ButtonPtr mCancelButton;
 
-				Pint*				mPint;
-				PintActorHandle		mHandle;
+    LabelPtr mShapesAndJointsLabel;
+    LabelPtr mInfoLabel;
+    ListBoxPtr mShapesAndJoints;
 
-				EditJointSubWindow*	mJointEditWindow;
+    Pint* mPint;
+    PintActorHandle mHandle;
 
-		private:
-				bool				SomethingChanged()	const;
-				void				AskUserForSave();
+    EditJointSubWindow* mJointEditWindow;
 
-		friend EditActorWindow* CreateActorEditGUI(IceWidget* parent, sdword x, sdword y);
-	};
+private:
+    bool SomethingChanged() const;
+    void AskUserForSave();
 
-	EditActorWindow*	CreateActorEditGUI(IceWidget* parent, sdword x, sdword y);
-	void				CloseActorEditGUI();
+    friend EditActorWindow* CreateActorEditGUI(IceWidget* parent, sdword x, sdword y);
+};
 
-	void				ShowEditActorWindow(Pint* pint, PintActorHandle handle);
-	void				HideEditActorWindow();
-	EditActorWindow*	GetVisibleActorEditWindow();
+EditActorWindow* CreateActorEditGUI(IceWidget* parent, sdword x, sdword y);
+void CloseActorEditGUI();
+
+void ShowEditActorWindow(Pint* pint, PintActorHandle handle);
+void HideEditActorWindow();
+EditActorWindow* GetVisibleActorEditWindow();
 
 #endif

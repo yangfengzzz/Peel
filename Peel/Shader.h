@@ -11,47 +11,39 @@
 
 #include "GLShader.h"
 
-	class PintShapeRenderer;
+class PintShapeRenderer;
 
-	struct ShaderProps
-	{
-	};
+struct ShaderProps {};
 
-	struct ShaderMaterial
-	{
-	};
+struct ShaderMaterial {};
 
-namespace PEEL	// To avoid conflicts with the ICE Shader class
+namespace PEEL  // To avoid conflicts with the ICE Shader class
 {
-	class Shader : public Allocateable
-	{
-	public:
-								Shader();
-		virtual					~Shader();
+class Shader : public Allocateable {
+public:
+    Shader();
+    virtual ~Shader();
 
-		virtual	void			Activate(const ShaderProps& mat);
-		virtual	void			Deactivate();
-		virtual	void			SetupGeometry(const PintShapeRenderer* renderer);
-		virtual	void			SetupMaterial(const PintShapeRenderer* renderer);
+    virtual void Activate(const ShaderProps& mat);
+    virtual void Deactivate();
+    virtual void SetupGeometry(const PintShapeRenderer* renderer);
+    virtual void SetupMaterial(const PintShapeRenderer* renderer);
 
-		operator GLuint ()
-		{
-			return mData.mProgram;
-		}
+    operator GLuint() { return mData.mProgram; }
 
-				bool			LoadShaderCode(const char* vertexShaderCode, const char* fragmentShaderCode);
-				bool			LoadShaderCode(const char* vertexShaderCode, const char* geometryShaderCode,  const char* fragmentShaderCode);
-				void			DeleteShaders();
+    bool LoadShaderCode(const char* vertexShaderCode, const char* fragmentShaderCode);
+    bool LoadShaderCode(const char* vertexShaderCode, const char* geometryShaderCode, const char* fragmentShaderCode);
+    void DeleteShaders();
 
-				void			SetWorldMatrix(const float* m);
+    void SetWorldMatrix(const float* m);
 
-				GLShader::Data	mData;
-				BOOL			mActive;
-	};
-}
+    GLShader::Data mData;
+    BOOL mActive;
+};
+}  // namespace PEEL
 
-	void	SetupMaterial(const PintShapeRenderer* renderer);
-	void	RenderShape(const PintShapeRenderer* renderer, const PR& pose);
+void SetupMaterial(const PintShapeRenderer* renderer);
+void RenderShape(const PintShapeRenderer* renderer, const PR& pose);
 //	void	SetupMaterialAndRenderShape(const PintShapeRenderer* renderer, const PR& pose);
 
 #endif

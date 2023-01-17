@@ -12,28 +12,26 @@
 #ifndef ICEGAUSSMAP_H
 #define ICEGAUSSMAP_H
 
-	class ICEMATHS_API GaussMap : public Allocateable
-	{
-		public:
-							GaussMap();
-		virtual				~GaussMap();
+class ICEMATHS_API GaussMap : public Allocateable {
+public:
+    GaussMap();
+    virtual ~GaussMap();
 
-		virtual	bool		Initialize()										= 0;
-		virtual	bool		PrecomputeSample(udword offset, const Point& dir)	= 0;
-		virtual	void		PostInit()										{}
+    virtual bool Initialize() = 0;
+    virtual bool PrecomputeSample(udword offset, const Point& dir) = 0;
+    virtual void PostInit() {}
 
-				bool		Precompute(udword subdiv);
-				udword		ComputeOffset(const Point& dir)			const;
-				udword		ComputeNearestOffset(const Point& dir)	const;
+    bool Precompute(udword subdiv);
+    udword ComputeOffset(const Point& dir) const;
+    udword ComputeNearestOffset(const Point& dir) const;
 
-		// Data access
-		inline_	udword		GetSubdiv()								const	{ return mSubdiv;		}
-		inline_	udword		GetNbSamples()							const	{ return mNbSamples;	}
+    // Data access
+    inline_ udword GetSubdiv() const { return mSubdiv; }
+    inline_ udword GetNbSamples() const { return mNbSamples; }
 
-		protected:
-				udword		mSubdiv;
-				udword		mNbSamples;
-	};
+protected:
+    udword mSubdiv;
+    udword mNbSamples;
+};
 
-#endif	// ICEGAUSSMAP_H
-
+#endif  // ICEGAUSSMAP_H

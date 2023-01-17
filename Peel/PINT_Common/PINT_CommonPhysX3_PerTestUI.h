@@ -11,22 +11,24 @@
 
 #include "..\Pint.h"
 
-	class PhysXPlugIn : public PintPlugin
-	{
-		public:
-		virtual	IceWindow*	InitGUI(IceWidget* parent, PintGUIHelper& helper)	override;
-		virtual	void		CloseGUI()											override;
+class PhysXPlugIn : public PintPlugin {
+public:
+    virtual IceWindow* InitGUI(IceWidget* parent, PintGUIHelper& helper) override;
+    virtual void CloseGUI() override;
 
-		virtual	void		Init(const PINT_WORLD_CREATE& desc)					override;
-		virtual	void		Close()												override;
+    virtual void Init(const PINT_WORLD_CREATE& desc) override;
+    virtual void Close() override;
 
-		virtual	Pint*		GetPint()											override;
+    virtual Pint* GetPint() override;
 
-		// For per-test UI
-		virtual	IceWindow*	InitTestGUI(const char* test_name, IceWidget* parent, PintGUIHelper& helper, Widgets& owner)	override;
-		virtual	void		CloseTestGUI()																					override;
-		virtual	const char*	GetTestGUIName()																				override;
-		virtual	void		ApplyTestUIParams(const char* test_name)														override;
-	};
+    // For per-test UI
+    virtual IceWindow* InitTestGUI(const char* test_name,
+                                   IceWidget* parent,
+                                   PintGUIHelper& helper,
+                                   Widgets& owner) override;
+    virtual void CloseTestGUI() override;
+    virtual const char* GetTestGUIName() override;
+    virtual void ApplyTestUIParams(const char* test_name) override;
+};
 
 #endif

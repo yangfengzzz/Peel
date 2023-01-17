@@ -12,10 +12,10 @@
 #ifndef ICEBASIS_H
 #define ICEBASIS_H
 
-	ICEMATHS_API void ComputeBasis(const Point& dir, Point& right, Point& up);
-	ICEMATHS_API void ComputeBasis2(const Point& dir, Point& right, Point& up);
+ICEMATHS_API void ComputeBasis(const Point& dir, Point& right, Point& up);
+ICEMATHS_API void ComputeBasis2(const Point& dir, Point& right, Point& up);
 
-	ICEMATHS_API void ComputeBasis(const Point& p0, const Point& p1, Point& dir, Point& right, Point& up);
-	ICEMATHS_API void ComputeBasis2(const Point& p0, const Point& p1, Point& dir, Point& right, Point& up);
+ICEMATHS_API void ComputeBasis(const Point& p0, const Point& p1, Point& dir, Point& right, Point& up);
+ICEMATHS_API void ComputeBasis2(const Point& p0, const Point& p1, Point& dir, Point& right, Point& up);
 
-#endif // ICEBASIS_H
+#endif  // ICEBASIS_H

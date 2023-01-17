@@ -48,12 +48,14 @@
 // twice as expensive.
 //
 // HashSet<T>:
-//		bool		insert(const T& k)						amortized O(1) (exponential resize policy)
+//		bool		insert(const T& k)						amortized O(1) (exponential resize
+//policy)
 // 		bool		contains(const T& k)	const;			O(1)
 //		bool		erase(const T& k);						O(1)
 //		uint32_t		size()					const;			constant
 //		void		reserve(uint32_t size);					O(MAX(size, currentOccupancy))
-//		void		clear();								O(currentOccupancy) (with zero constant for objects without
+//		void		clear();								O(currentOccupancy) (with zero
+//constant for objects without
 // destructors)
 //      Iterator    getIterator();
 //
@@ -69,59 +71,37 @@
 // erasure of an element not in the set
 //
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 template <class Key, class HashFn = Hash<Key>, class Allocator = NonTrackingAllocator>
-class HashSet : public internal::HashSetBase<Key, HashFn, Allocator, false>
-{
-  public:
-	typedef internal::HashSetBase<Key, HashFn, Allocator, false> HashSetBase;
-	typedef typename HashSetBase::Iterator Iterator;
+class HashSet : public internal::HashSetBase<Key, HashFn, Allocator, false> {
+public:
+    typedef internal::HashSetBase<Key, HashFn, Allocator, false> HashSetBase;
+    typedef typename HashSetBase::Iterator Iterator;
 
-	HashSet(uint32_t initialTableSize = 64, float loadFactor = 0.75f) : HashSetBase(initialTableSize, loadFactor)
-	{
-	}
-	HashSet(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
-	: HashSetBase(initialTableSize, loadFactor, alloc)
-	{
-	}
-	HashSet(const Allocator& alloc) : HashSetBase(64, 0.75f, alloc)
-	{
-	}
-	Iterator getIterator()
-	{
-		return Iterator(HashSetBase::mBase);
-	}
+    HashSet(uint32_t initialTableSize = 64, float loadFactor = 0.75f) : HashSetBase(initialTableSize, loadFactor) {}
+    HashSet(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
+        : HashSetBase(initialTableSize, loadFactor, alloc) {}
+    HashSet(const Allocator& alloc) : HashSetBase(64, 0.75f, alloc) {}
+    Iterator getIterator() { return Iterator(HashSetBase::mBase); }
 };
 
 template <class Key, class HashFn = Hash<Key>, class Allocator = NonTrackingAllocator>
-class CoalescedHashSet : public internal::HashSetBase<Key, HashFn, Allocator, true>
-{
-  public:
-	typedef typename internal::HashSetBase<Key, HashFn, Allocator, true> HashSetBase;
+class CoalescedHashSet : public internal::HashSetBase<Key, HashFn, Allocator, true> {
+public:
+    typedef typename internal::HashSetBase<Key, HashFn, Allocator, true> HashSetBase;
 
-	CoalescedHashSet(uint32_t initialTableSize = 64, float loadFactor = 0.75f)
-	: HashSetBase(initialTableSize, loadFactor)
-	{
-	}
+    CoalescedHashSet(uint32_t initialTableSize = 64, float loadFactor = 0.75f)
+        : HashSetBase(initialTableSize, loadFactor) {}
 
-	CoalescedHashSet(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
-	: HashSetBase(initialTableSize, loadFactor, alloc)
-	{
-	}
-	CoalescedHashSet(const Allocator& alloc) : HashSetBase(64, 0.75f, alloc)
-	{
-	}
+    CoalescedHashSet(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
+        : HashSetBase(initialTableSize, loadFactor, alloc) {}
+    CoalescedHashSet(const Allocator& alloc) : HashSetBase(64, 0.75f, alloc) {}
 
-	const Key* getEntries() const
-	{
-		return HashSetBase::mBase.getEntries();
-	}
+    const Key* getEntries() const { return HashSetBase::mBase.getEntries(); }
 };
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSHASHSET_H
+#endif  // #ifndef PSFOUNDATION_PSHASHSET_H

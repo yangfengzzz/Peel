@@ -12,9 +12,8 @@
 #ifndef CTCRAYPLANEOVERLAP_H
 #define CTCRAYPLANEOVERLAP_H
 
-	// Ray-Plane intersection
-	CONTACT_API Point	RayPlane(const Point& v1, const Point& v2, const Plane& plane, float& d);
-	CONTACT_API bool	RayPlane(const Ray& line, const Plane& plane, float& distance_along_line, Point& point_on_plane);
+// Ray-Plane intersection
+CONTACT_API Point RayPlane(const Point& v1, const Point& v2, const Plane& plane, float& d);
+CONTACT_API bool RayPlane(const Ray& line, const Plane& plane, float& distance_along_line, Point& point_on_plane);
 
-#endif // CTCRAYPLANEOVERLAP_H
-
+#endif  // CTCRAYPLANEOVERLAP_H

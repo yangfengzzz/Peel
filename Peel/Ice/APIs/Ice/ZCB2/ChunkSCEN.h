@@ -12,31 +12,28 @@
 #ifndef CHUNKSCEN_H
 #define CHUNKSCEN_H
 
-	#define SCEN_VERSION	1
+#define SCEN_VERSION 1
 
-	enum ZCB2_SCEN_Flag
-	{
-	};
+enum ZCB2_SCEN_Flag {};
 
-	class ZCB2_API SCENChunk : public ROBJChunk
-	{
-		DECLARE_CHUNK(SCENChunk,			mSCENCore)
+class ZCB2_API SCENChunk : public ROBJChunk {
+    DECLARE_CHUNK(SCENChunk, mSCENCore)
 
-		// Time-related information
-		DECLARE_STD_MEMBER(FirstFrame,		udword)
-		DECLARE_STD_MEMBER(LastFrame,		udword)
-		DECLARE_STD_MEMBER(FrameRate,		udword)
-		DECLARE_STD_MEMBER(DeltaTime,		udword)
+    // Time-related information
+    DECLARE_STD_MEMBER(FirstFrame, udword)
+    DECLARE_STD_MEMBER(LastFrame, udword)
+    DECLARE_STD_MEMBER(FrameRate, udword)
+    DECLARE_STD_MEMBER(DeltaTime, udword)
 
-		// Colors
-		DECLARE_STD_MEMBER(BackColor,		RGBAColor)
-		DECLARE_STD_MEMBER(AmbientColor,	RGBAColor)
-		DECLARE_STD_MEMBER(TopQuadColor,	udword)
-		DECLARE_STD_MEMBER(BottomQuadColor,	udword)
+    // Colors
+    DECLARE_STD_MEMBER(BackColor, RGBAColor)
+    DECLARE_STD_MEMBER(AmbientColor, RGBAColor)
+    DECLARE_STD_MEMBER(TopQuadColor, udword)
+    DECLARE_STD_MEMBER(BottomQuadColor, udword)
 
-		// Global settings
-		DECLARE_STD_MEMBER(DLM,				udword)
-		DECLARE_STD_MEMBER(SFM,				udword)
-	};
+    // Global settings
+    DECLARE_STD_MEMBER(DLM, udword)
+    DECLARE_STD_MEMBER(SFM, udword)
+};
 
-#endif // CHUNKSCEN_H
+#endif  // CHUNKSCEN_H

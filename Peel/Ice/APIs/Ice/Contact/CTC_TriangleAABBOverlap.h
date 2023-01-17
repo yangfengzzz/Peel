@@ -2,7 +2,7 @@
 /**
  *	Contains code for triangle-AABB intersection
  *	\file		CTC_TriangleAABBOverlap.h
- *	\author		Pierre Terdiman + Tomas Möller
+ *	\author		Pierre Terdiman + Tomas Mï¿½ller
  *	\date		see mails!
  */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,10 +12,10 @@
 #ifndef CTCTRIAABBOVERLAP_H
 #define CTCTRIAABBOVERLAP_H
 
-	// Triangle-AABB intersection
-	CONTACT_API bool TriAABB(const Point& box_center, const Point& box_halfsize, const Point tri_verts[3]);
-	CONTACT_API bool TriAABB2(const Point& box_center, const Point& box_halfsize, const Point tri_verts[3]);
+// Triangle-AABB intersection
+CONTACT_API bool TriAABB(const Point& box_center, const Point& box_halfsize, const Point tri_verts[3]);
+CONTACT_API bool TriAABB2(const Point& box_center, const Point& box_halfsize, const Point tri_verts[3]);
 //	CONTACT_API BOOL TriAABB3(const Point& center, const Point& extents, const Point tri_verts[3]);
 //	CONTACT_API int triBoxOverlap(float boxcenter[3],float boxhalfsize[3],float triverts[3][3]);
 
-#endif // CTCTRIAABBOVERLAP_H
+#endif  // CTCTRIAABBOVERLAP_H

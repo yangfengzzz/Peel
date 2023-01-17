@@ -220,8 +220,8 @@ void DefaultAllocator::Release() {
             const DebugBlock* DB = (const DebugBlock*)mMemBlockList[i];
             //			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s), allocated in: %s(%d):\n\n", cur+6, cur[1],
             //(const
-            // char*)cur[5], (const char*)cur[2], cur[3])); 			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s), allocated
-            // in: %s(%d):\n\n", DB+1, DB->mSize, DB->mClassName, DB->mFilename, DB->mLine));
+            // char*)cur[5], (const char*)cur[2], cur[3])); 			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s),
+            // allocated in: %s(%d):\n\n", DB+1, DB->mSize, DB->mClassName, DB->mFilename, DB->mLine));
             sprintf(Buffer, " Address 0x%.8X, %d bytes (%s), allocated in: %s(%d):\n\n", DB + 1, DB->mSize,
                     DB->mClassName, DB->mFilename, DB->mLine);
             _IceTrace(Buffer);
@@ -237,8 +237,8 @@ void DefaultAllocator::Release() {
             const DebugBlock* DB = (const DebugBlock*)mMemBlockList[j];
             //			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s), allocated in: %s(%d):\n\n", cur+6, cur[1],
             //(const
-            // char*)cur[5], (const char*)cur[2], cur[3])); 			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s), allocated
-            // in: %s(%d):\n\n", DB+1, DB->mSize, DB->mClassName, DB->mFilename, DB->mLine));
+            // char*)cur[5], (const char*)cur[2], cur[3])); 			_IceTrace(_F(" Address 0x%.8X, %d bytes (%s),
+            // allocated in: %s(%d):\n\n", DB+1, DB->mSize, DB->mClassName, DB->mFilename, DB->mLine));
             sprintf(Buffer, " Address 0x%.8X, %d bytes (%s), allocated in: %s(%d):\n\n", DB + 1, DB->mSize,
                     DB->mClassName, DB->mFilename, DB->mLine);
             _IceTrace(Buffer);
@@ -833,8 +833,8 @@ void DefaultAllocator::DumpCurrentMemoryState() const {
                 const DebugBlock* DB = (const DebugBlock*)mMemBlockList[i];
                 if (DB->mClassName) {
                     SortedStrings[NbStrings].mName = DB->mClassName;  // Memory by class
-                    //					SortedStrings[NbStrings].mName = DB->mFilename;		// Memory
-                    //by file
+                    //					SortedStrings[NbStrings].mName = DB->mFilename;		//
+                    //Memory by file
                     SortedStrings[NbStrings].mSize = DB->mSize;
                     TotalSize += DB->mSize;
                     NbStrings++;

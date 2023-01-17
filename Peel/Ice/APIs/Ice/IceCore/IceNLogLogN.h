@@ -4,7 +4,4 @@
 #ifndef ICENLOGLOGN_H
 #define ICENLOGLOGN_H
 
-
-
-#endif // ICENLOGLOGN_H
-
+#endif  // ICENLOGLOGN_H

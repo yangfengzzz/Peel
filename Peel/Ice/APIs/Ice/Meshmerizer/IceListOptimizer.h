@@ -12,8 +12,8 @@
 #ifndef ICELISTOPTIMIZER_H
 #define ICELISTOPTIMIZER_H
 
-	MESHMERIZER_API bool	OptimiseTriList(udword nb_faces, uword* list);
-	MESHMERIZER_API void	OptimiseVertexCoherencyTriList(WORD* list, int nb_tris);
-	MESHMERIZER_API	void	OptimizeFacesLRU(int faceCount, short* list);
+MESHMERIZER_API bool OptimiseTriList(udword nb_faces, uword* list);
+MESHMERIZER_API void OptimiseVertexCoherencyTriList(WORD* list, int nb_tris);
+MESHMERIZER_API void OptimizeFacesLRU(int faceCount, short* list);
 
-#endif // ICELISTOPTIMIZER_H
+#endif  // ICELISTOPTIMIZER_H

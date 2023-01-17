@@ -9,17 +9,16 @@
 #ifndef TEST_NVD_H
 #define TEST_NVD_H
 
-	class TestNVD
-	{
-		public:
-			TestNVD();
-			~TestNVD();
+class TestNVD {
+public:
+    TestNVD();
+    ~TestNVD();
 
-		void	Init();
-		void	Close();
-		void	Sync();
-		void	Update();
-		void	SetGravity(const Point& gravity);
-	};
+    void Init();
+    void Close();
+    void Sync();
+    void Update();
+    void SetGravity(const Point& gravity);
+};
 
 #endif

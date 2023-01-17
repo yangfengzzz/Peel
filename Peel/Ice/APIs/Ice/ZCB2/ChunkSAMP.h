@@ -12,24 +12,24 @@
 #ifndef CHUNKSAMP_H
 #define CHUNKSAMP_H
 
-	#define SAMP_VERSION	1
+#define SAMP_VERSION 1
 
-	class ZCB2_API SAMPChunk : public CTRLChunk
-	{
-		DECLARE_CHUNK(SAMPChunk, mSAMPCore)
+class ZCB2_API SAMPChunk : public CTRLChunk {
+    DECLARE_CHUNK(SAMPChunk, mSAMPCore)
 
-		DECLARE_STD_MEMBER(NbSamples,		udword)
-		DECLARE_STD_MEMBER(SamplingRate,	udword)
-		DECLARE_STD_MEMBER(DataSize,		udword)
+    DECLARE_STD_MEMBER(NbSamples, udword)
+    DECLARE_STD_MEMBER(SamplingRate, udword)
+    DECLARE_STD_MEMBER(DataSize, udword)
 
-		// Data access
-		inline_			const void*			GetSamples()			const	{ return mSamples;			}
+    // Data access
+    inline_ const void* GetSamples() const { return mSamples; }
 
-		// Chunk definition
-						bool				SetSamples(const void* data);
-		private:
-		// Chunk data
-						void*				mSamples;
-	};
+    // Chunk definition
+    bool SetSamples(const void* data);
 
-#endif // CHUNKSAMP_H
+private:
+    // Chunk data
+    void* mSamples;
+};
+
+#endif  // CHUNKSAMP_H

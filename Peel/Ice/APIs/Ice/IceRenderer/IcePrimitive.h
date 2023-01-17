@@ -12,20 +12,19 @@
 #ifndef ICEPRIMITIVE_H
 #define ICEPRIMITIVE_H
 
-	//! Primitive types
-	enum PrimType
-	{
-		PRIMTYPE_NONE			= 0,				//!< Undefined
-		PRIMTYPE_POINTLIST		= 1,				//!< A list of points
-		PRIMTYPE_LINELIST		= 2,				//!< A list of lines
-		PRIMTYPE_LINESTRIP		= 3,				//!< A line strip
-		PRIMTYPE_TRILIST		= 4,				//!< A list of triangles
-		PRIMTYPE_TRISTRIP		= 5,				//!< A triangle strip
-		PRIMTYPE_TRIFAN			= 6,				//!< A triangle fan
+//! Primitive types
+enum PrimType {
+    PRIMTYPE_NONE = 0,       //!< Undefined
+    PRIMTYPE_POINTLIST = 1,  //!< A list of points
+    PRIMTYPE_LINELIST = 2,   //!< A list of lines
+    PRIMTYPE_LINESTRIP = 3,  //!< A line strip
+    PRIMTYPE_TRILIST = 4,    //!< A list of triangles
+    PRIMTYPE_TRISTRIP = 5,   //!< A triangle strip
+    PRIMTYPE_TRIFAN = 6,     //!< A triangle fan
 
-		PRIMTYPE_FORCE_DWORD	= 0x7FFFFFFF 
-	}; 
+    PRIMTYPE_FORCE_DWORD = 0x7FFFFFFF
+};
 
-	FUNCTION ICERENDERER_API	udword ComputePrimCount(udword nb_indices, PrimType type);
+FUNCTION ICERENDERER_API udword ComputePrimCount(udword nb_indices, PrimType type);
 
-#endif // ICEPRIMITIVE_H
+#endif  // ICEPRIMITIVE_H

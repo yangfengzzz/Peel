@@ -11,39 +11,29 @@
 
 #include "CRC32.h"
 
-	struct PintSurfaceInterface : SurfaceInterface
-	{
-		PintSurfaceInterface() :
-			mCRC32_Verts	(0),
-			mCRC32_Faces	(0)
-		{
-		}
+struct PintSurfaceInterface : SurfaceInterface {
+    PintSurfaceInterface() : mCRC32_Verts(0), mCRC32_Faces(0) {}
 
-		PintSurfaceInterface(const PintSurfaceInterface& that)
-		{
-			mNbVerts		= that.mNbVerts;
-			mVerts			= that.mVerts;
-			mNbFaces		= that.mNbFaces;
-			mDFaces			= that.mDFaces;
-			mWFaces			= that.mWFaces;
-			mCRC32_Verts	= that.mCRC32_Verts;
-			mCRC32_Faces	= that.mCRC32_Faces;
-		}
+    PintSurfaceInterface(const PintSurfaceInterface& that) {
+        mNbVerts = that.mNbVerts;
+        mVerts = that.mVerts;
+        mNbFaces = that.mNbFaces;
+        mDFaces = that.mDFaces;
+        mWFaces = that.mWFaces;
+        mCRC32_Verts = that.mCRC32_Verts;
+        mCRC32_Faces = that.mCRC32_Faces;
+    }
 
-		void	Init(const SurfaceInterface& surface)
-		{
-			static_cast<SurfaceInterface&>(*this) = surface;
-			mCRC32_Verts = ComputeCRC32_Verts(*this);
-			mCRC32_Faces = ComputeCRC32_Faces(*this);
-		}
+    void Init(const SurfaceInterface& surface) {
+        static_cast<SurfaceInterface&>(*this) = surface;
+        mCRC32_Verts = ComputeCRC32_Verts(*this);
+        mCRC32_Faces = ComputeCRC32_Faces(*this);
+    }
 
-		explicit PintSurfaceInterface(const SurfaceInterface& that)
-		{
-			Init(that);
-		}
+    explicit PintSurfaceInterface(const SurfaceInterface& that) { Init(that); }
 
-		udword	mCRC32_Verts;
-		udword	mCRC32_Faces;
-	};
+    udword mCRC32_Verts;
+    udword mCRC32_Faces;
+};
 
 #endif

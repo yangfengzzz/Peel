@@ -3,53 +3,45 @@
 #ifndef ICESLIDER_H
 #define ICESLIDER_H
 
-	enum SliderType
-	{
-		SLIDER_HORIZONTAL,
-		SLIDER_VERTICAL
-	};
+enum SliderType { SLIDER_HORIZONTAL, SLIDER_VERTICAL };
 
-	enum SliderEvent
-	{
-	};
+enum SliderEvent {};
 
-	class ICEGUI_API SliderDesc : public WidgetDesc
-	{
-		public:
-							SliderDesc();
+class ICEGUI_API SliderDesc : public WidgetDesc {
+public:
+    SliderDesc();
 
-				SliderType	mStyle;
-	};
+    SliderType mStyle;
+};
 
-	class ICEGUI_API IceSlider : public IceWidget
-	{
-		public:
-							IceSlider(const SliderDesc& desc);
-		virtual				~IceSlider();
+class ICEGUI_API IceSlider : public IceWidget {
+public:
+    IceSlider(const SliderDesc& desc);
+    virtual ~IceSlider();
 
-		virtual	void		OnSliderEvent(SliderEvent event)		{}
+    virtual void OnSliderEvent(SliderEvent event) {}
 
-				void		SetValue(float value);
-				void		SetRange(float min, float max, int ticks = 100);
-				void		SetSteps(int line, int page);
+    void SetValue(float value);
+    void SetRange(float min, float max, int ticks = 100);
+    void SetSteps(int line, int page);
 
-				float		GetValue()					const;
-				float		GetTrackValue(int ivalue)	const;
-				float		GetMinValue()				const;
-				float		GetMaxValue()				const;
-				int			GetLineStep()				const;
-				int			GetPageStep()				const;
+    float GetValue() const;
+    float GetTrackValue(int ivalue) const;
+    float GetMinValue() const;
+    float GetMaxValue() const;
+    int GetLineStep() const;
+    int GetPageStep() const;
 
-				void		SetIntValue(int value);
-				void		SetIntRange(int min, int max);
-				int			GetIntValue()				const;
+    void SetIntValue(int value);
+    void SetIntRange(int min, int max);
+    int GetIntValue() const;
 
-		private:
-				float		mMin;
-				float		mMax;
-				int			mTicks;
+private:
+    float mMin;
+    float mMax;
+    int mTicks;
 
-				PREVENT_COPY(IceSlider);
-	};
+    PREVENT_COPY(IceSlider);
+};
 
-#endif	// ICESLIDER_H
+#endif  // ICESLIDER_H

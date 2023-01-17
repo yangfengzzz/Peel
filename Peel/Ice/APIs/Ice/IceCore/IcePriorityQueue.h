@@ -12,39 +12,35 @@
 #ifndef ICEPRIORITYQUEUE_H
 #define ICEPRIORITYQUEUE_H
 
-	enum PriorityMode
-	{
-		PM_SMALL_FIRST,		//!< Small priorities should be served first
-		PM_BIG_FIRST,		//!< Big priorities should be served first
-	};
+enum PriorityMode {
+    PM_SMALL_FIRST,  //!< Small priorities should be served first
+    PM_BIG_FIRST,    //!< Big priorities should be served first
+};
 
-	class ICECORE_API PriorityQueue : public Pairs
-	{
-		public:
-		//! Constructor
-								PriorityQueue()	: mPriorityMode(PM_BIG_FIRST), mMaxNbAllowed(MAX_UDWORD)	{}
-		//! Destructor
-								~PriorityQueue()															{}
+class ICECORE_API PriorityQueue : public Pairs {
+public:
+    //! Constructor
+    PriorityQueue() : mPriorityMode(PM_BIG_FIRST), mMaxNbAllowed(MAX_UDWORD) {}
+    //! Destructor
+    ~PriorityQueue() {}
 
-				void			Push(udword value, udword priority);
-				bool			Pop(Pair& next_pair);
+    void Push(udword value, udword priority);
+    bool Pop(Pair& next_pair);
 
-		inline_	const Pair*		NextPair()
-								{
-									if(!HasPairs()) return null;
-									return (const Pair*)GetPairs();
-								}
+    inline_ const Pair* NextPair() {
+        if (!HasPairs()) return null;
+        return (const Pair*)GetPairs();
+    }
 
-		inline_	PriorityMode	GetPriorityMode()						const	{ return mPriorityMode;			}
-		inline_	void			SetPriorityMode(PriorityMode mode)				{ mPriorityMode = mode;			}
+    inline_ PriorityMode GetPriorityMode() const { return mPriorityMode; }
+    inline_ void SetPriorityMode(PriorityMode mode) { mPriorityMode = mode; }
 
-		inline_	udword			GetMaxNbAllowed()						const	{ return mMaxNbAllowed;			}
-		inline_	void			SetMaxNbAllowed(udword max_allowed)				{ mMaxNbAllowed = max_allowed;	}
+    inline_ udword GetMaxNbAllowed() const { return mMaxNbAllowed; }
+    inline_ void SetMaxNbAllowed(udword max_allowed) { mMaxNbAllowed = max_allowed; }
 
-		protected:
+protected:
+    PriorityMode mPriorityMode;  //!< Management mode
+    udword mMaxNbAllowed;        //!< Maximum number of entries allowed (use this to limit used ram)
+};
 
-				PriorityMode	mPriorityMode;		//!< Management mode
-				udword			mMaxNbAllowed;		//!< Maximum number of entries allowed (use this to limit used ram)
-	};
-
-#endif // ICEPRIORITYQUEUE_H
+#endif  // ICEPRIORITYQUEUE_H

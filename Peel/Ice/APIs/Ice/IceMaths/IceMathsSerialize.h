@@ -12,10 +12,10 @@
 #ifndef ICEMATHSSERIALIZE_H
 #define ICEMATHSSERIALIZE_H
 
-	ICEMATHS_API	bool	Save(CustomArray& ca, const Point& p);
-	ICEMATHS_API	bool	Load(const CustomArray& ca, Point& p);
+ICEMATHS_API bool Save(CustomArray& ca, const Point& p);
+ICEMATHS_API bool Load(const CustomArray& ca, Point& p);
 
-	ICEMATHS_API	bool	Save(CustomArray& ca, const PR& pose);
-	ICEMATHS_API	bool	Load(const CustomArray& ca, PR& pose);
+ICEMATHS_API bool Save(CustomArray& ca, const PR& pose);
+ICEMATHS_API bool Load(const CustomArray& ca, PR& pose);
 
-#endif	// ICEMATHSSERIALIZE_H
+#endif  // ICEMATHSSERIALIZE_H

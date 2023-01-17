@@ -12,41 +12,42 @@
 #ifndef ICERENDERBASE_H
 #define ICERENDERBASE_H
 
-	#define RENDER_STATISTICS
+#define RENDER_STATISTICS
 
-	// Forward declarations
-	class Renderer;
+// Forward declarations
+class Renderer;
 
-	class ICERENDERER_API RenderBase// : public Allocateable	<= can't use this one because some classes inherit from Cell already
-	{
-		public:
-							RenderBase();
-		virtual				~RenderBase();
+class ICERENDERER_API
+        RenderBase  // : public Allocateable	<= can't use this one because some classes inherit from Cell already
+{
+public:
+    RenderBase();
+    virtual ~RenderBase();
 
-		// Renderer shortcut
-		static	Renderer*	mRenderer;
+    // Renderer shortcut
+    static Renderer* mRenderer;
 
 #ifdef RENDER_STATISTICS
 
-		// Statistics
-		// Objects
-		static	udword		mNbVertexBuffers;
-		static	udword		mVBTotalSize;
-		static	udword		mNbTextures;
-		// Locks
-		static	udword		mNbVBLocks;
-		static	udword		mNbVBUnlocks;
-		static	udword		mNbTextureLocks;
-		static	udword		mNbTextureUnlocks;
-		// Render calls
-		static	udword		mNbDrawPrimitive;
-		static	udword		mNbDrawIndexedPrimitive;
-		static	udword		mNbDrawPrimitiveVB;
-		static	udword		mNbDrawIndexedPrimitiveVB;
+    // Statistics
+    // Objects
+    static udword mNbVertexBuffers;
+    static udword mVBTotalSize;
+    static udword mNbTextures;
+    // Locks
+    static udword mNbVBLocks;
+    static udword mNbVBUnlocks;
+    static udword mNbTextureLocks;
+    static udword mNbTextureUnlocks;
+    // Render calls
+    static udword mNbDrawPrimitive;
+    static udword mNbDrawIndexedPrimitive;
+    static udword mNbDrawPrimitiveVB;
+    static udword mNbDrawIndexedPrimitiveVB;
 
-				void		ResetFrameRenderStats();
-				void		ResetAllRenderStats();
+    void ResetFrameRenderStats();
+    void ResetAllRenderStats();
 #endif
-	};
+};
 
-#endif // ICERENDERBASE_H
+#endif  // ICERENDERBASE_H

@@ -9,8 +9,8 @@
 #ifndef FOUNDATION_H
 #define FOUNDATION_H
 
-	void	initFoundation();
-	void	releaseFoundation();
-	bool	isFoundationInitialized();
+void initFoundation();
+void releaseFoundation();
+bool isFoundationInitialized();
 
 #endif

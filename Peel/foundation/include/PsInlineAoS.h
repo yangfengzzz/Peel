@@ -33,14 +33,14 @@
 #include "foundation/PxPreprocessor.h"
 
 #if PX_WINDOWS
-#include "windows/PsWindowsTrigConstants.h"
 #include "windows/PsWindowsInlineAoS.h"
-#elif(PX_UNIX_FAMILY || PX_PS4 || PX_SWITCH || (PX_UWP && PX_NEON))
-#include "unix/PsUnixTrigConstants.h"
+#include "windows/PsWindowsTrigConstants.h"
+#elif (PX_UNIX_FAMILY || PX_PS4 || PX_SWITCH || (PX_UWP && PX_NEON))
 #include "unix/PsUnixInlineAoS.h"
+#include "unix/PsUnixTrigConstants.h"
 #elif PX_XBOXONE
-#include "XboxOne/PsXboxOneTrigConstants.h"
 #include "XboxOne/PsXboxOneInlineAoS.h"
+#include "XboxOne/PsXboxOneTrigConstants.h"
 #else
 #error "Platform not supported!"
 #endif

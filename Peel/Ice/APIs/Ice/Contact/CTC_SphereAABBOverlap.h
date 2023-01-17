@@ -12,20 +12,19 @@
 #ifndef CTCSPHEREAABBOVERLAP_H
 #define CTCSPHEREAABBOVERLAP_H
 
-	// Sphere-AABB intersection
-	CONTACT_API bool SphereAABB(const Point& center, float radius, const Point& min, const Point& max);
+// Sphere-AABB intersection
+CONTACT_API bool SphereAABB(const Point& center, float radius, const Point& min, const Point& max);
 
-	inline_ bool SphereAABB(const Point& center, float radius, const AABB& aabb)
-	{
+inline_ bool SphereAABB(const Point& center, float radius, const AABB& aabb) {
 #ifdef ICE_USE_MINMAX
-		const ShadowAABB* Box = (const ShadowAABB*)&aabb;
-		return Ctc::SphereAABB(center, radius, Box->mMin, Box->mMax);
+    const ShadowAABB* Box = (const ShadowAABB*)&aabb;
+    return Ctc::SphereAABB(center, radius, Box->mMin, Box->mMax);
 #else
-		Point Min, Max;
-		aabb.GetMin(Min);
-		aabb.GetMax(Max);
-		return Ctc::SphereAABB(center, radius, Min, Max);
+    Point Min, Max;
+    aabb.GetMin(Min);
+    aabb.GetMax(Max);
+    return Ctc::SphereAABB(center, radius, Min, Max);
 #endif
-	}
+}
 
-#endif // CTCSPHEREAABBOVERLAP_H
+#endif  // CTCSPHEREAABBOVERLAP_H

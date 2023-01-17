@@ -11,15 +11,14 @@
 
 #include "ToolRayBased.h"
 
-	class ToolAddImpulse : public ToolRayBased
-	{
-		public:
-						ToolAddImpulse();
-		virtual			~ToolAddImpulse();
+class ToolAddImpulse : public ToolRayBased {
+public:
+    ToolAddImpulse();
+    virtual ~ToolAddImpulse();
 
-		virtual	void	CreateUI			(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
+    virtual void CreateUI(PintGUIHelper& helper, IceWidget* parent, Widgets& owner);
 
-		virtual	void	RightDownCallback	(Pint& pint, udword pint_index)	override;
-	};
+    virtual void RightDownCallback(Pint& pint, udword pint_index) override;
+};
 
 #endif

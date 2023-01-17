@@ -12,7 +12,8 @@
 #ifndef CTCQUADQUADDISTANCE_H
 #define CTCQUADQUADDISTANCE_H
 
-	CONTACT_API float QuadQuadDist(const Quad& q0, const Quad& q1);
-	CONTACT_API float QuadQuadDist(const OBB& box0, const OBB& box1, udword id0, udword id1, const Point* box_pts0, const Point* box_pts1);
+CONTACT_API float QuadQuadDist(const Quad& q0, const Quad& q1);
+CONTACT_API float QuadQuadDist(
+        const OBB& box0, const OBB& box1, udword id0, udword id1, const Point* box_pts0, const Point* box_pts1);
 
-#endif // CTCQUADQUADDISTANCE_H
+#endif  // CTCQUADQUADDISTANCE_H

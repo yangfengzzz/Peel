@@ -26,94 +26,74 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "task/PxTask.h"
 #include "PhysX5_ExtCpuWorkerThread.h"
-#include "PhysX5_ExtDefaultCpuDispatcher.h"
+
 #include "Extensions/ExtTaskQueueHelper.h"
+#include "PhysX5_ExtDefaultCpuDispatcher.h"
 #include "PsFPU.h"
+#include "task/PxTask.h"
 
 using namespace physx;
 using namespace physx5;
 
-physx5::Ext::CpuWorkerThread::CpuWorkerThread()
-:	mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE),
-	mThreadId(0)
-{
+physx5::Ext::CpuWorkerThread::CpuWorkerThread() : mQueueEntryPool(EXT_TASK_QUEUE_ENTRY_POOL_SIZE), mThreadId(0) {}
+
+physx5::Ext::CpuWorkerThread::~CpuWorkerThread() {}
+
+void physx5::Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher) { mOwner = ownerDispatcher; }
+
+bool physx5::Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task,
+                                                            physx::shdfnd::Thread::Id taskSubmitionThread) {
+    if (taskSubmitionThread == mThreadId) {
+        physx::Ext::SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
+        if (entry) {
+            mLocalJobList.push(*entry);
+            return true;
+        } else
+            return false;
+    }
+
+    return false;
 }
 
-physx5::Ext::CpuWorkerThread::~CpuWorkerThread()
-{
+PxBaseTask* physx5::Ext::CpuWorkerThread::giveUpJob() {
+    return physx::Ext::TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
 }
 
-void physx5::Ext::CpuWorkerThread::initialize(DefaultCpuDispatcher* ownerDispatcher)
-{
-	mOwner = ownerDispatcher;
-}
+void physx5::Ext::CpuWorkerThread::execute() {
+    mThreadId = getId();
 
-bool physx5::Ext::CpuWorkerThread::tryAcceptJobToLocalQueue(PxBaseTask& task, physx::shdfnd::Thread::Id taskSubmitionThread)
-{
-	if(taskSubmitionThread == mThreadId)
-	{
-		physx::Ext::SharedQueueEntry* entry = mQueueEntryPool.getEntry(&task);
-		if (entry)
-		{
-			mLocalJobList.push(*entry);
-			return true;
-		}
-		else
-			return false;
-	}
+    while (!quitIsSignalled()) {
+        const PxDefaultCpuDispatcherWaitForWorkMode::Enum ownerWaitForWorkMode = mOwner->getWaitForWorkMode();
+        if (PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode) {
+            mOwner->resetWakeSignal();
+        }
 
-	return false;
-}
+        PxBaseTask* task = physx::Ext::TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
 
-PxBaseTask* physx5::Ext::CpuWorkerThread::giveUpJob()
-{
-	return physx::Ext::TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
-}
+        if (!task) task = mOwner->fetchNextTask();
 
-void physx5::Ext::CpuWorkerThread::execute()
-{
-	mThreadId = getId();
+        if (task) {
+            mOwner->runTask(*task);
+            task->release();
+        } else if (PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_THREAD == ownerWaitForWorkMode) {
+            physx::shdfnd::Thread::yield();
+        }
+        /*		else if(PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_PROCESSOR == ownerWaitForWorkMode)
+                        {
+                                const PxU32 pauseCounter = mOwner->getYieldProcessorCount();
+                                for (PxU32 j = 0; j < pauseCounter; j++)
+                                {
+                                        physx::shdfnd::Thread::yieldProcesor();
+                                }
+                        }*/
+        else {
+            PX_ASSERT(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode);
+            mOwner->waitForWork();
+        }
+    }
 
-	while (!quitIsSignalled())
-    {
-		const PxDefaultCpuDispatcherWaitForWorkMode::Enum ownerWaitForWorkMode = mOwner->getWaitForWorkMode();
-		if(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode)
-		{
-			mOwner->resetWakeSignal();
-		}
-
-		PxBaseTask* task = physx::Ext::TaskQueueHelper::fetchTask(mLocalJobList, mQueueEntryPool);
-
-		if(!task)
-			task = mOwner->fetchNextTask();
-		
-		if (task)
-		{
-			mOwner->runTask(*task);
-			task->release();
-		}
-		else if(PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_THREAD == ownerWaitForWorkMode)
-		{
-			physx::shdfnd::Thread::yield();
-		}
-/*		else if(PxDefaultCpuDispatcherWaitForWorkMode::eYIELD_PROCESSOR == ownerWaitForWorkMode)
-		{
-			const PxU32 pauseCounter = mOwner->getYieldProcessorCount();
-			for (PxU32 j = 0; j < pauseCounter; j++)
-			{
-				physx::shdfnd::Thread::yieldProcesor();
-			}
-		}*/
-		else
-		{
-			PX_ASSERT(PxDefaultCpuDispatcherWaitForWorkMode::eWAIT_FOR_WORK == ownerWaitForWorkMode);
-			mOwner->waitForWork();
-		}
-	}
-
-	quit();
+    quit();
 }

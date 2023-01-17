@@ -12,38 +12,37 @@
 #ifndef ICEPICTUREIMPORTEXPORT_H
 #define ICEPICTUREIMPORTEXPORT_H
 
-	class ICEIMAGEWORK_API PictureImportExport : public ImportExport
-	{
-		public:
-		//! Constructor
-										PictureImportExport()	{}
-		//! Destructor
-		virtual							~PictureImportExport()	{}
+class ICEIMAGEWORK_API PictureImportExport : public ImportExport {
+public:
+    //! Constructor
+    PictureImportExport() {}
+    //! Destructor
+    virtual ~PictureImportExport() {}
 
-						DECLARE_ICE_INTERFACE(PictureImportExport, ImportExport)
+    DECLARE_ICE_INTERFACE(PictureImportExport, ImportExport)
 
-		virtual			bool			Load(const String& filename, Picture& pic)			=0;
-		virtual			bool			Load(const VirtualFile& file, Picture& pic)			=0;
-		virtual			bool			Save(const String& filename, const Picture& pic)	=0;
-	};
+    virtual bool Load(const String& filename, Picture& pic) = 0;
+    virtual bool Load(const VirtualFile& file, Picture& pic) = 0;
+    virtual bool Save(const String& filename, const Picture& pic) = 0;
+};
 
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	/**
-	 *	Loads a picture from a file.
-	 *	This wrapper actually:
-	 *	- searches registered paths for input filename in case it's not found at the root level
-	 *	- automatically selects the correct format decoder according to the file's extension
-	 *	- then eventually loads the file
-	 *
-	 *	\relates	Picture
-	 *	\fn			LoadPictureFromFile(const String& filename, Picture& pic)
-	 *	\param		filename	[in] file name
-	 *	\param		pic			[out] destination picture
-	 *	\return		true if success
-	 */
-	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	FUNCTION ICEIMAGEWORK_API bool LoadPictureFromFile(const char* filename, Picture& pic);
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ *	Loads a picture from a file.
+ *	This wrapper actually:
+ *	- searches registered paths for input filename in case it's not found at the root level
+ *	- automatically selects the correct format decoder according to the file's extension
+ *	- then eventually loads the file
+ *
+ *	\relates	Picture
+ *	\fn			LoadPictureFromFile(const String& filename, Picture& pic)
+ *	\param		filename	[in] file name
+ *	\param		pic			[out] destination picture
+ *	\return		true if success
+ */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+FUNCTION ICEIMAGEWORK_API bool LoadPictureFromFile(const char* filename, Picture& pic);
 
-	FUNCTION ICEIMAGEWORK_API bool SavePictureToFile(const char* filename, const Picture& pic);
+FUNCTION ICEIMAGEWORK_API bool SavePictureToFile(const char* filename, const Picture& pic);
 
-#endif // ICEPICTUREIMPORTEXPORT_H
+#endif  // ICEPICTUREIMPORTEXPORT_H

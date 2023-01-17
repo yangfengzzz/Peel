@@ -36,11 +36,11 @@
 #include "foundation/Px.h"
 
 #if !PX_ENABLE_ASSERTS
-	#define PX_SHARED_ASSERT(exp) ((void)0)
+#define PX_SHARED_ASSERT(exp) ((void)0)
 #else
-	#include <assert.h>
-	#define PX_SHARED_ASSERT(exp) assert(exp);
-#endif // !PX_ENABLE_ASSERTS
+#include <assert.h>
+#define PX_SHARED_ASSERT(exp) assert(exp);
+#endif  // !PX_ENABLE_ASSERTS
 
 /** @} */
-#endif // #ifndef PXFOUNDATION_PXASSERT_H
+#endif  // #ifndef PXFOUNDATION_PXASSERT_H

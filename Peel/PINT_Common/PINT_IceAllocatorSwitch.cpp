@@ -15,34 +15,23 @@ static MyIceAllocator* gIceAllocator = null;
 
 ///////////////////////////////////////////////////////////////////////////////
 
-void InitIceAllocator(const char* name)
-{
-	ASSERT(!gIceAllocator);
-	gIceAllocator = new MyIceAllocator(name);
-	ASSERT(gIceAllocator);
+void InitIceAllocator(const char* name) {
+    ASSERT(!gIceAllocator);
+    gIceAllocator = new MyIceAllocator(name);
+    ASSERT(gIceAllocator);
 }
 
-void ReleaseIceAllocator()
-{
-	DELETESINGLE(gIceAllocator);
-}
+void ReleaseIceAllocator() { DELETESINGLE(gIceAllocator); }
 
-udword GetIceAllocatorUsedMemory()
-{
-	return gIceAllocator->mUsedMemory;
-}
+udword GetIceAllocatorUsedMemory() { return gIceAllocator->mUsedMemory; }
 
 ///////////////////////////////////////////////////////////////////////////////
 
-AllocSwitch::AllocSwitch()
-{
-	ASSERT(gIceAllocator);
-	SetAllocator(*gIceAllocator);
+AllocSwitch::AllocSwitch() {
+    ASSERT(gIceAllocator);
+    SetAllocator(*gIceAllocator);
 }
 
-AllocSwitch::~AllocSwitch()
-{
-	SetAllocator(*gIceAllocator->mPreviousAllocator);
-}
+AllocSwitch::~AllocSwitch() { SetAllocator(*gIceAllocator->mPreviousAllocator); }
 
 ///////////////////////////////////////////////////////////////////////////////

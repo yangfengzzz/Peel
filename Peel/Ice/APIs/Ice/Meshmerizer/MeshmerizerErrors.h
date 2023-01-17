@@ -12,7 +12,7 @@
 #ifndef MESHMERIZERERRORS_H
 #define MESHMERIZERERRORS_H
 
-	// Error codes for Meshmerizer
-	extern MESHMERIZER_API const char* EC_NON_MANIFOLD_MESH;
+// Error codes for Meshmerizer
+extern MESHMERIZER_API const char* EC_NON_MANIFOLD_MESH;
 
-#endif // MESHMERIZERERRORS_H
+#endif  // MESHMERIZERERRORS_H

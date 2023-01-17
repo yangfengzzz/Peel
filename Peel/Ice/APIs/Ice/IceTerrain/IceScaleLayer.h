@@ -12,29 +12,27 @@
 #ifndef ICESCALELAYER_H
 #define ICESCALELAYER_H
 
-	// Note: this layer is obsolete, replaced with the multiply-add layer.
+// Note: this layer is obsolete, replaced with the multiply-add layer.
 
-	struct ICETERRAIN_API SCALELAYERCREATE : HEIGHTLAYERCREATE
-	{
-		SCALELAYERCREATE() : mScaleFactor(0.0f)	{}
+struct ICETERRAIN_API SCALELAYERCREATE : HEIGHTLAYERCREATE {
+    SCALELAYERCREATE() : mScaleFactor(0.0f) {}
 
-		float	mScaleFactor;
-	};
+    float mScaleFactor;
+};
 
-	class ICETERRAIN_API ScaleLayer : public HeightLayer
-	{
-		public:
-						ScaleLayer();
-		virtual			~ScaleLayer();
+class ICETERRAIN_API ScaleLayer : public HeightLayer {
+public:
+    ScaleLayer();
+    virtual ~ScaleLayer();
 
-		virtual	bool	Init(const SCALELAYERCREATE& create);
-		virtual	bool	Update(float* field, udword width, udword height)	const;
+    virtual bool Init(const SCALELAYERCREATE& create);
+    virtual bool Update(float* field, udword width, udword height) const;
 
-		inline_	float	GetScaleFactor()	const	{ return mScaleFactor;	}
-		inline_	void	SetScaleFactor(float s)		{ mScaleFactor = s;		}
+    inline_ float GetScaleFactor() const { return mScaleFactor; }
+    inline_ void SetScaleFactor(float s) { mScaleFactor = s; }
 
-		protected:
-				float	mScaleFactor;
-	};
+protected:
+    float mScaleFactor;
+};
 
-#endif // ICESCALELAYER_H
+#endif  // ICESCALELAYER_H

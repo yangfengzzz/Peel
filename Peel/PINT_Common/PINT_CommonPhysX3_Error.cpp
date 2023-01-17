@@ -13,9 +13,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 udword gNbPhysXErrors = 0;
-void PEEL_PhysX3_ErrorCallback::reportError(PxErrorCode::Enum code, const char* message, const char* file, int line)
-{
-	gNbPhysXErrors++;
-	printf("%s\n", message);
-	SetIceError(message, null);
+void PEEL_PhysX3_ErrorCallback::reportError(PxErrorCode::Enum code, const char* message, const char* file, int line) {
+    gNbPhysXErrors++;
+    printf("%s\n", message);
+    SetIceError(message, null);
 }

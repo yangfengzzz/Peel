@@ -27,70 +27,55 @@
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
 // Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-#include "windows/PsWindowsInclude.h"
 #include "PsAtomic.h"
+#include "windows/PsWindowsInclude.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
-int32_t atomicExchange(volatile int32_t* val, int32_t val2)
-{
-	return (int32_t)InterlockedExchange((volatile LONG*)val, (LONG)val2);
+int32_t atomicExchange(volatile int32_t* val, int32_t val2) {
+    return (int32_t)InterlockedExchange((volatile LONG*)val, (LONG)val2);
 }
 
-int32_t atomicCompareExchange(volatile int32_t* dest, int32_t exch, int32_t comp)
-{
-	return (int32_t)InterlockedCompareExchange((volatile LONG*)dest, exch, comp);
+int32_t atomicCompareExchange(volatile int32_t* dest, int32_t exch, int32_t comp) {
+    return (int32_t)InterlockedCompareExchange((volatile LONG*)dest, exch, comp);
 }
 
-void* atomicCompareExchangePointer(volatile void** dest, void* exch, void* comp)
-{
-	return InterlockedCompareExchangePointer((volatile PVOID*)dest, exch, comp);
+void* atomicCompareExchangePointer(volatile void** dest, void* exch, void* comp) {
+    return InterlockedCompareExchangePointer((volatile PVOID*)dest, exch, comp);
 }
 
-int32_t atomicIncrement(volatile int32_t* val)
-{
-	return (int32_t)InterlockedIncrement((volatile LONG*)val);
+int32_t atomicIncrement(volatile int32_t* val) { return (int32_t)InterlockedIncrement((volatile LONG*)val); }
+
+int32_t atomicDecrement(volatile int32_t* val) { return (int32_t)InterlockedDecrement((volatile LONG*)val); }
+
+int32_t atomicAdd(volatile int32_t* val, int32_t delta) {
+    LONG newValue, oldValue;
+    do {
+        oldValue = *val;
+        newValue = oldValue + delta;
+    } while (InterlockedCompareExchange((volatile LONG*)val, newValue, oldValue) != oldValue);
+
+    return newValue;
 }
 
-int32_t atomicDecrement(volatile int32_t* val)
-{
-	return (int32_t)InterlockedDecrement((volatile LONG*)val);
+int32_t atomicMax(volatile int32_t* val, int32_t val2) {
+    // Could do this more efficiently in asm...
+
+    LONG newValue, oldValue;
+
+    do {
+        oldValue = *val;
+
+        if (val2 > oldValue)
+            newValue = val2;
+        else
+            newValue = oldValue;
+
+    } while (InterlockedCompareExchange((volatile LONG*)val, newValue, oldValue) != oldValue);
+
+    return newValue;
 }
 
-int32_t atomicAdd(volatile int32_t* val, int32_t delta)
-{
-	LONG newValue, oldValue;
-	do
-	{
-		oldValue = *val;
-		newValue = oldValue + delta;
-	} while(InterlockedCompareExchange((volatile LONG*)val, newValue, oldValue) != oldValue);
-
-	return newValue;
-}
-
-int32_t atomicMax(volatile int32_t* val, int32_t val2)
-{
-	// Could do this more efficiently in asm...
-
-	LONG newValue, oldValue;
-
-	do
-	{
-		oldValue = *val;
-
-		if(val2 > oldValue)
-			newValue = val2;
-		else
-			newValue = oldValue;
-
-	} while(InterlockedCompareExchange((volatile LONG*)val, newValue, oldValue) != oldValue);
-
-	return newValue;
-}
-
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

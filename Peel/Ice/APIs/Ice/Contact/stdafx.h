@@ -8,9 +8,9 @@
 
 #if _MSC_VER > 1000
 #pragma once
-#endif // _MSC_VER > 1000
+#endif  // _MSC_VER > 1000
 
-#define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
+#define WIN32_LEAN_AND_MEAN  // Exclude rarely-used stuff from Windows headers
 
 #include "ContactAFX.h"
 
@@ -19,4 +19,4 @@
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_STDAFX_H__CDB5785E_A6F2_4D41_A558_33C512DD41ED__INCLUDED_)
+#endif  // !defined(AFX_STDAFX_H__CDB5785E_A6F2_4D41_A558_33C512DD41ED__INCLUDED_)

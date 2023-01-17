@@ -44,139 +44,116 @@
  */
 #include <new>
 
-namespace physx
-{
-namespace shdfnd
-{
-class PX_FOUNDATION_API MutexImpl
-{
-  public:
-	/**
-	The constructor for Mutex creates a mutex. It is initially unlocked.
-	*/
-	MutexImpl();
+namespace physx {
+namespace shdfnd {
+class PX_FOUNDATION_API MutexImpl {
+public:
+    /**
+    The constructor for Mutex creates a mutex. It is initially unlocked.
+    */
+    MutexImpl();
 
-	/**
-	The destructor for Mutex deletes the mutex.
-	*/
-	~MutexImpl();
+    /**
+    The destructor for Mutex deletes the mutex.
+    */
+    ~MutexImpl();
 
-	/**
-	Acquire (lock) the mutex. If the mutex is already locked
-	by another thread, this method blocks until the mutex is
-	unlocked.
-	*/
-	void lock();
+    /**
+    Acquire (lock) the mutex. If the mutex is already locked
+    by another thread, this method blocks until the mutex is
+    unlocked.
+    */
+    void lock();
 
-	/**
-	Acquire (lock) the mutex. If the mutex is already locked
-	by another thread, this method returns false without blocking.
-	*/
-	bool trylock();
+    /**
+    Acquire (lock) the mutex. If the mutex is already locked
+    by another thread, this method returns false without blocking.
+    */
+    bool trylock();
 
-	/**
-	Release (unlock) the mutex.
-	*/
-	void unlock();
+    /**
+    Release (unlock) the mutex.
+    */
+    void unlock();
 
-	/**
-	Size of this class.
-	*/
-	static uint32_t getSize();
+    /**
+    Size of this class.
+    */
+    static uint32_t getSize();
 };
 
-template <typename Alloc = ReflectionAllocator<MutexImpl> >
-class MutexT : protected Alloc
-{
-	PX_NOCOPY(MutexT)
-  public:
-	class ScopedLock
-	{
-		MutexT<Alloc>& mMutex;
-		PX_NOCOPY(ScopedLock)
-	  public:
-		PX_INLINE ScopedLock(MutexT<Alloc>& mutex) : mMutex(mutex)
-		{
-			mMutex.lock();
-		}
-		PX_INLINE ~ScopedLock()
-		{
-			mMutex.unlock();
-		}
-	};
+template <typename Alloc = ReflectionAllocator<MutexImpl>>
+class MutexT : protected Alloc {
+    PX_NOCOPY(MutexT)
+public:
+    class ScopedLock {
+        MutexT<Alloc>& mMutex;
+        PX_NOCOPY(ScopedLock)
+    public:
+        PX_INLINE ScopedLock(MutexT<Alloc>& mutex) : mMutex(mutex) { mMutex.lock(); }
+        PX_INLINE ~ScopedLock() { mMutex.unlock(); }
+    };
 
-	/**
-	The constructor for Mutex creates a mutex. It is initially unlocked.
-	*/
-	MutexT(const Alloc& alloc = Alloc()) : Alloc(alloc)
-	{
-		mImpl = reinterpret_cast<MutexImpl*>(Alloc::allocate(MutexImpl::getSize(), __FILE__, __LINE__));
-		PX_PLACEMENT_NEW(mImpl, MutexImpl)();
-	}
+    /**
+    The constructor for Mutex creates a mutex. It is initially unlocked.
+    */
+    MutexT(const Alloc& alloc = Alloc()) : Alloc(alloc) {
+        mImpl = reinterpret_cast<MutexImpl*>(Alloc::allocate(MutexImpl::getSize(), __FILE__, __LINE__));
+        PX_PLACEMENT_NEW(mImpl, MutexImpl)();
+    }
 
-	/**
-	The destructor for Mutex deletes the mutex.
-	*/
-	~MutexT()
-	{
-		mImpl->~MutexImpl();
-		Alloc::deallocate(mImpl);
-	}
+    /**
+    The destructor for Mutex deletes the mutex.
+    */
+    ~MutexT() {
+        mImpl->~MutexImpl();
+        Alloc::deallocate(mImpl);
+    }
 
-	/**
-	Acquire (lock) the mutex. If the mutex is already locked
-	by another thread, this method blocks until the mutex is
-	unlocked.
-	*/
-	void lock() const
-	{
-		mImpl->lock();
-	}
+    /**
+    Acquire (lock) the mutex. If the mutex is already locked
+    by another thread, this method blocks until the mutex is
+    unlocked.
+    */
+    void lock() const { mImpl->lock(); }
 
-	/**
-	Acquire (lock) the mutex. If the mutex is already locked
-	by another thread, this method returns false without blocking,
-	returns true if lock is successfully acquired
-	*/
-	bool trylock() const
-	{
-		return mImpl->trylock();
-	}
+    /**
+    Acquire (lock) the mutex. If the mutex is already locked
+    by another thread, this method returns false without blocking,
+    returns true if lock is successfully acquired
+    */
+    bool trylock() const { return mImpl->trylock(); }
 
-	/**
-	Release (unlock) the mutex, the calling thread must have
-	previously called lock() or method will error
-	*/
-	void unlock() const
-	{
-		mImpl->unlock();
-	}
+    /**
+    Release (unlock) the mutex, the calling thread must have
+    previously called lock() or method will error
+    */
+    void unlock() const { mImpl->unlock(); }
 
-  private:
-	MutexImpl* mImpl;
+private:
+    MutexImpl* mImpl;
 };
 
-class PX_FOUNDATION_API ReadWriteLock
-{
-	PX_NOCOPY(ReadWriteLock)
-  public:
-	ReadWriteLock();
-	~ReadWriteLock();
+class PX_FOUNDATION_API ReadWriteLock {
+    PX_NOCOPY(ReadWriteLock)
+public:
+    ReadWriteLock();
+    ~ReadWriteLock();
 
-	// "takeLock" can only be false if the thread already holds the mutex, e.g. if it already acquired the write lock
-	void lockReader(bool takeLock);
-	void lockWriter();
+    // "takeLock" can only be false if the thread already holds the mutex, e.g. if it already acquired the write lock
+    void lockReader(bool takeLock);
+    void lockWriter();
 
-	void unlockReader();
-	void unlockWriter();
+    void unlockReader();
+    void unlockWriter();
 
-  private:
-	class ReadWriteLockImpl* mImpl;
+private:
+    class ReadWriteLockImpl* mImpl;
 };
 
 typedef MutexT<> Mutex;
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSMUTEX_H
+#endif  // #ifndef PSFOUNDATION_PSMUTEX_H

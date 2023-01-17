@@ -12,34 +12,34 @@
 #ifndef ICEGENERICCACHE_H
 #define ICEGENERICCACHE_H
 
-	typedef udword	CacheIndex;
+typedef udword CacheIndex;
 
-	class ICECORE_API GenericCache : public Allocateable
-	{
-		public:
-								GenericCache();
-								~GenericCache();
+class ICECORE_API GenericCache : public Allocateable {
+public:
+    GenericCache();
+    ~GenericCache();
 
-				bool			Init(udword cache_size);
+    bool Init(udword cache_size);
 
-				CacheIndex		CacheData(udword nb_bytes, const void* data=null, void** cache=null);
-				bool			ShrinkCache(CacheIndex cookie, udword used_size);
-				void*			GetData(CacheIndex cookie)	const;
+    CacheIndex CacheData(udword nb_bytes, const void* data = null, void** cache = null);
+    bool ShrinkCache(CacheIndex cookie, udword used_size);
+    void* GetData(CacheIndex cookie) const;
 
-		inline_	void			CacheBegin()			{ mMarker = mWritePtr;						}
-		inline_	udword			CacheEnd()		const	{ return ::abs(int(mWritePtr - mMarker));	}
-		inline_	udword			getSize()		const	{ return mCacheSize;						}
-		private:
-				udword			mCacheSize;
-				CacheIndex		mWritePtr;		//!< Virtual running index
-				CacheIndex		mPtrOwner;		//!< Owner of write pointer
-				ubyte*			mPool;			//!< Cyclic-array of mCacheSize bytes
-				CacheIndex		mMarker;		//!< 
+    inline_ void CacheBegin() { mMarker = mWritePtr; }
+    inline_ udword CacheEnd() const { return ::abs(int(mWritePtr - mMarker)); }
+    inline_ udword getSize() const { return mCacheSize; }
 
-		// Internal methods
-				void			Release();
-				void*			AllocFromCache(udword nb_bytes, CacheIndex& cookie);
-		inline_	udword			ComputeRealIndex(udword virtual_index)	const	{ return mCacheSize ? virtual_index % mCacheSize : 0;	}
-	};
+private:
+    udword mCacheSize;
+    CacheIndex mWritePtr;  //!< Virtual running index
+    CacheIndex mPtrOwner;  //!< Owner of write pointer
+    ubyte* mPool;          //!< Cyclic-array of mCacheSize bytes
+    CacheIndex mMarker;    //!<
 
-#endif // ICEGENERICCACHE_H
+    // Internal methods
+    void Release();
+    void* AllocFromCache(udword nb_bytes, CacheIndex& cookie);
+    inline_ udword ComputeRealIndex(udword virtual_index) const { return mCacheSize ? virtual_index % mCacheSize : 0; }
+};
+
+#endif  // ICEGENERICCACHE_H

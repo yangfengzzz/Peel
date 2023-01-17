@@ -12,10 +12,11 @@
 #ifndef CTCRECTANGLERECTANGLEDISTANCE_H
 #define CTCRECTANGLERECTANGLEDISTANCE_H
 
-	CONTACT_API float RectangleRectangleSqrDist(
-		const Rectangle3& rkRct0,
-		const Rectangle3& rkRct1,
-		float* pfRct0P0=null, float* pfRct0P1=null,
-		float* pfRct1P0=null, float* pfRct1P1=null);
+CONTACT_API float RectangleRectangleSqrDist(const Rectangle3& rkRct0,
+                                            const Rectangle3& rkRct1,
+                                            float* pfRct0P0 = null,
+                                            float* pfRct0P1 = null,
+                                            float* pfRct1P0 = null,
+                                            float* pfRct1P1 = null);
 
-#endif // CTCRECTANGLERECTANGLEDISTANCE_H
+#endif  // CTCRECTANGLERECTANGLEDISTANCE_H

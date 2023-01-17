@@ -12,35 +12,34 @@
 #ifndef ICERIDGEDFRACTAL_H
 #define ICERIDGEDFRACTAL_H
 
-	class ICEMATHS_API RidgedFractal : public Allocateable
-	{
-		public:
-								RidgedFractal();
-								RidgedFractal(float h, float lacunarity, float octaves, float offset, float gain);
-								~RidgedFractal();
+class ICEMATHS_API RidgedFractal : public Allocateable {
+public:
+    RidgedFractal();
+    RidgedFractal(float h, float lacunarity, float octaves, float offset, float gain);
+    ~RidgedFractal();
 
-				void			Init(float h, float lacunarity, float octaves, float offset, float gain);
+    void Init(float h, float lacunarity, float octaves, float offset, float gain);
 
-				float			Compute(const Point& vector)	const;
+    float Compute(const Point& vector) const;
 
-		inline_	float			GetFractalIncrement()	const	{ return mFractalIncrement;	}
-		inline_	float			GetLacunarity()			const	{ return mLacunarity;		}
-		inline_	float			GetOctaves()			const	{ return mOctaves;			}
-		inline_	float			GetOffset()				const	{ return mOffset;			}
-		inline_	float			GetGain()				const	{ return mGain;				}
+    inline_ float GetFractalIncrement() const { return mFractalIncrement; }
+    inline_ float GetLacunarity() const { return mLacunarity; }
+    inline_ float GetOctaves() const { return mOctaves; }
+    inline_ float GetOffset() const { return mOffset; }
+    inline_ float GetGain() const { return mGain; }
 
-		inline_	void			SetGain(float gain)				{ mGain = gain;				}
-		inline_	void			SetOffset(float offset)			{ mOffset = offset;			}
+    inline_ void SetGain(float gain) { mGain = gain; }
+    inline_ void SetOffset(float offset) { mOffset = offset; }
 
-		protected:
-				PerlinNoise		mNoise;
-				float			mFractalIncrement;
-				float			mLacunarity;
-				float			mOctaves;
-				float			mOffset;
-				float			mGain;
+protected:
+    PerlinNoise mNoise;
+    float mFractalIncrement;
+    float mLacunarity;
+    float mOctaves;
+    float mOffset;
+    float mGain;
 
-				float*			mExponentArray;
-	};
+    float* mExponentArray;
+};
 
-#endif // ICERIDGEDFRACTAL_H
+#endif  // ICERIDGEDFRACTAL_H

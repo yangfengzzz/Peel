@@ -37,12 +37,11 @@
 #include "foundation/PxSimpleTypes.h"
 
 /** files to always include */
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
 
 #if !PX_DOXYGEN
-namespace physx
-{
+namespace physx {
 #endif
 
 typedef uint32_t PxU32;
@@ -67,26 +66,17 @@ class PxTransform;
 class PxBounds3;
 
 /** enum for empty constructor tag*/
-enum PxEMPTY
-{
-	PxEmpty
-};
+enum PxEMPTY { PxEmpty };
 
 /** enum for zero constructor tag for vectors and matrices */
-enum PxZERO
-{
-	PxZero
-};
+enum PxZERO { PxZero };
 
 /** enum for identity constructor flag for quaternions, transforms, and matrices */
-enum PxIDENTITY
-{
-	PxIdentity
-};
+enum PxIDENTITY { PxIdentity };
 
 #if !PX_DOXYGEN
-} // namespace physx
+}  // namespace physx
 #endif
 
 /** @} */
-#endif // #ifndef PXFOUNDATION_PX_H
+#endif  // #ifndef PXFOUNDATION_PX_H

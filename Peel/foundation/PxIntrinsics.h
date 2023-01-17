@@ -34,7 +34,7 @@
 
 #if PX_WINDOWS_FAMILY
 #include "foundation/windows/PxWindowsIntrinsics.h"
-#elif(PX_LINUX || PX_ANDROID || PX_APPLE_FAMILY || PX_PS4)
+#elif (PX_LINUX || PX_ANDROID || PX_APPLE_FAMILY || PX_PS4)
 #include "foundation/unix/PxUnixIntrinsics.h"
 #elif PX_XBOXONE
 #include "foundation/XboxOne/PxXboxOneIntrinsics.h"
@@ -44,4 +44,4 @@
 #error "Platform not supported!"
 #endif
 
-#endif // #ifndef PXFOUNDATION_PXINTRINSICS_H
+#endif  // #ifndef PXFOUNDATION_PXINTRINSICS_H

@@ -14,4 +14,4 @@
 
 //	#define ZCB2_FLIPX
 
-#endif // ZCB2SETTINGS_H
+#endif  // ZCB2SETTINGS_H

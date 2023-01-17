@@ -9,9 +9,8 @@
 #include "stdafx.h"
 //
 //
-#include "DefaultControlInterface.h"
-
 #include "Camera.h"
+#include "DefaultControlInterface.h"
 #include "GUI_ActorEdit.h"
 #include "GUI_CompoundEdit.h"
 #include "GUI_Helpers.h"
@@ -1013,8 +1012,9 @@ void DefaultControlInterface::DoPopupMenu(const MouseInfo& mouse) {
             IceCore::AppendMenu(SelectionSubMenu, MF_POPUP, (UINT_PTR)CollisionSubMenu, "Set collision shape");
             AddPopupMenuEntry(SelectionSubMenu, "Make static", SELECTION_STATIC, false, !gUseEditor || !NbSelected);
             AddPopupMenuEntry(SelectionSubMenu, "Make dynamic", SELECTION_DYNAMIC, false, !gUseEditor || !NbSelected);
-            //			AddPopupMenuEntry(SelectionSubMenu, "Make kinematic", SELECTION_KINEMATIC, false, !gUseEditor ||
-            //!NbSelected);
+            //			AddPopupMenuEntry(SelectionSubMenu, "Make kinematic", SELECTION_KINEMATIC, false, !gUseEditor
+            //||
+            //! NbSelected);
             IceCore::AppendMenu(SelectionSubMenu, MF_SEPARATOR, 0, 0);
             AddPopupMenuEntry(SelectionSubMenu, "Reset poses", SELECTION_RESET_POSES, false,
                               !gUseEditor || !NbSelected);

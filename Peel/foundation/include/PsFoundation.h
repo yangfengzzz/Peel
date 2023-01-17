@@ -30,166 +30,123 @@
 #ifndef PX_FOUNDATION_PSFOUNDATION_H
 #define PX_FOUNDATION_PSFOUNDATION_H
 
-#include "foundation/PxErrors.h"
-#include "foundation/PxProfiler.h"
-
-#include "PxFoundation.h"
-
-#include "PsBroadcast.h"
-#include "PsAllocator.h"
-#include "PsTempAllocator.h"
-#include "PsMutex.h"
-#include "PsHashMap.h"
-#include "PsUserAllocated.h"
-
 #include <stdarg.h>
 
-namespace physx
-{
-namespace shdfnd
-{
+#include "foundation/PxErrors.h"
+#include "foundation/PxProfiler.h"
+#include "PsAllocator.h"
+#include "PsBroadcast.h"
+#include "PsHashMap.h"
+#include "PsMutex.h"
+#include "PsTempAllocator.h"
+#include "PsUserAllocated.h"
+#include "PxFoundation.h"
+
+namespace physx {
+namespace shdfnd {
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable : 4251) // class needs to have dll-interface to be used by clients of class
+#pragma warning(disable : 4251)  // class needs to have dll-interface to be used by clients of class
 #endif
 
-class PX_FOUNDATION_API Foundation : public PxFoundation, public UserAllocated
-{
-	PX_NOCOPY(Foundation)
+class PX_FOUNDATION_API Foundation : public PxFoundation, public UserAllocated {
+    PX_NOCOPY(Foundation)
 
-  public:
-	typedef MutexT<Allocator> Mutex;
+public:
+    typedef MutexT<Allocator> Mutex;
 
-	typedef HashMap<const NamedAllocator*, const char*, Hash<const NamedAllocator*>, NonTrackingAllocator> AllocNameMap;
-	typedef Array<TempAllocatorChunk*, Allocator> AllocFreeTable;
+    typedef HashMap<const NamedAllocator*, const char*, Hash<const NamedAllocator*>, NonTrackingAllocator> AllocNameMap;
+    typedef Array<TempAllocatorChunk*, Allocator> AllocFreeTable;
 
-  public:
-	// factory
-	// note, you MUST eventually call release if createInstance returned true!
-	static Foundation* createInstance(PxU32 version, PxErrorCallback& errc, PxAllocatorCallback& alloc);
-	static Foundation& getInstance();
-	static void setInstance(Foundation& foundation);
-	void release();
-	static void incRefCount(); // this call requires a foundation object to exist already
-	static void decRefCount(); // this call requires a foundation object to exist already
+public:
+    // factory
+    // note, you MUST eventually call release if createInstance returned true!
+    static Foundation* createInstance(PxU32 version, PxErrorCallback& errc, PxAllocatorCallback& alloc);
+    static Foundation& getInstance();
+    static void setInstance(Foundation& foundation);
+    void release();
+    static void incRefCount();  // this call requires a foundation object to exist already
+    static void decRefCount();  // this call requires a foundation object to exist already
 
-	// Begin Errors
-	virtual PxErrorCallback& getErrorCallback()
-	{
-		return mErrorCallback;
-	} // Return the user's error callback
-	PxErrorCallback& getInternalErrorCallback()
-	{
-		return mBroadcastingError;
-	} // Return the broadcasting error callback
+    // Begin Errors
+    virtual PxErrorCallback& getErrorCallback() { return mErrorCallback; }  // Return the user's error callback
+    PxErrorCallback& getInternalErrorCallback() {
+        return mBroadcastingError;
+    }  // Return the broadcasting error callback
 
-	void registerErrorCallback(PxErrorCallback& listener);
-	void deregisterErrorCallback(PxErrorCallback& listener);
+    void registerErrorCallback(PxErrorCallback& listener);
+    void deregisterErrorCallback(PxErrorCallback& listener);
 
-	virtual void setErrorLevel(PxErrorCode::Enum mask)
-	{
-		mErrorMask = mask;
-	}
-	virtual PxErrorCode::Enum getErrorLevel() const
-	{
-		return mErrorMask;
-	}
+    virtual void setErrorLevel(PxErrorCode::Enum mask) { mErrorMask = mask; }
+    virtual PxErrorCode::Enum getErrorLevel() const { return mErrorMask; }
 
-	void error(PxErrorCode::Enum, const char* file, int line, const char* messageFmt, ...); // Report errors with the
-	                                                                                        // broadcasting
-	void errorImpl(PxErrorCode::Enum, const char* file, int line, const char* messageFmt, va_list); // error callback
-	static PxU32 getWarnOnceTimestamp();
+    void error(PxErrorCode::Enum, const char* file, int line, const char* messageFmt, ...);  // Report errors with the
+                                                                                             // broadcasting
+    void errorImpl(PxErrorCode::Enum, const char* file, int line, const char* messageFmt, va_list);  // error callback
+    static PxU32 getWarnOnceTimestamp();
 
-	// End errors
+    // End errors
 
-	// Begin Allocations
-	virtual PxAllocatorCallback& getAllocatorCallback()
-	{
-		return mAllocatorCallback;
-	} // Return the user's allocator callback
-	PxAllocatorCallback& getAllocator()
-	{
-		return mBroadcastingAllocator;
-	} // Return the broadcasting allocator
+    // Begin Allocations
+    virtual PxAllocatorCallback& getAllocatorCallback() {
+        return mAllocatorCallback;
+    }                                                                       // Return the user's allocator callback
+    PxAllocatorCallback& getAllocator() { return mBroadcastingAllocator; }  // Return the broadcasting allocator
 
-	void registerAllocationListener(physx::shdfnd::AllocationListener& listener);
-	void deregisterAllocationListener(physx::shdfnd::AllocationListener& listener);
+    void registerAllocationListener(physx::shdfnd::AllocationListener& listener);
+    void deregisterAllocationListener(physx::shdfnd::AllocationListener& listener);
 
-	virtual bool getReportAllocationNames() const
-	{
-		return mReportAllocationNames;
-	}
-	virtual void setReportAllocationNames(bool value)
-	{
-		mReportAllocationNames = value;
-	}
+    virtual bool getReportAllocationNames() const { return mReportAllocationNames; }
+    virtual void setReportAllocationNames(bool value) { mReportAllocationNames = value; }
 
-	PX_INLINE AllocNameMap& getNamedAllocMap()
-	{
-		return mNamedAllocMap;
-	}
-	PX_INLINE Mutex& getNamedAllocMutex()
-	{
-		return mNamedAllocMutex;
-	}
+    PX_INLINE AllocNameMap& getNamedAllocMap() { return mNamedAllocMap; }
+    PX_INLINE Mutex& getNamedAllocMutex() { return mNamedAllocMutex; }
 
-	PX_INLINE AllocFreeTable& getTempAllocFreeTable()
-	{
-		return mTempAllocFreeTable;
-	}
-	PX_INLINE Mutex& getTempAllocMutex()
-	{
-		return mTempAllocMutex;
-	}
-	// End allocations
+    PX_INLINE AllocFreeTable& getTempAllocFreeTable() { return mTempAllocFreeTable; }
+    PX_INLINE Mutex& getTempAllocMutex() { return mTempAllocMutex; }
+    // End allocations
 
-  private:
-	static void destroyInstance();
+private:
+    static void destroyInstance();
 
-	Foundation(PxErrorCallback& errc, PxAllocatorCallback& alloc);
-	~Foundation();
+    Foundation(PxErrorCallback& errc, PxAllocatorCallback& alloc);
+    ~Foundation();
 
-	// init order is tricky here: the mutexes require the allocator, the allocator may require the error stream
-	PxAllocatorCallback& mAllocatorCallback;
-	PxErrorCallback& mErrorCallback;
+    // init order is tricky here: the mutexes require the allocator, the allocator may require the error stream
+    PxAllocatorCallback& mAllocatorCallback;
+    PxErrorCallback& mErrorCallback;
 
-	BroadcastingAllocator mBroadcastingAllocator;
-	BroadcastingErrorCallback mBroadcastingError;
+    BroadcastingAllocator mBroadcastingAllocator;
+    BroadcastingErrorCallback mBroadcastingError;
 
-	bool mReportAllocationNames;
+    bool mReportAllocationNames;
 
-	PxErrorCode::Enum mErrorMask;
-	Mutex mErrorMutex;
+    PxErrorCode::Enum mErrorMask;
+    Mutex mErrorMutex;
 
-	AllocNameMap mNamedAllocMap;
-	Mutex mNamedAllocMutex;
+    AllocNameMap mNamedAllocMap;
+    Mutex mNamedAllocMutex;
 
-	AllocFreeTable mTempAllocFreeTable;
-	Mutex mTempAllocMutex;
+    AllocFreeTable mTempAllocFreeTable;
+    Mutex mTempAllocMutex;
 
-	Mutex mListenerMutex;
+    Mutex mListenerMutex;
 
-	static Foundation* mInstance;
-	static PxU32 mRefCount;
-	static PxU32 mWarnOnceTimestap;
+    static Foundation* mInstance;
+    static PxU32 mRefCount;
+    static PxU32 mWarnOnceTimestap;
 };
 #if PX_VC
 #pragma warning(pop)
 #endif
 
-PX_INLINE Foundation& getFoundation()
-{
-	return Foundation::getInstance();
-}
+PX_INLINE Foundation& getFoundation() { return Foundation::getInstance(); }
 
-PX_INLINE void setFoundationInstance(Foundation& foundation)
-{
-	Foundation::setInstance(foundation);
-}
+PX_INLINE void setFoundationInstance(Foundation& foundation) { Foundation::setInstance(foundation); }
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
 // shortcut macros:
 // usage: Foundation::error(PX_WARN, "static friction %f is is lower than dynamic friction %d", sfr, dfr);
@@ -197,24 +154,20 @@ PX_INLINE void setFoundationInstance(Foundation& foundation)
 #define PX_INFO ::physx::PxErrorCode::eDEBUG_INFO, __FILE__, __LINE__
 
 #if PX_DEBUG || PX_CHECKED
-#define PX_WARN_ONCE(string)                                                                                           \
-	{                                                                                                                  \
-		static PxU32 timestamp = 0;                                                                                    \
-		if(timestamp != Ps::getFoundation().getWarnOnceTimestamp())                                                    \
-		{                                                                                                              \
-			timestamp = Ps::getFoundation().getWarnOnceTimestamp();                                                    \
-			Ps::getFoundation().error(PX_WARN, string);                                                                \
-		}                                                                                                              \
-	\
-}
-#define PX_WARN_ONCE_IF(condition, string)                                                                             \
-	{                                                                                                                  \
-		if(condition)                                                                                                  \
-		{                                                                                                              \
-			PX_WARN_ONCE(string)                                                                                       \
-		}                                                                                                              \
-	\
-}
+#define PX_WARN_ONCE(string)                                           \
+    {                                                                  \
+        static PxU32 timestamp = 0;                                    \
+        if (timestamp != Ps::getFoundation().getWarnOnceTimestamp()) { \
+            timestamp = Ps::getFoundation().getWarnOnceTimestamp();    \
+            Ps::getFoundation().error(PX_WARN, string);                \
+        }                                                              \
+    }
+#define PX_WARN_ONCE_IF(condition, string) \
+    {                                      \
+        if (condition) {                   \
+            PX_WARN_ONCE(string)           \
+        }                                  \
+    }
 #else
 #define PX_WARN_ONCE(string) ((void)0)
 #define PX_WARN_ONCE_IF(condition, string) ((void)0)

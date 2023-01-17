@@ -12,41 +12,35 @@
 #ifndef ICEBUNNY_H
 #define ICEBUNNY_H
 
-	class Bunny
-	{
-		public:
-		// Constructor / Destructor
-						Bunny();
-						~Bunny();
-		// Data access
-		inline_	udword	GetNbVerts()		const	{ return mNbVerts;		}
-		inline_	udword	GetNbFaces()		const	{ return mNbFaces;		}
-		inline_	Point*	GetVerts()			const	{ return mVerts;		}
-		inline_	uword*	GetFaces()			const	{ return mFaces;		}
-		inline_	Point*	GetVertexNormals()	const
-						{
-							if(!mVertexNormals)	((Bunny*)this)->ComputeVertexNormals();
-							return mVertexNormals;
-						}
+class Bunny {
+public:
+    // Constructor / Destructor
+    Bunny();
+    ~Bunny();
+    // Data access
+    inline_ udword GetNbVerts() const { return mNbVerts; }
+    inline_ udword GetNbFaces() const { return mNbFaces; }
+    inline_ Point* GetVerts() const { return mVerts; }
+    inline_ uword* GetFaces() const { return mFaces; }
+    inline_ Point* GetVertexNormals() const {
+        if (!mVertexNormals) ((Bunny*)this)->ComputeVertexNormals();
+        return mVertexNormals;
+    }
 
-		inline_	SurfaceInterface	GetSurface()	const
-									{
-										return SurfaceInterface(mNbVerts, mVerts, mNbFaces, null, mFaces);
-									}
-		protected:
-				udword	mNbVerts;		//!< Number of vertices
-				udword	mNbFaces;		//!< Number of faces
-				Point*	mVerts;			//!< List of vertices
-				uword*	mFaces;			//!< List of faces
-				Point*	mVertexNormals;	//!< List of vertex normals
+    inline_ SurfaceInterface GetSurface() const { return SurfaceInterface(mNbVerts, mVerts, mNbFaces, null, mFaces); }
 
-				bool	ComputeVertexNormals();
-	};
+protected:
+    udword mNbVerts;        //!< Number of vertices
+    udword mNbFaces;        //!< Number of faces
+    Point* mVerts;          //!< List of vertices
+    uword* mFaces;          //!< List of faces
+    Point* mVertexNormals;  //!< List of vertex normals
 
-	struct BUNNYPRIMITIVECREATE
-	{
-	};
+    bool ComputeVertexNormals();
+};
 
-	bool MakeBunny(const BUNNYPRIMITIVECREATE& create, IndexedSurface* surface);
+struct BUNNYPRIMITIVECREATE {};
 
-#endif // ICEBUNNY_H
+bool MakeBunny(const BUNNYPRIMITIVECREATE& create, IndexedSurface* surface);
+
+#endif  // ICEBUNNY_H

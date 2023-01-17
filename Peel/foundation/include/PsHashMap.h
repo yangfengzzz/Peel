@@ -49,13 +49,14 @@
 // twice as expensive.
 //
 // HashMap<T>:
-//		bool			insert(const Key& k, const Value& v)	O(1) amortized (exponential resize policy)
-//		Value &			operator[](const Key& k)				O(1) for existing objects, else O(1) amortized
-//		const Entry *	find(const Key& k);						O(1)
-//		bool			erase(const T& k);						O(1)
-//		uint32_t			size();									constant
-//		void			reserve(uint32_t size);					O(MAX(currentOccupancy,size))
-//		void			clear();								O(currentOccupancy) (with zero constant for objects
+//		bool			insert(const Key& k, const Value& v)	O(1) amortized (exponential resize
+//policy)
+//		Value &			operator[](const Key& k)				O(1) for existing objects, else
+//O(1) amortized 		const Entry *	find(const Key& k);						O(1) 		bool
+//erase(const T& k);						O(1) 		uint32_t			size();
+//constant 		void			reserve(uint32_t size);					O(MAX(currentOccupancy,size))
+//		void			clear();								O(currentOccupancy) (with
+//zero constant for objects
 // without
 // destructors)
 //      Iterator		getIterator();
@@ -69,50 +70,32 @@
 // for(HashMap::Iterator iter = test.getIterator(); !iter.done(); ++iter)
 //			myFunction(iter->first, iter->second);
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 template <class Key, class Value, class HashFn = Hash<Key>, class Allocator = NonTrackingAllocator>
-class HashMap : public internal::HashMapBase<Key, Value, HashFn, Allocator>
-{
-  public:
-	typedef internal::HashMapBase<Key, Value, HashFn, Allocator> HashMapBase;
-	typedef typename HashMapBase::Iterator Iterator;
+class HashMap : public internal::HashMapBase<Key, Value, HashFn, Allocator> {
+public:
+    typedef internal::HashMapBase<Key, Value, HashFn, Allocator> HashMapBase;
+    typedef typename HashMapBase::Iterator Iterator;
 
-	HashMap(uint32_t initialTableSize = 64, float loadFactor = 0.75f) : HashMapBase(initialTableSize, loadFactor)
-	{
-	}
-	HashMap(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
-	: HashMapBase(initialTableSize, loadFactor, alloc)
-	{
-	}
-	HashMap(const Allocator& alloc) : HashMapBase(64, 0.75f, alloc)
-	{
-	}
-	Iterator getIterator()
-	{
-		return Iterator(HashMapBase::mBase);
-	}
+    HashMap(uint32_t initialTableSize = 64, float loadFactor = 0.75f) : HashMapBase(initialTableSize, loadFactor) {}
+    HashMap(uint32_t initialTableSize, float loadFactor, const Allocator& alloc)
+        : HashMapBase(initialTableSize, loadFactor, alloc) {}
+    HashMap(const Allocator& alloc) : HashMapBase(64, 0.75f, alloc) {}
+    Iterator getIterator() { return Iterator(HashMapBase::mBase); }
 };
 
 template <class Key, class Value, class HashFn = Hash<Key>, class Allocator = NonTrackingAllocator>
-class CoalescedHashMap : public internal::HashMapBase<Key, Value, HashFn, Allocator>
-{
-  public:
-	typedef internal::HashMapBase<Key, Value, HashFn, Allocator> HashMapBase;
+class CoalescedHashMap : public internal::HashMapBase<Key, Value, HashFn, Allocator> {
+public:
+    typedef internal::HashMapBase<Key, Value, HashFn, Allocator> HashMapBase;
 
-	CoalescedHashMap(uint32_t initialTableSize = 64, float loadFactor = 0.75f)
-	: HashMapBase(initialTableSize, loadFactor)
-	{
-	}
-	const Pair<const Key, Value>* getEntries() const
-	{
-		return HashMapBase::mBase.getEntries();
-	}
+    CoalescedHashMap(uint32_t initialTableSize = 64, float loadFactor = 0.75f)
+        : HashMapBase(initialTableSize, loadFactor) {}
+    const Pair<const Key, Value>* getEntries() const { return HashMapBase::mBase.getEntries(); }
 };
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSHASHMAP_H
+#endif  // #ifndef PSFOUNDATION_PSHASHMAP_H

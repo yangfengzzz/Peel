@@ -12,20 +12,18 @@
 #ifndef ICEPIXELSHADER_H
 #define ICEPIXELSHADER_H
 
-	struct ICERENDERER_API PIXELSHADERCREATE
-	{
-						PIXELSHADERCREATE();
+struct ICERENDERER_API PIXELSHADERCREATE {
+    PIXELSHADERCREATE();
 
-		const char*		mFilename;
-	};
+    const char* mFilename;
+};
 
-	class ICERENDERER_API PixelShader
-	{
-		public:
-		//! Constructor
-										PixelShader()		{}
-		//! Destructor
-		virtual							~PixelShader()		{}
-	};
+class ICERENDERER_API PixelShader {
+public:
+    //! Constructor
+    PixelShader() {}
+    //! Destructor
+    virtual ~PixelShader() {}
+};
 
-#endif // ICEPIXELSHADER_H
+#endif  // ICEPIXELSHADER_H

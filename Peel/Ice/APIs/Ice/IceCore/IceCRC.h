@@ -12,7 +12,7 @@
 #ifndef ICECRC_H
 #define ICECRC_H
 
-	FUNCTION ICECORE_API udword	Crc16(const void* buffer, udword nb_bytes);
-	FUNCTION ICECORE_API udword Crc32(const void* buffer, udword nb_bytes);
+FUNCTION ICECORE_API udword Crc16(const void* buffer, udword nb_bytes);
+FUNCTION ICECORE_API udword Crc32(const void* buffer, udword nb_bytes);
 
-#endif // ICECRC_H
+#endif  // ICECRC_H

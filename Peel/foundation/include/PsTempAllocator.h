@@ -32,31 +32,23 @@
 
 #include "PsAllocator.h"
 
-namespace physx
-{
-namespace shdfnd
-{
-union TempAllocatorChunk
-{
-	TempAllocatorChunk() : mNext(0)
-	{
-	}
-	TempAllocatorChunk* mNext; // while chunk is free
-	uint32_t mIndex;           // while chunk is allocated
-	uint8_t mPad[16];          // 16 byte aligned allocations
+namespace physx {
+namespace shdfnd {
+union TempAllocatorChunk {
+    TempAllocatorChunk() : mNext(0) {}
+    TempAllocatorChunk* mNext;  // while chunk is free
+    uint32_t mIndex;            // while chunk is allocated
+    uint8_t mPad[16];           // 16 byte aligned allocations
 };
 
-class TempAllocator
-{
-  public:
-	PX_FORCE_INLINE TempAllocator(const char* = 0)
-	{
-	}
-	PX_FOUNDATION_API void* allocate(size_t size, const char* file, int line);
-	PX_FOUNDATION_API void deallocate(void* ptr);
+class TempAllocator {
+public:
+    PX_FORCE_INLINE TempAllocator(const char* = 0) {}
+    PX_FOUNDATION_API void* allocate(size_t size, const char* file, int line);
+    PX_FOUNDATION_API void deallocate(void* ptr);
 };
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSTEMPALLOCATOR_H
+#endif  // #ifndef PSFOUNDATION_PSTEMPALLOCATOR_H

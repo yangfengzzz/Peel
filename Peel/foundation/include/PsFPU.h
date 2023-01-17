@@ -33,35 +33,31 @@
 #include "Ps.h"
 #include "PsIntrinsics.h"
 
-#define PX_IR(x) ((uint32_t&)(x))	// integer representation of a floating-point value.
-#define PX_SIR(x) ((int32_t&)(x))	// signed integer representation of a floating-point value.
-#define PX_FR(x) ((float&)(x))		// floating-point representation of a integer value.
+#define PX_IR(x) ((uint32_t&)(x))  // integer representation of a floating-point value.
+#define PX_SIR(x) ((int32_t&)(x))  // signed integer representation of a floating-point value.
+#define PX_FR(x) ((float&)(x))     // floating-point representation of a integer value.
 
 #define PX_FPU_GUARD shdfnd::FPUGuard scopedFpGuard;
 #define PX_SIMD_GUARD shdfnd::SIMDGuard scopedFpGuard;
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 // sets the default SDK state for scalar and SIMD units
-class PX_FOUNDATION_API FPUGuard
-{
-  public:
-	FPUGuard();  // set fpu control word for PhysX
-	~FPUGuard(); // restore fpu control word
-  private:
-	uint32_t mControlWords[8];
+class PX_FOUNDATION_API FPUGuard {
+public:
+    FPUGuard();   // set fpu control word for PhysX
+    ~FPUGuard();  // restore fpu control word
+private:
+    uint32_t mControlWords[8];
 };
 
 // sets default SDK state for simd unit only, lighter weight than FPUGuard
-class SIMDGuard
-{
-  public:
-	PX_INLINE SIMDGuard();  // set simd control word for PhysX
-	PX_INLINE ~SIMDGuard(); // restore simd control word
-  private:
-	uint32_t mControlWord;
+class SIMDGuard {
+public:
+    PX_INLINE SIMDGuard();   // set simd control word for PhysX
+    PX_INLINE ~SIMDGuard();  // restore simd control word
+private:
+    uint32_t mControlWord;
 };
 
 /**
@@ -74,20 +70,16 @@ PX_FOUNDATION_API void enableFPExceptions();
 */
 PX_FOUNDATION_API void disableFPExceptions();
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
 #if PX_WINDOWS_FAMILY || PX_XBOXONE
 #include "windows/PsWindowsFPU.h"
 #elif (PX_LINUX && PX_SSE2) || PX_PS4 || PX_OSX
 #include "unix/PsUnixFPU.h"
 #else
-PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard()
-{
-}
-PX_INLINE physx::shdfnd::SIMDGuard::~SIMDGuard()
-{
-}
+PX_INLINE physx::shdfnd::SIMDGuard::SIMDGuard() {}
+PX_INLINE physx::shdfnd::SIMDGuard::~SIMDGuard() {}
 #endif
 
-#endif // #ifndef PSFOUNDATION_PSFPU_H
+#endif  // #ifndef PSFOUNDATION_PSFPU_H

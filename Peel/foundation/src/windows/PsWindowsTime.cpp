@@ -30,72 +30,52 @@
 #include "PsTime.h"
 #include "windows/PsWindowsInclude.h"
 
-namespace
-{
-int64_t getTimeTicks()
-{
-	LARGE_INTEGER a;
-	QueryPerformanceCounter(&a);
-	return a.QuadPart;
+namespace {
+int64_t getTimeTicks() {
+    LARGE_INTEGER a;
+    QueryPerformanceCounter(&a);
+    return a.QuadPart;
 }
 
-double getTickDuration()
-{
-	LARGE_INTEGER a;
-	QueryPerformanceFrequency(&a);
-	return 1.0f / double(a.QuadPart);
+double getTickDuration() {
+    LARGE_INTEGER a;
+    QueryPerformanceFrequency(&a);
+    return 1.0f / double(a.QuadPart);
 }
 
 double sTickDuration = getTickDuration();
-} // namespace
+}  // namespace
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 
 static const CounterFrequencyToTensOfNanos gCounterFreq = Time::getCounterFrequency();
 
-const CounterFrequencyToTensOfNanos& Time::getBootCounterFrequency()
-{
-	return gCounterFreq;
+const CounterFrequencyToTensOfNanos& Time::getBootCounterFrequency() { return gCounterFreq; }
+
+CounterFrequencyToTensOfNanos Time::getCounterFrequency() {
+    LARGE_INTEGER freq;
+    QueryPerformanceFrequency(&freq);
+    return CounterFrequencyToTensOfNanos(Time::sNumTensOfNanoSecondsInASecond, (uint64_t)freq.QuadPart);
 }
 
-CounterFrequencyToTensOfNanos Time::getCounterFrequency()
-{
-	LARGE_INTEGER freq;
-	QueryPerformanceFrequency(&freq);
-	return CounterFrequencyToTensOfNanos(Time::sNumTensOfNanoSecondsInASecond, (uint64_t)freq.QuadPart);
+uint64_t Time::getCurrentCounterValue() {
+    LARGE_INTEGER ticks;
+    QueryPerformanceCounter(&ticks);
+    return (uint64_t)ticks.QuadPart;
 }
 
-uint64_t Time::getCurrentCounterValue()
-{
-	LARGE_INTEGER ticks;
-	QueryPerformanceCounter(&ticks);
-	return (uint64_t)ticks.QuadPart;
+Time::Time() : mTickCount(0) { getElapsedSeconds(); }
+
+Time::Second Time::getElapsedSeconds() {
+    int64_t lastTickCount = mTickCount;
+    mTickCount = getTimeTicks();
+    return (mTickCount - lastTickCount) * sTickDuration;
 }
 
-Time::Time() : mTickCount(0)
-{
-	getElapsedSeconds();
-}
+Time::Second Time::peekElapsedSeconds() { return (getTimeTicks() - mTickCount) * sTickDuration; }
 
-Time::Second Time::getElapsedSeconds()
-{
-	int64_t lastTickCount = mTickCount;
-	mTickCount = getTimeTicks();
-	return (mTickCount - lastTickCount) * sTickDuration;
-}
+Time::Second Time::getLastTime() const { return mTickCount * sTickDuration; }
 
-Time::Second Time::peekElapsedSeconds()
-{
-	return (getTimeTicks() - mTickCount) * sTickDuration;
-}
-
-Time::Second Time::getLastTime() const
-{
-	return mTickCount * sTickDuration;
-}
-
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx

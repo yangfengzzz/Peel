@@ -12,6 +12,11 @@
 #ifndef CTCOBBOBBDISTANCE_H
 #define CTCOBBOBBDISTANCE_H
 
-	CONTACT_API float BoxBoxDist(const Matrix3x3& rot, const Point& trans, const Point& centerp, const Point& extentsp, const Point& centerq, const Point& extentsq);
+CONTACT_API float BoxBoxDist(const Matrix3x3& rot,
+                             const Point& trans,
+                             const Point& centerp,
+                             const Point& extentsp,
+                             const Point& centerq,
+                             const Point& extentsq);
 
-#endif // CTCOBBOBBDISTANCE_H
+#endif  // CTCOBBOBBDISTANCE_H

@@ -12,32 +12,34 @@
 #ifndef CHUNKCTRL_H
 #define CHUNKCTRL_H
 
-	#define CTRL_VERSION	1
+#define CTRL_VERSION 1
 
-	class ZCB2_API CTRLChunk : public BaseChunk
-	{
-		DECLARE_CHUNK(CTRLChunk, mCTRLCore)
+class ZCB2_API CTRLChunk : public BaseChunk {
+    DECLARE_CHUNK(CTRLChunk, mCTRLCore)
 
-		DECLARE_STD_MEMBER(Priority,	ubyte)
-		DECLARE_STD_MEMBER(Count,		udword)
-		DECLARE_STD_MEMBER(Type,		FieldType)
-		DECLARE_STD_MEMBER(Mode,		CtrlMode)
-		DECLARE_STD_MEMBER(Field,		String)
+    DECLARE_STD_MEMBER(Priority, ubyte)
+    DECLARE_STD_MEMBER(Count, udword)
+    DECLARE_STD_MEMBER(Type, FieldType)
+    DECLARE_STD_MEMBER(Mode, CtrlMode)
+    DECLARE_STD_MEMBER(Field, String)
 
-		DECLARE_SUBCHUNK(Time, TIMEChunk)
+    DECLARE_SUBCHUNK(Time, TIMEChunk)
 
-//		inline_	TIMEChunk&			GetTime()						{ return mTime;			}
+    //		inline_	TIMEChunk&			GetTime()						{ return mTime;
+    //}
 
-		// Data access
-//		inline_	const char*			GetField()				const	{ return mField.Get();	}
+    // Data access
+    //		inline_	const char*			GetField()				const	{ return mField.Get();
+    //}
 
-		// Chunk definition
-//		inline_	void				SetField(const char* field)		{ mField	= field;	}
+    // Chunk definition
+    //		inline_	void				SetField(const char* field)		{ mField	= field;
+    //}
 
-//		private:
-		// Chunk data
-//						String				mField;
-//						TIMEChunk			mTime;
-	};
+    //		private:
+    // Chunk data
+    //						String				mField;
+    //						TIMEChunk			mTime;
+};
 
-#endif // CHUNKCTRL_H
+#endif  // CHUNKCTRL_H

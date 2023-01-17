@@ -12,13 +12,12 @@
 #ifndef ICEPROGRESSIVEEIGENBOXES_H
 #define ICEPROGRESSIVEEIGENBOXES_H
 
-	class MESHMERIZER_API ProgressiveEigenBoxes : public ProgressiveEigen
-	{
-		public:
-					ProgressiveEigenBoxes();
-					~ProgressiveEigenBoxes();
+class MESHMERIZER_API ProgressiveEigenBoxes : public ProgressiveEigen {
+public:
+    ProgressiveEigenBoxes();
+    ~ProgressiveEigenBoxes();
 
-		bool		ComputeBestSortingAxis(udword nb, const AABB* list);
-	};
+    bool ComputeBestSortingAxis(udword nb, const AABB* list);
+};
 
-#endif // ICEPROGRESSIVEEIGENBOXES_H
+#endif  // ICEPROGRESSIVEEIGENBOXES_H

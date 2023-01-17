@@ -25,116 +25,115 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
-
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef NP_DISTANCEJOINTCONSTRAINT_H
 #define NP_DISTANCEJOINTCONSTRAINT_H
 
+#include "CmUtils.h"
 #include "common/PxTolerancesScale.h"
 #include "extensions/PxDistanceJoint.h"
-
 #include "ExtJoint.h"
 #include "PsUserAllocated.h"
-#include "CmUtils.h"
 
-namespace physx
-{
+namespace physx {
 struct PxDistanceJointGeneratedValues;
-namespace Ext
-{
+namespace Ext {
 
-	struct DistanceJointData : public JointData
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
+struct DistanceJointData : public JointData {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
 
-							PxReal					minDistance;
-							PxReal					maxDistance;
-							PxReal					tolerance;
-							PxReal					stiffness;
-							PxReal					damping;
+    PxReal minDistance;
+    PxReal maxDistance;
+    PxReal tolerance;
+    PxReal stiffness;
+    PxReal damping;
 
-							PxDistanceJointFlags	jointFlags;
-	};
+    PxDistanceJointFlags jointFlags;
+};
 
-    typedef Joint<PxDistanceJoint, PxDistanceJointGeneratedValues> DistanceJointT;
-	class DistanceJoint : public DistanceJointT
-	{
-		//= ATTENTION! =====================================================================================
-		// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-		// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-		// accordingly.
-		//==================================================================================================
-	public:
-		// PX_SERIALIZATION
-		DistanceJoint(PxBaseFlags baseFlags) : DistanceJointT(baseFlags) {}
-		virtual		void			exportExtraData(PxSerializationContext& context);
-					void			importExtraData(PxDeserializationContext& context);
-					void			resolveReferences(PxDeserializationContext& context);
-		static		DistanceJoint*	createObject(PxU8*& address, PxDeserializationContext& context);
-		static		void			getBinaryMetaData(PxOutputStream& stream);
-		//~PX_SERIALIZATION
+typedef Joint<PxDistanceJoint, PxDistanceJointGeneratedValues> DistanceJointT;
+class DistanceJoint : public DistanceJointT {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+public:
+    // PX_SERIALIZATION
+    DistanceJoint(PxBaseFlags baseFlags) : DistanceJointT(baseFlags) {}
+    virtual void exportExtraData(PxSerializationContext& context);
+    void importExtraData(PxDeserializationContext& context);
+    void resolveReferences(PxDeserializationContext& context);
+    static DistanceJoint* createObject(PxU8*& address, PxDeserializationContext& context);
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
 
-		DistanceJoint(const PxTolerancesScale& scale, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1) :
-			DistanceJointT(PxJointConcreteType::eDISTANCE, PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE, actor0, localFrame0, actor1, localFrame1, sizeof(DistanceJointData), "DistanceJointData")
-		{
-			DistanceJointData* data = static_cast<DistanceJointData*>(mData);
+    DistanceJoint(const PxTolerancesScale& scale,
+                  PxRigidActor* actor0,
+                  const PxTransform& localFrame0,
+                  PxRigidActor* actor1,
+                  const PxTransform& localFrame1)
+        : DistanceJointT(PxJointConcreteType::eDISTANCE,
+                         PxBaseFlag::eOWNS_MEMORY | PxBaseFlag::eIS_RELEASABLE,
+                         actor0,
+                         localFrame0,
+                         actor1,
+                         localFrame1,
+                         sizeof(DistanceJointData),
+                         "DistanceJointData") {
+        DistanceJointData* data = static_cast<DistanceJointData*>(mData);
 
-			data->stiffness		= 0.0f;
-			data->damping		= 0.0f;
-			data->minDistance	= 0.0f;
-			data->maxDistance	= 0.0f;
-			data->tolerance		= 0.025f * scale.length;
-			data->jointFlags	= PxDistanceJointFlag::eMAX_DISTANCE_ENABLED;
-		}
+        data->stiffness = 0.0f;
+        data->damping = 0.0f;
+        data->minDistance = 0.0f;
+        data->maxDistance = 0.0f;
+        data->tolerance = 0.025f * scale.length;
+        data->jointFlags = PxDistanceJointFlag::eMAX_DISTANCE_ENABLED;
+    }
 
-		// PxDistanceJoint
-		virtual	PxReal					getDistance()	const;
-		virtual	void					setMinDistance(PxReal distance);
-		virtual	PxReal					getMinDistance()	const;
-		virtual	void					setMaxDistance(PxReal distance);
-		virtual	PxReal					getMaxDistance()	const;
-		virtual	void					setTolerance(PxReal tolerance);
-		virtual	PxReal					getTolerance()	const;
-		virtual	void					setStiffness(PxReal spring);
-		virtual	PxReal					getStiffness()	const;
-		virtual	void					setDamping(PxReal damping);
-		virtual	PxReal					getDamping()	const;
-		virtual	void					setDistanceJointFlags(PxDistanceJointFlags flags);
-		virtual	void					setDistanceJointFlag(PxDistanceJointFlag::Enum flag, bool value);
-		virtual	PxDistanceJointFlags	getDistanceJointFlags()	const;
-		//~PxDistanceJoint
+    // PxDistanceJoint
+    virtual PxReal getDistance() const;
+    virtual void setMinDistance(PxReal distance);
+    virtual PxReal getMinDistance() const;
+    virtual void setMaxDistance(PxReal distance);
+    virtual PxReal getMaxDistance() const;
+    virtual void setTolerance(PxReal tolerance);
+    virtual PxReal getTolerance() const;
+    virtual void setStiffness(PxReal spring);
+    virtual PxReal getStiffness() const;
+    virtual void setDamping(PxReal damping);
+    virtual PxReal getDamping() const;
+    virtual void setDistanceJointFlags(PxDistanceJointFlags flags);
+    virtual void setDistanceJointFlag(PxDistanceJointFlag::Enum flag, bool value);
+    virtual PxDistanceJointFlags getDistanceJointFlags() const;
+    //~PxDistanceJoint
 
-		bool					attach(PxPhysics &physics, PxRigidActor* actor0, PxRigidActor* actor1);
+    bool attach(PxPhysics& physics, PxRigidActor* actor0, PxRigidActor* actor1);
 
-		static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
+    static const PxConstraintShaderTable& getConstraintShaderTable() { return sShaders; }
 
-		virtual PxConstraintSolverPrep getPrep()const {return sShaders.solverPrep;}
-		
-	private:
+    virtual PxConstraintSolverPrep getPrep() const { return sShaders.solverPrep; }
 
-		static PxConstraintShaderTable sShaders;
+private:
+    static PxConstraintShaderTable sShaders;
 
-		PX_FORCE_INLINE DistanceJointData& data() const				
-		{	
-			return *static_cast<DistanceJointData*>(mData);
-		}
-	};
+    PX_FORCE_INLINE DistanceJointData& data() const { return *static_cast<DistanceJointData*>(mData); }
+};
 
-} // namespace Ext
+}  // namespace Ext
 
-namespace Ext
-{
-	// global function to share the joint shaders with API capture	
-	extern "C" const PxConstraintShaderTable* GetDistanceJointShaderTable();
-}
+namespace Ext {
+// global function to share the joint shaders with API capture
+extern "C" const PxConstraintShaderTable* GetDistanceJointShaderTable();
+}  // namespace Ext
 
-}
+}  // namespace physx
 
 #endif

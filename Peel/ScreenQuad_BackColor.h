@@ -11,20 +11,19 @@
 
 #include "ScreenQuad.h"
 
-	class ScreenQuadBackColor : public ScreenQuadMode, public ColorPickerCallback
-	{
-		public:
-							ScreenQuadBackColor(const Point& back_color);
-		virtual				~ScreenQuadBackColor();
+class ScreenQuadBackColor : public ScreenQuadMode, public ColorPickerCallback {
+public:
+    ScreenQuadBackColor(const Point& back_color);
+    virtual ~ScreenQuadBackColor();
 
-		virtual	const char*	GetUIName()		const		{ return "Back color";	}
-		virtual	void		Apply(udword screen_width, udword screen_height);
-		virtual	void		CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
+    virtual const char* GetUIName() const { return "Back color"; }
+    virtual void Apply(udword screen_width, udword screen_height);
+    virtual void CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
 
-		// ColorPickerCallback
-		virtual	void		OnNewColorSelected(ubyte r, ubyte g, ubyte b);
+    // ColorPickerCallback
+    virtual void OnNewColorSelected(ubyte r, ubyte g, ubyte b);
 
-				Point		mBackColor;
-	};
+    Point mBackColor;
+};
 
 #endif

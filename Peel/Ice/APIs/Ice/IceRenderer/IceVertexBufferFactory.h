@@ -12,45 +12,45 @@
 #ifndef ICEVERTEXBUFFERFACTORY_H
 #define ICEVERTEXBUFFERFACTORY_H
 
-	//! a.k.a. "vertex bubble"
-	class ICERENDERER_API VBDesc : public Allocateable
-	{
-		public:
-		inline_							VBDesc() : mPool(null), mStartIndex(0), mSize(0)	{}
-		inline_							~VBDesc()											{}
+//! a.k.a. "vertex bubble"
+class ICERENDERER_API VBDesc : public Allocateable {
+public:
+    inline_ VBDesc() : mPool(null), mStartIndex(0), mSize(0) {}
+    inline_ ~VBDesc() {}
 
-						VertexBuffer*	mPool;			//!< Vertex pool
-						udword			mStartIndex;	//!< Index of first used vertex
-						udword			mSize;			//!< Number of used vertices
-	};
+    VertexBuffer* mPool;  //!< Vertex pool
+    udword mStartIndex;   //!< Index of first used vertex
+    udword mSize;         //!< Number of used vertices
+};
 
-	//! Vertex buffer factory
-	class ICERENDERER_API VBFactory : public Allocateable
-	{
-		private:
-										VBFactory();
-										~VBFactory();
-		public:
-						VBDesc*			GetVertexBuffer(const VERTEXBUFFERCREATE& create, Renderer* rd);
-						bool			ReleaseVertexBuffer(VBDesc*& desc);
+//! Vertex buffer factory
+class ICERENDERER_API VBFactory : public Allocateable {
+private:
+    VBFactory();
+    ~VBFactory();
 
-						void			ReleaseVertexBuffers();
-		private:
+public:
+    VBDesc* GetVertexBuffer(const VERTEXBUFFERCREATE& create, Renderer* rd);
+    bool ReleaseVertexBuffer(VBDesc*& desc);
+
+    void ReleaseVertexBuffers();
+
+private:
 #ifndef NEW_VB_MANAGEMENT
-						Container		mVBS;			//!< List of vertex buffers
-						Container		mVBDesc;
-		// Internal methods
-						udword			GetNbVertexBuffers()	const	{ return mVBS.GetNbEntries()>>1;	}
+    Container mVBS;  //!< List of vertex buffers
+    Container mVBDesc;
+    // Internal methods
+    udword GetNbVertexBuffers() const { return mVBS.GetNbEntries() >> 1; }
 #else
-						Container		mVBS;			//!< List of vertex buffers
-						Container		mUsedIntervals;
-						Container		mFreeIntervals;
-		// Internal methods
-						VBDesc*			GetInterval(VertexFormat fvf, udword required_size);
-						bool			ReleaseInterval(VBDesc* it);
+    Container mVBS;  //!< List of vertex buffers
+    Container mUsedIntervals;
+    Container mFreeIntervals;
+    // Internal methods
+    VBDesc* GetInterval(VertexFormat fvf, udword required_size);
+    bool ReleaseInterval(VBDesc* it);
 #endif
 
-		friend			class			Renderer;
-	};
+    friend class Renderer;
+};
 
-#endif // ICEVERTEXBUFFERFACTORY_H
+#endif  // ICEVERTEXBUFFERFACTORY_H

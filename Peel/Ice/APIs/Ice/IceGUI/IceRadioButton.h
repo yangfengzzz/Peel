@@ -3,26 +3,24 @@
 #ifndef ICERADIOBUTTON_H
 #define ICERADIOBUTTON_H
 
-	class ICEGUI_API RadioButtonDesc : public WidgetDesc
-	{
-		public:
-							RadioButtonDesc();
+class ICEGUI_API RadioButtonDesc : public WidgetDesc {
+public:
+    RadioButtonDesc();
 
-				bool		mNewGroup;
-	};
+    bool mNewGroup;
+};
 
-	class ICEGUI_API IceRadioButton : public IceWidget
-	{
-		public:
-							IceRadioButton(const RadioButtonDesc& desc);
-		virtual				~IceRadioButton();
+class ICEGUI_API IceRadioButton : public IceWidget {
+public:
+    IceRadioButton(const RadioButtonDesc& desc);
+    virtual ~IceRadioButton();
 
-				void		SetChecked(bool b);
+    void SetChecked(bool b);
 
-				bool		IsChecked() const;
+    bool IsChecked() const;
 
-		private:
-				PREVENT_COPY(IceRadioButton);
-	};
+private:
+    PREVENT_COPY(IceRadioButton);
+};
 
-#endif	// ICERADIOBUTTON_H
+#endif  // ICERADIOBUTTON_H

@@ -12,6 +12,6 @@
 #ifndef ICECUBEROOT_H
 #define ICECUBEROOT_H
 
-	FUNCTION ICEMATHS_API	float	CubeRoot(float x);
+FUNCTION ICEMATHS_API float CubeRoot(float x);
 
-#endif // ICECUBEROOT_H
+#endif  // ICECUBEROOT_H

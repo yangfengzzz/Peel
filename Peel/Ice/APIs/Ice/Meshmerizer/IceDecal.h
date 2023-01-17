@@ -7,7 +7,7 @@
  */
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* Copyright (C) Eric Lengyel, 2001. 
+/* Copyright (C) Eric Lengyel, 2001.
  * All rights reserved worldwide.
  *
  * This software is provided "as is" without express or implied
@@ -22,43 +22,44 @@
 #ifndef ICEDECAL_H
 #define ICEDECAL_H
 
-	const long gMaxDecalVertices = 256;
+const long gMaxDecalVertices = 256;
 
-	struct MESHMERIZER_API UVs
-	{
-		float u,v;
-	};
+struct MESHMERIZER_API UVs {
+    float u, v;
+};
 
-	class MESHMERIZER_API Decal
-	{
-		public:
-								Decal(const Point& center, const Point& normal, const Point& tangent, float width, float height, float depth);
-								~Decal();
+class MESHMERIZER_API Decal {
+public:
+    Decal(const Point& center, const Point& normal, const Point& tangent, float width, float height, float depth);
+    ~Decal();
 
-				bool			ClipMesh(udword nb_faces, const IndexedTriangle* faces, const Point* verts, const Point* vertex_normals);
-				void			ComputeUVs(const Point& center, const Point& normal, const Point& tangent, float width, float height);
-		public:
-				Point			mDecalCenter;
-				Point			mDecalNormal;
+    bool ClipMesh(udword nb_faces, const IndexedTriangle* faces, const Point* verts, const Point* vertex_normals);
+    void ComputeUVs(const Point& center, const Point& normal, const Point& tangent, float width, float height);
 
-				HPoint			mLeftPlane;
-				HPoint			mRightPlane;
-				HPoint			mBottomPlane;
-				HPoint			mTopPlane;
-				HPoint			mFrontPlane;
-				HPoint			mBackPlane;
+public:
+    Point mDecalCenter;
+    Point mDecalNormal;
 
-				long			mDecalVertexCount;
-				long			mDecalTriangleCount;
+    HPoint mLeftPlane;
+    HPoint mRightPlane;
+    HPoint mBottomPlane;
+    HPoint mTopPlane;
+    HPoint mFrontPlane;
+    HPoint mBackPlane;
 
-				Point			mVertexArray[gMaxDecalVertices];
-				UVs				mTexcoordArray[gMaxDecalVertices];
-				HPoint			mColorArray[gMaxDecalVertices];
-				IndexedTriangle	mTriangleArray[gMaxDecalVertices];
-		private:
-		// Internal methods
-				bool			AddPolygon(long vertex_count, const Point* vertex, const Point* normal);
-				long			ClipPolygon(long vertex_count, const Point* vertex, const Point* normal, Point* new_vertex, Point* new_normal) const;
-	};
+    long mDecalVertexCount;
+    long mDecalTriangleCount;
 
-#endif // ICEDECAL_H
+    Point mVertexArray[gMaxDecalVertices];
+    UVs mTexcoordArray[gMaxDecalVertices];
+    HPoint mColorArray[gMaxDecalVertices];
+    IndexedTriangle mTriangleArray[gMaxDecalVertices];
+
+private:
+    // Internal methods
+    bool AddPolygon(long vertex_count, const Point* vertex, const Point* normal);
+    long ClipPolygon(
+            long vertex_count, const Point* vertex, const Point* normal, Point* new_vertex, Point* new_normal) const;
+};
+
+#endif  // ICEDECAL_H

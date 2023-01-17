@@ -96,11 +96,11 @@ void GLTexture::BlitTextureToScreen(GLuint texId) {
     GLRenderHelpers::DrawRectangle(x, 1.0f, y, 1.0f, color, color, Alpha, screen_width, screen_height, false,
                                    GLRenderHelpers::SQT_TEXTURING | GLRenderHelpers::SQT_FLIP_V);
     //	GLRenderHelpers::DrawRectangle(	0.0f, 1.0f - x, y, 1.0f, color, color, Alpha, screen_width, screen_height,
-    //false, GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_U); 	GLRenderHelpers::DrawRectangle(
-    //x,    1.0f,     0.0f, 1.0f - y, color, color, Alpha, screen_width, screen_height, false,
-    //GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_V); 	GLRenderHelpers::DrawRectangle(	0.0f, 1.0f - x,
-    //0.0f, 1.0f - y, color, color, Alpha, screen_width, screen_height, false,
-    //GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_U|GLRenderHelpers::SQT_FLIP_V);
+    // false, GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_U); 	GLRenderHelpers::DrawRectangle(
+    // x,    1.0f,     0.0f, 1.0f - y, color, color, Alpha, screen_width, screen_height, false,
+    // GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_V); 	GLRenderHelpers::DrawRectangle(	0.0f, 1.0f - x,
+    // 0.0f, 1.0f - y, color, color, Alpha, screen_width, screen_height, false,
+    // GLRenderHelpers::SQT_TEXTURING|GLRenderHelpers::SQT_FLIP_U|GLRenderHelpers::SQT_FLIP_V);
 
     glDisable(GL_TEXTURE_2D);
 }

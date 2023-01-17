@@ -47,326 +47,264 @@
 #error "Platform not supported!"
 #endif
 
-namespace physx
+namespace physx {
+namespace shdfnd {
+struct ThreadPriority  // todo: put in some other header file
 {
-namespace shdfnd
-{
-struct ThreadPriority // todo: put in some other header file
-{
-	enum Enum
-	{
-		/**
-	    \brief High priority
-	    */
-		eHIGH         = 0,
+    enum Enum {
+        /**
+    \brief High priority
+    */
+        eHIGH = 0,
 
-		/**
-	    \brief Above Normal priority
-	    */
-		eABOVE_NORMAL = 1,
+        /**
+    \brief Above Normal priority
+    */
+        eABOVE_NORMAL = 1,
 
-		/**
-	    \brief Normal/default priority
-	    */
-		eNORMAL       = 2,
+        /**
+    \brief Normal/default priority
+    */
+        eNORMAL = 2,
 
-		/**
-	    \brief Below Normal priority
-	    */
-		eBELOW_NORMAL = 3,
+        /**
+    \brief Below Normal priority
+    */
+        eBELOW_NORMAL = 3,
 
-		/**
-	    \brief Low priority.
-	    */
-		eLOW          = 4,
-		eFORCE_DWORD  = 0xffFFffFF
-	};
+        /**
+    \brief Low priority.
+    */
+        eLOW = 4,
+        eFORCE_DWORD = 0xffFFffFF
+    };
 };
 
-class Runnable
-{
-  public:
-	Runnable()
-	{
-	}
-	virtual ~Runnable()
-	{
-	}
-	virtual void execute(void)
-	{
-	}
+class Runnable {
+public:
+    Runnable() {}
+    virtual ~Runnable() {}
+    virtual void execute(void) {}
 };
 
-class PX_FOUNDATION_API ThreadImpl
-{
-  public:
-	typedef size_t Id; // space for a pointer or an integer
-	typedef void* (*ExecuteFn)(void*);
+class PX_FOUNDATION_API ThreadImpl {
+public:
+    typedef size_t Id;  // space for a pointer or an integer
+    typedef void* (*ExecuteFn)(void*);
 
-	static uint32_t getDefaultStackSize();
-	static Id getId();
+    static uint32_t getDefaultStackSize();
+    static Id getId();
 
-	/**
-	Construct (but do not start) the thread object. The OS thread object will not be created
-	until start() is called. Executes in the context
-	of the spawning thread.
-	*/
+    /**
+    Construct (but do not start) the thread object. The OS thread object will not be created
+    until start() is called. Executes in the context
+    of the spawning thread.
+    */
 
-	ThreadImpl();
+    ThreadImpl();
 
-	/**
-	Construct and start the the thread, passing the given arg to the given fn. (pthread style)
-	*/
+    /**
+    Construct and start the the thread, passing the given arg to the given fn. (pthread style)
+    */
 
-	ThreadImpl(ExecuteFn fn, void* arg, const char* name);
+    ThreadImpl(ExecuteFn fn, void* arg, const char* name);
 
-	/**
-	Deallocate all resources associated with the thread. Should be called in the
-	context of the spawning thread.
-	*/
+    /**
+    Deallocate all resources associated with the thread. Should be called in the
+    context of the spawning thread.
+    */
 
-	~ThreadImpl();
+    ~ThreadImpl();
 
-	/**
-	Create the OS thread and start it running. Called in the context of the spawning thread.
-	If an affinity mask has previously been set then it will be applied after the
-	thread has been created.
-	*/
+    /**
+    Create the OS thread and start it running. Called in the context of the spawning thread.
+    If an affinity mask has previously been set then it will be applied after the
+    thread has been created.
+    */
 
-	void start(uint32_t stackSize, Runnable* r);
+    void start(uint32_t stackSize, Runnable* r);
 
-	/**
-	Violently kill the current thread. Blunt instrument, not recommended since
-	it can leave all kinds of things unreleased (stack, memory, mutexes...) Should
-	be called in the context of the spawning thread.
-	*/
+    /**
+    Violently kill the current thread. Blunt instrument, not recommended since
+    it can leave all kinds of things unreleased (stack, memory, mutexes...) Should
+    be called in the context of the spawning thread.
+    */
 
-	void kill();
+    void kill();
 
-	/**
-	Stop the thread. Signals the spawned thread that it should stop, so the
-	thread should check regularly
-	*/
+    /**
+    Stop the thread. Signals the spawned thread that it should stop, so the
+    thread should check regularly
+    */
 
-	void signalQuit();
+    void signalQuit();
 
-	/**
-	Wait for a thread to stop. Should be called in the context of the spawning
-	thread. Returns false if the thread has not been started.
-	*/
+    /**
+    Wait for a thread to stop. Should be called in the context of the spawning
+    thread. Returns false if the thread has not been started.
+    */
 
-	bool waitForQuit();
+    bool waitForQuit();
 
-	/**
-	check whether the thread is signalled to quit. Called in the context of the
-	spawned thread.
-	*/
+    /**
+    check whether the thread is signalled to quit. Called in the context of the
+    spawned thread.
+    */
 
-	bool quitIsSignalled();
+    bool quitIsSignalled();
 
-	/**
-	Cleanly shut down this thread. Called in the context of the spawned thread.
-	*/
-	void quit();
+    /**
+    Cleanly shut down this thread. Called in the context of the spawned thread.
+    */
+    void quit();
 
-	/**
-	Change the affinity mask for this thread. The mask is a platform
-	specific value.
+    /**
+    Change the affinity mask for this thread. The mask is a platform
+    specific value.
 
-	On Windows, Linux, PS4, XboxOne and Switch platforms, each set mask bit represents
-	the index of a logical processor that the OS may schedule thread execution on.
-	Bits outside the range of valid logical processors may be ignored or cause
-	the function to return an error.
+    On Windows, Linux, PS4, XboxOne and Switch platforms, each set mask bit represents
+    the index of a logical processor that the OS may schedule thread execution on.
+    Bits outside the range of valid logical processors may be ignored or cause
+    the function to return an error.
 
-	On Apple platforms, this function has no effect.
+    On Apple platforms, this function has no effect.
 
-	If the thread has not yet been started then the mask is stored
-	and applied when the thread is started.
+    If the thread has not yet been started then the mask is stored
+    and applied when the thread is started.
 
-	If the thread has already been started then this method	returns the
-	previous affinity mask on success, otherwise it returns zero.
-	*/
-	uint32_t setAffinityMask(uint32_t mask);
+    If the thread has already been started then this method	returns the
+    previous affinity mask on success, otherwise it returns zero.
+    */
+    uint32_t setAffinityMask(uint32_t mask);
 
-	static ThreadPriority::Enum getPriority(Id threadId);
+    static ThreadPriority::Enum getPriority(Id threadId);
 
-	/** Set thread priority. */
-	void setPriority(ThreadPriority::Enum prio);
+    /** Set thread priority. */
+    void setPriority(ThreadPriority::Enum prio);
 
-	/** set the thread's name */
-	void setName(const char* name);
+    /** set the thread's name */
+    void setName(const char* name);
 
-	/** Put the current thread to sleep for the given number of milliseconds */
-	static void sleep(uint32_t ms);
+    /** Put the current thread to sleep for the given number of milliseconds */
+    static void sleep(uint32_t ms);
 
-	/** Yield the current thread's slot on the CPU */
-	static void yield();
+    /** Yield the current thread's slot on the CPU */
+    static void yield();
 
-	/** Return the number of physical cores (does not include hyper-threaded cores), returns 0 on failure */
-	static uint32_t getNbPhysicalCores();
+    /** Return the number of physical cores (does not include hyper-threaded cores), returns 0 on failure */
+    static uint32_t getNbPhysicalCores();
 
-	/**
-	Size of this class.
-	*/
-	static uint32_t getSize();
+    /**
+    Size of this class.
+    */
+    static uint32_t getSize();
 };
 
 /**
 Thread abstraction API
 */
-template <typename Alloc = ReflectionAllocator<ThreadImpl> >
-class ThreadT : protected Alloc, public UserAllocated, public Runnable
-{
-  public:
-	typedef ThreadImpl::Id Id; // space for a pointer or an integer
+template <typename Alloc = ReflectionAllocator<ThreadImpl>>
+class ThreadT : protected Alloc, public UserAllocated, public Runnable {
+public:
+    typedef ThreadImpl::Id Id;  // space for a pointer or an integer
 
-	/**
-	Construct (but do not start) the thread object. Executes in the context
-	of the spawning thread
-	*/
-	ThreadT(const Alloc& alloc = Alloc()) : Alloc(alloc)
-	{
-		mImpl = reinterpret_cast<ThreadImpl*>(Alloc::allocate(ThreadImpl::getSize(), __FILE__, __LINE__));
-		PX_PLACEMENT_NEW(mImpl, ThreadImpl)();
-	}
+    /**
+    Construct (but do not start) the thread object. Executes in the context
+    of the spawning thread
+    */
+    ThreadT(const Alloc& alloc = Alloc()) : Alloc(alloc) {
+        mImpl = reinterpret_cast<ThreadImpl*>(Alloc::allocate(ThreadImpl::getSize(), __FILE__, __LINE__));
+        PX_PLACEMENT_NEW(mImpl, ThreadImpl)();
+    }
 
-	/**
-	Construct and start the the thread, passing the given arg to the given fn. (pthread style)
-	*/
-	ThreadT(ThreadImpl::ExecuteFn fn, void* arg, const char* name, const Alloc& alloc = Alloc()) : Alloc(alloc)
-	{
-		mImpl = reinterpret_cast<ThreadImpl*>(Alloc::allocate(ThreadImpl::getSize(), __FILE__, __LINE__));
-		PX_PLACEMENT_NEW(mImpl, ThreadImpl)(fn, arg, name);
-	}
+    /**
+    Construct and start the the thread, passing the given arg to the given fn. (pthread style)
+    */
+    ThreadT(ThreadImpl::ExecuteFn fn, void* arg, const char* name, const Alloc& alloc = Alloc()) : Alloc(alloc) {
+        mImpl = reinterpret_cast<ThreadImpl*>(Alloc::allocate(ThreadImpl::getSize(), __FILE__, __LINE__));
+        PX_PLACEMENT_NEW(mImpl, ThreadImpl)(fn, arg, name);
+    }
 
-	/**
-	Deallocate all resources associated with the thread. Should be called in the
-	context of the spawning thread.
-	*/
-	virtual ~ThreadT()
-	{
-		mImpl->~ThreadImpl();
-		Alloc::deallocate(mImpl);
-	}
+    /**
+    Deallocate all resources associated with the thread. Should be called in the
+    context of the spawning thread.
+    */
+    virtual ~ThreadT() {
+        mImpl->~ThreadImpl();
+        Alloc::deallocate(mImpl);
+    }
 
-	/**
-	start the thread running. Called in the context of the spawning thread.
-	*/
+    /**
+    start the thread running. Called in the context of the spawning thread.
+    */
 
-	void start(uint32_t stackSize = ThreadImpl::getDefaultStackSize())
-	{
-		mImpl->start(stackSize, this);
-	}
+    void start(uint32_t stackSize = ThreadImpl::getDefaultStackSize()) { mImpl->start(stackSize, this); }
 
-	/**
-	Violently kill the current thread. Blunt instrument, not recommended since
-	it can leave all kinds of things unreleased (stack, memory, mutexes...) Should
-	be called in the context of the spawning thread.
-	*/
+    /**
+    Violently kill the current thread. Blunt instrument, not recommended since
+    it can leave all kinds of things unreleased (stack, memory, mutexes...) Should
+    be called in the context of the spawning thread.
+    */
 
-	void kill()
-	{
-		mImpl->kill();
-	}
+    void kill() { mImpl->kill(); }
 
-	/**
-	The virtual execute() method is the user defined function that will
-	run in the new thread. Called in the context of the spawned thread.
-	*/
+    /**
+    The virtual execute() method is the user defined function that will
+    run in the new thread. Called in the context of the spawned thread.
+    */
 
-	virtual void execute(void)
-	{
-	}
+    virtual void execute(void) {}
 
-	/**
-	stop the thread. Signals the spawned thread that it should stop, so the
-	thread should check regularly
-	*/
+    /**
+    stop the thread. Signals the spawned thread that it should stop, so the
+    thread should check regularly
+    */
 
-	void signalQuit()
-	{
-		mImpl->signalQuit();
-	}
+    void signalQuit() { mImpl->signalQuit(); }
 
-	/**
-	Wait for a thread to stop. Should be called in the context of the spawning
-	thread. Returns false if the thread has not been started.
-	*/
+    /**
+    Wait for a thread to stop. Should be called in the context of the spawning
+    thread. Returns false if the thread has not been started.
+    */
 
-	bool waitForQuit()
-	{
-		return mImpl->waitForQuit();
-	}
+    bool waitForQuit() { return mImpl->waitForQuit(); }
 
-	/**
-	check whether the thread is signalled to quit. Called in the context of the
-	spawned thread.
-	*/
+    /**
+    check whether the thread is signalled to quit. Called in the context of the
+    spawned thread.
+    */
 
-	bool quitIsSignalled()
-	{
-		return mImpl->quitIsSignalled();
-	}
+    bool quitIsSignalled() { return mImpl->quitIsSignalled(); }
 
-	/**
-	Cleanly shut down this thread. Called in the context of the spawned thread.
-	*/
-	void quit()
-	{
-		mImpl->quit();
-	}
+    /**
+    Cleanly shut down this thread. Called in the context of the spawned thread.
+    */
+    void quit() { mImpl->quit(); }
 
-	uint32_t setAffinityMask(uint32_t mask)
-	{
-		return mImpl->setAffinityMask(mask);
-	}
+    uint32_t setAffinityMask(uint32_t mask) { return mImpl->setAffinityMask(mask); }
 
-	static ThreadPriority::Enum getPriority(ThreadImpl::Id threadId)
-	{
-		return ThreadImpl::getPriority(threadId);
-	}
+    static ThreadPriority::Enum getPriority(ThreadImpl::Id threadId) { return ThreadImpl::getPriority(threadId); }
 
-	/** Set thread priority. */
-	void setPriority(ThreadPriority::Enum prio)
-	{
-		mImpl->setPriority(prio);
-	}
+    /** Set thread priority. */
+    void setPriority(ThreadPriority::Enum prio) { mImpl->setPriority(prio); }
 
-	/** set the thread's name */
-	void setName(const char* name)
-	{
-		mImpl->setName(name);
-	}
+    /** set the thread's name */
+    void setName(const char* name) { mImpl->setName(name); }
 
-	/** Put the current thread to sleep for the given number of milliseconds */
-	static void sleep(uint32_t ms)
-	{
-		ThreadImpl::sleep(ms);
-	}
+    /** Put the current thread to sleep for the given number of milliseconds */
+    static void sleep(uint32_t ms) { ThreadImpl::sleep(ms); }
 
-	/** Yield the current thread's slot on the CPU */
-	static void yield()
-	{
-		ThreadImpl::yield();
-	}
+    /** Yield the current thread's slot on the CPU */
+    static void yield() { ThreadImpl::yield(); }
 
-	static uint32_t getDefaultStackSize()
-	{
-		return ThreadImpl::getDefaultStackSize();
-	}
+    static uint32_t getDefaultStackSize() { return ThreadImpl::getDefaultStackSize(); }
 
-	static ThreadImpl::Id getId()
-	{
-		return ThreadImpl::getId();
-	}
+    static ThreadImpl::Id getId() { return ThreadImpl::getId(); }
 
-	static uint32_t getNbPhysicalCores()
-	{
-		return ThreadImpl::getNbPhysicalCores();
-	}
+    static uint32_t getNbPhysicalCores() { return ThreadImpl::getNbPhysicalCores(); }
 
-  private:
-	class ThreadImpl* mImpl;
+private:
+    class ThreadImpl* mImpl;
 };
 
 typedef ThreadT<> Thread;
@@ -378,7 +316,7 @@ PX_FOUNDATION_API size_t TlsGetValue(uint32_t index);
 PX_FOUNDATION_API uint32_t TlsSet(uint32_t index, void* value);
 PX_FOUNDATION_API uint32_t TlsSetValue(uint32_t index, size_t value);
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSTHREAD_H
+#endif  // #ifndef PSFOUNDATION_PSTHREAD_H

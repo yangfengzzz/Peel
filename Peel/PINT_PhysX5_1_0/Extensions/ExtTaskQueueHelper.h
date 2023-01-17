@@ -24,40 +24,34 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_TASK_QUEUE_HELPER_H
 #define EXT_TASK_QUEUE_HELPER_H
 
-#include "task/PxTask.h"
 #include "ExtSharedQueueEntryPool.h"
+#include "task/PxTask.h"
 
-namespace physx
-{
+namespace physx {
 
 #define EXT_TASK_QUEUE_ENTRY_POOL_SIZE 128
 
-namespace Ext
-{
-	class TaskQueueHelper
-	{
-	public:
-		static PxBaseTask* fetchTask(PxSList& taskQueue, Ext::SharedQueueEntryPool<>& entryPool)
-		{
-			SharedQueueEntry* entry = static_cast<SharedQueueEntry*>(taskQueue.pop());
-			if (entry)
-			{
-				PxBaseTask* task = reinterpret_cast<PxBaseTask*>(entry->mObjectRef);
-				entryPool.putEntry(*entry);
-				return task;
-			}
-			else
-				return NULL;
-		}
-	};
+namespace Ext {
+class TaskQueueHelper {
+public:
+    static PxBaseTask* fetchTask(PxSList& taskQueue, Ext::SharedQueueEntryPool<>& entryPool) {
+        SharedQueueEntry* entry = static_cast<SharedQueueEntry*>(taskQueue.pop());
+        if (entry) {
+            PxBaseTask* task = reinterpret_cast<PxBaseTask*>(entry->mObjectRef);
+            entryPool.putEntry(*entry);
+            return task;
+        } else
+            return NULL;
+    }
+};
 
-} // namespace Ext
+}  // namespace Ext
 
-}
+}  // namespace physx
 
 #endif

@@ -25,55 +25,49 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
-
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef PX_PHYSICS_EXTENSIONS_NP_CPU_WORKER_THREAD_H
 #define PX_PHYSICS_EXTENSIONS_NP_CPU_WORKER_THREAD_H
 
 #include "CmPhysXCommon.h"
-#include "PsThread.h"
 #include "ExtDefaultCpuDispatcher.h"
 #include "ExtSharedQueueEntryPool.h"
+#include "PsThread.h"
 
-
-namespace physx
-{
-namespace Ext
-{
+namespace physx {
+namespace Ext {
 class DefaultCpuDispatcher;
-
 
 #if PX_VC
 #pragma warning(push)
-#pragma warning(disable:4324)	// Padding was added at the end of a structure because of a __declspec(align) value.
-#endif							// Because of the SList member I assume
+#pragma warning(disable : 4324)  // Padding was added at the end of a structure because of a __declspec(align) value.
+#endif                           // Because of the SList member I assume
 
-	class CpuWorkerThread : public Ps::Thread
-	{
-	public:
-        CpuWorkerThread();
-        ~CpuWorkerThread();
-		
-		void					initialize(DefaultCpuDispatcher* ownerDispatcher);
-		void					execute();
-		bool					tryAcceptJobToLocalQueue(PxBaseTask& task, Ps::Thread::Id taskSubmitionThread);
-		PxBaseTask*				giveUpJob();
-		Ps::Thread::Id			getWorkerThreadId() const { return mThreadId; }
+class CpuWorkerThread : public Ps::Thread {
+public:
+    CpuWorkerThread();
+    ~CpuWorkerThread();
 
-	protected:
-		SharedQueueEntryPool<>			mQueueEntryPool;
-		DefaultCpuDispatcher*			mOwner;
-		Ps::SList      				    mLocalJobList;
-		Ps::Thread::Id					mThreadId;
-	};
+    void initialize(DefaultCpuDispatcher* ownerDispatcher);
+    void execute();
+    bool tryAcceptJobToLocalQueue(PxBaseTask& task, Ps::Thread::Id taskSubmitionThread);
+    PxBaseTask* giveUpJob();
+    Ps::Thread::Id getWorkerThreadId() const { return mThreadId; }
+
+protected:
+    SharedQueueEntryPool<> mQueueEntryPool;
+    DefaultCpuDispatcher* mOwner;
+    Ps::SList mLocalJobList;
+    Ps::Thread::Id mThreadId;
+};
 
 #if PX_VC
 #pragma warning(pop)
 #endif
 
-} // namespace Ext
+}  // namespace Ext
 
-}
+}  // namespace physx
 
 #endif

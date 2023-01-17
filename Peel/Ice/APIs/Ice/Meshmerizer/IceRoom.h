@@ -14,11 +14,11 @@
 
 #ifdef SUPPORT_ROOM
 
-	struct MESHMERIZER_API ROOMPRIMITIVECREATE : CUBEPRIMITIVECREATE
-	{
-	};
+struct MESHMERIZER_API ROOMPRIMITIVECREATE : CUBEPRIMITIVECREATE {};
 
-	FUNCTION MESHMERIZER_API bool MakeRoom(const ROOMPRIMITIVECREATE& create, IndexedSurface* surface, Vertices* portals=null);
+FUNCTION MESHMERIZER_API bool MakeRoom(const ROOMPRIMITIVECREATE& create,
+                                       IndexedSurface* surface,
+                                       Vertices* portals = null);
 #endif
 
-#endif // ICEROOM_H
+#endif  // ICEROOM_H

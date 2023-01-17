@@ -12,6 +12,12 @@
 #ifndef ICEPROJECTOR_H
 #define ICEPROJECTOR_H
 
-	FUNCTION ICERENDERER_API void SetupProjector(RenderStateManager& rsm, udword stage, const PR& pr, const Matrix4x4& inverse_view, udword width, udword height, float fov);
+FUNCTION ICERENDERER_API void SetupProjector(RenderStateManager& rsm,
+                                             udword stage,
+                                             const PR& pr,
+                                             const Matrix4x4& inverse_view,
+                                             udword width,
+                                             udword height,
+                                             float fov);
 
-#endif // ICEPROJECTOR_H
+#endif  // ICEPROJECTOR_H

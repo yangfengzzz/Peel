@@ -25,19 +25,18 @@
 //#pragma warning( disable : 4242 )	// conversion from 'physx::PxU32' to 'physx::PxU8', possible loss of data
 */
 
-#include "./PINT_Common/PINT_Ice.h"
-
-#include "GL/glew.h"
-#include "GlutX/Include/GlutX.h"
 #include <vector>
 
+#include "./PINT_Common/PINT_Ice.h"
+#include "GL/glew.h"
+#include "GlutX/Include/GlutX.h"
 #include "PEEL_Settings.h"
 
 #define STRINGIFY(A) #A
 
 #ifdef PEEL_USE_SPY
-	#include "Spy\SpyClient.h"
-	#define SPY_ZONE(Label)	Spy::Zone __SpyZone(Label);
+#include "Spy\SpyClient.h"
+#define SPY_ZONE(Label) Spy::Zone __SpyZone(Label);
 #else
-	#define SPY_ZONE(Label)
+#define SPY_ZONE(Label)
 #endif

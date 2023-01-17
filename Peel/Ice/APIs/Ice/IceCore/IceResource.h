@@ -12,8 +12,8 @@
 #ifndef ICERESOURCE_H
 #define ICERESOURCE_H
 
-	FUNCTION ICECORE_API bool	RegisterResource(const char* filename);
-	FUNCTION ICECORE_API void	ReleaseResourceData();
-	FUNCTION ICECORE_API void	CopyResources();
+FUNCTION ICECORE_API bool RegisterResource(const char* filename);
+FUNCTION ICECORE_API void ReleaseResourceData();
+FUNCTION ICECORE_API void CopyResources();
 
-#endif // ICERESOURCE_H
+#endif  // ICERESOURCE_H

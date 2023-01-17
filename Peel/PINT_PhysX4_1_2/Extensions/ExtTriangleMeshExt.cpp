@@ -25,150 +25,136 @@
 //
 // Copyright (c) 2008-2021 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
-
-#include "geometry/PxMeshQuery.h"
-#include "geometry/PxGeometryQuery.h"
-#include "geometry/PxTriangleMeshGeometry.h"
-#include "geometry/PxHeightFieldGeometry.h"
-#include "geometry/PxHeightField.h"
-#include "geometry/PxTriangleMesh.h"
 #include "extensions/PxTriangleMeshExt.h"
-
+#include "geometry/PxGeometryQuery.h"
+#include "geometry/PxHeightField.h"
+#include "geometry/PxHeightFieldGeometry.h"
+#include "geometry/PxMeshQuery.h"
+#include "geometry/PxTriangleMesh.h"
+#include "geometry/PxTriangleMeshGeometry.h"
 #include "PsAllocator.h"
 
 using namespace physx;
 
-PxMeshOverlapUtil::PxMeshOverlapUtil() : mResultsMemory(mResults), mNbResults(0), mMaxNbResults(256)
-{
+PxMeshOverlapUtil::PxMeshOverlapUtil() : mResultsMemory(mResults), mNbResults(0), mMaxNbResults(256) {}
+
+PxMeshOverlapUtil::~PxMeshOverlapUtil() {
+    if (mResultsMemory != mResults) PX_FREE(mResultsMemory);
 }
 
-PxMeshOverlapUtil::~PxMeshOverlapUtil()
-{
-	if(mResultsMemory != mResults)
-		PX_FREE(mResultsMemory);
+PxU32 PxMeshOverlapUtil::findOverlap(const PxGeometry& geom,
+                                     const PxTransform& geomPose,
+                                     const PxTriangleMeshGeometry& meshGeom,
+                                     const PxTransform& meshPose) {
+    bool overflow;
+    PxU32 nbTouchedTris = PxMeshQuery::findOverlapTriangleMesh(geom, geomPose, meshGeom, meshPose, mResultsMemory,
+                                                               mMaxNbResults, 0, overflow);
+
+    if (overflow) {
+        const PxU32 maxNbTris = meshGeom.triangleMesh->getNbTriangles();
+        if (!maxNbTris) {
+            mNbResults = 0;
+            return 0;
+        }
+
+        if (mMaxNbResults < maxNbTris) {
+            if (mResultsMemory != mResults) PX_FREE(mResultsMemory);
+
+            mResultsMemory =
+                    reinterpret_cast<PxU32*>(PX_ALLOC(sizeof(PxU32) * maxNbTris, "PxMeshOverlapUtil::findOverlap"));
+            mMaxNbResults = maxNbTris;
+        }
+        nbTouchedTris = PxMeshQuery::findOverlapTriangleMesh(geom, geomPose, meshGeom, meshPose, mResultsMemory,
+                                                             mMaxNbResults, 0, overflow);
+        PX_ASSERT(nbTouchedTris);
+        PX_ASSERT(!overflow);
+    }
+    mNbResults = nbTouchedTris;
+    return nbTouchedTris;
 }
 
-PxU32 PxMeshOverlapUtil::findOverlap(const PxGeometry& geom, const PxTransform& geomPose, const PxTriangleMeshGeometry& meshGeom, const PxTransform& meshPose)
-{
-	bool overflow;
-	PxU32 nbTouchedTris = PxMeshQuery::findOverlapTriangleMesh(geom, geomPose, meshGeom, meshPose, mResultsMemory, mMaxNbResults, 0, overflow);
+PxU32 PxMeshOverlapUtil::findOverlap(const PxGeometry& geom,
+                                     const PxTransform& geomPose,
+                                     const PxHeightFieldGeometry& hfGeom,
+                                     const PxTransform& hfPose) {
+    bool overflow = true;
+    PxU32 nbTouchedTris = PxMeshQuery::findOverlapHeightField(geom, geomPose, hfGeom, hfPose, mResultsMemory,
+                                                              mMaxNbResults, 0, overflow);
 
-	if(overflow)
-	{
-		const PxU32 maxNbTris = meshGeom.triangleMesh->getNbTriangles();
-		if(!maxNbTris)
-		{
-			mNbResults = 0;
-			return 0;
-		}
+    if (overflow) {
+        const PxU32 maxNbTris = hfGeom.heightField->getNbRows() * hfGeom.heightField->getNbColumns() * 2;
+        if (!maxNbTris) {
+            mNbResults = 0;
+            return 0;
+        }
 
-		if(mMaxNbResults<maxNbTris)
-		{
-			if(mResultsMemory != mResults)
-				PX_FREE(mResultsMemory);
+        if (mMaxNbResults < maxNbTris) {
+            if (mResultsMemory != mResults) PX_FREE(mResultsMemory);
 
-			mResultsMemory = reinterpret_cast<PxU32*>(PX_ALLOC(sizeof(PxU32)*maxNbTris, "PxMeshOverlapUtil::findOverlap"));
-			mMaxNbResults = maxNbTris;
-		}
-		nbTouchedTris = PxMeshQuery::findOverlapTriangleMesh(geom, geomPose, meshGeom, meshPose, mResultsMemory, mMaxNbResults, 0, overflow);
-		PX_ASSERT(nbTouchedTris);
-		PX_ASSERT(!overflow);
-	}
-	mNbResults = nbTouchedTris;
-	return nbTouchedTris;
+            mResultsMemory =
+                    reinterpret_cast<PxU32*>(PX_ALLOC(sizeof(PxU32) * maxNbTris, "PxMeshOverlapUtil::findOverlap"));
+            mMaxNbResults = maxNbTris;
+        }
+        nbTouchedTris = PxMeshQuery::findOverlapHeightField(geom, geomPose, hfGeom, hfPose, mResultsMemory,
+                                                            mMaxNbResults, 0, overflow);
+        PX_ASSERT(nbTouchedTris);
+        PX_ASSERT(!overflow);
+    }
+    mNbResults = nbTouchedTris;
+    return nbTouchedTris;
+}
+namespace {
+template <typename MeshGeometry>
+bool computeMeshPenetrationT(PxVec3& direction,
+                             PxReal& depth,
+                             const PxGeometry& geom,
+                             const PxTransform& geomPose,
+                             const MeshGeometry& meshGeom,
+                             const PxTransform& meshPose,
+                             PxU32 maxIter,
+                             PxU32* nbIterOut) {
+    PxU32 nbIter = 0;
+    PxTransform pose = geomPose;
+    for (; nbIter < maxIter; nbIter++) {
+        PxVec3 currentDir;
+        PxF32 currentDepth;
+
+        if (!PxGeometryQuery::computePenetration(currentDir, currentDepth, geom, pose, meshGeom, meshPose)) break;
+
+        pose.p += currentDir * currentDepth;
+    }
+
+    if (nbIterOut) *nbIterOut = nbIter;
+
+    PxVec3 diff = pose.p - geomPose.p;
+    depth = diff.magnitude();
+
+    if (depth > 0) direction = diff / depth;
+
+    return nbIter != 0;
+}
+}  // namespace
+
+bool physx::PxComputeTriangleMeshPenetration(PxVec3& direction,
+                                             PxReal& depth,
+                                             const PxGeometry& geom,
+                                             const PxTransform& geomPose,
+                                             const PxTriangleMeshGeometry& meshGeom,
+                                             const PxTransform& meshPose,
+                                             PxU32 maxIter,
+                                             PxU32* nbIter) {
+    return computeMeshPenetrationT(direction, depth, geom, geomPose, meshGeom, meshPose, maxIter, nbIter);
 }
 
-PxU32 PxMeshOverlapUtil::findOverlap(const PxGeometry& geom, const PxTransform& geomPose, const PxHeightFieldGeometry& hfGeom, const PxTransform& hfPose)
-{
-	bool overflow = true;
-	PxU32 nbTouchedTris = PxMeshQuery::findOverlapHeightField(geom, geomPose, hfGeom, hfPose, mResultsMemory, mMaxNbResults, 0, overflow);
-
-	if(overflow)
-	{
-		const PxU32 maxNbTris = hfGeom.heightField->getNbRows()*hfGeom.heightField->getNbColumns()*2;
-		if(!maxNbTris)
-		{
-			mNbResults = 0;
-			return 0;
-		}
-
-		if(mMaxNbResults<maxNbTris)
-		{
-			if(mResultsMemory != mResults)
-				PX_FREE(mResultsMemory);
-
-			mResultsMemory = reinterpret_cast<PxU32*>(PX_ALLOC(sizeof(PxU32)*maxNbTris, "PxMeshOverlapUtil::findOverlap"));
-			mMaxNbResults = maxNbTris;
-		}
-		nbTouchedTris = PxMeshQuery::findOverlapHeightField(geom, geomPose, hfGeom, hfPose, mResultsMemory, mMaxNbResults, 0, overflow);
-		PX_ASSERT(nbTouchedTris);
-		PX_ASSERT(!overflow);
-	}
-	mNbResults = nbTouchedTris;
-	return nbTouchedTris;
-
+bool physx::PxComputeHeightFieldPenetration(PxVec3& direction,
+                                            PxReal& depth,
+                                            const PxGeometry& geom,
+                                            const PxTransform& geomPose,
+                                            const PxHeightFieldGeometry& hfGeom,
+                                            const PxTransform& meshPose,
+                                            PxU32 maxIter,
+                                            PxU32* nbIter) {
+    return computeMeshPenetrationT(direction, depth, geom, geomPose, hfGeom, meshPose, maxIter, nbIter);
 }
-namespace
-{
-template<typename MeshGeometry>
-bool computeMeshPenetrationT(PxVec3& direction, 
-						     PxReal& depth,
-							 const PxGeometry& geom, 
-							 const PxTransform& geomPose, 
-							 const MeshGeometry& meshGeom, 
-							 const PxTransform& meshPose, 
-							 PxU32 maxIter,
-							 PxU32* nbIterOut)
-{
-	PxU32 nbIter = 0;
-	PxTransform pose = geomPose;
-	for (;  nbIter < maxIter; nbIter++)
-	{
-		PxVec3 currentDir;
-		PxF32 currentDepth;
-
-		if (!PxGeometryQuery::computePenetration(currentDir, currentDepth, geom, pose, meshGeom, meshPose))
-			break;
-
-		pose.p += currentDir * currentDepth;
-	}
-
-	if(nbIterOut)
-		*nbIterOut = nbIter;
-
-	PxVec3 diff = pose.p - geomPose.p;
-	depth = diff.magnitude();	
-
-	if (depth>0)
-		direction = diff / depth;
-
-	return nbIter!=0;
-}
-}
-
-bool physx::PxComputeTriangleMeshPenetration(PxVec3& direction, 
-											PxReal& depth,
-											const PxGeometry& geom, 
-											const PxTransform& geomPose, 
-											const PxTriangleMeshGeometry& meshGeom, 
-											const PxTransform& meshPose, 
-											PxU32 maxIter,
-											PxU32* nbIter)
-{
-	return computeMeshPenetrationT(direction, depth, geom, geomPose, meshGeom, meshPose, maxIter, nbIter);
-}
-
-bool physx::PxComputeHeightFieldPenetration(PxVec3& direction, 
-										    PxReal& depth,
-											const PxGeometry& geom, 
-											const PxTransform& geomPose, 
-											const PxHeightFieldGeometry& hfGeom, 
-											const PxTransform& meshPose, 
-											PxU32 maxIter,
-											PxU32* nbIter)
-{
-	return computeMeshPenetrationT(direction, depth, geom, geomPose, hfGeom, meshPose, maxIter, nbIter);
-}
-

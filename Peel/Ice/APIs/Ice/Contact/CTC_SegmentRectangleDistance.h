@@ -12,6 +12,7 @@
 #ifndef CTCSEGMENTRECTANGLEDISTANCE_H
 #define CTCSEGMENTRECTANGLEDISTANCE_H
 
-	CONTACT_API float SegmentRectangleSqrDist(const Segment& segment, const Rectangle3& rectangle, float* t=null, float* u=null, float* v=null);
+CONTACT_API float SegmentRectangleSqrDist(
+        const Segment& segment, const Rectangle3& rectangle, float* t = null, float* u = null, float* v = null);
 
-#endif // CTCSEGMENTRECTANGLEDISTANCE_H
+#endif  // CTCSEGMENTRECTANGLEDISTANCE_H

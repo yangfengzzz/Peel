@@ -32,26 +32,22 @@
 
 #include "PsVecMath.h"
 
-namespace physx
-{
-namespace shdfnd
-{
-namespace aos
-{
+namespace physx {
+namespace shdfnd {
+namespace aos {
 /*!
     Extend an edge along its length by a factor
     */
-PX_FORCE_INLINE void makeFatEdge(Vec3V& p0, Vec3V& p1, const FloatVArg fatCoeff)
-{
-	const Vec3V delta = V3Sub(p1, p0);
-	const FloatV m = V3Length(delta);
-	const BoolV con = FIsGrtr(m, FZero());
-	const Vec3V fatDelta = V3Scale(V3ScaleInv(delta, m), fatCoeff);
-	p0 = V3Sel(con, V3Sub(p0, fatDelta), p0);
-	p1 = V3Sel(con, V3Add(p1, fatDelta), p1);
+PX_FORCE_INLINE void makeFatEdge(Vec3V& p0, Vec3V& p1, const FloatVArg fatCoeff) {
+    const Vec3V delta = V3Sub(p1, p0);
+    const FloatV m = V3Length(delta);
+    const BoolV con = FIsGrtr(m, FZero());
+    const Vec3V fatDelta = V3Scale(V3ScaleInv(delta, m), fatCoeff);
+    p0 = V3Sel(con, V3Sub(p0, fatDelta), p0);
+    p1 = V3Sel(con, V3Add(p1, fatDelta), p1);
 }
-}
-}
-}
+}  // namespace aos
+}  // namespace shdfnd
+}  // namespace physx
 
 #endif

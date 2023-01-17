@@ -12,29 +12,27 @@
 #ifndef ICEHNODE_H
 #define ICEHNODE_H
 
-	class ICECORE_API HNode
-	{
-		public:
-		//! Constructor
-								HNode() : mSonLink(null), mNextLink(null)	{}
-		//! Destructor
-								~HNode()									{}
+class ICECORE_API HNode {
+public:
+    //! Constructor
+    HNode() : mSonLink(null), mNextLink(null) {}
+    //! Destructor
+    ~HNode() {}
 
-		// Hierarchy construction
+    // Hierarchy construction
 
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		/**
-		 *	Inserts a new node in the hierarchy.
-		 *	Only 2 links are used since we only go through the hierarchy in the same unique direction (from root node to end effectors)
-		 *	\param		father_node		[in] the current node's father
-		 *	\return		Self-reference
-		 */
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					HNode&		Insert(HNode* father_node);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     *	Inserts a new node in the hierarchy.
+     *	Only 2 links are used since we only go through the hierarchy in the same unique direction (from root node to end
+     *effectors) \param		father_node		[in] the current node's father \return		Self-reference
+     */
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    HNode& Insert(HNode* father_node);
 
-		// Hierarchy data
-					HNode*		mSonLink;		//!< Child node
-					HNode*		mNextLink;		//!< Brother node
-	};
+    // Hierarchy data
+    HNode* mSonLink;   //!< Child node
+    HNode* mNextLink;  //!< Brother node
+};
 
-#endif // ICEHNODE_H
+#endif  // ICEHNODE_H

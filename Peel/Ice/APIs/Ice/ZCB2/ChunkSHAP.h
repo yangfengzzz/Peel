@@ -12,25 +12,25 @@
 #ifndef CHUNKSHAP_H
 #define CHUNKSHAP_H
 
-	#define SHAP_VERSION	1
+#define SHAP_VERSION 1
 
-	class ZCB2_API SHAPChunk : public PRSChunk
-	{
-		DECLARE_CHUNK(SHAPChunk, mSHAPCore)
+class ZCB2_API SHAPChunk : public PRSChunk {
+    DECLARE_CHUNK(SHAPChunk, mSHAPCore)
 
-		DECLARE_STD_MEMBER(MaterialID,		udword)
+    DECLARE_STD_MEMBER(MaterialID, udword)
 
-		// Data access
-		inline_			udword				GetNbCurves()			const	{ return mNbCurves;		}
-		inline_			const CURVChunk*	GetCurve(udword i)		const	{ return &mCurves[i];	}
+    // Data access
+    inline_ udword GetNbCurves() const { return mNbCurves; }
+    inline_ const CURVChunk* GetCurve(udword i) const { return &mCurves[i]; }
 
-		// Chunk definition
-						bool				SetNbCurves(udword nb);
-						bool				SetCurve(udword i, udword nb_pts, const Point* pts, bool closure);
-		private:
-		// Chunk data
-						udword				mNbCurves;
-						CURVChunk*			mCurves;
-	};
+    // Chunk definition
+    bool SetNbCurves(udword nb);
+    bool SetCurve(udword i, udword nb_pts, const Point* pts, bool closure);
 
-#endif // CHUNKSHAP_H
+private:
+    // Chunk data
+    udword mNbCurves;
+    CURVChunk* mCurves;
+};
+
+#endif  // CHUNKSHAP_H

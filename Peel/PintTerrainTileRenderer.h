@@ -9,26 +9,29 @@
 #ifndef PINT_TERRAIN_TILE_RENDERER_H
 #define PINT_TERRAIN_TILE_RENDERER_H
 
-#include "PintShapeRenderer.h"
 #include "GLMesh.h"
+#include "PintShapeRenderer.h"
 
-	class PintTerrainTileRenderer : public PintShapeRenderer
-	{
-		public:
-								PintTerrainTileRenderer(GLIndexBufferCollection& index_buffers, udword nb_verts, const Point* verts, const Point* vnormals);
-		virtual					~PintTerrainTileRenderer();
+class PintTerrainTileRenderer : public PintShapeRenderer {
+public:
+    PintTerrainTileRenderer(GLIndexBufferCollection& index_buffers,
+                            udword nb_verts,
+                            const Point* verts,
+                            const Point* vnormals);
+    virtual ~PintTerrainTileRenderer();
 
-		// PintShapeRenderer
-		virtual	const char*		GetClassName()							const	override	{ return "PintTerrainTileRenderer";	}
-		virtual	void			_Render(const PR& pose)					const	override;
-		virtual	bool			UpdateVerts(const Point*, const Point* normals)	override;
-		//~PintShapeRenderer
+    // PintShapeRenderer
+    virtual const char* GetClassName() const override { return "PintTerrainTileRenderer"; }
+    virtual void _Render(const PR& pose) const override;
+    virtual bool UpdateVerts(const Point*, const Point* normals) override;
+    //~PintShapeRenderer
 
-		private:
-				GLIndexBufferCollection&	mIndexBuffers;
-				GLVertexBuffer				mVertexBuffer;
-		public:
-				udword						mLOD;
-	};
+private:
+    GLIndexBufferCollection& mIndexBuffers;
+    GLVertexBuffer mVertexBuffer;
+
+public:
+    udword mLOD;
+};
 
 #endif

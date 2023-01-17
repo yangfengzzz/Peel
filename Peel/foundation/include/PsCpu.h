@@ -32,16 +32,13 @@
 
 #include "Ps.h"
 
-namespace physx
-{
-namespace shdfnd
-{
-class Cpu
-{
-  public:
-	static uint8_t getCpuId();
+namespace physx {
+namespace shdfnd {
+class Cpu {
+public:
+    static uint8_t getCpuId();
 };
-}
-}
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSCPU_H
+#endif  // #ifndef PSFOUNDATION_PSCPU_H

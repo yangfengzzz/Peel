@@ -24,65 +24,66 @@
 //
 // Copyright (c) 2008-2022 NVIDIA Corporation. All rights reserved.
 // Copyright (c) 2004-2008 AGEIA Technologies, Inc. All rights reserved.
-// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.  
+// Copyright (c) 2001-2004 NovodeX AG. All rights reserved.
 
 #ifndef EXT_FIXED_JOINT_H
 #define EXT_FIXED_JOINT_H
 
-#include "extensions/PxFixedJoint.h"
-
-#include "ExtJoint.h"
 #include "CmUtils.h"
+#include "extensions/PxFixedJoint.h"
+#include "ExtJoint.h"
 
-namespace physx
-{
+namespace physx {
 struct PxFixedJointGeneratedValues;
-namespace Ext
-{
-	struct FixedJointData : public JointData
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
+namespace Ext {
+struct FixedJointData : public JointData {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
 
-		PxReal	projectionLinearTolerance;
-		PxReal	projectionAngularTolerance;
-	};
+    PxReal projectionLinearTolerance;
+    PxReal projectionAngularTolerance;
+};
 
-	typedef JointT<PxFixedJoint, FixedJointData, PxFixedJointGeneratedValues> FixedJointT;
+typedef JointT<PxFixedJoint, FixedJointData, PxFixedJointGeneratedValues> FixedJointT;
 
-	class FixedJoint : public FixedJointT
-	{
-	//= ATTENTION! =====================================================================================
-	// Changing the data layout of this class breaks the binary serialization format.  See comments for 
-	// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
-	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-	// accordingly.
-	//==================================================================================================
-	public:
-// PX_SERIALIZATION
-										FixedJoint(PxBaseFlags baseFlags) : FixedJointT(baseFlags) {}
-				void					resolveReferences(PxDeserializationContext& context);
-		static	FixedJoint*				createObject(PxU8*& address, PxDeserializationContext& context)	{ return createJointObject<FixedJoint>(address, context);	}
-		static	void					getBinaryMetaData(PxOutputStream& stream);
-//~PX_SERIALIZATION
-										FixedJoint(const PxTolerancesScale& /*scale*/, PxRigidActor* actor0, const PxTransform& localFrame0, PxRigidActor* actor1, const PxTransform& localFrame1);
-		// PxFixedJoint
-		virtual	void					setProjectionLinearTolerance(PxReal tolerance)	PX_OVERRIDE;
-		virtual	PxReal					getProjectionLinearTolerance()	const	PX_OVERRIDE;
-		virtual	void					setProjectionAngularTolerance(PxReal tolerance)	PX_OVERRIDE;
-		virtual	PxReal					getProjectionAngularTolerance()	const	PX_OVERRIDE;
-		//~PxFixedJoint
-	
-		// PxConstraintConnector
-		virtual PxConstraintSolverPrep	getPrep()	const	PX_OVERRIDE;
-		//~PxConstraintConnector
-	};
-} // namespace Ext
+class FixedJoint : public FixedJointT {
+    //= ATTENTION! =====================================================================================
+    // Changing the data layout of this class breaks the binary serialization format.  See comments for
+    // PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData
+    // function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
+    // accordingly.
+    //==================================================================================================
+public:
+    // PX_SERIALIZATION
+    FixedJoint(PxBaseFlags baseFlags) : FixedJointT(baseFlags) {}
+    void resolveReferences(PxDeserializationContext& context);
+    static FixedJoint* createObject(PxU8*& address, PxDeserializationContext& context) {
+        return createJointObject<FixedJoint>(address, context);
+    }
+    static void getBinaryMetaData(PxOutputStream& stream);
+    //~PX_SERIALIZATION
+    FixedJoint(const PxTolerancesScale& /*scale*/,
+               PxRigidActor* actor0,
+               const PxTransform& localFrame0,
+               PxRigidActor* actor1,
+               const PxTransform& localFrame1);
+    // PxFixedJoint
+    virtual void setProjectionLinearTolerance(PxReal tolerance) PX_OVERRIDE;
+    virtual PxReal getProjectionLinearTolerance() const PX_OVERRIDE;
+    virtual void setProjectionAngularTolerance(PxReal tolerance) PX_OVERRIDE;
+    virtual PxReal getProjectionAngularTolerance() const PX_OVERRIDE;
+    //~PxFixedJoint
 
-} // namespace physx
+    // PxConstraintConnector
+    virtual PxConstraintSolverPrep getPrep() const PX_OVERRIDE;
+    //~PxConstraintConnector
+};
+}  // namespace Ext
+
+}  // namespace physx
 
 #endif

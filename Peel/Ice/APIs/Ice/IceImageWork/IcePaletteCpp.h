@@ -1,5 +1,4 @@
-void T::Reset()
-{
-	DELETEARRAY(mColors);
-	mNbColors = 0;
+void T::Reset() {
+    DELETEARRAY(mColors);
+    mNbColors = 0;
 }

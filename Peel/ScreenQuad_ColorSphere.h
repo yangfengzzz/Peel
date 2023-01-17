@@ -9,27 +9,26 @@
 #ifndef SCREEN_QUAD_COLOR_SPHERE_H
 #define SCREEN_QUAD_COLOR_SPHERE_H
 
-#include "ScreenQuad.h"
 #include "GLShader.h"
+#include "ScreenQuad.h"
 
-	class ScreenQuadColorSphere : public ShaderBasedScreenQuad, public ColorPickerCallback
-	{
-		public:
-							ScreenQuadColorSphere();
-		virtual				~ScreenQuadColorSphere();
+class ScreenQuadColorSphere : public ShaderBasedScreenQuad, public ColorPickerCallback {
+public:
+    ScreenQuadColorSphere();
+    virtual ~ScreenQuadColorSphere();
 
-		virtual	const char*	GetUIName()		const		{ return "Color sphere";	}
-		virtual	void		Apply(udword screen_width, udword screen_height);
-		virtual	void		CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
+    virtual const char* GetUIName() const { return "Color sphere"; }
+    virtual void Apply(udword screen_width, udword screen_height);
+    virtual void CreateUI(PintGUIHelper& helper, Widgets* widgets, IceWindow* parent);
 
-		// ColorPickerCallback
-		virtual	void		OnNewColorSelected(ubyte r, ubyte g, ubyte b);
+    // ColorPickerCallback
+    virtual void OnNewColorSelected(ubyte r, ubyte g, ubyte b);
 
-				Point		mTopColor;
-				Point		mMiddleColor;
-				Point		mBottomColor;
-				udword		mID;
-				float		mSpread;
-	};
+    Point mTopColor;
+    Point mMiddleColor;
+    Point mBottomColor;
+    udword mID;
+    float mSpread;
+};
 
 #endif

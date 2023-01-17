@@ -30,13 +30,11 @@
 #ifndef PSFOUNDATION_PSATOMIC_H
 #define PSFOUNDATION_PSATOMIC_H
 
-#include "Ps.h"
 #include "foundation/PxFoundationConfig.h"
+#include "Ps.h"
 
-namespace physx
-{
-namespace shdfnd
-{
+namespace physx {
+namespace shdfnd {
 /* set *dest equal to val. Return the old value of *dest */
 PX_FOUNDATION_API int32_t atomicExchange(volatile int32_t* dest, int32_t val);
 
@@ -58,7 +56,7 @@ PX_FOUNDATION_API int32_t atomicAdd(volatile int32_t* val, int32_t delta);
 /* compute the maximum of dest and val. Return the new value */
 PX_FOUNDATION_API int32_t atomicMax(volatile int32_t* val, int32_t val2);
 
-} // namespace shdfnd
-} // namespace physx
+}  // namespace shdfnd
+}  // namespace physx
 
-#endif // #ifndef PSFOUNDATION_PSATOMIC_H
+#endif  // #ifndef PSFOUNDATION_PSATOMIC_H

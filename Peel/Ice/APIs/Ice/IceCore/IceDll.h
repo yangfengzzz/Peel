@@ -17,46 +17,42 @@ extern void ModuleDetach();
 
 #if defined(_USRDLL) && defined(ICE_MAIN)
 
-	BOOL WINAPI DllMain(
-	  HINSTANCE hinstDLL,  // handle to the DLL module
-	  DWORD fdwReason,     // reason for calling function
-	  LPVOID /*lpvReserved*/   // reserved
-	)
-	{
-		switch(fdwReason)
-		{
-			case DLL_PROCESS_ATTACH:
-				ModuleAttach(hinstDLL);
-				break;
+BOOL WINAPI DllMain(HINSTANCE hinstDLL,     // handle to the DLL module
+                    DWORD fdwReason,        // reason for calling function
+                    LPVOID /*lpvReserved*/  // reserved
+) {
+    switch (fdwReason) {
+        case DLL_PROCESS_ATTACH:
+            ModuleAttach(hinstDLL);
+            break;
 
-			case DLL_PROCESS_DETACH:
-				ModuleDetach();
-				break;
-		}
-		return TRUE;
-	}
+        case DLL_PROCESS_DETACH:
+            ModuleDetach();
+            break;
+    }
+    return TRUE;
+}
 
 #endif
 
 #ifdef _DEBUG
 
-//ICECORE_API inline_ void IceTrace(const char* lpszFormat, ...)
-ICECORE_API inline_ void IceTrace(const char* buffer)
-{
-/*	va_list args;
-	va_start(args, lpszFormat);
+// ICECORE_API inline_ void IceTrace(const char* lpszFormat, ...)
+ICECORE_API inline_ void IceTrace(const char* buffer) {
+    /*	va_list args;
+            va_start(args, lpszFormat);
 
-	sdword nBuf;
-	ubyte szBuffer[512];
+            sdword nBuf;
+            ubyte szBuffer[512];
 
-	nBuf = _vsnprintf((LPSTR)szBuffer, lstrlen((LPCSTR)szBuffer), (LPCSTR)lpszFormat, args);
+            nBuf = _vsnprintf((LPSTR)szBuffer, lstrlen((LPCSTR)szBuffer), (LPCSTR)lpszFormat, args);
 
-	_RPT0(_CRT_WARN, szBuffer);
+            _RPT0(_CRT_WARN, szBuffer);
 
-	va_end(args);*/
-	if(buffer)	_RPT0(_CRT_WARN, buffer);
+            va_end(args);*/
+    if (buffer) _RPT0(_CRT_WARN, buffer);
 }
 
-#endif // _DEBUG
+#endif  // _DEBUG
 
-#endif // ICEDLL_H
+#endif  // ICEDLL_H

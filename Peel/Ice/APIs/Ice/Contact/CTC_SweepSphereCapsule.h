@@ -3,8 +3,7 @@
 #ifndef CTCSWEEPSPHERECAPSULE_H
 #define CTCSWEEPSPHERECAPSULE_H
 
-	CONTACT_API	bool SweepSphereCapsule(const Sphere& sphere, const LSS& lss, const Point& dir, float length, float& d, Point& ip, Point& nrm);
+CONTACT_API bool SweepSphereCapsule(
+        const Sphere& sphere, const LSS& lss, const Point& dir, float length, float& d, Point& ip, Point& nrm);
 
-#endif // CTCSWEEPSPHERECAPSULE_H
-
-
+#endif  // CTCSWEEPSPHERECAPSULE_H

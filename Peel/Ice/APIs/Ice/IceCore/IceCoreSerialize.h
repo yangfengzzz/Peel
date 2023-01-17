@@ -12,10 +12,10 @@
 #ifndef ICECORESERIALIZE_H
 #define ICECORESERIALIZE_H
 
-	ICECORE_API	bool	Save(CustomArray& ca, const TimeInfo& time);
-	ICECORE_API	bool	Load(const CustomArray& ca, TimeInfo& time);
+ICECORE_API bool Save(CustomArray& ca, const TimeInfo& time);
+ICECORE_API bool Load(const CustomArray& ca, TimeInfo& time);
 
-	ICECORE_API	bool	Save(CustomArray& ca, const String& string);
-	ICECORE_API	bool	Load(const CustomArray& ca, String& string);
+ICECORE_API bool Save(CustomArray& ca, const String& string);
+ICECORE_API bool Load(const CustomArray& ca, String& string);
 
-#endif	// ICECORESERIALIZE_H
+#endif  // ICECORESERIALIZE_H
