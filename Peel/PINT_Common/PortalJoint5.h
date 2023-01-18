@@ -3,7 +3,7 @@
 
 // Revisited implementation after changes in PhysX 5
 
-#include "Extensions\ExtJoint.h"
+#include "../PINT_PhysX4_1_2/Extensions/ExtJoint.h"
 #include "PxPortalJoint.h"
 // #include "CmUtils.h"
 

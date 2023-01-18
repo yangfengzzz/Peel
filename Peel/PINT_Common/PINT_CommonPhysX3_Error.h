@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX3_ERROR_H
 #define PINT_COMMON_PHYSX3_ERROR_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 class PEEL_PhysX3_ErrorCallback : public PxErrorCallback {
 public:
     PEEL_PhysX3_ErrorCallback() {}

@@ -30,7 +30,7 @@
 
 #include "PhysX5_ExtCpuWorkerThread.h"
 
-#include "Extensions/ExtTaskQueueHelper.h"
+#include "../Extensions/ExtTaskQueueHelper.h"
 #include "PhysX5_ExtDefaultCpuDispatcher.h"
 #include "PsFPU.h"
 #include "task/PxTask.h"

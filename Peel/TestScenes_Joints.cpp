@@ -435,7 +435,7 @@ public:
 
     END_TEST(GearJoint)
 
-#include "ZCB\PINT_ZCB2.h"
+#include "ZCB/Pint_ZCB2.h"
 
     static const bool gUseActiveEdges = false;
 

@@ -9,7 +9,10 @@
 #ifndef PINT_COMMON_PHYSX3_H
 #define PINT_COMMON_PHYSX3_H
 
-#include "..\Pint.h"
+#include "PxPhysicsAPI.h"
+using namespace physx;
+//
+#include "../Pint.h"
 #include "PINT_CommonPhysX3_Actor.h"
 #include "PINT_CommonPhysX3_ActorManager.h"
 #include "PINT_CommonPhysX3_Allocator.h"

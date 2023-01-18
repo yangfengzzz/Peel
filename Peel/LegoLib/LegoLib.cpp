@@ -8,9 +8,9 @@
 
 #include "stdafx.h"
 //
-#include "..\Common.h"
-#include "..\GLTexture.h"  // ### hmmm
-#include "..\SupportFile.h"
+#include "../Common.h"
+#include "../GLTexture.h"  // ### hmmm
+#include "../SupportFile.h"
 #include "LegoLib.h"
 
 // #pragma optimize( "", off )

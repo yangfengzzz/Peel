@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX3_DEBUG_VIZ_H
 #define PINT_COMMON_PHYSX3_DEBUG_VIZ_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 class PintRender;
 void DrawWireframeConvexMesh(PintRender& renderer, const PxConvexMeshGeometry& geometry, const PxTransform& absPose);
 

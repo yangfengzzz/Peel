@@ -1,11 +1,13 @@
-#include "PortalJoint5.h"
-
-#include "common/PxTolerancesScale.h"
-#include "Extensions\ExtConstraintHelper.h"
 #include "PxPhysics.h"
-
+#include "../PINT_PhysX4_1_2/Extensions/ExtConstraintHelper.h"
+#include "common/PxTolerancesScale.h"
 using namespace physx;
 using namespace Ext;
+
+#include "PortalJoint5.h"
+
+
+
 
 // TODO: PxJointConcreteType
 PortalJoint::PortalJoint(const PxTolerancesScale& /*scale*/,

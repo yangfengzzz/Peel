@@ -10,7 +10,7 @@
 #define MULTI_CONVEX
 
 #include "..\Common.h"
-#include "..\PintDef.h"
+#include "../PintDef.h"
 #include "PsArray.h"
 namespace ps = physx::shdfnd;
 

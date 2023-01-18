@@ -12,7 +12,7 @@
 
 // #define USE_SPY_PROFILER_IN_ALLOCATOR
 #ifdef USE_SPY_PROFILER_IN_ALLOCATOR
-#include "..\Spy\SpyClient.h"
+#include "../Spy/SpyClient.h"
 #define SPY_ZONE(Label) Spy::Zone __SpyZone(Label);
 #else
 #define SPY_ZONE(Label)

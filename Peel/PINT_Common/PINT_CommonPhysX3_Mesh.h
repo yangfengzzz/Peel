@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX3_MESH_H
 #define PINT_COMMON_PHYSX3_MESH_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 class PintShapeRenderer;
 struct PintSurfaceInterface;
 

@@ -51,7 +51,7 @@
 #include "GLScaledCylinder.h"
 #include "GLTexture.h"
 #include "Grid.h"
-#include "LegoLib\LegoLib.h"
+#include "LegoLib/LegoLib.h"
 #include "PEEL.h"
 #include "PEEL_MenuBar.h"
 #include "PEEL_Threads.h"
@@ -68,7 +68,7 @@
 #include "SupportFile.h"
 #include "Terrain.h"
 #include "TextureManager.h"
-#include "ZCB\PINT_ZCB2.h"
+#include "ZCB/Pint_ZCB2.h"
 
 #ifdef PEEL_USE_SPY
 #ifdef _DEBUG

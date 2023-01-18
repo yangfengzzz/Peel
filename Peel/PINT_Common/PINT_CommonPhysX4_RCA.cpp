@@ -14,7 +14,7 @@
 
 #include "stdafx.h"
 //
-#include "..\Pint.h"
+#include "../Pint.h"
 #include "PINT_Common.h"
 #include "PINT_CommonPhysX3.h"
 

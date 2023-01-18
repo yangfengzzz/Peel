@@ -9,7 +9,7 @@
 #ifndef PINT_COMMON_PHYSX5_CUSTOM_SQ_H
 #define PINT_COMMON_PHYSX5_CUSTOM_SQ_H
 
-#include "extensions/PxSceneQuerySystemExt.h"
+#include "extensions/PxSceneQueryExt.h"
 
 using namespace physx;
 

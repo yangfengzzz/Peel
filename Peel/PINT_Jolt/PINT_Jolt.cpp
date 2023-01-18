@@ -98,7 +98,7 @@ for frequency are 0.1-20 and for damping 0-1."
 #include <iostream>
 #include <thread>
 
-#include "..\PintShapeRenderer.h"
+#include "../PintShapeRenderer.h"
 
 inline_ Point ToPoint(const Vec3& p) { return Point(p.GetX(), p.GetY(), p.GetZ()); }
 inline_ Vec3 ToVec3(const Point& p) { return Vec3(p.x, p.y, p.z); }

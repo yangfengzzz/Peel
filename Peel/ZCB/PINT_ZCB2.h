@@ -9,7 +9,7 @@
 #ifndef PINT_ZCB2_H
 #define PINT_ZCB2_H
 
-#include "..\Pint.h"
+#include "../Pint.h"
 #include "PhysicsData.h"
 
 #define ZCB2_API

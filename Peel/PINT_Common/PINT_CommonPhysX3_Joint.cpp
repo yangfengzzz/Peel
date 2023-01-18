@@ -301,7 +301,7 @@ bool PhysX_JointAPI::SetLimits(PintJointHandle handle, const PintLimits& limits,
             ASSERT(index == 0);
             PxSphericalJoint* SJ = static_cast<PxSphericalJoint*>(Joint);
             PxJointLimitCone coneLimits = SJ->getLimitCone();     // Fetch current limits to preserve other parameters
-            coneLimits.PHYSX_CONTACT_DISTANCE = ContactDistance;  // ...except that one
+            coneLimits.contactDistance = ContactDistance;  // ...except that one
 
             const bool ValidLimits = IsSphericalLimitEnabled(limits);
             if (ValidLimits) {
@@ -321,7 +321,7 @@ bool PhysX_JointAPI::SetLimits(PintJointHandle handle, const PintLimits& limits,
             ASSERT(index == 0);
             PxRevoluteJoint* RJ = static_cast<PxRevoluteJoint*>(Joint);
             PxJointAngularLimitPair limit = RJ->getLimit();  // Fetch current limits to preserve other parameters
-            limit.PHYSX_CONTACT_DISTANCE = ContactDistance;  // ...except that one
+            limit.contactDistance = ContactDistance;  // ...except that one
 
             const bool ValidLimits = IsHingeLimitEnabled(limits);
             if (ValidLimits) {
@@ -342,7 +342,7 @@ bool PhysX_JointAPI::SetLimits(PintJointHandle handle, const PintLimits& limits,
             ASSERT(index == 0);
             PxPrismaticJoint* PJ = static_cast<PxPrismaticJoint*>(Joint);
             PxJointLinearLimitPair limit = PJ->getLimit();   // Fetch current limits to preserve other parameters
-            limit.PHYSX_CONTACT_DISTANCE = ContactDistance;  // ...except that one
+            limit.contactDistance = ContactDistance;  // ...except that one
 
             const bool ValidLimits = IsPrismaticLimitEnabled(limits);
             if (ValidLimits) {

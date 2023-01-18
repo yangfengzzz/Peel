@@ -9,7 +9,7 @@
 #ifndef PINT_JOLT_H
 #define PINT_JOLT_H
 
-#include "..\Pint.h"
+#include "../Pint.h"
 #include "../PINT_Common/PINT_CommonShapes.h"
 #include <map>
 

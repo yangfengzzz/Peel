@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX3_FILTER_SHADER_H
 #define PINT_COMMON_PHYSX3_FILTER_SHADER_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 #define PEEL_GROUP_SIZE 32
 
 PxFilterFlags PhysX3_SimulationFilterShader(PxFilterObjectAttributes attributes0,

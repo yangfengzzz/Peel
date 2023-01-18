@@ -16,12 +16,12 @@
 #include "PxImmediateMode.h"
 #include "PxPhysicsAPI.h"
 
-// #include "Extensions\ExtConstraintHelper.h"
+// #include "Extensions/ExtConstraintHelper.h"
 
 #include "../PINT_Common/PINT_CommonPhysX3_Allocator.h"
 #include "../PINT_Common/PINT_CommonPhysX3_Base.h"
 #include "../PINT_Common/PINT_CommonPhysX3_Error.h"
-#include "..\PintShapeRenderer.h"
+#include "../PintShapeRenderer.h"
 
 using namespace physx;
 using namespace immediate;

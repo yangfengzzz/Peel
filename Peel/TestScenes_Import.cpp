@@ -18,7 +18,7 @@
 #include "PintShapeRenderer.h"
 #include "TestScenes.h"
 #include "TestScenesHelpers.h"
-#include "ZCB\PINT_ZCB2.h"
+#include "ZCB/Pint_ZCB2.h"
 
 //	#include "GUI_ActorEdit.h"
 

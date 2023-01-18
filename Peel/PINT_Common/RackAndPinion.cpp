@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-#include "extensions/ExtConstraintHelper.h"
+#include "../PINT_PhysX4_1_2/extensions/ExtConstraintHelper.h"
 #include "extensions/PxPrismaticJoint.h"
 #include "extensions/PxRevoluteJoint.h"
 #include "PxPhysics.h"

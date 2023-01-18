@@ -9,7 +9,14 @@ cmake_minimum_required(VERSION 3.12)
 project(peel LANGUAGES C CXX)
 
 file(GLOB FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+        ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_Common/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX4_1_2/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX4_1_2/CCT/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX4_1_2/Extensions/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX4_1_2/PhysX5/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX5_1_0/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/PINT_PhysX5_1_0/Extensions/*.cpp)
 
 set(PHYSX_SOURCE
         ../third_party/physx/physx/source/common/src/mac

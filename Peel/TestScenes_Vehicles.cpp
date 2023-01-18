@@ -2911,7 +2911,7 @@ public:
 
 ///////////////////////////////////////////////////////////////////////////////
 
-#include ".\ZCB\PINT_ZCB2.h"
+#include ".\ZCB/Pint_ZCB2.h"
 
 class LegoVehicle : public VehicleSDK {
     const PINT_SHAPE_CREATE* mChassis;

@@ -32,7 +32,7 @@
 #define PHYSX5_EXT_CPU_WORKER_THREAD_H
 
 #include "CmPhysXCommon.h"
-#include "extensions/ExtSharedQueueEntryPool.h"
+#include "../Extensions/ExtSharedQueueEntryPool.h"
 #include "PhysX5_PxDefaultCpuDispatcher.h"
 #include "PsThread.h"
 

@@ -8,9 +8,9 @@
 
 #include "stdafx.h"
 //
-#include "..\Common.h"
-#include "..\PintObjectsManager.h"
-#include "..\PintShapeRenderer.h"
+#include "../Common.h"
+#include "../PintObjectsManager.h"
+#include "../PintShapeRenderer.h"
 #include "Convex.h"
 #include "FracturePattern.h"
 #include "MultiConvex.h"

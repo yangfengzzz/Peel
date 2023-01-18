@@ -2,7 +2,7 @@
 #define PORTAL_JOINT_H
 
 #include "CmUtils.h"
-#include "Extensions\ExtJoint.h"
+#include "../PINT_PhysX4_1_2/Extensions/ExtJoint.h"
 #include "PxPortalJoint.h"
 
 namespace physx {

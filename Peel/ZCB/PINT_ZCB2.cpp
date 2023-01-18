@@ -8,8 +8,8 @@
 
 #include "stdafx.h"
 //
-#include "..\PintShapeRenderer.h"
-#include "..\Zcb2_RenderData.h"
+#include "../PintShapeRenderer.h"
+#include "../Zcb2_RenderData.h"
 #include "PINT_ZCB2.h"
 
 CHECK_CONTAINER_ITEM(ZCB2Factory::ActorCreate);

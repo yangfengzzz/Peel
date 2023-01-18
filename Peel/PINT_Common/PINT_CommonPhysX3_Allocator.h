@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX3_ALLOCATOR_H
 #define PINT_COMMON_PHYSX3_ALLOCATOR_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 class PEEL_PhysX3_AllocatorCallback : public PxAllocatorCallback {
 public:
     struct Header {

@@ -2,7 +2,7 @@
 #define EXT_GEAR_JOINT_H
 
 #include "CmUtils.h"
-#include "Extensions\ExtJoint.h"
+#include "../PINT_PhysX4_1_2/Extensions/ExtJoint.h"
 #include "PxGearJoint.h"
 
 namespace physx {

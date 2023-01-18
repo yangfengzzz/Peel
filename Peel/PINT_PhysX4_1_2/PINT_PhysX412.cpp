@@ -10,7 +10,7 @@
 //
 #include "../PINT_Common/PINT_Common.h"
 #include "../PINT_Common/PINT_CommonPhysX3_Setup.h"
-#include "extensions\PxExtensionsAPI.h"
+#include "extensions/PxExtensionsAPI.h"
 #include "PINT_PhysX412.h"
 // #include "common/PxIO.h"
 #include "common/PxRenderBuffer.h"
@@ -18,7 +18,7 @@
 // #include "physxprofilesdk/PxProfileSDK.h"
 // #include "NvProfileZoneManager.h"
 
-#include "PhysX5\PhysX5_ExtDefaultCpuDispatcher.h"
+#include "PhysX5/PhysX5_ExtDefaultCpuDispatcher.h"
 
 // #define MODIFY_CONTACTS
 

@@ -33,7 +33,7 @@
 
 #include "CmPhysXCommon.h"
 #include "common/PxProfileZone.h"
-#include "extensions/ExtSharedQueueEntryPool.h"
+#include "../Extensions/ExtSharedQueueEntryPool.h"
 #include "PhysX5_PxDefaultCpuDispatcher.h"
 #include "PsSList.h"
 #include "PsSync.h"

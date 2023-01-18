@@ -9,8 +9,8 @@
 #include "stdafx.h"
 //
 #include "../PINT_Common/PINT_Common.h"
-#include "..\Pint.h"
-#include "extensions\PxExtensionsAPI.h"
+#include "../Pint.h"
+#include "extensions/PxExtensionsAPI.h"
 // #include "common/PxIO.h"
 #include "common/PxRenderBuffer.h"
 #include "PINT_CommonPhysX3.h"

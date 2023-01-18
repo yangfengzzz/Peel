@@ -9,6 +9,9 @@
 #ifndef PINT_COMMON_PHYSX4_IMM_H
 #define PINT_COMMON_PHYSX4_IMM_H
 
+#include "PxPhysicsAPI.h"
+using namespace physx;
+
 #define SHAPE_CENTRIC
 
 class BlockBasedAllocator {

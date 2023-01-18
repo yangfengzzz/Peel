@@ -7,6 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DF6B492977D9FD00515F87 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B452977D9FD00515F87 /* stdafx.cpp */; };
+		04DF6B4A2977D9FD00515F87 /* PINT_Skeleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B472977D9FD00515F87 /* PINT_Skeleton.cpp */; };
+		04DF6B512977DA0300515F87 /* PINT_PhysX510.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B4C2977DA0200515F87 /* PINT_PhysX510.cpp */; };
+		04DF6B522977DA0300515F87 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B4D2977DA0200515F87 /* stdafx.cpp */; };
+		04DF6B532977DA0300515F87 /* DelayLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B502977DA0200515F87 /* DelayLoad.cpp */; };
+		04DF6B5C2977DA0800515F87 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B552977DA0800515F87 /* stdafx.cpp */; };
+		04DF6B5D2977DA0800515F87 /* PINT_PhysX412.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B582977DA0800515F87 /* PINT_PhysX412.cpp */; };
+		04DF6B5E2977DA0800515F87 /* DelayLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B5B2977DA0800515F87 /* DelayLoad.cpp */; };
+		04DF6B632977DA0E00515F87 /* stdafx.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B5F2977DA0E00515F87 /* stdafx.cpp */; };
+		04DF6B642977DA0E00515F87 /* PINT_Jolt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B622977DA0E00515F87 /* PINT_Jolt.cpp */; };
+		04DF6B762977DA1600515F87 /* PINT_CommonPhysX3_Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B662977DA1600515F87 /* PINT_CommonPhysX3_Actor.cpp */; };
+		04DF6B772977DA1600515F87 /* PINT_Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B682977DA1600515F87 /* PINT_Common.cpp */; };
+		04DF6B782977DA1600515F87 /* PINT_CommonPhysX3_Allocator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B6A2977DA1600515F87 /* PINT_CommonPhysX3_Allocator.cpp */; };
+		04DF6B792977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B6B2977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.cpp */; };
+		04DF6B7A2977DA1600515F87 /* PINT_CommonPhysX3_CCT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B6C2977DA1600515F87 /* PINT_CommonPhysX3_CCT.cpp */; };
+		04DF6B7B2977DA1600515F87 /* GearJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B6F2977DA1600515F87 /* GearJoint.cpp */; };
+		04DF6B7C2977DA1600515F87 /* PINT_CommonPhysX3_ContactNotif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B702977DA1600515F87 /* PINT_CommonPhysX3_ContactNotif.cpp */; };
+		04DF6B7D2977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B752977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.cpp */; };
+		04DF6BB92977DEEB00515F87 /* PINT_CommonPhysX3_Error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B822977DEE900515F87 /* PINT_CommonPhysX3_Error.cpp */; };
+		04DF6BBA2977DEEB00515F87 /* PINT_CommonPhysX3_Setup.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B832977DEE900515F87 /* PINT_CommonPhysX3_Setup.cpp */; };
+		04DF6BBB2977DEEB00515F87 /* PINT_CommonPhysX3_Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B852977DEE900515F87 /* PINT_CommonPhysX3_Scene.cpp */; };
+		04DF6BBC2977DEEB00515F87 /* PINT_IceAllocatorSwitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B872977DEE900515F87 /* PINT_IceAllocatorSwitch.cpp */; };
+		04DF6BBD2977DEEB00515F87 /* PINT_CommonPhysX5_Fluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B892977DEE900515F87 /* PINT_CommonPhysX5_Fluid.cpp */; };
+		04DF6BBE2977DEEB00515F87 /* PINT_CommonPhysX4_Imm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B8A2977DEE900515F87 /* PINT_CommonPhysX4_Imm.cpp */; };
+		04DF6BBF2977DEEB00515F87 /* PINT_CommonPhysX5_Vehicles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B942977DEEA00515F87 /* PINT_CommonPhysX5_Vehicles.cpp */; };
+		04DF6BC02977DEEB00515F87 /* PINT_CommonPhysX5_CustomSQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B952977DEEA00515F87 /* PINT_CommonPhysX5_CustomSQ.cpp */; };
+		04DF6BC12977DEEB00515F87 /* PINT_CommonPhysX4_RCA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B972977DEEA00515F87 /* PINT_CommonPhysX4_RCA.cpp */; };
+		04DF6BC22977DEEB00515F87 /* PINT_CommonPhysX3_PerTestUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B9C2977DEEA00515F87 /* PINT_CommonPhysX3_PerTestUI.cpp */; };
+		04DF6BC32977DEEB00515F87 /* PINT_CommonPhysX3_FilterShader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B9E2977DEEA00515F87 /* PINT_CommonPhysX3_FilterShader.cpp */; };
+		04DF6BC42977DEEB00515F87 /* PortalJoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6B9F2977DEEA00515F87 /* PortalJoint.cpp */; };
+		04DF6BC52977DEEB00515F87 /* PortalJoint5.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA02977DEEA00515F87 /* PortalJoint5.cpp */; };
+		04DF6BC62977DEEB00515F87 /* PINT_CommonShapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA12977DEEA00515F87 /* PINT_CommonShapes.cpp */; };
+		04DF6BC72977DEEB00515F87 /* PINT_CommonPhysX3_Joint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA22977DEEA00515F87 /* PINT_CommonPhysX3_Joint.cpp */; };
+		04DF6BC82977DEEB00515F87 /* PortalJoint34.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA32977DEEA00515F87 /* PortalJoint34.cpp */; };
+		04DF6BC92977DEEB00515F87 /* PINT_CommonPhysX4_ImmPint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA72977DEEB00515F87 /* PINT_CommonPhysX4_ImmPint.cpp */; };
+		04DF6BCA2977DEEB00515F87 /* PINT_CommonPhysX3_DebugViz.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BA82977DEEB00515F87 /* PINT_CommonPhysX3_DebugViz.cpp */; };
+		04DF6BCB2977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BAA2977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles.cpp */; };
+		04DF6BCC2977DEEB00515F87 /* PINT_CommonPhysX3_SQ.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BAC2977DEEB00515F87 /* PINT_CommonPhysX3_SQ.cpp */; };
+		04DF6BCD2977DEEB00515F87 /* PINT_CommonPhysX3_Shape.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BAD2977DEEB00515F87 /* PINT_CommonPhysX3_Shape.cpp */; };
+		04DF6BCE2977DEEB00515F87 /* RackAndPinion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BB02977DEEB00515F87 /* RackAndPinion.cpp */; };
+		04DF6BCF2977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BB22977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.cpp */; };
+		04DF6BD02977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles - Copy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BB32977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles - Copy.cpp */; };
+		04DF6BD12977DEEB00515F87 /* PINT_CommonPhysX3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BB52977DEEB00515F87 /* PINT_CommonPhysX3.cpp */; };
+		04DF6BD22977DEEB00515F87 /* PINT_CommonPhysX3_Queries.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6BB72977DEEB00515F87 /* PINT_CommonPhysX3_Queries.cpp */; };
 		3E890535297669D900B17F7F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E890534297669D900B17F7F /* main.cpp */; };
 		3E89068A29767CA900B17F7F /* Pint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89053D29767C9C00B17F7F /* Pint.cpp */; };
 		3E89068B29767CA900B17F7F /* TestScenes_Heightfield.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3E89053E29767C9C00B17F7F /* TestScenes_Heightfield.cpp */; };
@@ -196,6 +240,103 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04DF6B452977D9FD00515F87 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		04DF6B462977D9FD00515F87 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		04DF6B472977D9FD00515F87 /* PINT_Skeleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_Skeleton.cpp; sourceTree = "<group>"; };
+		04DF6B482977D9FD00515F87 /* PINT_Skeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_Skeleton.h; sourceTree = "<group>"; };
+		04DF6B4B2977DA0200515F87 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
+		04DF6B4C2977DA0200515F87 /* PINT_PhysX510.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_PhysX510.cpp; sourceTree = "<group>"; };
+		04DF6B4D2977DA0200515F87 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		04DF6B4E2977DA0200515F87 /* PINT_PhysX510.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_PhysX510.h; sourceTree = "<group>"; };
+		04DF6B4F2977DA0200515F87 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		04DF6B502977DA0200515F87 /* DelayLoad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayLoad.cpp; sourceTree = "<group>"; };
+		04DF6B542977DA0800515F87 /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Extensions; sourceTree = "<group>"; };
+		04DF6B552977DA0800515F87 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		04DF6B562977DA0800515F87 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		04DF6B572977DA0800515F87 /* CCT */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CCT; sourceTree = "<group>"; };
+		04DF6B582977DA0800515F87 /* PINT_PhysX412.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_PhysX412.cpp; sourceTree = "<group>"; };
+		04DF6B592977DA0800515F87 /* PhysX5 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PhysX5; sourceTree = "<group>"; };
+		04DF6B5A2977DA0800515F87 /* PINT_PhysX412.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_PhysX412.h; sourceTree = "<group>"; };
+		04DF6B5B2977DA0800515F87 /* DelayLoad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DelayLoad.cpp; sourceTree = "<group>"; };
+		04DF6B5F2977DA0E00515F87 /* stdafx.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stdafx.cpp; sourceTree = "<group>"; };
+		04DF6B602977DA0E00515F87 /* PINT_Jolt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_Jolt.h; sourceTree = "<group>"; };
+		04DF6B612977DA0E00515F87 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		04DF6B622977DA0E00515F87 /* PINT_Jolt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_Jolt.cpp; sourceTree = "<group>"; };
+		04DF6B652977DA1600515F87 /* PINT_CommonPhysX3_Allocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Allocator.h; sourceTree = "<group>"; };
+		04DF6B662977DA1600515F87 /* PINT_CommonPhysX3_Actor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Actor.cpp; sourceTree = "<group>"; };
+		04DF6B672977DA1600515F87 /* GearJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GearJoint.h; sourceTree = "<group>"; };
+		04DF6B682977DA1600515F87 /* PINT_Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_Common.cpp; sourceTree = "<group>"; };
+		04DF6B692977DA1600515F87 /* PINT_CommonPhysX3_Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Actor.h; sourceTree = "<group>"; };
+		04DF6B6A2977DA1600515F87 /* PINT_CommonPhysX3_Allocator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Allocator.cpp; sourceTree = "<group>"; };
+		04DF6B6B2977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_ActorManager.cpp; sourceTree = "<group>"; };
+		04DF6B6C2977DA1600515F87 /* PINT_CommonPhysX3_CCT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_CCT.cpp; sourceTree = "<group>"; };
+		04DF6B6D2977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_ContactModif.h; sourceTree = "<group>"; };
+		04DF6B6E2977DA1600515F87 /* PINT_CommonPhysX3_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Base.h; sourceTree = "<group>"; };
+		04DF6B6F2977DA1600515F87 /* GearJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GearJoint.cpp; sourceTree = "<group>"; };
+		04DF6B702977DA1600515F87 /* PINT_CommonPhysX3_ContactNotif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_ContactNotif.cpp; sourceTree = "<group>"; };
+		04DF6B712977DA1600515F87 /* PINT_CommonPhysX3_CCT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_CCT.h; sourceTree = "<group>"; };
+		04DF6B722977DA1600515F87 /* PINT_CommonPhysX_FoundationAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX_FoundationAPI.h; sourceTree = "<group>"; };
+		04DF6B732977DA1600515F87 /* PINT_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_Common.h; sourceTree = "<group>"; };
+		04DF6B742977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_ActorManager.h; sourceTree = "<group>"; };
+		04DF6B752977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_ContactModif.cpp; sourceTree = "<group>"; };
+		04DF6B7F2977DEE900515F87 /* PINT_CommonPhysX3_Queries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Queries.h; sourceTree = "<group>"; };
+		04DF6B802977DEE900515F87 /* PINT_CommonPhysX3_FilterShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_FilterShader.h; sourceTree = "<group>"; };
+		04DF6B812977DEE900515F87 /* PxPortalJoint34.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPortalJoint34.h; sourceTree = "<group>"; };
+		04DF6B822977DEE900515F87 /* PINT_CommonPhysX3_Error.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Error.cpp; sourceTree = "<group>"; };
+		04DF6B832977DEE900515F87 /* PINT_CommonPhysX3_Setup.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Setup.cpp; sourceTree = "<group>"; };
+		04DF6B842977DEE900515F87 /* PINT_Ice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_Ice.h; sourceTree = "<group>"; };
+		04DF6B852977DEE900515F87 /* PINT_CommonPhysX3_Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Scene.cpp; sourceTree = "<group>"; };
+		04DF6B862977DEE900515F87 /* PINT_CommonPhysX5_CustomSQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX5_CustomSQ.h; sourceTree = "<group>"; };
+		04DF6B872977DEE900515F87 /* PINT_IceAllocatorSwitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_IceAllocatorSwitch.cpp; sourceTree = "<group>"; };
+		04DF6B882977DEE900515F87 /* PINT_CommonPhysX3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3.h; sourceTree = "<group>"; };
+		04DF6B892977DEE900515F87 /* PINT_CommonPhysX5_Fluid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX5_Fluid.cpp; sourceTree = "<group>"; };
+		04DF6B8A2977DEE900515F87 /* PINT_CommonPhysX4_Imm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX4_Imm.cpp; sourceTree = "<group>"; };
+		04DF6B8B2977DEE900515F87 /* PINT_CommonPhysX3_Setup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Setup.h; sourceTree = "<group>"; };
+		04DF6B8C2977DEEA00515F87 /* PxPortalJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxPortalJoint.h; sourceTree = "<group>"; };
+		04DF6B8D2977DEEA00515F87 /* PINT_CommonPhysX3_Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Shape.h; sourceTree = "<group>"; };
+		04DF6B8E2977DEEA00515F87 /* PINT_CommonPhysX3_DebugViz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_DebugViz.h; sourceTree = "<group>"; };
+		04DF6B8F2977DEEA00515F87 /* PINT_CommonPhysX3_Error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Error.h; sourceTree = "<group>"; };
+		04DF6B902977DEEA00515F87 /* PINT_IceAllocatorSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_IceAllocatorSwitch.h; sourceTree = "<group>"; };
+		04DF6B912977DEEA00515F87 /* PortalJoint34.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortalJoint34.h; sourceTree = "<group>"; };
+		04DF6B922977DEEA00515F87 /* PINT_CommonPhysX4_ImmPint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX4_ImmPint.h; sourceTree = "<group>"; };
+		04DF6B932977DEEA00515F87 /* PortalJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortalJoint.h; sourceTree = "<group>"; };
+		04DF6B942977DEEA00515F87 /* PINT_CommonPhysX5_Vehicles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX5_Vehicles.cpp; sourceTree = "<group>"; };
+		04DF6B952977DEEA00515F87 /* PINT_CommonPhysX5_CustomSQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX5_CustomSQ.cpp; sourceTree = "<group>"; };
+		04DF6B962977DEEA00515F87 /* PINT_CommonPhysX4_Imm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX4_Imm.h; sourceTree = "<group>"; };
+		04DF6B972977DEEA00515F87 /* PINT_CommonPhysX4_RCA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX4_RCA.cpp; sourceTree = "<group>"; };
+		04DF6B982977DEEA00515F87 /* PINT_CommonPhysX5_Fluid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX5_Fluid.h; sourceTree = "<group>"; };
+		04DF6B992977DEEA00515F87 /* PINT_CommonPhysX3_Joint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Joint.h; sourceTree = "<group>"; };
+		04DF6B9A2977DEEA00515F87 /* PINT_CommonPhysX5_Vehicles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX5_Vehicles.h; sourceTree = "<group>"; };
+		04DF6B9B2977DEEA00515F87 /* stdafx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
+		04DF6B9C2977DEEA00515F87 /* PINT_CommonPhysX3_PerTestUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_PerTestUI.cpp; sourceTree = "<group>"; };
+		04DF6B9D2977DEEA00515F87 /* PINT_CommonPhysX3_Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Defines.h; sourceTree = "<group>"; };
+		04DF6B9E2977DEEA00515F87 /* PINT_CommonPhysX3_FilterShader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_FilterShader.cpp; sourceTree = "<group>"; };
+		04DF6B9F2977DEEA00515F87 /* PortalJoint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortalJoint.cpp; sourceTree = "<group>"; };
+		04DF6BA02977DEEA00515F87 /* PortalJoint5.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortalJoint5.cpp; sourceTree = "<group>"; };
+		04DF6BA12977DEEA00515F87 /* PINT_CommonShapes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonShapes.cpp; sourceTree = "<group>"; };
+		04DF6BA22977DEEA00515F87 /* PINT_CommonPhysX3_Joint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Joint.cpp; sourceTree = "<group>"; };
+		04DF6BA32977DEEA00515F87 /* PortalJoint34.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PortalJoint34.cpp; sourceTree = "<group>"; };
+		04DF6BA42977DEEA00515F87 /* PINT_CommonPhysX3_Vehicles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Vehicles.h; sourceTree = "<group>"; };
+		04DF6BA52977DEEA00515F87 /* PxRackAndPinionJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxRackAndPinionJoint.h; sourceTree = "<group>"; };
+		04DF6BA62977DEEB00515F87 /* RackAndPinion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RackAndPinion.h; sourceTree = "<group>"; };
+		04DF6BA72977DEEB00515F87 /* PINT_CommonPhysX4_ImmPint.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX4_ImmPint.cpp; sourceTree = "<group>"; };
+		04DF6BA82977DEEB00515F87 /* PINT_CommonPhysX3_DebugViz.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_DebugViz.cpp; sourceTree = "<group>"; };
+		04DF6BA92977DEEB00515F87 /* PINT_CommonShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonShapes.h; sourceTree = "<group>"; };
+		04DF6BAA2977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Vehicles.cpp; sourceTree = "<group>"; };
+		04DF6BAB2977DEEB00515F87 /* PINT_CommonPhysX3_ContactNotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_ContactNotif.h; sourceTree = "<group>"; };
+		04DF6BAC2977DEEB00515F87 /* PINT_CommonPhysX3_SQ.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_SQ.cpp; sourceTree = "<group>"; };
+		04DF6BAD2977DEEB00515F87 /* PINT_CommonPhysX3_Shape.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Shape.cpp; sourceTree = "<group>"; };
+		04DF6BAE2977DEEB00515F87 /* PxGearJoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PxGearJoint.h; sourceTree = "<group>"; };
+		04DF6BAF2977DEEB00515F87 /* PINT_CommonPhysX3_Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Scene.h; sourceTree = "<group>"; };
+		04DF6BB02977DEEB00515F87 /* RackAndPinion.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RackAndPinion.cpp; sourceTree = "<group>"; };
+		04DF6BB12977DEEB00515F87 /* PINT_CommonPhysX3_Deprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Deprecated.h; sourceTree = "<group>"; };
+		04DF6BB22977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Mesh.cpp; sourceTree = "<group>"; };
+		04DF6BB32977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles - Copy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "PINT_CommonPhysX3_Vehicles - Copy.cpp"; sourceTree = "<group>"; };
+		04DF6BB42977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_Mesh.h; sourceTree = "<group>"; };
+		04DF6BB52977DEEB00515F87 /* PINT_CommonPhysX3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3.cpp; sourceTree = "<group>"; };
+		04DF6BB62977DEEB00515F87 /* PINT_CommonPhysX3_PerTestUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PINT_CommonPhysX3_PerTestUI.h; sourceTree = "<group>"; };
+		04DF6BB72977DEEB00515F87 /* PINT_CommonPhysX3_Queries.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PINT_CommonPhysX3_Queries.cpp; sourceTree = "<group>"; };
+		04DF6BB82977DEEB00515F87 /* PortalJoint5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortalJoint5.h; sourceTree = "<group>"; };
 		3E890531297669D900B17F7F /* Peel */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Peel; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E890534297669D900B17F7F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3E89053B29767C9C00B17F7F /* ShadowMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShadowMap.h; sourceTree = "<group>"; };
@@ -537,6 +678,198 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DF6B3E2977D98900515F87 /* PINT_Common */ = {
+			isa = PBXGroup;
+			children = (
+				04DF6B9D2977DEEA00515F87 /* PINT_CommonPhysX3_Defines.h */,
+				04DF6BB12977DEEB00515F87 /* PINT_CommonPhysX3_Deprecated.h */,
+				04DF6B6E2977DA1600515F87 /* PINT_CommonPhysX3_Base.h */,
+				04DF6B732977DA1600515F87 /* PINT_Common.h */,
+				04DF6B682977DA1600515F87 /* PINT_Common.cpp */,
+				04DF6B722977DA1600515F87 /* PINT_CommonPhysX_FoundationAPI.h */,
+				04DF6B652977DA1600515F87 /* PINT_CommonPhysX3_Allocator.h */,
+				04DF6B6A2977DA1600515F87 /* PINT_CommonPhysX3_Allocator.cpp */,
+				04DF6B8F2977DEEA00515F87 /* PINT_CommonPhysX3_Error.h */,
+				04DF6B822977DEE900515F87 /* PINT_CommonPhysX3_Error.cpp */,
+				04DF6B8B2977DEE900515F87 /* PINT_CommonPhysX3_Setup.h */,
+				04DF6B832977DEE900515F87 /* PINT_CommonPhysX3_Setup.cpp */,
+				04DF6B802977DEE900515F87 /* PINT_CommonPhysX3_FilterShader.h */,
+				04DF6B9E2977DEEA00515F87 /* PINT_CommonPhysX3_FilterShader.cpp */,
+				04DF6B7F2977DEE900515F87 /* PINT_CommonPhysX3_Queries.h */,
+				04DF6BB72977DEEB00515F87 /* PINT_CommonPhysX3_Queries.cpp */,
+				04DF6BAB2977DEEB00515F87 /* PINT_CommonPhysX3_ContactNotif.h */,
+				04DF6B702977DA1600515F87 /* PINT_CommonPhysX3_ContactNotif.cpp */,
+				04DF6B6D2977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.h */,
+				04DF6B752977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.cpp */,
+				04DF6B9A2977DEEA00515F87 /* PINT_CommonPhysX5_Vehicles.h */,
+				04DF6B942977DEEA00515F87 /* PINT_CommonPhysX5_Vehicles.cpp */,
+				04DF6BA42977DEEA00515F87 /* PINT_CommonPhysX3_Vehicles.h */,
+				04DF6BAA2977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles.cpp */,
+				04DF6BB32977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles - Copy.cpp */,
+				04DF6B982977DEEA00515F87 /* PINT_CommonPhysX5_Fluid.h */,
+				04DF6B892977DEE900515F87 /* PINT_CommonPhysX5_Fluid.cpp */,
+				04DF6BD32977DF7E00515F87 /* ext */,
+				04DF6B882977DEE900515F87 /* PINT_CommonPhysX3.h */,
+				04DF6BB52977DEEB00515F87 /* PINT_CommonPhysX3.cpp */,
+				04DF6BAC2977DEEB00515F87 /* PINT_CommonPhysX3_SQ.cpp */,
+				04DF6B862977DEE900515F87 /* PINT_CommonPhysX5_CustomSQ.h */,
+				04DF6B952977DEEA00515F87 /* PINT_CommonPhysX5_CustomSQ.cpp */,
+				04DF6B972977DEEA00515F87 /* PINT_CommonPhysX4_RCA.cpp */,
+				04DF6BA92977DEEB00515F87 /* PINT_CommonShapes.h */,
+				04DF6BA12977DEEA00515F87 /* PINT_CommonShapes.cpp */,
+				04DF6BB62977DEEB00515F87 /* PINT_CommonPhysX3_PerTestUI.h */,
+				04DF6B9C2977DEEA00515F87 /* PINT_CommonPhysX3_PerTestUI.cpp */,
+				04DF6B992977DEEA00515F87 /* PINT_CommonPhysX3_Joint.h */,
+				04DF6BA22977DEEA00515F87 /* PINT_CommonPhysX3_Joint.cpp */,
+				04DF6BAF2977DEEB00515F87 /* PINT_CommonPhysX3_Scene.h */,
+				04DF6B852977DEE900515F87 /* PINT_CommonPhysX3_Scene.cpp */,
+				04DF6B712977DA1600515F87 /* PINT_CommonPhysX3_CCT.h */,
+				04DF6B6C2977DA1600515F87 /* PINT_CommonPhysX3_CCT.cpp */,
+				04DF6B8D2977DEEA00515F87 /* PINT_CommonPhysX3_Shape.h */,
+				04DF6BAD2977DEEB00515F87 /* PINT_CommonPhysX3_Shape.cpp */,
+				04DF6B692977DA1600515F87 /* PINT_CommonPhysX3_Actor.h */,
+				04DF6B662977DA1600515F87 /* PINT_CommonPhysX3_Actor.cpp */,
+				04DF6B742977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.h */,
+				04DF6B6B2977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.cpp */,
+				04DF6B962977DEEA00515F87 /* PINT_CommonPhysX4_Imm.h */,
+				04DF6B8A2977DEE900515F87 /* PINT_CommonPhysX4_Imm.cpp */,
+				04DF6B922977DEEA00515F87 /* PINT_CommonPhysX4_ImmPint.h */,
+				04DF6BA72977DEEB00515F87 /* PINT_CommonPhysX4_ImmPint.cpp */,
+				04DF6B9B2977DEEA00515F87 /* stdafx.h */,
+				04DF6BD42977E0F300515F87 /* interface */,
+				04DF6B672977DA1600515F87 /* GearJoint.h */,
+				04DF6B6F2977DA1600515F87 /* GearJoint.cpp */,
+				04DF6B932977DEEA00515F87 /* PortalJoint.h */,
+				04DF6B9F2977DEEA00515F87 /* PortalJoint.cpp */,
+				04DF6BB82977DEEB00515F87 /* PortalJoint5.h */,
+				04DF6BA02977DEEA00515F87 /* PortalJoint5.cpp */,
+				04DF6B912977DEEA00515F87 /* PortalJoint34.h */,
+				04DF6BA32977DEEA00515F87 /* PortalJoint34.cpp */,
+				04DF6BA62977DEEB00515F87 /* RackAndPinion.h */,
+				04DF6BB02977DEEB00515F87 /* RackAndPinion.cpp */,
+				04DF6BAE2977DEEB00515F87 /* PxGearJoint.h */,
+				04DF6B8C2977DEEA00515F87 /* PxPortalJoint.h */,
+				04DF6B812977DEE900515F87 /* PxPortalJoint34.h */,
+				04DF6BA52977DEEA00515F87 /* PxRackAndPinionJoint.h */,
+				04DF6BD52977E16B00515F87 /* joint */,
+				04DF6B842977DEE900515F87 /* PINT_Ice.h */,
+				04DF6B902977DEEA00515F87 /* PINT_IceAllocatorSwitch.h */,
+				04DF6B872977DEE900515F87 /* PINT_IceAllocatorSwitch.cpp */,
+				04DF6B8E2977DEEA00515F87 /* PINT_CommonPhysX3_DebugViz.h */,
+				04DF6BA82977DEEB00515F87 /* PINT_CommonPhysX3_DebugViz.cpp */,
+				04DF6BB42977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.h */,
+				04DF6BB22977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.cpp */,
+			);
+			path = PINT_Common;
+			sourceTree = "<group>";
+		};
+		04DF6B3F2977D99500515F87 /* PINT_Jolt */ = {
+			isa = PBXGroup;
+			children = (
+				04DF6B602977DA0E00515F87 /* PINT_Jolt.h */,
+				04DF6B622977DA0E00515F87 /* PINT_Jolt.cpp */,
+				04DF6B612977DA0E00515F87 /* stdafx.h */,
+				04DF6B5F2977DA0E00515F87 /* stdafx.cpp */,
+			);
+			path = PINT_Jolt;
+			sourceTree = "<group>";
+		};
+		04DF6B402977D9A000515F87 /* PINT_PhysX4_1_2 */ = {
+			isa = PBXGroup;
+			children = (
+				04DF6B5A2977DA0800515F87 /* PINT_PhysX412.h */,
+				04DF6B582977DA0800515F87 /* PINT_PhysX412.cpp */,
+				04DF6B572977DA0800515F87 /* CCT */,
+				04DF6B5B2977DA0800515F87 /* DelayLoad.cpp */,
+				04DF6B542977DA0800515F87 /* Extensions */,
+				04DF6B592977DA0800515F87 /* PhysX5 */,
+				04DF6B552977DA0800515F87 /* stdafx.cpp */,
+				04DF6B562977DA0800515F87 /* stdafx.h */,
+			);
+			path = PINT_PhysX4_1_2;
+			sourceTree = "<group>";
+		};
+		04DF6B432977D9E400515F87 /* PINT_PhysX5_1_0 */ = {
+			isa = PBXGroup;
+			children = (
+				04DF6B4E2977DA0200515F87 /* PINT_PhysX510.h */,
+				04DF6B4C2977DA0200515F87 /* PINT_PhysX510.cpp */,
+				04DF6B4B2977DA0200515F87 /* Extensions */,
+				04DF6B502977DA0200515F87 /* DelayLoad.cpp */,
+				04DF6B4D2977DA0200515F87 /* stdafx.cpp */,
+				04DF6B4F2977DA0200515F87 /* stdafx.h */,
+			);
+			path = PINT_PhysX5_1_0;
+			sourceTree = "<group>";
+		};
+		04DF6B442977D9EF00515F87 /* PINT_Skeleton */ = {
+			isa = PBXGroup;
+			children = (
+				04DF6B482977D9FD00515F87 /* PINT_Skeleton.h */,
+				04DF6B472977D9FD00515F87 /* PINT_Skeleton.cpp */,
+				04DF6B462977D9FD00515F87 /* stdafx.h */,
+				04DF6B452977D9FD00515F87 /* stdafx.cpp */,
+			);
+			path = PINT_Skeleton;
+			sourceTree = "<group>";
+		};
+		04DF6B7E2977DBE600515F87 /* renderer */ = {
+			isa = PBXGroup;
+			children = (
+				3E89056629767C9E00B17F7F /* PintNullRenderer.h */,
+				3E89063429767CA600B17F7F /* PintShapeRenderer.h */,
+				3E89057D29767C9F00B17F7F /* PintShapeRenderer.cpp */,
+				3E8905DC29767CA200B17F7F /* PintDLShapeRenderer.h */,
+				3E89061629767CA400B17F7F /* PintDLShapeRenderer.cpp */,
+				3E89062829767CA500B17F7F /* PintDLBoxShapeRenderer.h */,
+				3E8905D429767CA200B17F7F /* PintDLBoxShapeRenderer.cpp */,
+				3E89057C29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.h */,
+				3E89058B29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.cpp */,
+				3E89055429767C9D00B17F7F /* PintDLConvexShapeRenderer.h */,
+				3E89066129767CA800B17F7F /* PintDLConvexShapeRenderer.cpp */,
+				3E89064E29767CA700B17F7F /* PintDLCylinderShapeRenderer.h */,
+				3E89066E29767CA800B17F7F /* PintDLCylinderShapeRenderer.cpp */,
+				3E89066D29767CA800B17F7F /* PintDLMeshShapeRenderer.h */,
+				3E8905CA29767CA200B17F7F /* PintDLMeshShapeRenderer.cpp */,
+				3E89065F29767CA700B17F7F /* PintDLSphereShapeRenderer.h */,
+				3E89068329767CA900B17F7F /* PintDLSphereShapeRenderer.cpp */,
+				3E89066229767CA800B17F7F /* PintBatchConvexShapeRenderer.h */,
+				3E89065129767CA700B17F7F /* PintBatchConvexShapeRenderer.cpp */,
+				3E89061B29767CA500B17F7F /* PintConvexInstanceShapeRenderer.h */,
+				3E8905E829767CA300B17F7F /* PintConvexInstanceShapeRenderer.cpp */,
+				3E89054B29767C9D00B17F7F /* PintGLMeshShapeRenderer.h */,
+				3E89066429767CA800B17F7F /* PintGLMeshShapeRenderer.cpp */,
+				3E89054F29767C9D00B17F7F /* PintColorShapeRenderer.h */,
+				3E8905EA29767CA300B17F7F /* PintColorShapeRenderer.cpp */,
+				3E89065629767CA700B17F7F /* PintPointSpriteSphereShapeRenderer.h */,
+				3E8905CF29767CA200B17F7F /* PintPointSpriteSphereShapeRenderer.cpp */,
+				3E8905D329767CA200B17F7F /* PintTerrainTileRenderer.h */,
+				3E89058A29767C9F00B17F7F /* PintTerrainTileRenderer.cpp */,
+			);
+			name = renderer;
+			sourceTree = "<group>";
+		};
+		04DF6BD32977DF7E00515F87 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ext;
+			sourceTree = "<group>";
+		};
+		04DF6BD42977E0F300515F87 /* interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = interface;
+			sourceTree = "<group>";
+		};
+		04DF6BD52977E16B00515F87 /* joint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = joint;
+			sourceTree = "<group>";
+		};
 		3E890528297669D900B17F7F = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +889,21 @@
 		3E890533297669D900B17F7F /* Peel */ = {
 			isa = PBXGroup;
 			children = (
+				3E89054929767C9D00B17F7F /* Pint.h */,
+				3E89053D29767C9C00B17F7F /* Pint.cpp */,
+				3E89063129767CA600B17F7F /* PINT_Editor.h */,
+				3E89066629767CA800B17F7F /* PINT_Editor.cpp */,
+				04DF6B3E2977D98900515F87 /* PINT_Common */,
+				04DF6B432977D9E400515F87 /* PINT_PhysX5_1_0 */,
+				04DF6B402977D9A000515F87 /* PINT_PhysX4_1_2 */,
+				04DF6B3F2977D99500515F87 /* PINT_Jolt */,
+				04DF6B442977D9EF00515F87 /* PINT_Skeleton */,
+				3E89068229767CA900B17F7F /* PintRender.h */,
+				3E89061429767CA400B17F7F /* PintRender.cpp */,
+				3E89054729767C9D00B17F7F /* PintRenderPass.h */,
+				3E8905A929767CA000B17F7F /* PintRenderState.h */,
+				3E89068929767CA900B17F7F /* PintRenderState.cpp */,
+				04DF6B7E2977DBE600515F87 /* renderer */,
 				3E89067229767CA800B17F7F /* stdafx.h */,
 				3E89056329767C9E00B17F7F /* stdafx.cpp */,
 				3E89060C29767CA400B17F7F /* Camera.h */,
@@ -620,56 +968,18 @@
 				3E89065229767CA700B17F7F /* PEEL.h */,
 				3E8905FE29767CA400B17F7F /* PhysicsData.cpp */,
 				3E89063D29767CA600B17F7F /* PhysicsData.h */,
-				3E89066629767CA800B17F7F /* PINT_Editor.cpp */,
-				3E89063129767CA600B17F7F /* PINT_Editor.h */,
-				3E89053D29767C9C00B17F7F /* Pint.cpp */,
-				3E89054929767C9D00B17F7F /* Pint.h */,
-				3E89065129767CA700B17F7F /* PintBatchConvexShapeRenderer.cpp */,
-				3E89066229767CA800B17F7F /* PintBatchConvexShapeRenderer.h */,
-				3E8905EA29767CA300B17F7F /* PintColorShapeRenderer.cpp */,
-				3E89054F29767C9D00B17F7F /* PintColorShapeRenderer.h */,
-				3E8905E829767CA300B17F7F /* PintConvexInstanceShapeRenderer.cpp */,
-				3E89061B29767CA500B17F7F /* PintConvexInstanceShapeRenderer.h */,
 				3E89055029767C9D00B17F7F /* PintDef.h */,
-				3E8905D429767CA200B17F7F /* PintDLBoxShapeRenderer.cpp */,
-				3E89062829767CA500B17F7F /* PintDLBoxShapeRenderer.h */,
-				3E89058B29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.cpp */,
-				3E89057C29767C9F00B17F7F /* PintDLCapsuleShapeRenderer.h */,
-				3E89066129767CA800B17F7F /* PintDLConvexShapeRenderer.cpp */,
-				3E89055429767C9D00B17F7F /* PintDLConvexShapeRenderer.h */,
-				3E89066E29767CA800B17F7F /* PintDLCylinderShapeRenderer.cpp */,
-				3E89064E29767CA700B17F7F /* PintDLCylinderShapeRenderer.h */,
-				3E8905CA29767CA200B17F7F /* PintDLMeshShapeRenderer.cpp */,
-				3E89066D29767CA800B17F7F /* PintDLMeshShapeRenderer.h */,
-				3E89061629767CA400B17F7F /* PintDLShapeRenderer.cpp */,
-				3E8905DC29767CA200B17F7F /* PintDLShapeRenderer.h */,
-				3E89068329767CA900B17F7F /* PintDLSphereShapeRenderer.cpp */,
-				3E89065F29767CA700B17F7F /* PintDLSphereShapeRenderer.h */,
 				3E89067529767CA800B17F7F /* PintEngineData.cpp */,
 				3E8905CB29767CA200B17F7F /* PintEngineData.h */,
-				3E89066429767CA800B17F7F /* PintGLMeshShapeRenderer.cpp */,
-				3E89054B29767C9D00B17F7F /* PintGLMeshShapeRenderer.h */,
 				3E8905AB29767CA000B17F7F /* PintGUIHelper.cpp */,
 				3E89055F29767C9E00B17F7F /* PintGUIHelper.h */,
-				3E89056629767C9E00B17F7F /* PintNullRenderer.h */,
 				3E89060529767CA400B17F7F /* PintObjectsManager.cpp */,
 				3E8905EB29767CA300B17F7F /* PintObjectsManager.h */,
-				3E8905CF29767CA200B17F7F /* PintPointSpriteSphereShapeRenderer.cpp */,
-				3E89065629767CA700B17F7F /* PintPointSpriteSphereShapeRenderer.h */,
-				3E89061429767CA400B17F7F /* PintRender.cpp */,
-				3E89068229767CA900B17F7F /* PintRender.h */,
-				3E89054729767C9D00B17F7F /* PintRenderPass.h */,
-				3E89068929767CA900B17F7F /* PintRenderState.cpp */,
-				3E8905A929767CA000B17F7F /* PintRenderState.h */,
 				3E89059729767CA000B17F7F /* PintSelectionManager.cpp */,
 				3E89059D29767CA000B17F7F /* PintSelectionManager.h */,
-				3E89057D29767C9F00B17F7F /* PintShapeRenderer.cpp */,
-				3E89063429767CA600B17F7F /* PintShapeRenderer.h */,
 				3E89058129767C9F00B17F7F /* PintSQ.cpp */,
 				3E89065B29767CA700B17F7F /* PintSQ.h */,
 				3E8905F629767CA300B17F7F /* PintSurfaceInterface.h */,
-				3E89058A29767C9F00B17F7F /* PintTerrainTileRenderer.cpp */,
-				3E8905D329767CA200B17F7F /* PintTerrainTileRenderer.h */,
 				3E8905A629767CA000B17F7F /* PintTiming.cpp */,
 				3E8905E629767CA300B17F7F /* PintTiming.h */,
 				3E89061929767CA500B17F7F /* PintVisibilityManager.cpp */,
@@ -1000,6 +1310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DF6BBD2977DEEB00515F87 /* PINT_CommonPhysX5_Fluid.cpp in Sources */,
 				3E8906D429767CA900B17F7F /* Streaming.cpp in Sources */,
 				3E8906D729767CA900B17F7F /* RepX_Tools.cpp in Sources */,
 				3E8906FF29767CA900B17F7F /* PintRender.cpp in Sources */,
@@ -1009,22 +1320,28 @@
 				3E8906F029767CA900B17F7F /* GLRenderHelpers.cpp in Sources */,
 				3E8906C229767CA900B17F7F /* RenderTarget.cpp in Sources */,
 				3E8906DF29767CA900B17F7F /* PintDLBoxShapeRenderer.cpp in Sources */,
+				04DF6BC22977DEEB00515F87 /* PINT_CommonPhysX3_PerTestUI.cpp in Sources */,
+				04DF6B5C2977DA0800515F87 /* stdafx.cpp in Sources */,
 				3E8906EB29767CA900B17F7F /* PintConvexInstanceShapeRenderer.cpp in Sources */,
 				3E8906A229767CA900B17F7F /* USDExport.cpp in Sources */,
 				3E8906B829767CA900B17F7F /* Simulate.cpp in Sources */,
 				3E89068F29767CA900B17F7F /* RenderModelMatcap.cpp in Sources */,
+				04DF6B5D2977DA0800515F87 /* PINT_PhysX412.cpp in Sources */,
 				3E8906C629767CA900B17F7F /* PintGUIHelper.cpp in Sources */,
 				3E8906E929767CA900B17F7F /* ToolRayBased.cpp in Sources */,
 				3E8906CF29767CA900B17F7F /* GUI_PosEdit.cpp in Sources */,
 				3E89071E29767CA900B17F7F /* ShadowMap.cpp in Sources */,
 				3E8906F329767CA900B17F7F /* TextureManager.cpp in Sources */,
 				3E8906A329767CA900B17F7F /* GLMesh.cpp in Sources */,
+				04DF6B492977D9FD00515F87 /* stdafx.cpp in Sources */,
 				3E8906BB29767CA900B17F7F /* DefaultControlInterface.cpp in Sources */,
 				3E89069B29767CA900B17F7F /* GUI_CompoundEdit.cpp in Sources */,
 				3E8906D329767CA900B17F7F /* ToolRotate.cpp in Sources */,
+				04DF6BD22977DEEB00515F87 /* PINT_CommonPhysX3_Queries.cpp in Sources */,
 				3E8906F829767CA900B17F7F /* Sphere.cpp in Sources */,
 				3E89070E29767CA900B17F7F /* DefaultEnv.cpp in Sources */,
 				3E89069F29767CA900B17F7F /* ScreenQuad_BackColor.cpp in Sources */,
+				04DF6BCB2977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles.cpp in Sources */,
 				3E89070229767CA900B17F7F /* TestScenes_Articulations.cpp in Sources */,
 				3E89071629767CA900B17F7F /* TestNVD.cpp in Sources */,
 				3E8906CB29767CA900B17F7F /* Foundation.cpp in Sources */,
@@ -1036,27 +1353,36 @@
 				3E8906A929767CA900B17F7F /* PintShapeRenderer.cpp in Sources */,
 				3E8906BC29767CA900B17F7F /* LoopTheLoop.cpp in Sources */,
 				3E8906C129767CA900B17F7F /* ToolTerrainEditor.cpp in Sources */,
+				04DF6BBF2977DEEB00515F87 /* PINT_CommonPhysX5_Vehicles.cpp in Sources */,
 				3E8906ED29767CA900B17F7F /* PintColorShapeRenderer.cpp in Sources */,
+				04DF6BCD2977DEEB00515F87 /* PINT_CommonPhysX3_Shape.cpp in Sources */,
 				3E89070D29767CA900B17F7F /* ZB2Import.cpp in Sources */,
 				3E89073229767CA900B17F7F /* SimpleShader.cpp in Sources */,
 				3E8906B229767CA900B17F7F /* PintDLCapsuleShapeRenderer.cpp in Sources */,
 				3E89072A29767CA900B17F7F /* GLScaledCylinder.cpp in Sources */,
 				3E8906D529767CA900B17F7F /* Loader_ShapeProfile.cpp in Sources */,
+				04DF6B5E2977DA0800515F87 /* DelayLoad.cpp in Sources */,
+				04DF6B512977DA0300515F87 /* PINT_PhysX510.cpp in Sources */,
 				3E8906C429767CA900B17F7F /* TestScenes_CCT.cpp in Sources */,
 				3E8906C929767CA900B17F7F /* GLTexture.cpp in Sources */,
 				3E8906C729767CA900B17F7F /* GUI_ActorEdit.cpp in Sources */,
 				3E89072F29767CA900B17F7F /* ScreenQuad_ColorGradient.cpp in Sources */,
+				04DF6BD12977DEEB00515F87 /* PINT_CommonPhysX3.cpp in Sources */,
 				3E8906D929767CA900B17F7F /* PintDLMeshShapeRenderer.cpp in Sources */,
 				3E89070A29767CA900B17F7F /* GUI_JointEdit.cpp in Sources */,
 				3E8906EE29767CA900B17F7F /* ToolShootObject.cpp in Sources */,
+				04DF6BBB2977DEEB00515F87 /* PINT_CommonPhysX3_Scene.cpp in Sources */,
 				3E8906B629767CA900B17F7F /* ZB2Export.cpp in Sources */,
 				3E8906DD29767CA900B17F7F /* PintPointSpriteSphereShapeRenderer.cpp in Sources */,
+				04DF6BBA2977DEEB00515F87 /* PINT_CommonPhysX3_Setup.cpp in Sources */,
 				3E8906CD29767CA900B17F7F /* GUI_EditBox.cpp in Sources */,
+				04DF6B642977DA0E00515F87 /* PINT_Jolt.cpp in Sources */,
 				3E89070429767CA900B17F7F /* TrashCache.cpp in Sources */,
 				3E8906AA29767CA900B17F7F /* Gamepad.cpp in Sources */,
 				3E8906DB29767CA900B17F7F /* SupportFile.cpp in Sources */,
 				3E8906AB29767CA900B17F7F /* PintSQ.cpp in Sources */,
 				3E8906C829767CA900B17F7F /* TerrainManager.cpp in Sources */,
+				04DF6B522977DA0300515F87 /* stdafx.cpp in Sources */,
 				3E8906FA29767CA900B17F7F /* GUI_ImportCollada.cpp in Sources */,
 				3E8906B129767CA900B17F7F /* PintTerrainTileRenderer.cpp in Sources */,
 				3E8906CC29767CA900B17F7F /* TestScenes_Bulldozer_WIP.cpp in Sources */,
@@ -1088,36 +1414,49 @@
 				3E89070329767CA900B17F7F /* PintVisibilityManager.cpp in Sources */,
 				3E89070B29767CA900B17F7F /* SurfaceManager.cpp in Sources */,
 				3E89071929767CA900B17F7F /* PintBatchConvexShapeRenderer.cpp in Sources */,
+				04DF6BC32977DEEB00515F87 /* PINT_CommonPhysX3_FilterShader.cpp in Sources */,
 				3E89071129767CA900B17F7F /* GLConvexRenderer.cpp in Sources */,
 				3E8906E529767CA900B17F7F /* ToolObjectCreate.cpp in Sources */,
 				3E8906FE29767CA900B17F7F /* Voronoi2D.cpp in Sources */,
 				3E8906BD29767CA900B17F7F /* PEEL.cpp in Sources */,
+				04DF6BCC2977DEEB00515F87 /* PINT_CommonPhysX3_SQ.cpp in Sources */,
 				3E89071B29767CA900B17F7F /* Cylinder.cpp in Sources */,
 				3E89070929767CA900B17F7F /* TestScenes_StaticScene.cpp in Sources */,
+				04DF6B7B2977DA1600515F87 /* GearJoint.cpp in Sources */,
 				3E8906AD29767CA900B17F7F /* ToolTexture.cpp in Sources */,
 				3E89069529767CA900B17F7F /* TestScenes_Import.cpp in Sources */,
 				3E89069429767CA900B17F7F /* TestScenes_Cooking.cpp in Sources */,
 				3E8906A729767CA900B17F7F /* ProceduralTrack.cpp in Sources */,
+				04DF6B532977DA0300515F87 /* DelayLoad.cpp in Sources */,
 				3E8906C029767CA900B17F7F /* TestScenes_Terrain.cpp in Sources */,
+				04DF6BBC2977DEEB00515F87 /* PINT_IceAllocatorSwitch.cpp in Sources */,
 				3E89070529767CA900B17F7F /* Camera.cpp in Sources */,
+				04DF6B7A2977DA1600515F87 /* PINT_CommonPhysX3_CCT.cpp in Sources */,
 				3E89072C29767CA900B17F7F /* GLFontRenderer.cpp in Sources */,
 				3E8906C329767CA900B17F7F /* PintTiming.cpp in Sources */,
 				3E89070029767CA900B17F7F /* PintDLShapeRenderer.cpp in Sources */,
+				04DF6BB92977DEEB00515F87 /* PINT_CommonPhysX3_Error.cpp in Sources */,
 				3E890535297669D900B17F7F /* main.cpp in Sources */,
 				3E89069929767CA900B17F7F /* stdafx.cpp in Sources */,
 				3E89070C29767CA900B17F7F /* Grid.cpp in Sources */,
 				3E89069A29767CA900B17F7F /* MeshCleaner.cpp in Sources */,
 				3E8906DE29767CA900B17F7F /* Terrain.cpp in Sources */,
+				04DF6BC72977DEEB00515F87 /* PINT_CommonPhysX3_Joint.cpp in Sources */,
+				04DF6BD02977DEEB00515F87 /* PINT_CommonPhysX3_Vehicles - Copy.cpp in Sources */,
 				3E8906B029767CA900B17F7F /* TestScenes_Overlap.cpp in Sources */,
+				04DF6BC62977DEEB00515F87 /* PINT_CommonShapes.cpp in Sources */,
 				3E89069129767CA900B17F7F /* GLPointRenderer.cpp in Sources */,
+				04DF6BCF2977DEEB00515F87 /* PINT_CommonPhysX3_Mesh.cpp in Sources */,
 				3E89069D29767CA900B17F7F /* TestScenes_Sweep.cpp in Sources */,
 				3E8906BA29767CA900B17F7F /* Loader_Rays.cpp in Sources */,
 				3E8906DA29767CA900B17F7F /* CustomICEAllocator.cpp in Sources */,
+				04DF6B632977DA0E00515F87 /* stdafx.cpp in Sources */,
 				3E89072029767CA900B17F7F /* Capsule.cpp in Sources */,
 				3E89070129767CA900B17F7F /* Starter.cpp in Sources */,
 				3E89071329767CA900B17F7F /* Loader_RepX.cpp in Sources */,
 				3E8906AC29767CA900B17F7F /* ToolCreateRope.cpp in Sources */,
 				3E89073029767CA900B17F7F /* ScreenQuad.cpp in Sources */,
+				04DF6B772977DA1600515F87 /* PINT_Common.cpp in Sources */,
 				3E8906A129767CA900B17F7F /* ToolBullet.cpp in Sources */,
 				3E89069629767CA900B17F7F /* ConvexHull2D.cpp in Sources */,
 				3E8906D829767CA900B17F7F /* TitleData.cpp in Sources */,
@@ -1126,20 +1465,26 @@
 				3E8906CE29767CA900B17F7F /* TestScenes_MCArticulations.cpp in Sources */,
 				3E8906A829767CA900B17F7F /* ControlInterface.cpp in Sources */,
 				3E8906E329767CA900B17F7F /* TestScenes_Portals.cpp in Sources */,
+				04DF6B7C2977DA1600515F87 /* PINT_CommonPhysX3_ContactNotif.cpp in Sources */,
 				3E89072529767CA900B17F7F /* Sound.cpp in Sources */,
 				3E8906D129767CA900B17F7F /* TestScenes_Cylinders.cpp in Sources */,
 				3E8906E429767CA900B17F7F /* ShadowShader.cpp in Sources */,
 				3E8906E229767CA900B17F7F /* TestScenes_API.cpp in Sources */,
 				3E89069029767CA900B17F7F /* Plugins.cpp in Sources */,
+				04DF6BCA2977DEEB00515F87 /* PINT_CommonPhysX3_DebugViz.cpp in Sources */,
+				04DF6B762977DA1600515F87 /* PINT_CommonPhysX3_Actor.cpp in Sources */,
 				3E8906BE29767CA900B17F7F /* GUI_JointParams.cpp in Sources */,
 				3E89071F29767CA900B17F7F /* FlatShader.cpp in Sources */,
+				04DF6B792977DA1600515F87 /* PINT_CommonPhysX3_ActorManager.cpp in Sources */,
 				3E89072629767CA900B17F7F /* GLRenderStates.cpp in Sources */,
+				04DF6BC82977DEEB00515F87 /* PortalJoint34.cpp in Sources */,
 				3E89072729767CA900B17F7F /* PintDLCylinderShapeRenderer.cpp in Sources */,
 				3E8906F629767CA900B17F7F /* RenderModelSimpleShader.cpp in Sources */,
 				3E8906B429767CA900B17F7F /* Tool.cpp in Sources */,
 				3E89070F29767CA900B17F7F /* MinimalRegionManager.cpp in Sources */,
 				3E89072229767CA900B17F7F /* PintDLConvexShapeRenderer.cpp in Sources */,
 				3E8906BF29767CA900B17F7F /* TestScenes.cpp in Sources */,
+				04DF6B7D2977DA1600515F87 /* PINT_CommonPhysX3_ContactModif.cpp in Sources */,
 				3E89070629767CA900B17F7F /* QPCTime.cpp in Sources */,
 				3E8906F929767CA900B17F7F /* TestScenesHelpers.cpp in Sources */,
 				3E8906B729767CA900B17F7F /* TestScenes_Fracture.cpp in Sources */,
@@ -1148,10 +1493,13 @@
 				3E89069229767CA900B17F7F /* TestScenes_Joints_WIP.cpp in Sources */,
 				3E89069329767CA900B17F7F /* ToolTransform.cpp in Sources */,
 				3E8906B929767CA900B17F7F /* PintSelectionManager.cpp in Sources */,
+				04DF6BC92977DEEB00515F87 /* PINT_CommonPhysX4_ImmPint.cpp in Sources */,
 				3E89071A29767CA900B17F7F /* Loader_Obj.cpp in Sources */,
 				3E89073329767CA900B17F7F /* TestSelector.cpp in Sources */,
 				3E8906F229767CA900B17F7F /* Shader.cpp in Sources */,
 				3E89069C29767CA900B17F7F /* GLVSync.cpp in Sources */,
+				04DF6BC12977DEEB00515F87 /* PINT_CommonPhysX4_RCA.cpp in Sources */,
+				04DF6BCE2977DEEB00515F87 /* RackAndPinion.cpp in Sources */,
 				3E89071C29767CA900B17F7F /* FrameBufferObject.cpp in Sources */,
 				3E8906FC29767CA900B17F7F /* DisplayTexture.cpp in Sources */,
 				3E89071029767CA900B17F7F /* TestScenes_Raycast.cpp in Sources */,
@@ -1160,8 +1508,13 @@
 				3E89071229767CA900B17F7F /* RenderModel.cpp in Sources */,
 				3E8906E629767CA900B17F7F /* ToolTranslate.cpp in Sources */,
 				3E89072929767CA900B17F7F /* PintEngineData.cpp in Sources */,
+				04DF6B4A2977D9FD00515F87 /* PINT_Skeleton.cpp in Sources */,
 				3E8906B329767CA900B17F7F /* TitleWindow.cpp in Sources */,
+				04DF6BBE2977DEEB00515F87 /* PINT_CommonPhysX4_Imm.cpp in Sources */,
+				04DF6BC02977DEEB00515F87 /* PINT_CommonPhysX5_CustomSQ.cpp in Sources */,
+				04DF6BC52977DEEB00515F87 /* PortalJoint5.cpp in Sources */,
 				3E89073429767CA900B17F7F /* PintDLSphereShapeRenderer.cpp in Sources */,
+				04DF6B782977DA1600515F87 /* PINT_CommonPhysX3_Allocator.cpp in Sources */,
 				3E89068B29767CA900B17F7F /* TestScenes_Heightfield.cpp in Sources */,
 				3E89072129767CA900B17F7F /* GUI_Helpers.cpp in Sources */,
 				3E89072429767CA900B17F7F /* PINT_Editor.cpp in Sources */,
@@ -1169,6 +1522,7 @@
 				3E8906EC29767CA900B17F7F /* TerrainStreamingUI.cpp in Sources */,
 				3E8906A529767CA900B17F7F /* CameraManager.cpp in Sources */,
 				3E8906A429767CA900B17F7F /* TestScenes_Undefined.cpp in Sources */,
+				04DF6BC42977DEEB00515F87 /* PortalJoint.cpp in Sources */,
 				3E8906F729767CA900B17F7F /* PintObjectsManager.cpp in Sources */,
 				3E89071429767CA900B17F7F /* ProgressBar.cpp in Sources */,
 				3E89072E29767CA900B17F7F /* TestScenes_ContactGeneration.cpp in Sources */,

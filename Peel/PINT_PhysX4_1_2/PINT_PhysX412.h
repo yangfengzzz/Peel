@@ -11,7 +11,7 @@
 
 #include "../PINT_Common/PINT_CommonPhysX3.h"
 #include "../PINT_Common/PINT_CommonPhysX3_Vehicles.h"
-#include "..\Pint.h"
+#include "../Pint.h"
 
 class PhysX : public SharedPhysX_Vehicles {
 public:

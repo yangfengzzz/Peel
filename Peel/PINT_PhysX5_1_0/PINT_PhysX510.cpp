@@ -10,7 +10,7 @@
 //
 #include "../PINT_Common/PINT_Common.h"
 #include "../PINT_Common/PINT_CommonPhysX3_Setup.h"
-#include "extensions\PxExtensionsAPI.h"
+#include "extensions/PxExtensionsAPI.h"
 #include "PINT_PhysX510.h"
 // #include "common/PxIO.h"
 #include "common/PxRenderBuffer.h"
@@ -45,7 +45,7 @@ PxPBDParticleSystem* gParticleSystem = null;
 // #define USE_SPY_PROFILER
 // #define DEBUG_SPY_PROFILER
 #ifdef USE_SPY_PROFILER
-#include "..\Spy\SpyClient.h"
+#include "../Spy/SpyClient.h"
 
 #ifdef _WIN64
 #ifdef _DEBUG

@@ -10,8 +10,8 @@
 
 #include "stdafx.h"
 //
-#include "..\Pint.h"
-#include "..\PintShapeRenderer.h"
+#include "../Pint.h"
+#include "../PintShapeRenderer.h"
 #include "PINT_Common.h"
 #include "PINT_CommonPhysX3.h"
 #include "PINT_CommonPhysX3_Queries.h"
